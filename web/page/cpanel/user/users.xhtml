@@ -11,31 +11,107 @@
 
     </h:head>
     <h:body>
+        <ui:include src="../../header.xhtml"/>
         <p:button href="/page/cpanel/user/add_user.xhtml"  value="#{fa.add_user}" />
-        <h:form>
-            <h:form>
+        <h:form id="form">
 
-                <p:dataTable id="dataTable" var="user" value="#{tableBean.carsSmall}" widgetVar="carsTable"
-                             emptyMessage="#{fa.no_cars_found_with_given_criteria}" filteredValue="#{tableBean.filteredCars}">
+            <p:contextMenu for="dataTable">
+                <p:menuitem value="#{f.delete}" update="dataTable"  icon="ui-icon-close"  actionListener="#{userTableBean.deleteUser()}"/>
+            </p:contextMenu>
 
-                    <f:facet name="header">
-                        <p:outputPanel>
-                            <h:outputText value="#{fa.search_all_fields}:" />
-                            <p:inputText id="globalFilter" onkeyup="carsTable.filter()" style="width:150px" />
-                        </p:outputPanel>
-                    </f:facet>
+            <p:growl id="messages" showDetail="true"/>
 
-                    <p:column id="fullNameColumn" filterBy="fullName"
-                              headerText="#{fa.full_name}"
-                              filterMatchMode="contains" >
-                        <h:outputText value="#{user.fullName}" />
-                    </p:column>
+            <p:dataTable id="dataTable" var="user" value="#{userTableBean.allUsers}" paginator="true" rows="10" widgetVar="userTable" editable="true"
+                         emptyMessage="#{fa.no_cars_found_with_given_criteria}" filteredValue="#{userTableBean.filteredUsers}">
 
-                </p:dataTable>
+                <p:ajax event="rowEdit" listener="#{userTableBean.onEdit}" update=":form:messages" />
 
-            </h:form>
+                <f:facet name="header">
+                    <p:outputPanel>
+                        <h:outputText value="#{fa.search_all_fields}:" />
+                        <p:inputText id="globalFilter" onkeyup="userTable.filter()" style="width:150px" />
+                    </p:outputPanel>
+                </f:facet>
+
+                <p:column id="firstNameColumn" filterBy="firstName"
+                          headerText="#{fa.first_name}"
+                          filterMatchMode="contains" >
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{user.firstName}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <p:inputText value="#{user.firstName}" style="width:100%"/>
+                        </f:facet>
+                    </p:cellEditor>
+
+                </p:column>
+                <p:column id="lastNameColumn" filterBy="lastName"
+                          headerText="#{fa.last_name}"
+                          filterMatchMode="contains" >
+
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{user.lastName}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <p:inputText value="#{user.lastName}" style="width:100%"/>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column id="roleColumn" filterBy="roleId"
+                          headerText="#{fa.role}"
+                          filterMatchMode="exact"
+                          filterOptions="#{userTableBean.roleOptions}"
+                        >
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{userTableBean.getRoleName(user.roleId)}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:selectOneMenu value="#{user.roleId}" >
+                                <f:selectItems value="#{userTableBean.getRoleIds()}"
+                                               var="roleId"
+                                               itemLabel="#{userTableBean.getRoleName(roleId)}"
+                                               itemValue="#{roleId}" />
+                            </h:selectOneMenu>
+                        </f:facet>
+                    </p:cellEditor>
+
+                </p:column>
+
+                <p:column id="statusColumn" filterBy="status"
+                          headerText="#{fa.status}"
+                          filterMatchMode="exact"
+                          filterOptions="#{userTableBean.statusOptions}"
+                        >
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{userTableBean.getStatusName(user.status)}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:selectOneMenu value="#{user.status}" >
+                                <f:selectItems value="#{userTableBean.getStatuses()}"
+                                               var="status"
+                                               itemLabel="#{userTableBean.getStatusName(status)}"
+                                               itemValue="#{status}" />
+                            </h:selectOneMenu>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+
+                <p:column style="width:6%">
+                    <p:rowEditor />
+                    <p:commandButton actionListener="#{userTableBean.deleteUser(user.id)}" ajax="false" value="#{fa.delete}" icon="ui-icon-close" />
+                </p:column>
+
+            </p:dataTable>
 
         </h:form>
+
+
     </h:body>
 
 </html>

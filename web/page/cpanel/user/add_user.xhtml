@@ -12,6 +12,43 @@
 
     </h:head>
     <h:body>
+        <ui:include src="../../header.xhtml"/>
 
+        <h:form id="form">
+            <p:panel id="panel" header="#{fa.add_user}" style="margin-bottom:10px;">
+                <p:panelGrid columns="3" >
+                   <h:outputLabel for="firstname" value="#{fa.first_name}: *" />
+                   <p:inputText id="firstname"
+                                value="#{addUserBean.firstName}" required="true" label="Firstname">
+                       <f:validateLength minimum="2" />
+                   </p:inputText>
+                   <p:message for="firstname" />
+
+                   <h:outputLabel for="lastname" value="#{fa.last_name}: *" />
+                   <p:inputText id="lastname"
+                                value="#{addUserBean.lastName}" required="true" label="lastname">
+                       <f:validateLength minimum="2" />
+                   </p:inputText>
+                   <p:message for="lastname" />
+
+                   <h:outputLabel for="email" value="#{fa.email}: *" />
+                   <p:inputText id="email"
+                                value="#{addUserBean.email}" required="true" label="email">
+                       <f:validateLength minimum="2" />
+                   </p:inputText>
+                   <p:message for="email" />
+
+                    <h:outputLabel for="password" value="#{fa.password}: *" />
+                    <p:inputText id="password"
+                                 value="#{addUserBean.password}" required="true" label="password">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+                    <p:message for="password" />
+
+                   <p:commandButton value="#{fa.submit}" actionListener="#{addUserBean.addUser()}" ajax="false" />
+               </p:panelGrid>
+
+            </p:panel>
+        </h:form>
     </h:body>
 </html>

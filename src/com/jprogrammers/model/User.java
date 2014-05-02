@@ -1,5 +1,8 @@
 package com.jprogrammers.model;
 
+import com.jprogrammers.service.UserService;
+import org.primefaces.model.SelectableDataModel;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -9,7 +12,7 @@ import java.util.Date;
  */
 
 @Entity
-public class User {
+public class User implements SelectableDataModel<User> {
 
     public static final int ACTIVE = 1;
     public static final int INACTIVE = 0;
@@ -22,10 +25,8 @@ public class User {
     private String password;
     private Date createDate;
     private Date modifiedDate;
-    private long roleId;
+    private int roleId;
     private int status;
-
-
 
     public void setId(long id) {
         this.id = id;
@@ -49,11 +50,11 @@ public class User {
 
     @Basic
     @Column(name = "roleId", nullable = true, insertable = true, updatable = true, length = 4)
-    public long getRoleId() {
+    public int getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(long roleId) {
+    public void setRoleId(int roleId) {
         this.roleId = roleId;
     }
 
@@ -118,4 +119,13 @@ public class User {
         this.status = status;
     }
 
+    @Override
+    public Object getRowKey(User user) {
+        return Long.valueOf(user.getId());
+    }
+
+    @Override
+    public User getRowData(String s) {
+        return UserService.getUser(Long.valueOf(id));
+    }
 }

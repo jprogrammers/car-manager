@@ -1,5 +1,6 @@
 package com.jprogrammers.service;
 
+import com.jprogrammers.model.Role;
 import com.jprogrammers.model.User;
 import com.jprogrammers.util.PWDEncryption;
 
@@ -32,9 +33,10 @@ public class UserService extends GenericDAOImpl<User> {
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setEmailAddress(emailAddress);
-        user.setPassword(password);
+        user.setPassword(PWDEncryption.encrypt(password));
         user.setCreateDate(new Date());
         user.setId(CounterService.increment());
+        user.setRoleId(Role.USER);
         user.setStatus(User.ACTIVE);
 
         userDao.save(user , null);
@@ -60,5 +62,30 @@ public class UserService extends GenericDAOImpl<User> {
         String query = "FROM User where status = " + User.ACTIVE + " and roleId = " + roleId;
 
         return userDao.findMany(query , null);
+    }
+
+    public static void updateUser(User user) {
+
+        userDao.save(user , null);
+    }
+
+    public static List<User> getUsers() {
+        String query = "FROM User";
+
+        return userDao.findMany(query , null);
+    }
+
+    public static void delete(User user) {
+        userDao.delete(user , null);
+    }
+
+    public static User getUser(long id) {
+        String query = "FROM User where id =" + id;
+
+        return userDao.findOne(query , null);
+    }
+
+    public static void delete(long id) {
+        userDao.delete(getUser(id), null);
     }
 }

@@ -16,5 +16,6 @@
         <mapping class="com.jprogrammers.model.CarType"/>
         <mapping class="com.jprogrammers.model.Cartex"/>
         <mapping class="com.jprogrammers.model.Licence"/>
+        <mapping class="com.jprogrammers.model.Counter"/>
     </session-factory>
 </hibernate-configuration>

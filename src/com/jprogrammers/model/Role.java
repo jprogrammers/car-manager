@@ -6,7 +6,10 @@ package com.jprogrammers.model;
  */
 public class Role {
 
-    public static final long ADMINISTRATOR = 0;
-    public static final long USER = 1;
-    public static final long CUSTOMER = 2;
+    public static final int ADMINISTRATOR = 0;
+    public static final int USER = 1;
+    public static final int CUSTOMER = 2;
+
+    public static final String[] roleNames = new String[]{"administrator", "user", "customer"};
+    public static int[] roleIds = new int[]{ADMINISTRATOR , USER , CUSTOMER};
 }
