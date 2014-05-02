@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <p:button href="/page/cpanel/user/add_user.xhtml"  value="#{fa.add_user}" />
+        <h:form>
+            <h:form>
+
+                <p:dataTable id="dataTable" var="user" value="#{tableBean.carsSmall}" widgetVar="carsTable"
+                             emptyMessage="#{fa.no_cars_found_with_given_criteria}" filteredValue="#{tableBean.filteredCars}">
+
+                    <f:facet name="header">
+                        <p:outputPanel>
+                            <h:outputText value="#{fa.search_all_fields}:" />
+                            <p:inputText id="globalFilter" onkeyup="carsTable.filter()" style="width:150px" />
+                        </p:outputPanel>
+                    </f:facet>
+
+                    <p:column id="fullNameColumn" filterBy="fullName"
+                              headerText="#{fa.full_name}"
+                              filterMatchMode="contains" >
+                        <h:outputText value="#{user.fullName}" />
+                    </p:column>
+
+                </p:dataTable>
+
+            </h:form>
+
+        </h:form>
+    </h:body>
+
+</html>

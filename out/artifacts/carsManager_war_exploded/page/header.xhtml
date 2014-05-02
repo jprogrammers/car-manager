@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+</h:head>
+
+<h:body>
+    <h:form>
+        <p:menubar style="width: 96%">
+
+                <p:menuitem value="#{fa.users}" url="/page/cpanel/user/users.xhtml"/>
+                <p:menuitem value="#{fa.customers}" url="/pages/cpanel/category.xhtml"/>
+                <p:menuitem value="#{fa.licences}" url="/pages/cpanel/tag.xhtml"/>
+                <p:menuitem value="#{fa.cartexes}" url="/pages/cpanel/tag.xhtml"/>
+
+        </p:menubar>
+    </h:form>
+</h:body>
+
+</html>
