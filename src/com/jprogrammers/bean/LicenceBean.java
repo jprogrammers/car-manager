@@ -34,7 +34,7 @@ public class LicenceBean extends Licence {
         users = new SelectItem[legalUsers.size()];
         for(int i = 0; i < legalUsers.size(); i++){
             user = legalUsers.get(i);
-            users[i] = new SelectItem(user.getId(), user.getFirstName());
+            users[i] = new SelectItem(user.getId(), user.toString());
         }
 
         List<CarType> cars = CarTypeService.getCarTypes();

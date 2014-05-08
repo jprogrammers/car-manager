@@ -7,41 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d04376e-d877-4c2a-b2f8-8cdcfe2d3f51" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap-1.0.10.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/home-1.0.10.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/javax.persistence-2.1.0-RC2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jta.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/CarTypeBean.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/CarTypeService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jprogrammers/component/JDataTable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/LicenceBean.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/LicenceService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jprogrammers/util/Validator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/page/car_type.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/jprogrammers.taglib.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/page/licence.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/page/user.xhtml" />
-      <change type="DELETED" beforePath="C:\Users\EN20\IdeaProjects\carsManager\web\page\cpanel\user\add_user.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\EN20\IdeaProjects\carsManager\web\page\cpanel\user\users.xhtml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/model/CarType.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/CarType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/service/CounterService.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/CounterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/service/GenericDAO.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/GenericDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/service/GenericDAOImpl.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/GenericDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Hibernate.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Hibernate.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/model/Licence.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/Licence.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Primefaces.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Primefaces.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/model/User.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/service/UserService.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carsManager.iml" afterPath="$PROJECT_DIR$/carsManager.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/header.xhtml" afterPath="$PROJECT_DIR$/web/page/header.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/index.xhtml" afterPath="$PROJECT_DIR$/web/page/index.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties" afterPath="$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/login.xhtml" afterPath="$PROJECT_DIR$/web/page/login.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/main.css" afterPath="$PROJECT_DIR$/web/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/bean/LicenceBean.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/LicenceBean.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="carsManager.iws" />
@@ -137,10 +103,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="licence.xhtml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="licence.xhtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/page/licence.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="122" selection-start="1616" selection-end="1616" vertical-scroll-proportion="0.40301725" vertical-offset="391" max-vertical-offset="1088">
+            <state line="34" column="122" selection-start="1616" selection-end="1616" vertical-scroll-proportion="-7.1923075" vertical-offset="391" max-vertical-offset="1088">
               <folding />
             </state>
           </provider>
@@ -164,22 +130,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LicenceBean.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="LicenceBean.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/LicenceBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="62" selection-start="895" selection-end="895" vertical-scroll-proportion="0.0" vertical-offset="208" max-vertical-offset="1547">
+            <state line="36" column="67" selection-start="1138" selection-end="1138" vertical-scroll-proportion="0.82617587" vertical-offset="208" max-vertical-offset="1547">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1909#1910#0" expanded="true" />
-                <element signature="e#1937#1938#0" expanded="true" />
-                <element signature="e#1978#1979#0" expanded="true" />
-                <element signature="e#2009#2010#0" expanded="true" />
-                <element signature="e#2157#2158#0" expanded="true" />
-                <element signature="e#2197#2198#0" expanded="true" />
-                <element signature="e#2247#2248#0" expanded="true" />
-                <element signature="e#2286#2287#0" expanded="true" />
-                <element signature="e#2357#2358#0" expanded="true" />
-                <element signature="e#2413#2414#0" expanded="true" />
+                <element signature="e#1905#1906#0" expanded="true" />
+                <element signature="e#1933#1934#0" expanded="true" />
+                <element signature="e#1974#1975#0" expanded="true" />
+                <element signature="e#2005#2006#0" expanded="true" />
+                <element signature="e#2153#2154#0" expanded="true" />
+                <element signature="e#2193#2194#0" expanded="true" />
+                <element signature="e#2243#2244#0" expanded="true" />
+                <element signature="e#2282#2283#0" expanded="true" />
+                <element signature="e#2353#2354#0" expanded="true" />
+                <element signature="e#2409#2410#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -293,10 +259,10 @@
         <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/CarTypeBean.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/service/LicenceService.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties" />
-        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/LicenceBean.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/model/User.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/model/Licence.java" />
         <option value="$PROJECT_DIR$/web/page/licence.xhtml" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/LicenceBean.java" />
       </list>
     </option>
   </component>
@@ -432,126 +398,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jprogrammers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jprogrammers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jprogrammers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jprogrammers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="language" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jprogrammers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bean" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -957,19 +803,24 @@
       <workItem from="1398515558985" duration="77000" />
       <workItem from="1399024888813" duration="20329000" />
       <workItem from="1399531133737" duration="11963000" />
-      <workItem from="1399544782385" duration="10398000" />
+      <workItem from="1399544782385" duration="10823000" />
     </task>
+    <task id="LOCAL-00001" summary="add car_type and licence">
+      <created>1399563187686</created>
+      <updated>1399563187686</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58583000" />
+    <option name="totallyTimeSpent" value="59008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3294271" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24261874" sideWeight="0.501002" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -991,8 +842,8 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2425" sideWeight="0.498998" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.328125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2425" sideWeight="0.498998" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1012,6 +863,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="add car_type and licence" />
+    <option name="LAST_COMMIT_MESSAGE" value="add car_type and licence" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1152,7 +1005,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Counter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="63" selection-start="313" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="969" />
+        <state line="16" column="63" selection-start="313" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="969">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/faces-config.xml">
@@ -1188,7 +1043,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/util/Validator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="50" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139" />
+        <state line="14" column="50" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/CounterService.java">
@@ -1344,25 +1201,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/LicenceBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="62" selection-start="895" selection-end="895" vertical-scroll-proportion="0.0" vertical-offset="208" max-vertical-offset="1547">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1909#1910#0" expanded="true" />
-            <element signature="e#1937#1938#0" expanded="true" />
-            <element signature="e#1978#1979#0" expanded="true" />
-            <element signature="e#2009#2010#0" expanded="true" />
-            <element signature="e#2157#2158#0" expanded="true" />
-            <element signature="e#2197#2198#0" expanded="true" />
-            <element signature="e#2247#2248#0" expanded="true" />
-            <element signature="e#2286#2287#0" expanded="true" />
-            <element signature="e#2357#2358#0" expanded="true" />
-            <element signature="e#2413#2414#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/page/car_type.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="63" column="127" selection-start="2869" selection-end="3099" vertical-scroll-proportion="-7.5384617" vertical-offset="875" max-vertical-offset="2091">
@@ -1393,8 +1231,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/page/licence.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="122" selection-start="1616" selection-end="1616" vertical-scroll-proportion="0.40301725" vertical-offset="391" max-vertical-offset="1088">
+        <state line="34" column="122" selection-start="1616" selection-end="1616" vertical-scroll-proportion="-7.1923075" vertical-offset="391" max-vertical-offset="1088">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/LicenceBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="67" selection-start="1138" selection-end="1138" vertical-scroll-proportion="0.82617587" vertical-offset="208" max-vertical-offset="1547">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1905#1906#0" expanded="true" />
+            <element signature="e#1933#1934#0" expanded="true" />
+            <element signature="e#1974#1975#0" expanded="true" />
+            <element signature="e#2005#2006#0" expanded="true" />
+            <element signature="e#2153#2154#0" expanded="true" />
+            <element signature="e#2193#2194#0" expanded="true" />
+            <element signature="e#2243#2244#0" expanded="true" />
+            <element signature="e#2282#2283#0" expanded="true" />
+            <element signature="e#2353#2354#0" expanded="true" />
+            <element signature="e#2409#2410#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
