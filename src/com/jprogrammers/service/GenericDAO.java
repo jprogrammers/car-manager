@@ -10,12 +10,12 @@ import java.util.List;
 
 public interface GenericDAO<T> {
 		 
-    public void save(T entity, Session session);
+    public void save(T entity);
  
-    public void delete(T entity, Session session);
+    public void delete(T entity);
     
-    public List<T> findMany(String query, Session session);
+    public List<T> findMany(String query);
  
-    public T findOne(String query, Session session);
+    public T findOne(String query);
  
 }

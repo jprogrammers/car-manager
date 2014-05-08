@@ -8,9 +8,7 @@
         <property name='connection.url'>jdbc:mysql://localhost:3306/carmanager</property>
         <property name='connection.username'>root</property>
         <property name='connection.password'></property>
-        <!-- DB schema will be updated if needed -->
         <property name="hbm2ddl.auto">update</property>
-        <property name="hibernate.hbm2ddl.import_files">import.sql</property>
         <mapping class="com.jprogrammers.model.User"/>
         <mapping class="com.jprogrammers.model.Licence"/>
         <mapping class="com.jprogrammers.model.CarType"/>

@@ -13,21 +13,40 @@ import javax.persistence.Id;
 public class CarType {
 
     private long id;
-    private long licenceId;
-    private String usecaseType;
-    private String color;
-    private int defCount;
-    private int cylinderCount;
-    private String VINId;
-    private String system;
-    private String model;
-    private int capacity;
-    private String fuelType;
-    private int wheelsCount;
     private String country;
-    private String cylinderSize;
+    private String factory;
+    private String usecaseType;
+    private String usecaseType2;
+    private String system;
     private String tip;
+    private int defCount;
+    private int wheelsCount;
+    private String fuelType;
+    private int cylinderCount;
+    private int capacity;
+    private int cylinderSize;
 
+    public CarType(){
+
+    }
+
+    public CarType(long id, String country, String factory, String usecaseType, String usecaseType2, String system,
+                   String tip, int defCount, int wheelsCount, String fuelType, int cylinderCount, int capacity,
+                   int cylinderSize){
+        setId(id);
+        setCountry(country);
+        setFactory(factory);
+        setUsecaseType(usecaseType);
+        setUsecaseType2(usecaseType2);
+        setSystem(system);
+        setTip(tip);
+        setDefCount(defCount);
+        setWheelsCount(wheelsCount);
+        setFuelType(fuelType);
+        setCylinderCount(cylinderCount);
+        setCapacity(capacity);
+        setCylinderSize(cylinderSize);
+    }
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
@@ -38,7 +57,8 @@ public class CarType {
     public void setId(long id) {
         this.id = id;
     }
-    @Column(name = "usecaseType", nullable = true, insertable = true, updatable = true, length = 500)
+
+    @Column(name = "usecaseType", nullable = true, insertable = true, updatable = true, length = 100)
     public String getUsecaseType() {
         return usecaseType;
     }
@@ -47,13 +67,13 @@ public class CarType {
         this.usecaseType = usecaseType;
     }
 
-    @Column(name = "color", nullable = true, insertable = true, updatable = true, length = 100)
-    public String getColor() {
-        return color;
+    @Column(name = "usecaseType2", nullable = true, insertable = true, updatable = true, length = 100)
+    public String getUsecaseType2() {
+        return usecaseType2;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setUsecaseType2(String usecaseType2) {
+        this.usecaseType2 = usecaseType2;
     }
 
     @Column(name = "defCount", nullable = true, insertable = true, updatable = true, length = 2)
@@ -73,31 +93,13 @@ public class CarType {
         this.cylinderCount = cylinderCount;
     }
 
-    @Column(name = "VINId", nullable = true, insertable = true, updatable = true, length = 200)
-    public String getVINId() {
-        return VINId;
-    }
-
-    public void setVINId(String VINId) {
-        this.VINId = VINId;
-    }
-
-    @Column(name = "system", nullable = true, insertable = true, updatable = true, length = 500)
+    @Column(name = "system", nullable = true, insertable = true, updatable = true, length = 100)
     public String getSystem() {
         return system;
     }
 
     public void setSystem(String system) {
         this.system = system;
-    }
-
-    @Column(name = "model", nullable = true, insertable = true, updatable = true, length = 500)
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
     }
 
     @Column(name = "capacity", nullable = true, insertable = true, updatable = true, length = 2)
@@ -109,7 +111,7 @@ public class CarType {
         this.capacity = capacity;
     }
 
-    @Column(name = "fuelType", nullable = true, insertable = true, updatable = true, length = 200)
+    @Column(name = "fuelType", nullable = true, insertable = true, updatable = true, length = 100)
     public String getFuelType() {
         return fuelType;
     }
@@ -126,7 +128,8 @@ public class CarType {
     public void setWheelsCount(int wheelsCount) {
         this.wheelsCount = wheelsCount;
     }
-    @Column(name = "country", nullable = true, insertable = true, updatable = true, length = 400)
+
+    @Column(name = "country", nullable = true, insertable = true, updatable = true, length = 100)
     public String getCountry() {
         return country;
     }
@@ -135,12 +138,21 @@ public class CarType {
         this.country = country;
     }
 
-    @Column(name = "cylinderSize", nullable = true, insertable = true, updatable = true, length = 200)
-    public String getCylinderSize() {
+    @Column(name = "factory", nullable = true, insertable = true, updatable = true, length = 100)
+    public String getFactory() {
+        return factory;
+    }
+
+    public void setFactory(String factory) {
+        this.factory = factory;
+    }
+
+    @Column(name = "cylinderSize", nullable = true, insertable = true, updatable = true, length = 2)
+    public int getCylinderSize() {
         return cylinderSize;
     }
 
-    public void setCylinderSize(String cylinderSize) {
+    public void setCylinderSize(int cylinderSize) {
         this.cylinderSize = cylinderSize;
     }
 
@@ -152,12 +164,9 @@ public class CarType {
     public void setTip(String tip) {
         this.tip = tip;
     }
-    @Column(name = "licenceId", nullable = true, insertable = true, updatable = true, length = 20)
-    public long getLicenceId() {
-        return licenceId;
-    }
 
-    public void setLicenceId(long licenceId) {
-        this.licenceId = licenceId;
+    @Override
+    public String toString() {
+        return getCountry() + " " + getFactory() + " " + getUsecaseType() + " " + getUsecaseType2() + " " + getCylinderCount() + " سیلندر " + getCylinderSize() + " cc";
     }
 }

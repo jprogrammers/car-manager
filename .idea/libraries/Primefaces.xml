@@ -2,6 +2,8 @@
   <library name="Primefaces" type="jsf-primefaces">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/primefaces-4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/home-1.0.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/bootstrap-1.0.10.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

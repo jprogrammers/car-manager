@@ -11,7 +11,7 @@ import java.util.List;
  * @author Ali Reza Akbarian
  *         created on 18/04/14.
  */
-public class UserService extends GenericDAOImpl<User> {
+public class UserService{
 
     static GenericDAOImpl<User> userDao;
 
@@ -22,7 +22,7 @@ public class UserService extends GenericDAOImpl<User> {
     public static User getUser(String emailAddress , String password) {
         String query = "from User where emailAddress = '"+ emailAddress + "' and password='" + password + "'";
 
-        return userDao.findOne(query , null);
+        return userDao.findOne(query);
 
     }
 
@@ -39,7 +39,7 @@ public class UserService extends GenericDAOImpl<User> {
         user.setRoleId(Role.USER);
         user.setStatus(User.ACTIVE);
 
-        userDao.save(user , null);
+        userDao.save(user);
 
         return user;
     }
@@ -48,7 +48,7 @@ public class UserService extends GenericDAOImpl<User> {
 
         String query = "FROM User WHERE emailAddress = '" + email + "' AND status = " + User.ACTIVE;
 
-        User user = userDao.findOne(query, null);
+        User user = userDao.findOne(query);
 
         if(user != null && PWDEncryption.isEqual(password, user.getPassword())){
             return user;
@@ -61,31 +61,31 @@ public class UserService extends GenericDAOImpl<User> {
 
         String query = "FROM User where status = " + User.ACTIVE + " and roleId = " + roleId;
 
-        return userDao.findMany(query , null);
+        return userDao.findMany(query);
     }
 
     public static void updateUser(User user) {
 
-        userDao.save(user , null);
+        userDao.save(user);
     }
 
     public static List<User> getUsers() {
         String query = "FROM User";
 
-        return userDao.findMany(query , null);
+        return userDao.findMany(query);
     }
 
     public static void delete(User user) {
-        userDao.delete(user , null);
+        userDao.delete(user);
     }
 
     public static User getUser(long id) {
         String query = "FROM User where id =" + id;
 
-        return userDao.findOne(query , null);
+        return userDao.findOne(query);
     }
 
     public static void delete(long id) {
-        userDao.delete(getUser(id), null);
+        userDao.delete(getUser(id));
     }
 }
