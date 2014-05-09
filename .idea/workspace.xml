@@ -2,10 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d04376e-d877-4c2a-b2f8-8cdcfe2d3f51" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Ali_Reza_Akbarian.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Ali_Reza_Akbarian.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/model/Customer.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/Customer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/bean/users/CustomerBean.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/users/CustomerBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/service/CustomerService.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/CustomerService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/model/Role.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/Role.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/bean/users/TableBean.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/users/TableBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carsManager.iml" afterPath="$PROJECT_DIR$/carsManager.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/carsManager_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/carsManager_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/customer.xhtml" afterPath="$PROJECT_DIR$/web/page/customer.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties" afterPath="$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/user.xhtml" afterPath="$PROJECT_DIR$/web/page/user.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="carsManager.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,37 +84,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/page/index.xhtml">
+      <file leaf-file-name="CarTypeBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/CarTypeBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="4" selection-start="432" selection-end="464" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="425">
+            <state line="30" column="100" selection-start="1254" selection-end="1349" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="782">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/LoginBean.java">
+      <file leaf-file-name="jprogrammers.taglib.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/jprogrammers.taglib.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="90" selection-start="1691" selection-end="1708" vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="1071">
+            <state line="13" column="37" selection-start="571" selection-end="571" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="374">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Counter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Counter.java">
+      <file leaf-file-name="user.xhtml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/page/user.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="63" selection-start="313" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="1156">
+            <state line="15" column="61" selection-start="584" selection-end="584" vertical-scroll-proportion="0.6174334" vertical-offset="0" max-vertical-offset="2499">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_user.xhtml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/page/cpanel/user/add_user.xhtml">
+      <file leaf-file-name="customer.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/page/customer.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="35" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.6107383" vertical-offset="305" max-vertical-offset="1020">
+            <state line="73" column="67" selection-start="3331" selection-end="3331" vertical-scroll-proportion="-10.0" vertical-offset="981" max-vertical-offset="5287">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="language-fa.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="49" selection-start="1483" selection-end="1483" vertical-scroll-proportion="0.0" vertical-offset="721" max-vertical-offset="1173">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Customer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Customer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="144" column="0" selection-start="3919" selection-end="3919" vertical-scroll-proportion="0.0" vertical-offset="1530" max-vertical-offset="2227">
               <folding />
             </state>
           </provider>
@@ -110,7 +141,34 @@
       <file leaf-file-name="hibernate.cfg.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="54" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="442">
+            <state line="12" column="55" selection-start="711" selection-end="711" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="425">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/users/CustomerBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="42" selection-start="1052" selection-end="1052" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="884">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/CustomerService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="53" column="0" selection-start="1858" selection-end="1858" vertical-scroll-proportion="0.0" vertical-offset="632" max-vertical-offset="1071">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LicenceService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/LicenceService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="0" selection-start="265" selection-end="266" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="612">
               <folding />
             </state>
           </provider>
@@ -145,17 +203,24 @@
         <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/LoginBean.java" />
         <option value="$PROJECT_DIR$/web/page/cpanel/users.xhtml" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/service/GenericDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/com/jprogrammers/model/Role.java" />
         <option value="$PROJECT_DIR$/web/page/login.xhtml" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/model/User.java" />
-        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/users/TableBean.java" />
         <option value="$PROJECT_DIR$/web/page/cpanel/user/users.xhtml" />
-        <option value="$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties" />
         <option value="$PROJECT_DIR$/web/page/header.xhtml" />
-        <option value="$PROJECT_DIR$/src/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/users/AddUserBean.java" />
         <option value="$PROJECT_DIR$/web/page/cpanel/user/add_user.xhtml" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/users/AddUserBean.java" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/users/TableBean.java" />
+        <option value="$PROJECT_DIR$/web/page/user.xhtml" />
+        <option value="$PROJECT_DIR$/web/page/customer.xhml.xhtml" />
+        <option value="$PROJECT_DIR$/web/page/customer.xhml" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/model/Role.java" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/model/Customer.java" />
+        <option value="$PROJECT_DIR$/src/hibernate.cfg.xml" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/service/CustomerService.java" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/users/CustomerBean.java" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties" />
+        <option value="$PROJECT_DIR$/web/page/customer.xhtml" />
       </list>
     </option>
   </component>
@@ -203,6 +268,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -274,32 +341,6 @@
               <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="page" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cpanel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -319,10 +360,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carsManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carsManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carsManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carsManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jprogrammers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -333,20 +404,22 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Ignored.Files" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="SearchEverywhereHistory" value="user&#10;customer&#10;lang&#10;cart&#10;customer.xh&#10;customerBea&#10;langu&#10;Table&#10;cus&#10;langua&#10;Language&#10;Langua&#10;login.x&#10;add_user" />
+    <property name="LayoutCode.rearrangeEntriesJava" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -570,12 +643,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
-      <method />
-    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -595,6 +662,12 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
     <configuration default="false" name="Tomcat 7" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.47" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
@@ -606,7 +679,7 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_carsManager" />
-        <option name="JNDI_PORT" value="10990" />
+        <option name="JNDI_PORT" value="10999" />
       </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
@@ -696,6 +769,7 @@
     <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
     <option name="FORCE_UPDATE" value="false" />
     <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="true">C:\Users\User\AppData\Roaming\Subversion</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
   </component>
   <component name="TaskManager">
@@ -708,23 +782,30 @@
       <workItem from="1399024888813" duration="20411000" />
       <workItem from="1399225795817" duration="120000" />
       <workItem from="1399566295326" duration="726000" />
+      <workItem from="1399567680313" duration="2723000" />
+      <workItem from="1399640454909" duration="7810000" />
+      <workItem from="1399658391148" duration="3495000" />
     </task>
     <task id="LOCAL-00001" summary="show users data grid view and add user without validation">
       <created>1399049619658</created>
       <updated>1399049619658</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add customer crud">
+      <created>1399661517164</created>
+      <updated>1399661517164</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37150000" />
+    <option name="totallyTimeSpent" value="51178000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3293011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32841823" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24261874" sideWeight="0.501002" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -739,33 +820,33 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33064517" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24261874" sideWeight="0.498998" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24261874" sideWeight="0.498998" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3293011" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3293011" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33064517" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24261874" sideWeight="0.501002" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24261874" sideWeight="0.498998" order="0" side_tool="false" content_ui="combo" />
@@ -782,8 +863,8 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33064517" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -800,7 +881,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="show users data grid view and add user without validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="show users data grid view and add user without validation" />
+    <MESSAGE value="add customer crud" />
+    <option name="LAST_COMMIT_MESSAGE" value="add customer crud" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -810,58 +892,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/LoginBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="90" selection-start="1691" selection-end="1708" vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="1071">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Counter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="63" selection-start="313" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="1156">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/page/cpanel/user/add_user.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="70" selection-start="1786" selection-end="1786" vertical-scroll-proportion="0.0" vertical-offset="328" max-vertical-offset="1020">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="54" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="442">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="28" selection-start="1516" selection-end="1516" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1071" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/page/cpanel/user/users.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="34" selection-start="877" selection-end="877" vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="799" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/users/TableBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="563" selection-end="563" vertical-scroll-proportion="0.0" vertical-offset="194" max-vertical-offset="646">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/page/cpanel/user/add_user.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="391">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/page/header.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="58" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="561" />
@@ -869,9 +899,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/util/PWDEncryption.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="29" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="833">
-          <folding />
-        </state>
+        <state line="16" column="29" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="833" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/User.java">
@@ -907,21 +935,9 @@
         <state line="57" column="28" selection-start="1516" selection-end="1516" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1071" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/page/cpanel/user/users.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="60" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.0" vertical-offset="199" max-vertical-offset="799" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/users/TableBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="0" selection-start="563" selection-end="563" vertical-scroll-proportion="0.0" vertical-offset="194" max-vertical-offset="646">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/page/cpanel/user/add_user.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="391">
           <folding />
         </state>
       </provider>
@@ -933,9 +949,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/util/PWDEncryption.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="29" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="833">
-          <folding />
-        </state>
+        <state line="16" column="29" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="833" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/User.java">
@@ -968,11 +982,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/filter/SessionCheckerFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="34" selection-end="34" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
+        <state line="2" column="0" selection-start="34" selection-end="34" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/main.css">
@@ -994,13 +1004,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="21" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0" vertical-offset="7" max-vertical-offset="799">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/filter/LoginFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="0" selection-start="907" selection-end="907" vertical-scroll-proportion="0.0" vertical-offset="224" max-vertical-offset="680">
@@ -1010,35 +1013,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/filter/CharacterEncodingFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="534" selection-end="534" vertical-scroll-proportion="0.0" vertical-offset="92" max-vertical-offset="544">
-          <folding />
-        </state>
+        <state line="19" column="0" selection-start="534" selection-end="534" vertical-scroll-proportion="0.0" vertical-offset="92" max-vertical-offset="544" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/util/HibernateUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="9" selection-start="1126" selection-end="1126" vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="816">
-          <folding />
-        </state>
+        <state line="33" column="9" selection-start="1126" selection-end="1126" vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="816" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/util/PWDEncryption.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="29" selection-start="382" selection-end="382" vertical-scroll-proportion="-0.035940804" vertical-offset="272" max-vertical-offset="816">
-          <folding />
-        </state>
+        <state line="16" column="29" selection-start="382" selection-end="382" vertical-scroll-proportion="-0.035940804" vertical-offset="272" max-vertical-offset="816" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/page/login.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="87" selection-start="732" selection-end="732" vertical-scroll-proportion="-4.576923" vertical-offset="153" max-vertical-offset="663" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="64" selection-start="411" selection-end="411" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/GenericDAOImpl.java">
@@ -1055,121 +1045,181 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/faces-config.xml">
-      <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/CounterService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="11" selection-start="323" selection-end="323" vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="323">
+        <state line="14" column="69" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="731" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Counter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="63" selection-start="313" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="969" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/page/index.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="432" selection-end="464" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="408" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Licence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="13" selection-start="270" selection-end="270" vertical-scroll-proportion="0.0" vertical-offset="96" max-vertical-offset="1377">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/users/TableBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="26" selection-start="3182" selection-end="3182" vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="1649">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/page/cpanel/user/users.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="46" selection-start="447" selection-end="485" vertical-scroll-proportion="-7.1923075" vertical-offset="34" max-vertical-offset="2091" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="26" selection-start="1681" selection-end="1707" vertical-scroll-proportion="0.0" vertical-offset="823" max-vertical-offset="1292" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/LoginBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="90" selection-start="1691" selection-end="1708" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="799">
+        <state line="26" column="26" selection-start="567" selection-end="567" vertical-scroll-proportion="0.0" vertical-offset="92" max-vertical-offset="799">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/page/header.xhtml">
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/LicenceBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="12" selection-start="506" selection-end="506" vertical-scroll-proportion="-5.6153846" vertical-offset="92" max-vertical-offset="561" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="54" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+        <state line="22" column="37" selection-start="683" selection-end="683" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/CounterService.java">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/faces-config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="69" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="731">
+        <state line="7" column="11" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="323">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="21" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0" vertical-offset="7" max-vertical-offset="799">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/page/licence.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="107" selection-start="655" selection-end="754" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1088">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/component/JDataTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="530" selection-end="530" vertical-scroll-proportion="0.43128964" vertical-offset="0" max-vertical-offset="473">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/page/car_type.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="34" selection-start="797" selection-end="825" vertical-scroll-proportion="-9.346154" vertical-offset="97" max-vertical-offset="2091">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="81" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="41" selection-start="3123" selection-end="3123" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1632">
+        <state line="78" column="5" selection-start="1828" selection-end="1911" vertical-scroll-proportion="0.0" vertical-offset="785" max-vertical-offset="1717">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="32" selection-start="1111" selection-end="1111" vertical-scroll-proportion="0.0" vertical-offset="275" max-vertical-offset="1564">
+        <state line="15" column="4" selection-start="299" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1564">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Counter.java">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jprogrammers.taglib.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="63" selection-start="313" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="969">
+        <state line="13" column="37" selection-start="571" selection-end="571" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/users/AddUserBean.java">
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/LicenceService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="102" selection-start="1823" selection-end="1823" vertical-scroll-proportion="0.0" vertical-offset="891" max-vertical-offset="1411">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#643#644#0" expanded="true" />
-            <element signature="e#675#676#0" expanded="true" />
-            <element signature="e#725#726#0" expanded="true" />
-            <element signature="e#767#768#0" expanded="true" />
-            <element signature="e#802#803#0" expanded="true" />
-            <element signature="e#833#834#0" expanded="true" />
-            <element signature="e#881#882#0" expanded="true" />
-            <element signature="e#921#922#0" expanded="true" />
-            <element signature="e#953#954#0" expanded="true" />
-            <element signature="e#981#982#0" expanded="true" />
-            <element signature="e#1023#1024#0" expanded="true" />
-            <element signature="e#1057#1058#0" expanded="true" />
-            <element signature="e#1090#1091#0" expanded="true" />
-            <element signature="e#1120#1121#0" expanded="true" />
-            <element signature="e#1150#1151#0" expanded="true" />
-            <element signature="e#1179#1180#0" expanded="true" />
-            <element signature="e#1220#1221#0" expanded="true" />
-            <element signature="e#1256#1257#0" expanded="true" />
-            <element signature="e#1291#1292#0" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1370#1371#0" expanded="true" />
-            <element signature="e#1410#1411#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/page/index.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="4" selection-start="432" selection-end="464" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="425">
+        <state line="13" column="0" selection-start="265" selection-end="266" vertical-scroll-proportion="0.0" vertical-offset="58" max-vertical-offset="561">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/page/cpanel/user/add_user.xhtml">
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/users/TableBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="35" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.6107383" vertical-offset="305" max-vertical-offset="1020">
+        <state line="118" column="20" selection-start="3217" selection-end="3217" vertical-scroll-proportion="0.0" vertical-offset="1367" max-vertical-offset="1887">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/page/header.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="61" selection-start="661" selection-end="669" vertical-scroll-proportion="-7.576923" vertical-offset="92" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="55" selection-start="711" selection-end="711" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="144" column="0" selection-start="3919" selection-end="3919" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="2227">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/CarTypeBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="100" selection-start="1254" selection-end="1349" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="782">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="49" selection-start="1483" selection-end="1483" vertical-scroll-proportion="0.0" vertical-offset="721" max-vertical-offset="1173">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/CustomerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="0" selection-start="1858" selection-end="1858" vertical-scroll-proportion="0.0" vertical-offset="632" max-vertical-offset="1071">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/users/CustomerBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="42" selection-start="1052" selection-end="1052" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="884">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/page/customer.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="67" selection-start="3331" selection-end="3331" vertical-scroll-proportion="-10.0" vertical-offset="981" max-vertical-offset="5287">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/page/user.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="61" selection-start="584" selection-end="584" vertical-scroll-proportion="0.6174334" vertical-offset="0" max-vertical-offset="2499">
           <folding />
         </state>
       </provider>
@@ -1234,7 +1284,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1254,7 +1303,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Mojarra-2.2.1</last-edited>
+          <last-edited>lib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

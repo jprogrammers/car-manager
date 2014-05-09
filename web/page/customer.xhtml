@@ -4,8 +4,302 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head >
+    <title>#{fa.customers}</title>
+</h:head>
+<ui:include src="header.xhtml"/>
+<h:body dir="rtl">
+    <h:form id="form">
+        <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
+
+        <p:commandButton type="button" value="#{fa.add_customer}" onclick="PF('addCustomerDialog').show()" />
+        <p:dialog id="addUser" widgetVar="addCustomerDialog" header="#{fa.add_customer}"  showEffect="fade" hideEffect="fade">
+            <h:panelGrid columns="2">
+
+                <p:outputLabel value="#{fa.first_name}"/>
+                <p:inputText value="#{customerBean.firstName}"/>
+
+                <p:outputLabel value="#{fa.last_name}"/>
+                <p:inputText value="#{customerBean.lastName}"/>
+
+                <p:outputLabel value="#{fa.national_code}"/>
+                <p:inputText value="#{customerBean.nationalCode}"/>
+
+                <p:outputLabel value="#{fa.national_id}"/>
+                <p:inputText value="#{customerBean.nationalId}"/>
+
+                <p:outputLabel value="#{fa.tell}"/>
+                <p:inputText value="#{customerBean.tell}"/>
+
+                <p:outputLabel value="#{fa.mobile}"/>
+                <p:inputText value="#{customerBean.mobile}"/>
+
+                <p:outputLabel value="#{fa.work_tell}"/>
+                <p:inputText value="#{customerBean.workTell}"/>
+
+                <p:outputLabel value="#{fa.job_title}"/>
+                <p:inputText value="#{customerBean.jobTitle}"/>
+
+                <p:outputLabel value="#{fa.home_address}"/>
+                <p:inputText value="#{customerBean.homeAddress}"/>
+
+                <p:outputLabel value="#{fa.work_address}"/>
+                <p:inputText value="#{customerBean.workAddress}"/>
+
+                <p:outputLabel value="#{fa.father_name}"/>
+                <p:inputText value="#{customerBean.fatherName}"/>
+
+                <p:outputLabel value="#{fa.company}"/>
+                <p:inputText value="#{customerBean.company}"/>
+
+                <p:outputLabel value="#{fa.province}"/>
+                <p:inputText value="#{customerBean.province}"/>
+
+                <p:outputLabel value="#{fa.birthday}"/>
+                <p:inputText value="#{customerBean.birthday}"/>
+
+                <p:outputLabel value="#{fa.zipcode}"/>
+                <p:inputText value="#{customerBean.zipCode}"/>
+
+                <p:commandButton actionListener="#{customerBean.addCustomer()}" value="#{fa.add_customer}" update=":form:customerTable"/>
+            </h:panelGrid>
+        </p:dialog>
+        <p:growl id="messages" showDetail="true"/>
+        <p:dataTable id="customerTable" var="customer" value="#{customerBean.getAllCustomers()}" paginator="true" rows="10" widgetVar="customerTable" editable="true"
+                     emptyMessage="#{fa.no_customer_found_with_given_criteria}" filteredValue="#{customerBean.filteredCustomers}">
+
+            <p:ajax event="rowEdit" listener="#{customerBean.onEdit}" update=":form:messages" />
+
+            <f:facet name="header">
+                <p:outputPanel>
+                    <h:outputText value="#{fa.search_all_fields}:" />
+                    <p:inputText id="globalFilter" onkeyup="customerTable.filter()" style="width:150px" />
+                </p:outputPanel>
+            </f:facet>
+
+            <p:column id="firstNameColumn" filterBy="firstName"
+                      headerText="#{fa.first_name}"
+                      filterMatchMode="contains" >
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.firstName}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{customer.firstName}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+
+            </p:column>
+
+            <p:column id="lastNameColumn" filterBy="lastName"
+                      headerText="#{fa.last_name}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.lastName}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{customer.lastName}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="nationalCodeColumn" filterBy="nationalCode"
+                      headerText="#{fa.national_code}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.nationalCode}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{customer.nationalCode}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="nationalId" filterBy="nationalId"
+                      headerText="#{fa.national_id}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.nationalId}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{customer.nationalId}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="tell" filterBy="tell"
+                      headerText="#{fa.tell}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.tell}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{customer.tell}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="mobile" filterBy="mobile"
+                      headerText="#{fa.mobile}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.mobile}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{customer.mobile}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="workTell" filterBy="mobile"
+                      headerText="#{fa.work_tell}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.workTell}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{customer.workTell}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="jobTitle" filterBy="mobile"
+                      headerText="#{fa.job_title}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.jobTitle}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{customer.jobTitle}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="homeAddress" filterBy="homeAddress"
+                      headerText="#{fa.home_address}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.homeAddress}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{customer.homeAddress}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="workAddress" filterBy="workAddress"
+                      headerText="#{fa.work_address}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.workAddress}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{customer.workAddress}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="fatherName" filterBy="fatherName"
+                      headerText="#{fa.father_name}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.fatherName}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{customer.fatherName}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+
+
+            <p:column id="company" filterBy="company"
+                      headerText="#{fa.company}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.company}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{customer.company}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="province" filterBy="province"
+                      headerText="#{fa.province}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.province}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{customer.province}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="birhday" filterBy="birthday"
+                      headerText="#{fa.birthday}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.birthday}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{customer.birthday}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="zipCode" filterBy="zipCode"
+                      headerText="#{fa.zipcode}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.zipCode}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{customer.zipCode}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column style="width:6%">
+                <p:rowEditor />
+                <p:commandButton update=":form:dataTable" actionListener="#{customerBean.deleteCustomer(customer.id)}" ajax="false" value="#{fa.delete}" icon="ui-icon-close" />
+            </p:column>
+
+        </p:dataTable>
+
+    </h:form>
+</h:body>
+
 </html>

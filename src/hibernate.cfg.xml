@@ -10,6 +10,7 @@
         <property name='connection.password'></property>
         <property name="hbm2ddl.auto">update</property>
         <mapping class="com.jprogrammers.model.User"/>
+        <mapping class="com.jprogrammers.model.Customer"/>
         <mapping class="com.jprogrammers.model.Licence"/>
         <mapping class="com.jprogrammers.model.CarType"/>
         <mapping class="com.jprogrammers.model.Cartex"/>

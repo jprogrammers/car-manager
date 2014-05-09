@@ -11,6 +11,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.List;
  */
 
 @ManagedBean(name = "userTableBean")
-public class TableBean implements Serializable {
+public class TableBean extends User implements Serializable {
 
     private List<User> filteredUsers;
     private List<User> allUsers;
@@ -116,6 +117,18 @@ public class TableBean implements Serializable {
 
     public void deleteUser(long id) {
         UserService.delete(id);
+    }
+
+    public void addUser() throws IOException {
+        UserService.addUser(getFirstName() , getLastName() , getEmailAddress() , getPassword());
+
+        ///FacesContext.getCurrentInstance().addMessage("app-message" ,  new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("your_request_was_completed"), ""));
+        addMessage(FacesMessage.SEVERITY_INFO , LanguageUtil.get("your_request_was_completed"));
+
+    }
+
+    private void addMessage(FacesMessage.Severity severity, String message) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(severity, message, ""));
     }
 
 }

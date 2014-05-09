@@ -12,13 +12,37 @@
 </h:head>
 <ui:include src="header.xhtml"/>
 <h:body dir="rtl">
-
-    <!--<p:button href="/page/cpanel/user/add_user.xhtml"  value="#{fa.add_user}" />-->
     <h:form id="form">
+        <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
+        <p:commandButton type="button" value="#{fa.add_user}" onclick="PF('addUserDialog').show()" />
+        <p:dialog id="addUser" widgetVar="addUserDialog" header="#{fa.add_user}"  showEffect="fade" hideEffect="fade">
+            <h:panelGrid columns="2">
 
-        <p:contextMenu for="dataTable">
-            <p:menuitem value="#{fa.delete}" update="dataTable"  icon="ui-icon-close"  actionListener="#{userTableBean.deleteUser()}"/>
-        </p:contextMenu>
+                <p:outputLabel value="#{fa.first_name}"/>
+                <p:inputText value="#{userTableBean.firstName}"/>
+
+                <p:outputLabel value="#{fa.last_name}"/>
+                <p:inputText value="#{userTableBean.lastName}"/>
+
+                <p:outputLabel value="#{fa.email}"/>
+                <p:inputText value="#{userTableBean.emailAddress}"/>
+
+                <p:outputLabel value="#{fa.password}"/>
+                <p:inputText value="#{userTableBean.password}"/>
+
+                <p:outputLabel value="#{fa.role}"/>
+                <p:selectOneMenu value="#{userTableBean.roleId}">
+                    <f:selectItems value="#{userTableBean.getRoleIds()}"
+                                   var="roleId"
+                                   itemLabel="#{userTableBean.getRoleName(roleId)}"
+                                   itemValue="#{roleId}" />
+                </p:selectOneMenu>
+
+                <p:commandButton actionListener="#{userTableBean.addUser()}" value="#{fa.add_user}" update=":form:dataTable"/>
+
+            </h:panelGrid>
+        </p:dialog>
+        <!--<p:button href="/page/cpanel/user/add_user.xhtml"  value="#{fa.add_user}" />-->
 
         <p:growl id="messages" showDetail="true"/>
 
@@ -105,7 +129,7 @@
 
             <p:column style="width:6%">
                 <p:rowEditor />
-                <p:commandButton actionListener="#{userTableBean.deleteUser(user.id)}" ajax="false" value="#{fa.delete}" icon="ui-icon-close" />
+                <p:commandButton update=":form:dataTable" actionListener="#{userTableBean.deleteUser(user.id)}" ajax="false" value="#{fa.delete}" icon="ui-icon-close" />
             </p:column>
 
         </p:dataTable>

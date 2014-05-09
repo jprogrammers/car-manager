@@ -1,8 +1,6 @@
 package com.jprogrammers.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -14,6 +12,10 @@ import java.util.Date;
 public class Customer {
 
     private long id;
+    private String firstName;
+    private String lastName;
+    private Date createDate;
+    private Date modifiedDate;
     private String nationalCode;
     private String nationalId;
     private String tell;
@@ -152,5 +154,43 @@ public class Customer {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    @Basic
+    @Column(name = "firstName", nullable = true, insertable = true, updatable = true, length = 500)
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    @Basic
+    @Column(name = "lastName", nullable = true, insertable = true, updatable = true, length = 500)
+    public String getLastName() { return lastName; }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "createDate", nullable = true, insertable = true, updatable = true)
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "modifiedDate", nullable = true, insertable = true, updatable = true)
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
 }
