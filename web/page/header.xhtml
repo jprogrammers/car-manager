@@ -8,18 +8,17 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
 </h:head>
 
 <h:body>
     <h:form>
         <p:menubar style="width: 96%">
-
-                <p:menuitem value="#{fa.users}" url="/page/cpanel/user/users.xhtml"/>
-                <p:menuitem value="#{fa.customers}" url="/pages/cpanel/category.xhtml"/>
-                <p:menuitem value="#{fa.licences}" url="/pages/cpanel/tag.xhtml"/>
-                <p:menuitem value="#{fa.cartexes}" url="/pages/cpanel/tag.xhtml"/>
-
+            <p:menuitem value="#{fa.users}" url="user.xhtml"/>
+            <p:menuitem value="#{fa.customers}" url="customer.xhtml"/>
+            <p:menuitem value="#{fa.car_types}" url="car_type.xhtml"/>
+            <p:menuitem value="#{fa.licences}" url="licence.xhtml"/>
+            <p:menuitem value="#{fa.cartexes}" url="cartex.xhtml"/>
         </p:menubar>
     </h:form>
 </h:body>

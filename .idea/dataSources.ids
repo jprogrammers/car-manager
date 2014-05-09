@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source source="LOCAL" name="MySQL - carmanager@localhost" uuid="ec241449-16c8-4c47-b48f-b951b8eced8e">
-    <database-info product="MySQL" version="5.5.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.26 ( Revision: ${bzr.revision-id} )">
+    <database-info product="MySQL" version="5.5.20-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.26 ( Revision: ${bzr.revision-id} )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -20,24 +20,28 @@
     </table>
     <table name="cartype" schema="" catalog="carmanager" type="TABLE">
       <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
-      <column name="VINId" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
       <column name="capacity" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
-      <column name="color" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
-      <column name="country" sqlType="VARCHAR" length="400" precision="0" nullable="true" jdbcType="12"/>
+      <column name="country" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
       <column name="cylinderCount" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
-      <column name="cylinderSize" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
+      <column name="cylinderSize" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <column name="defCount" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
-      <column name="fuelType" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
-      <column name="licenceId" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5"/>
-      <column name="model" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
-      <column name="system" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
+      <column name="factory" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="fuelType" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="system" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
       <column name="tip" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
-      <column name="usecaseType" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
+      <column name="usecaseType" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="usecaseType2" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
       <column name="wheelsCount" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
+    <table name="counter" schema="" catalog="carmanager" type="TABLE">
+      <column name="name" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="currentId" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="name"/>
+    </table>
     <table name="licence" schema="" catalog="carmanager" type="TABLE">
       <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="carTypeId" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5"/>
       <column name="createDate" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
       <column name="licenceCode" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
       <column name="modifiedDate" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
@@ -52,7 +56,7 @@
       <column name="lastName" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
       <column name="modifiedDate" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
       <column name="password" sqlType="VARCHAR" length="500" precision="0" nullable="false" jdbcType="12"/>
-      <column name="roleId" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5"/>
+      <column name="roleId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <column name="status" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>

@@ -128,4 +128,9 @@ public class User implements SelectableDataModel<User> {
     public User getRowData(String s) {
         return UserService.getUser(Long.valueOf(id));
     }
+
+    @Override
+    public String toString() {
+        return getFirstName() + " " + getLastName();
+    }
 }

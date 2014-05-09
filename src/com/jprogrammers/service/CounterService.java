@@ -14,7 +14,7 @@ public class CounterService extends GenericDAOImpl<Counter> {
 		
 		String query = "FROM Counter where name = '" + Counter.defaultCounter + "'";
 		
-		Counter counter = counterDao.findOne(query, null);
+		Counter counter = counterDao.findOne(query);
 		
 		long currentId = 1;
 		
@@ -29,7 +29,7 @@ public class CounterService extends GenericDAOImpl<Counter> {
 			counter.setCurrentId(currentId + 1);
 		}
 		
-		counterDao.save(counter, null);
+		counterDao.save(counter);
 		
 		return currentId;
 	}

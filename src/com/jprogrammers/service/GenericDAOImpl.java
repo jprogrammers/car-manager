@@ -13,80 +13,55 @@ import org.hibernate.Transaction;
 
 public class GenericDAOImpl<T> implements GenericDAO<T> {
 
-	protected Session getSession() {
+    protected Session getSession() {
         return HibernateUtil.getSession();
     }
-	
-	protected void closeSession(Session session) {
-		session.flush();
-		session.close();
-	}
- 
-    public void save(T entity, Session session) {
 
-        if(session == null){
-            session = getSession();
-            Transaction transaction = session.getTransaction();
-            transaction.begin();
-            session.saveOrUpdate(entity);
-            transaction.commit();
-            closeSession(session);
-        } else {
-            session.saveOrUpdate(entity);
-        }
-
+    protected void closeSession(Session session) {
+        session.flush();
+        session.close();
     }
- 
-    public void delete(T entity, Session session) {
 
-        if(session == null){
-            session = getSession();
-            Transaction transaction = session.getTransaction();
-            transaction.begin();
-            session.delete(entity);
-            transaction.commit();
-            closeSession(session);
-        } else {
-            session.delete(entity);
-        }
+    public void save(T entity) {
 
+        Session session = getSession();
+        Transaction transaction = session.getTransaction();
+        transaction.begin();
+        session.saveOrUpdate(entity);
+        transaction.commit();
+        closeSession(session);
     }
- 
+
+    public void delete(T entity) {
+
+        Session session = getSession();
+        Transaction transaction = session.getTransaction();
+        transaction.begin();
+        session.delete(entity);
+        transaction.commit();
+        closeSession(session);
+    }
+
     @SuppressWarnings("unchecked")
-	public List<T> findMany(String query, Session session) {
+    public List<T> findMany(String query) {
 
-        if(session == null){
-            session = getSession();
-    	    Query HQLQuery = session.createQuery(query);
-    	    List<T> t;
-            t = (List<T>) HQLQuery.list();
-            closeSession(session);
-            return t;
-        } else {
-            Query HQLQuery = session.createQuery(query);
-            List<T> t;
-            t = (List<T>) HQLQuery.list();
-            return t;
-        }
+        Session session = getSession();
+        Query HQLQuery = session.createQuery(query);
+        List<T> t;
+        t = (List<T>) HQLQuery.list();
+        closeSession(session);
+        return t;
     }
- 
+
     @SuppressWarnings("unchecked")
-	public T findOne(String query, Session session) {
+    public T findOne(String query) {
 
-        if(session == null){
-            session = getSession();
-            Query HQLQuery = session.createQuery(query);
-            T t;
-            t = (T) HQLQuery.uniqueResult();
-            closeSession(session);
-            return t;
-        } else {
-            Query HQLQuery = session.createQuery(query);
-            T t;
-            t = (T) HQLQuery.uniqueResult();
-            return t;
-        }
-
+        Session session = getSession();
+        Query HQLQuery = session.createQuery(query);
+        T t;
+        t = (T) HQLQuery.uniqueResult();
+        closeSession(session);
+        return t;
     }
 
 }

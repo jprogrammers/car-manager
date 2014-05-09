@@ -1,5 +1,8 @@
 package com.jprogrammers.model;
 
+import com.jprogrammers.service.CarTypeService;
+import com.jprogrammers.service.UserService;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -13,9 +16,23 @@ public class Licence {
 
     private long id;
     private String licenceCode;
+    private long carTypeId;
     private long userId;
     private Date createDate;
     private Date modifiedDate;
+
+    public Licence(){
+
+    }
+
+    public Licence(long id, String licenceCode, long carTypeId, long userId, Date createDate, Date modifiedDate){
+        setId(id);
+        setLicenceCode(licenceCode);
+        setCarTypeId(carTypeId);
+        setUserId(userId);
+        setCreateDate(createDate);
+        setModifiedDate(modifiedDate);
+    }
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
@@ -34,6 +51,15 @@ public class Licence {
 
     public void setLicenceCode(String licenceCode) {
         this.licenceCode = licenceCode;
+    }
+
+    @Column(name = "carTypeId", nullable = true, insertable = true, updatable = true, length = 20)
+    public long getCarTypeId() {
+        return carTypeId;
+    }
+
+    public void setCarTypeId(long carTypeId) {
+        this.carTypeId = carTypeId;
     }
 
     @Column(name = "userId", nullable = true, insertable = true, updatable = true, length = 20)
@@ -63,5 +89,15 @@ public class Licence {
 
     public void setModifiedDate(Date modifiedDate) {
         this.modifiedDate = modifiedDate;
+    }
+
+    @Transient
+    public User getUser(){
+        return UserService.getUser(getUserId());
+    }
+
+    @Transient
+    public CarType getCarType(){
+        return CarTypeService.getCarType(getCarTypeId());
     }
 }
