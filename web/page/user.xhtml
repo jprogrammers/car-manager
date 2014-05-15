@@ -19,26 +19,26 @@
             <h:panelGrid columns="2">
 
                 <p:outputLabel value="#{fa.first_name}"/>
-                <p:inputText value="#{userTableBean.firstName}"/>
+                <p:inputText value="#{userBean.firstName}"/>
 
                 <p:outputLabel value="#{fa.last_name}"/>
-                <p:inputText value="#{userTableBean.lastName}"/>
+                <p:inputText value="#{userBean.lastName}"/>
 
                 <p:outputLabel value="#{fa.email}"/>
-                <p:inputText value="#{userTableBean.emailAddress}"/>
+                <p:inputText value="#{userBean.emailAddress}"/>
 
                 <p:outputLabel value="#{fa.password}"/>
-                <p:inputText value="#{userTableBean.password}"/>
+                <p:inputText value="#{userBean.password}"/>
 
                 <p:outputLabel value="#{fa.role}"/>
-                <p:selectOneMenu value="#{userTableBean.roleId}">
-                    <f:selectItems value="#{userTableBean.getRoleIds()}"
+                <p:selectOneMenu value="#{userBean.roleId}">
+                    <f:selectItems value="#{userBean.getRoleIds()}"
                                    var="roleId"
-                                   itemLabel="#{userTableBean.getRoleName(roleId)}"
+                                   itemLabel="#{userBean.getRoleName(roleId)}"
                                    itemValue="#{roleId}" />
                 </p:selectOneMenu>
 
-                <p:commandButton actionListener="#{userTableBean.addUser()}" value="#{fa.add_user}" update=":form:dataTable"/>
+                <p:commandButton actionListener="#{userBean.addUser()}" value="#{fa.add_user}" update=":form:dataTable"/>
 
             </h:panelGrid>
         </p:dialog>
@@ -46,10 +46,10 @@
 
         <p:growl id="messages" showDetail="true"/>
 
-        <p:dataTable id="dataTable" var="user" value="#{userTableBean.allUsers}" paginator="true" rows="10" widgetVar="userTable" editable="true"
-                     emptyMessage="#{fa.no_cars_found_with_given_criteria}" filteredValue="#{userTableBean.filteredUsers}">
+        <p:dataTable id="dataTable" var="user" value="#{userBean.allUsers}" paginator="true" rows="10" widgetVar="userTable" editable="true"
+                     emptyMessage="#{fa.no_cars_found_with_given_criteria}" filteredValue="#{userBean.filteredUsers}">
 
-            <p:ajax event="rowEdit" listener="#{userTableBean.onEdit}" update=":form:messages" />
+            <p:ajax event="rowEdit" listener="#{userBean.onEdit}" update=":form:messages" />
 
             <f:facet name="header">
                 <p:outputPanel>
@@ -88,17 +88,17 @@
             <p:column id="roleColumn" filterBy="roleId"
                       headerText="#{fa.role}"
                       filterMatchMode="exact"
-                      filterOptions="#{userTableBean.roleOptions}"
+                      filterOptions="#{userBean.roleOptions}"
                     >
                 <p:cellEditor>
                     <f:facet name="output">
-                        <h:outputText value="#{userTableBean.getRoleName(user.roleId)}" />
+                        <h:outputText value="#{userBean.getRoleName(user.roleId)}" />
                     </f:facet>
                     <f:facet name="input">
                         <h:selectOneMenu value="#{user.roleId}" >
-                            <f:selectItems value="#{userTableBean.getRoleIds()}"
+                            <f:selectItems value="#{userBean.getRoleIds()}"
                                            var="roleId"
-                                           itemLabel="#{userTableBean.getRoleName(roleId)}"
+                                           itemLabel="#{userBean.getRoleName(roleId)}"
                                            itemValue="#{roleId}" />
                         </h:selectOneMenu>
                     </f:facet>
@@ -109,17 +109,17 @@
             <p:column id="statusColumn" filterBy="status"
                       headerText="#{fa.status}"
                       filterMatchMode="exact"
-                      filterOptions="#{userTableBean.statusOptions}"
+                      filterOptions="#{userBean.statusOptions}"
                     >
                 <p:cellEditor>
                     <f:facet name="output">
-                        <h:outputText value="#{userTableBean.getStatusName(user.status)}" />
+                        <h:outputText value="#{userBean.getStatusName(user.status)}" />
                     </f:facet>
                     <f:facet name="input">
                         <h:selectOneMenu value="#{user.status}" >
-                            <f:selectItems value="#{userTableBean.getStatuses()}"
+                            <f:selectItems value="#{userBean.getStatuses()}"
                                            var="status"
-                                           itemLabel="#{userTableBean.getStatusName(status)}"
+                                           itemLabel="#{userBean.getStatusName(status)}"
                                            itemValue="#{status}" />
                         </h:selectOneMenu>
                     </f:facet>
@@ -129,7 +129,7 @@
 
             <p:column style="width:6%">
                 <p:rowEditor />
-                <p:commandButton update=":form:dataTable" actionListener="#{userTableBean.deleteUser(user.id)}" ajax="false" value="#{fa.delete}" icon="ui-icon-close" />
+                <p:commandButton update=":form:dataTable" actionListener="#{userBean.deleteUser(user.id)}" ajax="false" value="#{fa.delete}" icon="ui-icon-close" />
             </p:column>
 
         </p:dataTable>

@@ -100,4 +100,9 @@ public class Licence {
     public CarType getCarType(){
         return CarTypeService.getCarType(getCarTypeId());
     }
+
+    @Override
+    public String toString() {
+        return getLicenceCode() + " - " + UserService.getUser(getUserId()).toString();
+    }
 }

@@ -1,8 +1,12 @@
 package com.jprogrammers.model;
 
+import com.jprogrammers.service.CustomerService;
+import com.jprogrammers.service.LicenceService;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 /**
  * @author Ali Reza Akbarian
@@ -13,13 +17,37 @@ import javax.persistence.Id;
 public class Cartex {
 
     private long id;
+    private long userId;
     private long customerId;
-    private long carTypeId;
+    private long licenceId;
+    private String color;
     private String engineNumber;
     private String bodyNumber;
+    private String VINNumber;
+    private String model;
     private String boughtDate;
     private String plateNumber;
     private String economicCode;
+
+    public Cartex(){
+
+    }
+
+    public Cartex(long id,long userId, long customerId, long licenceId, String color, String engineNumber, String bodyNumber,
+                  String VINNumber, String model, String boughtDate, String plateNumber, String economicCode){
+        setId(id);
+        setUserId(userId);
+        setCustomerId(customerId);
+        setLicenceId(licenceId);
+        setColor(color);
+        setEngineNumber(engineNumber);
+        setBodyNumber(bodyNumber);
+        setVINNumber(VINNumber);
+        setModel(model);
+        setBoughtDate(boughtDate);
+        setPlateNumber(plateNumber);
+        setEconomicCode(economicCode);
+    }
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
@@ -31,6 +59,15 @@ public class Cartex {
         this.id = id;
     }
 
+    @Column(name = "userId", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
     @Column(name = "customerId", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
     public long getCustomerId() {
         return customerId;
@@ -40,13 +77,22 @@ public class Cartex {
         this.customerId = customerId;
     }
 
-    @Column(name = "carTypeId", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
-    public long getCarTypeId() {
-        return carTypeId;
+    @Column(name = "licenceId", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
+    public long getLicenceId() {
+        return licenceId;
     }
 
-    public void setCarTypeId(long carTypeId) {
-        this.carTypeId = carTypeId;
+    public void setLicenceId(long licenceId) {
+        this.licenceId = licenceId;
+    }
+
+    @Column(name = "color", nullable = true, insertable = true, updatable = true, length = 30, precision = 0)
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     @Column(name = "engineNumber", nullable = true, insertable = true, updatable = true, length = 200, precision = 0)
@@ -65,6 +111,24 @@ public class Cartex {
 
     public void setBodyNumber(String bodyNumber) {
         this.bodyNumber = bodyNumber;
+    }
+
+    @Column(name = "VINNumber", nullable = true, insertable = true, updatable = true, length = 30, precision = 0)
+    public String getVINNumber() {
+        return VINNumber;
+    }
+
+    public void setVINNumber(String VINNumber) {
+        this.VINNumber = VINNumber;
+    }
+
+    @Column(name = "model", nullable = true, insertable = true, updatable = true, length = 30, precision = 0)
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 
     @Column(name = "boughtDate", nullable = true, insertable = true, updatable = true, length = 200, precision = 0)
@@ -92,5 +156,15 @@ public class Cartex {
 
     public void setEconomicCode(String economicCode) {
         this.economicCode = economicCode;
+    }
+
+    @Transient
+    public Licence getLicence(){
+        return LicenceService.getLicence(getLicenceId());
+    }
+
+    @Transient
+    public Customer getCustomer(){
+        return CustomerService.getCustomer(getCustomerId());
     }
 }

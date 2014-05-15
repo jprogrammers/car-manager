@@ -193,4 +193,9 @@ public class Customer {
     public void setModifiedDate(Date modifiedDate) {
         this.modifiedDate = modifiedDate;
     }
+
+    @Override
+    public String toString() {
+        return getNationalCode() + " - " + getFirstName() + " " + getLastName();
+    }
 }

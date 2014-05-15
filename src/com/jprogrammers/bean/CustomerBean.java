@@ -1,4 +1,4 @@
-package com.jprogrammers.bean.users;
+package com.jprogrammers.bean;
 
 import com.jprogrammers.language.LanguageUtil;
 import com.jprogrammers.model.Customer;

@@ -6,7 +6,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:j="http://jprogrammers.com/ui">
+      xmlns:j="http://jprogrammers.com/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
 <h:head>
     <title>#{fa.licences}</title>
@@ -16,25 +17,27 @@
 
     <h:form>
         <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
-        <p:commandButton type="button" value="#{fa.add_licence}" onclick="PF('addLicenceDialog').show()" />
-        <p:dialog id="addLicence" widgetVar="addLicenceDialog" header="#{fa.add_licence}"  showEffect="fade" hideEffect="fade">
-            <h:panelGrid columns="2">
-                <p:outputLabel value="#{fa.licence_code}"/>
-                <p:inputText value="#{licenceBean.licenceCode}"/>
+        <c:if test="#{session.getAttribute('user').roleId == 0}">
+            <p:commandButton type="button" value="#{fa.add_licence}" onclick="PF('addLicenceDialog').show()" />
+            <p:dialog id="addLicence" widgetVar="addLicenceDialog" header="#{fa.add_licence}"  showEffect="fade" hideEffect="fade">
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="#{fa.licence_code}"/>
+                    <p:inputText value="#{licenceBean.licenceCode}"/>
 
-                <p:outputLabel value="#{fa.user}"/>
-                <p:selectOneMenu value="#{licenceBean.userId}">
-                    <f:selectItems value="#{licenceBean.users}"/>
-                </p:selectOneMenu>
+                    <p:outputLabel value="#{fa.user}"/>
+                    <p:selectOneMenu value="#{licenceBean.userId}">
+                        <f:selectItems value="#{licenceBean.users}" var="user" itemLabel="#{user}" itemValue="#{user.id}"/>
+                    </p:selectOneMenu>
 
-                <p:outputLabel value="#{fa.car_type}"/>
-                <p:selectOneMenu value="#{licenceBean.carTypeId}">
-                    <f:selectItems value="#{licenceBean.carTypes}"/>
-                </p:selectOneMenu>
+                    <p:outputLabel value="#{fa.car_type}"/>
+                    <p:selectOneMenu value="#{licenceBean.carTypeId}">
+                        <f:selectItems value="#{licenceBean.carTypes}" var="carType" itemLabel="#{carType}" itemValue="#{carType.id}"/>
+                    </p:selectOneMenu>
 
-                <p:commandButton actionListener="#{licenceBean.addLicence}" value="#{fa.add_licence}" update="licenceTable"/>
-            </h:panelGrid>
-        </p:dialog>
+                    <p:commandButton actionListener="#{licenceBean.addLicence}" value="#{fa.add_licence}" update="licenceTable"/>
+                </h:panelGrid>
+            </p:dialog>
+        </c:if>
 
         <j:JDataTable id="licenceTable" value="#{licenceBean.licences}" var="licence" paginator="true" rows="10" rowKey="id"
                       widgetVar="licenceTable" filteredValue="#{licenceBean.filteredLicences}" emptyMessage="#{fa.no_licence_exist}">

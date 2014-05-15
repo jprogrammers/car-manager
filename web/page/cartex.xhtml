@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:j="http://jprogrammers.com/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+    <title>#{fa.cartex}</title>
+</h:head>
+<ui:include src="header.xhtml"/>
+<h:body dir="rtl">
+
+    <h:form>
+        <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
+        <p:commandButton type="button" value="#{fa.add_cartex}" onclick="PF('addCartexDialog').show()" />
+        <p:dialog id="addCartex" widgetVar="addCartexDialog" header="#{fa.add_cartex}"  showEffect="fade" hideEffect="fade">
+            <h:panelGrid columns="4">
+                <p:outputLabel value="#{fa.economic_code}:"/>
+                <p:inputText value="#{cartexBean.economicCode}"/>
+
+                <p:outputLabel value="#{fa.licence_code}:"/>
+                <p:selectOneMenu value="#{cartexBean.licenceId}">
+                    <f:selectItems value="#{cartexBean.licences}" var="licence" itemLabel="#{licence.licenceCode}" itemValue="#{licence.id}"/>
+                </p:selectOneMenu>
+
+                <p:outputLabel value="#{fa.national_code} #{fa.customer}:"/>
+                <p:selectOneMenu value="#{cartexBean.customerId}" filter="true" filterMatchMode="startsWith">
+                    <f:selectItems value="#{cartexBean.customers}" var="customer" itemLabel="#{customer}" itemValue="#{customer.id}"/>
+                </p:selectOneMenu>
+
+                <p:outputLabel value="#{fa.bought_date}:"/>
+                <p:inputMask mask="9999/99/99" value="#{cartexBean.boughtDate}"/>
+
+                <p:outputLabel value="#{fa.model}:"/>
+                <p:inputText value="#{cartexBean.model}"/>
+
+                <p:outputLabel value="#{fa.color}:"/>
+                <p:inputText value="#{cartexBean.color}"/>
+
+                <p:outputLabel value="#{fa.engine_number}:"/>
+                <p:inputText value="#{cartexBean.engineNumber}"/>
+
+                <p:outputLabel value="#{fa.body_number}:"/>
+                <p:inputMask mask="*****************" value="#{cartexBean.bodyNumber}"/>
+
+                <p:outputLabel value="#{fa.VIN_number}:"/>
+                <p:inputText value="#{cartexBean.VINNumber}"/>
+
+                <p:commandButton value="#{fa.add_cartex}" actionListener="#{cartexBean.addCartex}" update="cartexTable"/>
+            </h:panelGrid>
+        </p:dialog>
+
+        <j:JDataTable id="cartexTable" value="#{cartexBean.cartexes}" var="cartex" paginator="true" rows="10" rowKey="id"
+                      widgetVar="cartexTable" filteredValue="#{cartexBean.filteredCartexes}" emptyMessage="#{fa.no_cartex_exist}">
+
+            <p:column headerText="#{fa.customer}">
+                #{cartex.customer}
+            </p:column>
+
+            <p:column headerText="#{fa.licence_code}">
+                #{cartex.licence}
+            </p:column>
+
+            <p:column headerText="#{fa.model}">
+                #{cartex.model}
+            </p:column>
+
+            <p:column headerText="#{fa.color}">
+                #{cartex.color}
+            </p:column>
+
+            <p:column headerText="#{fa.engine_number}">
+                #{cartex.engineNumber}
+            </p:column>
+
+            <p:column headerText="#{fa.body_number}">
+                #{cartex.bodyNumber}
+            </p:column>
+
+        </j:JDataTable>
+    </h:form>
+
+</h:body>
+
+</html>
