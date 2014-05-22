@@ -3,6 +3,7 @@ package com.jprogrammers.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * @author Ali Reza Akbarian
@@ -10,7 +11,7 @@ import javax.persistence.Id;
  */
 
 @Entity
-public class CarType {
+public class CarType implements Serializable {
 
     private long id;
     private String country;

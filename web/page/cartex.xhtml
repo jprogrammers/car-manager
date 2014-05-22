@@ -55,31 +55,64 @@
             </h:panelGrid>
         </p:dialog>
 
-        <j:JDataTable id="cartexTable" value="#{cartexBean.cartexes}" var="cartex" paginator="true" rows="10" rowKey="id"
+        <j:JDataTable id="cartexTable" value="#{cartexBean.cartexes}" var="cartex" paginator="true" rows="10" editable="true"
                       widgetVar="cartexTable" filteredValue="#{cartexBean.filteredCartexes}" emptyMessage="#{fa.no_cartex_exist}">
 
+            <p:ajax event="rowEdit" listener="#{cartexBean.editCartex}"/>
+
+            <p:column>
+                <h:inputHidden value="#{cartex.id}"/>
+                <p:rowEditor/>
+            </p:column>
+
             <p:column headerText="#{fa.customer}">
-                #{cartex.customer}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{cartex.customer}" /></f:facet>
+                    <f:facet name="input">
+                        <p:selectOneMenu value="#{cartex.customerId}" filter="true" filterMatchMode="startsWith">
+                            <f:selectItems value="#{cartexBean.customers}" var="customer" itemLabel="#{customer}" itemValue="#{customer.id}"/>
+                        </p:selectOneMenu>
+                    </f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.licence_code}">
-                #{cartex.licence}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{cartex.licence}"/></f:facet>
+                    <f:facet name="input">
+                        <p:selectOneMenu value="#{cartex.licenceId}">
+                            <f:selectItems value="#{cartexBean.licences}" var="licence" itemLabel="#{licence.licenceCode}" itemValue="#{licence.id}"/>
+                        </p:selectOneMenu>
+                    </f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.model}">
-                #{cartex.model}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{cartex.model}"/></f:facet>
+                    <f:facet name="input"><p:inputText value="#{cartex.model}" style="width: 90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.color}">
-                #{cartex.color}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{cartex.color}"/></f:facet>
+                    <f:facet name="input"><p:inputText value="#{cartex.color}" style="width: 90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.engine_number}">
-                #{cartex.engineNumber}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{cartex.engineNumber}"/></f:facet>
+                    <f:facet name="input"><p:inputText value="#{cartex.engineNumber}" style="width: 90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.body_number}">
-                #{cartex.bodyNumber}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{cartex.bodyNumber}"/></f:facet>
+                    <f:facet name="input"><p:inputText value="#{cartex.bodyNumber}" style="width: 90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
         </j:JDataTable>

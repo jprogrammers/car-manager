@@ -36,3 +36,6 @@
 .ui-menu .ui-menuitem{
     float: right;
 }
+.ui-datatable-tablewrapper{
+    overflow-x: scroll;
+}
