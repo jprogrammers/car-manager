@@ -1,4 +1,4 @@
-package com.jprogrammers.bean.users;
+package com.jprogrammers.bean;
 
 import com.jprogrammers.language.LanguageFa;
 import com.jprogrammers.language.LanguageUtil;
@@ -21,8 +21,8 @@ import java.util.List;
  *         created on 25/04/14.
  */
 
-@ManagedBean(name = "userTableBean")
-public class TableBean extends User implements Serializable {
+@ManagedBean
+public class UserBean extends User implements Serializable {
 
     private List<User> filteredUsers;
     private List<User> allUsers;
@@ -37,7 +37,7 @@ public class TableBean extends User implements Serializable {
         return roleOptions;
     }
 
-    public TableBean() {
+    public UserBean() {
         allUsers = UserService.getUsers();
         roleOptions = createRoleOptions();
         statusOptions = createStatusOptions();

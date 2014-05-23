@@ -14,6 +14,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -22,28 +23,22 @@ import java.util.List;
 @ManagedBean
 public class LicenceBean extends Licence {
 
-    SelectItem[] users;
-    SelectItem[] carTypes;
+    List<User> users;
+    List<CarType> carTypes;
 
     List<Licence> licences;
     List<Licence> filteredLicences;
 
-    public LicenceBean(){
-        List<User> legalUsers = UserService.getUsers(Role.USER, User.ACTIVE);
-        User user;
-        users = new SelectItem[legalUsers.size()];
-        for(int i = 0; i < legalUsers.size(); i++){
-            user = legalUsers.get(i);
-            users[i] = new SelectItem(user.getId(), user.toString());
-        }
+    User user;
 
-        List<CarType> cars = CarTypeService.getCarTypes();
-        CarType carType;
-        carTypes = new SelectItem[cars.size()];
-        for(int i = 0; i < cars.size(); i++){
-            carType = cars.get(i);
-            carTypes[i] = new SelectItem(carType.getId(), carType.toString());
-        }
+    public LicenceBean(){
+
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        user = (User)session.getAttribute("user");
+
+        users = UserService.getUsers(Role.USER, User.ACTIVE);
+
+        carTypes = CarTypeService.getCarTypes();
     }
 
     public void addLicence(){
@@ -55,16 +50,19 @@ public class LicenceBean extends Licence {
         }
     }
 
-    public SelectItem[] getUsers() {
+    public List<User> getUsers() {
         return users;
     }
 
-    public SelectItem[] getCarTypes() {
+    public List<CarType> getCarTypes() {
         return carTypes;
     }
 
     public List<Licence> getLicences() {
-        return LicenceService.getLicences();
+        if(user.getRoleId() == Role.ADMINISTRATOR)
+            return LicenceService.getLicences();
+        else
+            return LicenceService.getLicences(user.getId());
     }
 
     public void setLicences(List<Licence> licences) {

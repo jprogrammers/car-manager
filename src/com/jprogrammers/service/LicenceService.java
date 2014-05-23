@@ -17,6 +17,11 @@ public class LicenceService {
         return licenceDao.findMany(query);
     }
 
+    public static List<Licence> getLicences(long userId){
+        String query = "from Licence where userId = " + userId;
+        return licenceDao.findMany(query);
+    }
+
     public static Licence getLicence(long id){
         String query = "from Licence where id = " + id;
         return licenceDao.findOne(query);
