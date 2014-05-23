@@ -14,52 +14,84 @@
     <h:form>
         <h:panelGrid id="pricePanel" columns="4">
             <p:outputLabel value="ارزش ریالی کالا"/>
-            <p:inputText value="#{priceBean.stuffPrice1}"/>
+            <p:inputText value="#{priceBean.stuffPrice1}" >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:inputText>
 
             <p:outputLabel value="ارزش ریالی کالا"/>
-            <p:inputText value="#{priceBean.stuffPrice2}"/>
+            <p:inputText value="#{priceBean.stuffPrice2}" >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:inputText>
 
             <p:outputLabel value="ارزش ریالی کالا"/>
-            <p:outputLabel value="#{priceBean.stuffPrice}"/>
+            <p:outputLabel value="#{priceBean.stuffPrice}" >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:outputLabel>
 
             <p:outputLabel value="بیمه"/>
-            <p:outputLabel value="#{priceBean.insurance}"/>
+            <p:outputLabel value="#{priceBean.insurance}" >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:outputLabel>
 
             <p:outputLabel value="کرایه حمل"/>
-            <p:inputText value="#{priceBean.shipmentPrice}"/>
+            <p:inputText value="#{priceBean.shipmentPrice}" >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:inputText>
 
             <p:outputLabel value="سیف کالا"/>
-            <p:outputLabel value="#{priceBean.stuffSafe}"/>
+            <p:outputLabel value="#{priceBean.stuffSafe}" >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:outputLabel>
 
             <p:outputLabel value="درصد حقوق گمرکی"/>
-            <p:inputText value="#{priceBean.customsLawPercent}"/>
+            <p:inputText value="#{priceBean.customsLawPercent}"  >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:inputText>
 
             <p:outputLabel value="حقوق گمرکی"/>
-            <p:outputLabel value="#{priceBean.customsLaw}"/>
+            <p:outputLabel value="#{priceBean.customsLaw}" >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:outputLabel>
 
             <p:outputLabel value="اظهارنامه"/>
-            <p:outputLabel value="#{priceBean.declaration}"/>
+            <p:outputLabel value="#{priceBean.declaration}" >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:outputLabel>
 
             <p:outputLabel value="درصد مالیات"/>
-            <p:inputText value="#{priceBean.taxPercent}"/>
+            <p:inputText value="#{priceBean.taxPercent}" >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:inputText>
 
             <p:outputLabel value="مالیات"/>
-            <p:outputLabel value="#{priceBean.tax}"/>
+            <p:outputLabel value="#{priceBean.tax}" >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:outputLabel>
 
             <p:outputLabel value="عوارض مالیات"/>
-            <p:outputLabel value="#{priceBean.customsToll}"/>
+            <p:outputLabel value="#{priceBean.customsToll}" >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:outputLabel>
 
             <p:outputLabel value="شماره گذاری"/>
-            <p:outputLabel value="#{priceBean.marking}"/>
+            <p:outputLabel value="#{priceBean.marking}" >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:outputLabel>
 
             <p:outputLabel value="حلال اهمر"/>
-            <p:outputLabel value="#{priceBean.helalAhmar}"/>
+            <p:outputLabel value="#{priceBean.helalAhmar}" >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:outputLabel>
 
             <p:outputLabel value="استاندارد"/>
-            <p:outputLabel value="#{priceBean.standard}"/>
+            <p:outputLabel value="#{priceBean.standard}" >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:outputLabel>
 
             <p:outputLabel value="جمع کل پرداختی"/>
-            <p:outputLabel value="#{priceBean.totalPrice}"/>
+            <p:outputLabel value="#{priceBean.totalPrice}" >
+                <f:convertNumber maxFractionDigits="5" />
+            </p:outputLabel>
 
             <p:commandButton value="محاسبه" actionListener="#{priceBean.calculatePrice}" update="pricePanel"/>
         </h:panelGrid>

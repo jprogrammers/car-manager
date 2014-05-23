@@ -7,7 +7,9 @@ import org.primefaces.event.RowEditEvent;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -15,12 +17,17 @@ import java.util.List;
  *         created on 09/05/14.
  */
 @ManagedBean
-public class CustomerBean extends Customer {
+@ViewScoped
+public class CustomerBean extends Customer implements Serializable {
 
     List<Customer> filteredCustomers;
 
+    public CustomerBean() {
+        this.filteredCustomers = CustomerService.getCustomers();
+    }
+
     public List<Customer> getAllCustomers() {
-        return CustomerService.getCustomers();
+        return this.filteredCustomers;
     }
 
     public void setFilteredCustomers(List<Customer> filteredCustomers) {
@@ -41,6 +48,7 @@ public class CustomerBean extends Customer {
 
     public void deleteCustomer(long id) {
         CustomerService.deleteCustomer(id);
+        this.filteredCustomers = CustomerService.getCustomers();
     }
 
     public void addCustomer() {
@@ -49,6 +57,8 @@ public class CustomerBean extends Customer {
                 getBirthday() , getZipCode());
 
         addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("customer_added_successfully"));
+
+        this.filteredCustomers = CustomerService.getCustomers();
     }
 
     private void addMessage(FacesMessage.Severity severity, String message) {

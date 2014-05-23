@@ -117,6 +117,7 @@ public class UserBean extends User implements Serializable {
 
     public void deleteUser(long id) {
         UserService.delete(id);
+        allUsers = UserService.getUsers();
     }
 
     public void addUser() throws IOException {
@@ -124,6 +125,8 @@ public class UserBean extends User implements Serializable {
 
         ///FacesContext.getCurrentInstance().addMessage("app-message" ,  new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("your_request_was_completed"), ""));
         addMessage(FacesMessage.SEVERITY_INFO , LanguageUtil.get("your_request_was_completed"));
+
+        allUsers = UserService.getUsers();
 
     }
 

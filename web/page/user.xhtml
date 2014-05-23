@@ -13,22 +13,29 @@
 <ui:include src="header.xhtml"/>
 <h:body dir="rtl">
     <h:form id="form">
-        <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
+        <p:messages id="message" showDetail="false" autoUpdate="true" closable="true"/>
         <p:commandButton type="button" value="#{fa.add_user}" onclick="PF('addUserDialog').show()" />
+
         <p:dialog id="addUser" widgetVar="addUserDialog" header="#{fa.add_user}"  showEffect="fade" hideEffect="fade">
             <h:panelGrid columns="2">
 
                 <p:outputLabel value="#{fa.first_name}"/>
-                <p:inputText value="#{userBean.firstName}"/>
+                <p:inputText placeholder="#{fa.required}" value="#{customerBean.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
+                    <f:validateRegex pattern="^([^0-9]*)$" />
+                </p:inputText>
 
                 <p:outputLabel value="#{fa.last_name}"/>
-                <p:inputText value="#{userBean.lastName}"/>
+                <p:inputText value="#{customerBean.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
+                    <f:validateRegex pattern="^([^0-9]*)$" />
+                </p:inputText>
 
                 <p:outputLabel value="#{fa.email}"/>
-                <p:inputText value="#{userBean.emailAddress}"/>
+                <p:inputText value="#{userBean.emailAddress}" validatorMessage="#{fa.please_fill_a_valid_value_for_email}" required="true" requiredMessage="#{fa.email_is_required}">
+                    <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                </p:inputText>
 
                 <p:outputLabel value="#{fa.password}"/>
-                <p:inputText value="#{userBean.password}"/>
+                <p:inputText type="password" value="#{userBean.password}" required="truw" requiredMessage="#{fa.password_is_required}"/>
 
                 <p:outputLabel value="#{fa.role}"/>
                 <p:selectOneMenu value="#{userBean.roleId}">
@@ -38,18 +45,16 @@
                                    itemValue="#{roleId}" />
                 </p:selectOneMenu>
 
-                <p:commandButton actionListener="#{userBean.addUser()}" value="#{fa.add_user}" update=":form:dataTable"/>
+                <p:commandButton actionListener="#{userBean.addUser()}" value="#{fa.add_user}" update=":form2:dataTable"/>
 
             </h:panelGrid>
         </p:dialog>
-        <!--<p:button href="/page/cpanel/user/add_user.xhtml"  value="#{fa.add_user}" />-->
-
-        <p:growl id="messages" showDetail="true"/>
-
+</h:form>
+<h:form id="form2">
         <p:dataTable id="dataTable" var="user" value="#{userBean.allUsers}" paginator="true" rows="10" widgetVar="userTable" editable="true"
                      emptyMessage="#{fa.no_cars_found_with_given_criteria}" filteredValue="#{userBean.filteredUsers}">
 
-            <p:ajax event="rowEdit" listener="#{userBean.onEdit}" update=":form:messages" />
+            <p:ajax event="rowEdit" listener="#{userBean.onEdit}" update=":form:message" />
 
             <f:facet name="header">
                 <p:outputPanel>
@@ -66,7 +71,9 @@
                         <h:outputText value="#{user.firstName}" />
                     </f:facet>
                     <f:facet name="input">
-                        <p:inputText value="#{user.firstName}" style="width:100%"/>
+                        <p:inputText placeholder="#{fa.required}" value="#{customerBean.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
+                            <f:validateRegex pattern="^([^0-9]*)$" />
+                        </p:inputText>
                     </f:facet>
                 </p:cellEditor>
 
@@ -80,7 +87,24 @@
                         <h:outputText value="#{user.lastName}" />
                     </f:facet>
                     <f:facet name="input">
-                        <p:inputText value="#{user.lastName}" style="width:100%"/>
+                        <p:inputText value="#{customerBean.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
+                            <f:validateRegex pattern="^([^0-9]*)$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            <p:column id="emailColumn" filterBy="lastName"
+                      headerText="#{fa.email}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{user.emailAddress}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{userBean.emailAddress}" validatorMessage="#{fa.please_fill_a_valid_value_for_email}" required="true" requiredMessage="#{fa.email_is_required}">
+                            <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                        </p:inputText>
                     </f:facet>
                 </p:cellEditor>
             </p:column>
@@ -129,7 +153,7 @@
 
             <p:column style="width:6%">
                 <p:rowEditor />
-                <p:commandButton update=":form:dataTable" actionListener="#{userBean.deleteUser(user.id)}" ajax="false" value="#{fa.delete}" icon="ui-icon-close" />
+                <p:commandButton update=":form2:dataTable" actionListener="#{userBean.deleteUser(user.id)}" ajax="false" value="#{fa.delete}" icon="ui-icon-close" />
             </p:column>
 
         </p:dataTable>
