@@ -32,4 +32,7 @@ public class LicenceService {
         licenceDao.save(licence);
     }
 
+    public static void editLicence(Licence licence) {
+        licenceDao.save(licence);
+    }
 }

@@ -4,20 +4,32 @@ import com.jprogrammers.language.LanguageUtil;
 import com.jprogrammers.model.CarType;
 import com.jprogrammers.service.CarTypeService;
 import com.jprogrammers.util.Validator;
+import org.primefaces.event.RowEditEvent;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by EN20 on 5/8/14.
  */
 @ManagedBean
-public class CarTypeBean extends CarType {
+@ViewScoped
+public class CarTypeBean extends CarType implements Serializable {
 
     List<CarType> carTypes;
     List<CarType> filteredCarTypes;
+
+    public CarTypeBean(){
+        init();
+    }
+
+    private void init(){
+        setCarTypes(CarTypeService.getCarTypes());
+    }
 
     public void addCarType(){
 
@@ -30,6 +42,14 @@ public class CarTypeBean extends CarType {
                     getWheelsCount(), getFuelType(), getCylinderCount(), getCapacity(), getCylinderSize());
             addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("car_type_added_successfully"));
         }
+        init();
+    }
+
+    public void editCarType(RowEditEvent event){
+        CarType carType = (CarType)event.getObject();
+        CarTypeService.editCarType(carType);
+        init();
+        addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("car_type_edited_successfully"));
     }
 
     private void addMessage(FacesMessage.Severity severity, String message) {
@@ -37,7 +57,7 @@ public class CarTypeBean extends CarType {
     }
 
     public List<CarType> getCarTypes() {
-        return CarTypeService.getCarTypes();
+        return carTypes;
     }
 
     public void setCarTypes(List<CarType> carTypes) {

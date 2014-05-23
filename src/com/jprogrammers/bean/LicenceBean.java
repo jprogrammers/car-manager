@@ -9,6 +9,7 @@ import com.jprogrammers.service.CarTypeService;
 import com.jprogrammers.service.LicenceService;
 import com.jprogrammers.service.UserService;
 import com.jprogrammers.util.Validator;
+import org.primefaces.event.RowEditEvent;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -48,6 +49,12 @@ public class LicenceBean extends Licence {
             LicenceService.addLicence(getLicenceCode(), getCarTypeId(), getUserId());
             addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("licence_added_successfully"));
         }
+    }
+
+    public void editLicence(RowEditEvent event){
+        Licence licence = (Licence)event.getObject();
+        LicenceService.editLicence(licence);
+        addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("licence_edited_successfully"));
     }
 
     public List<User> getUsers() {

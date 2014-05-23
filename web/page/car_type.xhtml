@@ -16,11 +16,11 @@
 <ui:include src="/page/header.xhtml"/>
 
 <h:body dir="rtl">
-    <h:form>
+    <h:form id="form">
         <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
         <c:if test="#{session.getAttribute('user').roleId == 0}">
             <p:commandButton type="button" value="#{fa.add_car_type}" onclick="PF('addCarTypeDialog').show()" />
-            <p:dialog id="addCarType" widgetVar="addCarTypeDialog" header="#{fa.add_car_type}"  showEffect="fade" hideEffect="fade">
+            <p:dialog id="addCarTypeDialog" widgetVar="addCarTypeDialog" header="#{fa.add_car_type}" showEffect="fade" hideEffect="fade">
                 <h:panelGrid columns="2">
                     <p:outputLabel value="#{fa.country}"/>
                     <p:inputText value="#{carTypeBean.country}"/>
@@ -61,58 +61,103 @@
                     <p:commandButton actionListener="#{carTypeBean.addCarType}" value="#{fa.add_car_type}" update="carTypeTable"/>
                 </h:panelGrid>
             </p:dialog>
+
         </c:if>
 
-        <j:JDataTable id="carTypeTable" value="#{carTypeBean.carTypes}" var="carType" paginator="true" rows="10" rowKey="id"
-                widgetVar="carTypeTable" filteredValue="#{carTypeBean.filteredCarTypes}" emptyMessage="#{fa.no_car_type_exist}">
+        <j:JDataTable id="carTypeTable" value="#{carTypeBean.carTypes}" var="carType" paginator="true" rows="10"
+                widgetVar="carTypeTable" filteredValue="#{carTypeBean.filteredCarTypes}" emptyMessage="#{fa.no_car_type_exist}"
+                editable="true">
 
+            <p:ajax event="rowEdit" listener="#{carTypeBean.editCarType}"/>
+
+            <p:column>
+                <h:inputHidden value="#{carType.id}"/>
+                <p:rowEditor/>
+            </p:column>
             <p:column headerText="#{fa.country}" filterBy="country" filterMatchMode="contains">
-                #{carType.country}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{carType.country}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{carType.country}" style="width:90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.factory}" filterBy="factory" filterMatchMode="contains">
-                #{carType.factory}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{carType.factory}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{carType.factory}" style="width:90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.usecase_type}" filterBy="usecaseType" filterMatchMode="contains">
-                #{carType.usecaseType}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{carType.usecaseType}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{carType.usecaseType}" style="width:90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.usecase_type2}" filterBy="usecaseType2" filterMatchMode="contains">
-                #{carType.usecaseType2}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{carType.usecaseType2}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{carType.usecaseType2}" style="width:90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.system}" filterBy="system" filterMatchMode="contains">
-                #{carType.system}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{carType.system}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{carType.system}" style="width:90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.tip}" filterBy="tip" filterMatchMode="contains">
-                #{carType.tip}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{carType.tip}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{carType.tip}" style="width:90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.def_count}" filterBy="defCount" filterMatchMode="contains">
-                #{carType.defCount}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{carType.defCount}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{carType.defCount}" style="width:90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.wheels_count}" filterBy="wheelsCount" filterMatchMode="contains">
-                #{carType.wheelsCount}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{carType.wheelsCount}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{carType.wheelsCount}" style="width:90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.fuel_type}" filterBy="fuelType" filterMatchMode="contains">
-                #{carType.fuelType}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{carType.fuelType}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{carType.fuelType}" style="width:90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.cylinder_count}" filterBy="cylinderCount" filterMatchMode="contains">
-                #{carType.cylinderCount}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{carType.cylinderCount}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{carType.cylinderCount}" style="width:90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.capacity}" filterBy="capacity" filterMatchMode="contains">
-                #{carType.capacity}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{carType.capacity}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{carType.capacity}" style="width:90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.cylinder_size}" filterBy="cylinderSize" filterMatchMode="contains">
-                #{carType.cylinderSize}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{carType.cylinderSize}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{carType.cylinderSize}" style="width:90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
+
         </j:JDataTable>
 
     </h:form>

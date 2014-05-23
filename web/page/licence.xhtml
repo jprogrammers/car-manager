@@ -39,19 +39,43 @@
             </p:dialog>
         </c:if>
 
-        <j:JDataTable id="licenceTable" value="#{licenceBean.licences}" var="licence" paginator="true" rows="10" rowKey="id"
+        <j:JDataTable id="licenceTable" value="#{licenceBean.licences}" var="licence" paginator="true" rows="10" editable="true"
                       widgetVar="licenceTable" filteredValue="#{licenceBean.filteredLicences}" emptyMessage="#{fa.no_licence_exist}">
 
+            <p:ajax event="rowEdit" listener="#{licenceBean.editLicence}"/>
+
+            <p:column>
+                <h:inputHidden value="#{licence.id}"/>
+                <p:rowEditor/>
+            </p:column>
+
             <p:column headerText="#{fa.licence_code}" filterBy="licenceCode" filterMatchMode="contains">
-                #{licence.licenceCode}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{licence.licenceCode}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{licence.licenceCode}" style="width:90%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.car_type}" filterBy="carType" filterMatchMode="contains">
-                #{licence.carType}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{licence.carType}" /></f:facet>
+                    <f:facet name="input">
+                        <p:selectOneMenu value="#{licence.carTypeId}">
+                            <f:selectItems value="#{licenceBean.carTypes}" var="carType" itemLabel="#{carType}" itemValue="#{carType.id}"/>
+                        </p:selectOneMenu>
+                    </f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.user}" filterBy="user" filterMatchMode="contains">
-                #{licence.user}
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{licence.user}" /></f:facet>
+                    <f:facet name="input">
+                        <p:selectOneMenu value="#{licence.userId}">
+                            <f:selectItems value="#{licenceBean.users}" var="user" itemLabel="#{user}" itemValue="#{user.id}"/>
+                        </p:selectOneMenu>
+                    </f:facet>
+                </p:cellEditor>
             </p:column>
         </j:JDataTable>
 

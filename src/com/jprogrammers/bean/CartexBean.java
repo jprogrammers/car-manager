@@ -49,6 +49,10 @@ public class CartexBean extends Cartex {
         }
     }
 
+    public void editCartex(){
+
+    }
+
     public List<Customer> getCustomers() {
         return customers;
     }
