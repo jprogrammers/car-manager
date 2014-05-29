@@ -6,6 +6,7 @@ import com.jprogrammers.service.CartexService;
 import com.jprogrammers.service.CustomerService;
 import com.jprogrammers.service.LicenceService;
 import com.jprogrammers.util.Validator;
+import org.primefaces.event.RowEditEvent;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -36,11 +37,17 @@ public class CartexBean extends Cartex {
             licences = LicenceService.getLicences();
         else
             licences = LicenceService.getLicences(user.getId());
+
+        if(user.getRoleId() == Role.ADMINISTRATOR)
+            setCartexes(CartexService.getCartexes());
+        else
+            setCartexes(CartexService.getCartexes(user.getId()));
     }
 
     public void addCartex(){
         if(Validator.isNullOrEmpty(getColor()) || Validator.isNullOrEmpty(getEngineNumber()) || Validator.isNullOrEmpty(getBodyNumber()) ||
-                Validator.isNullOrEmpty(getVINNumber()) || Validator.isNullOrEmpty(getModel()) || Validator.isNullOrEmpty(getEconomicCode())){
+                Validator.isNullOrEmpty(getVINNumber()) || Validator.isNullOrEmpty(getModel()) || Validator.isNullOrEmpty(getEconomicCode()) ||
+                getBodyNumber().length() != 17){
             FacesContext.getCurrentInstance().addMessage(null ,new FacesMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_insert_valid_parameter"),""));
         } else {
             CartexService.addCartex(user.getId(), getCustomerId(), getLicenceId(), getColor(), getEngineNumber(), getBodyNumber(), getVINNumber(),
@@ -49,8 +56,10 @@ public class CartexBean extends Cartex {
         }
     }
 
-    public void editCartex(){
-
+    public void editCartex(RowEditEvent event){
+        Cartex cartex = (Cartex)event.getObject();
+        CartexService.editCartex(cartex);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("cartex_edited_successfully"), ""));
     }
 
     public List<Customer> getCustomers() {
@@ -70,10 +79,7 @@ public class CartexBean extends Cartex {
     }
 
     public List<Cartex> getCartexes() {
-        if(user.getRoleId() == Role.ADMINISTRATOR)
-            return CartexService.getCartexes();
-        else
-            return CartexService.getCartexes(user.getId());
+        return cartexes;
     }
 
     public void setCartexes(List<Cartex> cartexes) {

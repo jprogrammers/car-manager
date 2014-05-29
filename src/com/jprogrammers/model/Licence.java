@@ -103,6 +103,7 @@ public class Licence {
 
     @Override
     public String toString() {
-        return getLicenceCode() + " - " + UserService.getUser(getUserId()).toString();
+        User user = UserService.getUser(getUserId());
+        return getLicenceCode() + " - " + (user != null ? user.toString() : "");
     }
 }

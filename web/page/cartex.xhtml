@@ -46,7 +46,7 @@
                 <p:inputText value="#{cartexBean.engineNumber}"/>
 
                 <p:outputLabel value="#{fa.body_number}:"/>
-                <p:inputMask mask="*****************" value="#{cartexBean.bodyNumber}"/>
+                <p:inputMask mask="*****************" value="#{cartexBean.bodyNumber}" onkeyup="checkEngineNumber(this)"/>
 
                 <p:outputLabel value="#{fa.VIN_number}:"/>
                 <p:inputText value="#{cartexBean.VINNumber}"/>
@@ -81,7 +81,7 @@
                     <f:facet name="output"><h:outputText value="#{cartex.licence}"/></f:facet>
                     <f:facet name="input">
                         <p:selectOneMenu value="#{cartex.licenceId}">
-                            <f:selectItems value="#{cartexBean.licences}" var="licence" itemLabel="#{licence.licenceCode}" itemValue="#{licence.id}"/>
+                            <f:selectItems value="#{cartexBean.licences}" var="licence" itemLabel="#{licence}" itemValue="#{licence.id}"/>
                         </p:selectOneMenu>
                     </f:facet>
                 </p:cellEditor>
@@ -111,12 +111,51 @@
             <p:column headerText="#{fa.body_number}">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{cartex.bodyNumber}"/></f:facet>
-                    <f:facet name="input"><p:inputText value="#{cartex.bodyNumber}" style="width: 90%"/></f:facet>
+                    <f:facet name="input"><p:inputText value="#{cartex.bodyNumber}" onkeyup="checkEngineNumber(this)" style="width: 90%"/></f:facet>
                 </p:cellEditor>
             </p:column>
 
         </j:JDataTable>
     </h:form>
+
+    <script type="text/javascript">
+        var charValue = {};
+        charValue["A"] = 1; charValue["B"] = 2; charValue["C"] = 3; charValue["D"] = 4; charValue["E"] = 5; charValue["F"] = 6; charValue["G"] = 7; charValue["H"] = 8;
+        charValue["J"] = 1; charValue["K"] = 2; charValue["L"] = 3; charValue["M"] = 4; charValue["N"] = 5; charValue["P"] = 7; charValue["R"] = 9;
+        charValue["S"] = 2; charValue["T"] = 3; charValue["U"] = 4; charValue["V"] = 5; charValue["W"] = 6; charValue["X"] = 7; charValue["Y"] = 8; charValue["Z"] = 9;
+
+        var weight = [8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2];
+
+        function checkEngineNumber(object){
+            var value = object.value;
+            if(value.length >= 17 &amp;&amp; !checkDigit(value)){
+                alert("#{fa.invalid_body_number}");
+            }
+        }
+
+        function checkDigit(number){
+            if(number.length != 17){
+                return false;
+            }
+            var sum = 0;
+            var num;
+            for(var i = 0; i &lt; number.length; i++){
+                if(i == 8)
+                    continue;
+                if(!isNaN(number.charAt(i))){
+                    num = parseInt(number.charAt(i)) * weight[i];
+                } else {
+                    num = charValue[number.charAt(i).toUpperCase()] * weight[i];
+                }
+                sum += num;
+            }
+            var keyValue = sum % 11;
+            if(keyValue == 10){
+                keyValue = "X";
+            }
+            return number.charAt(8).toUpperCase() == keyValue;
+        }
+    </script>
 
 </h:body>
 

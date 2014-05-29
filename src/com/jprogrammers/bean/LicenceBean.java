@@ -13,6 +13,7 @@ import org.primefaces.event.RowEditEvent;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
@@ -22,6 +23,7 @@ import java.util.List;
  * Created by EN20 on 5/8/14.
  */
 @ManagedBean
+@ViewScoped
 public class LicenceBean extends Licence {
 
     List<User> users;
@@ -40,6 +42,11 @@ public class LicenceBean extends Licence {
         users = UserService.getUsers(Role.USER, User.ACTIVE);
 
         carTypes = CarTypeService.getCarTypes();
+
+        if(user.getRoleId() == Role.ADMINISTRATOR)
+            setLicences(LicenceService.getLicences());
+        else
+            setLicences(LicenceService.getLicences(user.getId()));
     }
 
     public void addLicence(){
@@ -66,10 +73,7 @@ public class LicenceBean extends Licence {
     }
 
     public List<Licence> getLicences() {
-        if(user.getRoleId() == Role.ADMINISTRATOR)
-            return LicenceService.getLicences();
-        else
-            return LicenceService.getLicences(user.getId());
+        return licences;
     }
 
     public void setLicences(List<Licence> licences) {
