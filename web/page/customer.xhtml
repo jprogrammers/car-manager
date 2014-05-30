@@ -119,7 +119,7 @@
                         <h:outputText value="#{customer.firstName}" />
                     </f:facet>
                     <f:facet name="input">
-                        <p:inputText placeholder="#{fa.required}" value="#{customerBean.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
+                        <p:inputText placeholder="#{fa.required}" value="#{customer.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
                             <f:validateRegex pattern="^([^0-9]*)$" />
                         </p:inputText>
                     </f:facet>
@@ -136,7 +136,7 @@
                         <h:outputText value="#{customer.lastName}" />
                     </f:facet>
                     <f:facet name="input">
-                        <p:inputText value="#{customerBean.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
+                        <p:inputText value="#{customer.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
                             <f:validateRegex pattern="^([^0-9]*)$" />
                         </p:inputText>
                     </f:facet>
@@ -152,7 +152,7 @@
                         <h:outputText value="#{customer.nationalCode}" />
                     </f:facet>
                     <f:facet name="input">
-                        <p:inputText value="#{customerBean.nationalCode}" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_national_code}">
+                        <p:inputText value="#{customer.nationalCode}" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_national_code}">
                             <f:validateRegex pattern="^[0-9]{10}$" />
                         </p:inputText>
                     </f:facet>
@@ -168,7 +168,7 @@
                         <h:outputText value="#{customer.nationalId}" />
                     </f:facet>
                     <f:facet name="input">
-                        <p:inputText value="#{customerBean.nationalId}" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_national_id}" >
+                        <p:inputText value="#{customer.nationalId}" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_national_id}" >
                             <f:validateRegex pattern="^[0-9]{1,10}$" />
                         </p:inputText>
                     </f:facet>
@@ -216,7 +216,7 @@
                         <h:outputText value="#{customer.workTell}" />
                     </f:facet>
                     <f:facet name="input">
-                        <p:inputText placeholder="02144546648" maxlength="12" value="#{customerBean.workTell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_work_tel}">
+                        <p:inputText placeholder="02144546648" maxlength="12" value="#{customer.workTell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_work_tel}">
                             <f:validateRegex pattern="^[0-9]{10,12}$" />
                         </p:inputText>
                     </f:facet>
@@ -274,7 +274,7 @@
                         <h:outputText value="#{customer.fatherName}" />
                     </f:facet>
                     <f:facet name="input">
-                        <p:inputText value="#{customerBean.fatherName}" validatorMessage="#{fa.please_fill_a_valid_value_for_father_name}">
+                        <p:inputText value="#{customer.fatherName}" validatorMessage="#{fa.please_fill_a_valid_value_for_father_name}">
                             <f:validateRegex pattern="^([^0-9]*)$" />
                         </p:inputText>
                     </f:facet>
