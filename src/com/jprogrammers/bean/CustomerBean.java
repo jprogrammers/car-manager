@@ -65,4 +65,8 @@ public class CustomerBean extends Customer implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(severity, message, ""));
     }
 
+    public void doExport() {
+
+    }
+
 }

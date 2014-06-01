@@ -17,6 +17,7 @@
         <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
 
         <p:commandButton type="button" value="#{fa.add_customer}" onclick="PF('addCustomerDialog').show()" />
+        <p:commandButton type="button" value="#{fa.export}" onclick="#{customerBean.doExport()}" ajax="false" />
         <p:dialog id="addUser" widgetVar="addCustomerDialog" header="#{fa.add_customer}"  showEffect="fade" hideEffect="fade">
             <h:panelGrid columns="2">
 
