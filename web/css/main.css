@@ -39,3 +39,7 @@
 .ui-datatable-tablewrapper{
     overflow-x: scroll;
 }
+.ui-datatable{
+    width: 80%;
+    float: left;
+}

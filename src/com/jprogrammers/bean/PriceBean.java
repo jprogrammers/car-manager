@@ -7,8 +7,8 @@ import javax.faces.bean.ManagedBean;
  */
 @ManagedBean
 public class PriceBean {
-    double stuffPrice1;
-    double stuffPrice2;
+    double stuffDollarPrice;
+    double dollarPrice;
     double stuffPrice;
     double insurance;
     double insurancePercent = 0.005;
@@ -18,8 +18,11 @@ public class PriceBean {
     double customsLawPercent;
     double declaration;
     double declarationPercent = 0.005;
+    double tax1;
+    double tax2;
     double tax;
-    double taxPercent;
+    double taxPercent1;
+    double taxPercent2;
     double customsToll;
     double marking;
     double markingPercent = 0.1;
@@ -27,37 +30,165 @@ public class PriceBean {
     double helalAhmarPercent = 0.05;
     double standard;
     double standardPercent = 0.008;
+
+    double inspection;
+    double note;
+    double assetSide;
+    double taxOther;
+    double markingInsurance;
+    double municipal;
+    double plaque;
+    double vehicleCarrier;
+    double licence;
+    double other;
+
     double totalPrice;
 
     public void calculatePrice(){
-        stuffPrice = stuffPrice1 * stuffPrice2;
+        stuffPrice = stuffDollarPrice * dollarPrice;
         insurance = stuffPrice * insurancePercent;
         stuffSafe = stuffPrice + insurance + shipmentPrice;
-        customsLaw = stuffSafe * customsLawPercent;
+        customsLaw = stuffSafe * (customsLawPercent / 100.0);
         declaration = customsLaw * declarationPercent;
-        tax = (customsLaw + declaration) * taxPercent;
+        tax1 = (stuffSafe + customsLaw) * (taxPercent1 / 100.0);
+        tax2 = (stuffSafe + customsLaw) * (taxPercent2 / 100.0);
+        tax = tax1 + tax2;
         customsToll = customsLaw + declaration + tax;
-        marking = customsLaw * markingPercent;
+        marking = stuffSafe * markingPercent;
         helalAhmar = stuffPrice * helalAhmarPercent;
         standard = stuffPrice * standardPercent;
 
-        totalPrice = customsToll + marking + helalAhmar + standard;
+        totalPrice = customsToll + marking + helalAhmar + standard +
+                inspection + note + assetSide + taxOther + markingInsurance +
+                municipal + plaque + vehicleCarrier + licence + other;
     }
 
-    public double getStuffPrice1() {
-        return stuffPrice1;
+    public double getInspection() {
+        return inspection;
     }
 
-    public void setStuffPrice1(double stuffPrice1) {
-        this.stuffPrice1 = stuffPrice1;
+    public void setInspection(double inspection) {
+        this.inspection = inspection;
     }
 
-    public double getStuffPrice2() {
-        return stuffPrice2;
+    public double getNote() {
+        return note;
     }
 
-    public void setStuffPrice2(double stuffPrice2) {
-        this.stuffPrice2 = stuffPrice2;
+    public void setNote(double note) {
+        this.note = note;
+    }
+
+    public double getAssetSide() {
+        return assetSide;
+    }
+
+    public void setAssetSide(double assetSide) {
+        this.assetSide = assetSide;
+    }
+
+    public double getTaxOther() {
+        return taxOther;
+    }
+
+    public void setTaxOther(double taxOther) {
+        this.taxOther = taxOther;
+    }
+
+    public double getMarkingInsurance() {
+        return markingInsurance;
+    }
+
+    public void setMarkingInsurance(double markingInsurance) {
+        this.markingInsurance = markingInsurance;
+    }
+
+    public double getMunicipal() {
+        return municipal;
+    }
+
+    public void setMunicipal(double municipal) {
+        this.municipal = municipal;
+    }
+
+    public double getPlaque() {
+        return plaque;
+    }
+
+    public void setPlaque(double plaque) {
+        this.plaque = plaque;
+    }
+
+    public double getVehicleCarrier() {
+        return vehicleCarrier;
+    }
+
+    public void setVehicleCarrier(double vehicleCarrier) {
+        this.vehicleCarrier = vehicleCarrier;
+    }
+
+    public double getLicence() {
+        return licence;
+    }
+
+    public void setLicence(double licence) {
+        this.licence = licence;
+    }
+
+    public double getOther() {
+        return other;
+    }
+
+    public void setOther(double other) {
+        this.other = other;
+    }
+
+    public double getTax1() {
+        return tax1;
+    }
+
+    public void setTax1(double tax1) {
+        this.tax1 = tax1;
+    }
+
+    public double getTax2() {
+        return tax2;
+    }
+
+    public void setTax2(double tax2) {
+        this.tax2 = tax2;
+    }
+
+    public double getTaxPercent1() {
+        return taxPercent1;
+    }
+
+    public void setTaxPercent1(double taxPercent1) {
+        this.taxPercent1 = taxPercent1;
+    }
+
+    public double getTaxPercent2() {
+        return taxPercent2;
+    }
+
+    public void setTaxPercent2(double taxPercent2) {
+        this.taxPercent2 = taxPercent2;
+    }
+
+    public double getStuffDollarPrice() {
+        return stuffDollarPrice;
+    }
+
+    public void setStuffDollarPrice(double stuffDollarPrice) {
+        this.stuffDollarPrice = stuffDollarPrice;
+    }
+
+    public double getDollarPrice() {
+        return dollarPrice;
+    }
+
+    public void setDollarPrice(double dollarPrice) {
+        this.dollarPrice = dollarPrice;
     }
 
     public double getStuffPrice() {
@@ -138,14 +269,6 @@ public class PriceBean {
 
     public void setTax(double tax) {
         this.tax = tax;
-    }
-
-    public double getTaxPercent() {
-        return taxPercent;
-    }
-
-    public void setTaxPercent(double taxPercent) {
-        this.taxPercent = taxPercent;
     }
 
     public double getCustomsToll() {

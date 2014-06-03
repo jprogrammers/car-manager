@@ -13,14 +13,20 @@
 
 <h:body>
     <h:form>
-        <p:menubar style="width: 96%">
+        <p:menu style="width: 18%; float: right;">
             <p:menuitem value="#{fa.users}" url="/page/user.xhtml"/>
             <p:menuitem value="#{fa.customers}" url="/page/customer.xhtml"/>
             <p:menuitem value="#{fa.car_types}" url="/page/car_type.xhtml"/>
             <p:menuitem value="#{fa.licences}" url="/page/licence.xhtml"/>
             <p:menuitem value="#{fa.cartexes}" url="/page/cartex.xhtml"/>
             <p:menuitem value="#{fa.calculate_price}" url="/page/price.xhtml"/>
-        </p:menubar>
+            <p:submenu>
+                <p:menuitem>
+                    <p:outputLabel value="#{session.getAttribute('user').firstName} #{session.getAttribute('user').lastName}" style="margin-right:10px"/>
+                    <p:commandButton value="#{fa.logout}" icon="ui-icon-extlink" actionListener="#{loginBean.doLogout}" />
+                </p:menuitem>
+            </p:submenu>
+        </p:menu>
     </h:form>
 </h:body>
 
