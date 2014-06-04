@@ -23,6 +23,8 @@ public class User implements SelectableDataModel<User> {
     private String lastName;
     private String emailAddress;
     private String password;
+    private String tell;
+    private String address;
     private Date createDate;
     private Date modifiedDate;
     private int roleId;
@@ -113,6 +115,25 @@ public class User implements SelectableDataModel<User> {
     @Column(name = "status", nullable = true, insertable = true, updatable = true, length = 1)
     public int getStatus() {
         return status;
+    }
+
+    @Basic
+    @Column(name = "tell", nullable = true, insertable = true, updatable = true, length = 8)
+    public String getTell() {
+        return tell;
+    }
+
+    public void setTell(String tell) {
+        this.tell = tell;
+    }
+
+    @Column(name = "address", nullable = true, insertable = true, updatable = true, length = 2000)
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public void setStatus(int status) {

@@ -20,7 +20,7 @@
         <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
         <c:if test="#{session.getAttribute('user').roleId == 0}">
             <p:commandButton type="button" value="#{fa.add_car_type}" onclick="PF('addCarTypeDialog').show()" />
-            <p:dialog id="addCarTypeDialog" widgetVar="addCarTypeDialog" header="#{fa.add_car_type}" showEffect="fade" hideEffect="fade">
+            <p:dialog id="addCarTypeDialog" widgetVar="addCarTypeDialog" header="#{fa.add_car_type}" showEffect="fade" hideEffect="fade" draggable="false">
                 <h:panelGrid columns="2">
                     <p:outputLabel value="#{fa.country}"/>
                     <p:inputText value="#{carTypeBean.country}"/>

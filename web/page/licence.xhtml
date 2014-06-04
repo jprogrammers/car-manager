@@ -19,7 +19,7 @@
         <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
         <c:if test="#{session.getAttribute('user').roleId == 0}">
             <p:commandButton type="button" value="#{fa.add_licence}" onclick="PF('addLicenceDialog').show()" />
-            <p:dialog id="addLicence" widgetVar="addLicenceDialog" header="#{fa.add_licence}"  showEffect="fade" hideEffect="fade">
+            <p:dialog id="addLicence" widgetVar="addLicenceDialog" header="#{fa.add_licence}"  showEffect="fade" hideEffect="fade" draggable="false">
                 <h:panelGrid columns="2">
                     <p:outputLabel value="#{fa.licence_code}"/>
                     <p:inputText value="#{licenceBean.licenceCode}"/>

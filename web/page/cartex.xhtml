@@ -18,7 +18,7 @@
     <h:form>
         <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
         <p:commandButton type="button" value="#{fa.add_cartex}" onclick="PF('addCartexDialog').show()" />
-        <p:dialog id="addCartex" widgetVar="addCartexDialog" header="#{fa.add_cartex}"  showEffect="fade" hideEffect="fade">
+        <p:dialog id="addCartex" widgetVar="addCartexDialog" header="#{fa.add_cartex}"  showEffect="fade" hideEffect="fade" draggable="false">
             <h:panelGrid columns="4">
                 <p:outputLabel value="#{fa.economic_code}:"/>
                 <p:inputText value="#{cartexBean.economicCode}"/>

@@ -121,7 +121,7 @@ public class UserBean extends User implements Serializable {
     }
 
     public void addUser() throws IOException {
-        UserService.addUser(getFirstName() , getLastName() , getEmailAddress() , getPassword());
+        UserService.addUser(getFirstName() , getLastName() , getEmailAddress() , getPassword() , getTell() , getAddress());
 
         ///FacesContext.getCurrentInstance().addMessage("app-message" ,  new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("your_request_was_completed"), ""));
         addMessage(FacesMessage.SEVERITY_INFO , LanguageUtil.get("your_request_was_completed"));

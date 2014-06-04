@@ -16,7 +16,7 @@
         <p:messages id="message" showDetail="false" autoUpdate="true" closable="true"/>
         <p:commandButton type="button" value="#{fa.add_user}" onclick="PF('addUserDialog').show()" />
 
-        <p:dialog id="addUser" widgetVar="addUserDialog" header="#{fa.add_user}"  showEffect="fade" hideEffect="fade">
+        <p:dialog id="addUser" widgetVar="addUserDialog" header="#{fa.add_user}"  showEffect="fade" hideEffect="fade" draggable="false">
             <h:panelGrid columns="2">
 
                 <p:outputLabel value="#{fa.first_name}"/>
@@ -35,7 +35,15 @@
                 </p:inputText>
 
                 <p:outputLabel value="#{fa.password}"/>
-                <p:inputText type="password" value="#{userBean.password}" required="truw" requiredMessage="#{fa.password_is_required}"/>
+                <p:inputText type="password" value="#{userBean.password}" required="true" requiredMessage="#{fa.password_is_required}"/>
+
+                <p:outputLabel value="#{fa.tell}"/>
+                <p:inputText placeholder="44546648" maxlength="8" value="#{userBean.tell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_phone_number}">
+                    <f:validateRegex pattern="^[0-9]{8}$" />
+                </p:inputText>
+
+                <p:outputLabel value="#{fa.home_address}"/>
+                <p:inputText value="#{userBean.address}" />
 
                 <p:outputLabel value="#{fa.role}"/>
                 <p:selectOneMenu value="#{userBean.roleId}">
@@ -56,12 +64,11 @@
 
             <p:ajax event="rowEdit" listener="#{userBean.onEdit}" update=":form:message" />
 
-            <f:facet name="header">
-                <p:outputPanel>
-                    <h:outputText value="#{fa.search_all_fields}:" />
-                    <p:inputText id="globalFilter" onkeyup="userTable.filter()" style="width:150px" />
-                </p:outputPanel>
-            </f:facet>
+            <p:column style="width:6%">
+                <p:rowEditor />
+                <p:commandButton update=":form2:dataTable" actionListener="#{userBean.deleteUser(user.id)}" ajax="false" value="#{fa.delete}" icon="ui-icon-close" />
+            </p:column>
+
 
             <p:column id="firstNameColumn" filterBy="firstName"
                       headerText="#{fa.first_name}"
@@ -130,6 +137,38 @@
 
             </p:column>
 
+            <p:column id="tell" filterBy="tell"
+                      headerText="#{fa.tell}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{user.tell}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText placeholder="44546648" maxlength="8" value="#{user.tell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_phone_number}">
+                            <f:validateRegex pattern="^[0-9]{8}$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="homeAddress" filterBy="address"
+                      headerText="#{fa.home_address}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{user.address}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{user.address}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+
+
             <p:column id="statusColumn" filterBy="status"
                       headerText="#{fa.status}"
                       filterMatchMode="exact"
@@ -150,11 +189,6 @@
                 </p:cellEditor>
             </p:column>
 
-
-            <p:column style="width:6%">
-                <p:rowEditor />
-                <p:commandButton update=":form2:dataTable" actionListener="#{userBean.deleteUser(user.id)}" ajax="false" value="#{fa.delete}" icon="ui-icon-close" />
-            </p:column>
 
         </p:dataTable>
 

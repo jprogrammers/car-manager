@@ -58,7 +58,7 @@ public class Customer {
         this.nationalId = nationalId;
     }
 
-    @Column(name = "tell", nullable = true, insertable = true, updatable = true, length = 12)
+    @Column(name = "tell", nullable = true, insertable = true, updatable = true, length = 8)
     public String getTell() {
         return tell;
     }
@@ -76,7 +76,7 @@ public class Customer {
         this.mobile = mobile;
     }
 
-    @Column(name = "workTell", nullable = true, insertable = true, updatable = true, length = 12)
+    @Column(name = "workTell", nullable = true, insertable = true, updatable = true, length = 8)
     public String getWorkTell() {
         return workTell;
     }

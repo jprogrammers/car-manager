@@ -26,12 +26,14 @@ public class UserService{
 
     }
 
-    public static User addUser (String firstName ,String lastName , String emailAddress , String password) {
+    public static User addUser (String firstName ,String lastName , String emailAddress , String password, String tell ,String address ) {
 
         User user = new User();
 
         user.setFirstName(firstName);
         user.setLastName(lastName);
+        user.setTell(tell);
+        user.setAddress(address);
         user.setEmailAddress(emailAddress);
         user.setPassword(PWDEncryption.encrypt(password));
         user.setCreateDate(new Date());
