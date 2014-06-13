@@ -2,9 +2,7 @@ package com.jprogrammers.bean;
 
 import com.jprogrammers.language.LanguageUtil;
 import com.jprogrammers.model.*;
-import com.jprogrammers.service.CartexService;
-import com.jprogrammers.service.CustomerService;
-import com.jprogrammers.service.LicenceService;
+import com.jprogrammers.service.*;
 import com.jprogrammers.util.Validator;
 import org.primefaces.event.RowEditEvent;
 
@@ -12,6 +10,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
+import javax.swing.text.EditorKit;
 import java.util.List;
 
 /**
@@ -59,7 +58,57 @@ public class CartexBean extends Cartex {
     public void editCartex(RowEditEvent event){
         Cartex cartex = (Cartex)event.getObject();
         CartexService.editCartex(cartex);
+
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+
+        User user = (User) session.getAttribute("user");
+
+        CartexEditRequest cartexRequest = CartexEditRequestService.getEditRequestByC_U(cartex.getId() ,user.getId());
+
+        if (cartexRequest != null) {
+            CartexEditRequestService.deleteCartexEditRequest(cartexRequest);
+        }
+
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("cartex_edited_successfully"), ""));
+    }
+
+    public void requestForEdit(long cartexId , long userId){
+        CartexEditRequestService.updateCartextEditRequest(CounterService.increment() , userId , cartexId , CartexEditRequest.STATUS_PENDING);
+
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("edit_request_successfully_sent_wait_for_response"), ""));
+    }
+
+    public boolean hasPendingRequest(long cartexId , long userId){
+
+        User user = UserService.getUser(userId);
+
+        CartexEditRequest editRequest = CartexEditRequestService.getEditRequestByC_U(cartexId, userId);
+
+        if (editRequest != null && editRequest.getStatus() == CartexEditRequest.STATUS_PENDING && user.getRoleId() != Role.ADMINISTRATOR) {
+            return true;
+        }
+
+        return false;
+    }
+     public boolean hasEditPermission(long cartexId , long userId) {
+
+         CartexEditRequest editRequest = CartexEditRequestService.getEditRequestByC_U(cartexId, userId);
+
+         if ((editRequest != null && editRequest.getStatus() == CartexEditRequest.STATUS_ALLOWED) || UserService.getUser(userId).getRoleId() == Role.ADMINISTRATOR) {
+             return true;
+         }
+
+         return false;
+    }
+
+    public boolean canRequest(long cartexId , long userId) {
+        CartexEditRequest editRequest = CartexEditRequestService.getEditRequestByC_U(cartexId, userId);
+
+        if (editRequest == null  && UserService.getUser(userId).getRoleId() != Role.ADMINISTRATOR) {
+            return true;
+        }
+
+        return false;
     }
 
     public List<Customer> getCustomers() {

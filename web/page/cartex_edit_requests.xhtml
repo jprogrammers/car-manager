@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:j="http://jprogrammers.com/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+    <title>#{fa.cartex_edit_requests}</title>
+</h:head>
+<ui:include src="header.xhtml"/>
+<h:body dir="rtl">
+
+    <h:form>
+        <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
+
+        <j:JDataTable id="requestTable" value="#{requestBean.pendingRequests}" var="editRequest" paginator="true" rows="10"
+                      widgetVar="requestDataTable" emptyMessage="#{fa.no_cartex_request_exist}">
+
+            <p:column headerText="#{fa.economic_code}">
+                <h:outputText value="#{requestBean.getCartexEconomicCode(editRequest.cartexId)}" />
+            </p:column>
+
+            <p:column headerText="#{fa.user}">
+                <h:outputText value="#{requestBean.getUserFullName(editRequest.userId)}" />
+            </p:column>
+
+            <p:column headerText="#{fa.action}">
+                <p:commandButton ajax="false" value="#{fa.accept_request}" actionListener="#{requestBean.acceptRequest(editRequest.id)}" />
+                <p:commandButton ajax="false" value="#{fa.deny_request}" actionListener="#{requestBean.denyRequest(editRequest.id)}" />
+            </p:column>
+
+        </j:JDataTable>
+
+    </h:form>
+
+</h:body>
+
+</html>

@@ -66,7 +66,16 @@
 
             <p:column style="width:6%">
                 <p:rowEditor />
-                <p:commandButton update=":form2:dataTable" actionListener="#{userBean.deleteUser(user.id)}" ajax="false" value="#{fa.delete}" icon="ui-icon-close" />
+
+
+                <p:commandButton value="#{fa.delete}" update=":form2:dataTable" actionListener="#{userBean.deleteUser(user.id)}" >
+                    <p:confirm header="#{fa.confirmation}" message="#{fa.are_you_sure}" icon="ui-icon-alert"/>
+                </p:commandButton>
+
+                <p:confirmDialog global="true">
+                    <p:commandButton value="#{fa.yes}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="#{fa.no}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                </p:confirmDialog>
             </p:column>
 
 

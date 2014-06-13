@@ -20,6 +20,9 @@
             <p:menuitem value="#{fa.licences}" url="/page/licence.xhtml"/>
             <p:menuitem value="#{fa.cartexes}" url="/page/cartex.xhtml"/>
             <p:menuitem value="#{fa.calculate_price}" url="/page/price.xhtml"/>
+
+            <p:menuitem value="#{fa.cartex_edit_requests}" rendered="#{session.getAttribute('user').roleId == 0}" url="/page/cartex_edit_requests.xhtml"/>
+
             <p:submenu>
                 <p:menuitem>
                     <p:outputLabel value="#{session.getAttribute('user').firstName} #{session.getAttribute('user').lastName}" style="margin-right:10px"/>

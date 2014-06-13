@@ -7,17 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d04376e-d877-4c2a-b2f8-8cdcfe2d3f51" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/model/Customer.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/Customer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/CartexEditRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/CartexEditRequestBean.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/CartexEditRequestService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/page/cartex_edit_requests.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/log4j.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Ali_Reza_Akbarian.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Ali_Reza_Akbarian.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/bean/CartexBean.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/CartexBean.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/bean/CustomerBean.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/CustomerBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/model/User.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/bean/UserBean.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/UserBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/service/UserService.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/car_type.xhtml" afterPath="$PROJECT_DIR$/web/page/car_type.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/carsManager_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/carsManager_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/cartex.xhtml" afterPath="$PROJECT_DIR$/web/page/cartex.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/customer.xhtml" afterPath="$PROJECT_DIR$/web/page/customer.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/header.xhtml" afterPath="$PROJECT_DIR$/web/page/header.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties" afterPath="$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/licence.xhtml" afterPath="$PROJECT_DIR$/web/page/licence.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/user.xhtml" afterPath="$PROJECT_DIR$/web/page/user.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -96,6 +99,21 @@
         <option name="CONDITION" value="&#13;&#13;JAVA" />
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/jprogrammers/bean/UserBean.java" line="120" class="com.jprogrammers.bean.UserBean" package="com.jprogrammers.bean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
     </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
@@ -106,10 +124,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="cartex.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/page/cartex.xhtml">
+      <file leaf-file-name="CustomerBean.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/CustomerBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="140" selection-start="942" selection-end="942" vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="2856">
+            <state line="71" column="0" selection-start="2270" selection-end="2270" vertical-scroll-proportion="0.5" vertical-offset="549" max-vertical-offset="2244">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/UserBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="125" column="0" selection-start="3455" selection-end="3455" vertical-scroll-proportion="0.0" vertical-offset="1454" max-vertical-offset="1989">
               <folding />
             </state>
           </provider>
@@ -118,19 +145,35 @@
       <file leaf-file-name="customer.xhtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/page/customer.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="39" selection-start="5770" selection-end="5770" vertical-scroll-proportion="-4.1568627" vertical-offset="1573" max-vertical-offset="6120">
+            <state line="90" column="75" selection-start="4857" selection-end="4862" vertical-scroll-proportion="-5.8846154" vertical-offset="1377" max-vertical-offset="6205">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Customer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Customer.java">
+      <file leaf-file-name="CartexBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/CartexBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="95" selection-start="2029" selection-end="2029" vertical-scroll-proportion="0.0" vertical-offset="737" max-vertical-offset="2329">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="82" column="48" selection-start="3494" selection-end="3494" vertical-scroll-proportion="0.0" vertical-offset="1081" max-vertical-offset="2108">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log4j.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/log4j.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="91" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cartex_edit_requests.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/page/cartex_edit_requests.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="23" selection-start="1626" selection-end="1626" vertical-scroll-proportion="-12.230769" vertical-offset="260" max-vertical-offset="833">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,63 +181,16 @@
       <file leaf-file-name="language-fa.properties" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="5" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="117" max-vertical-offset="1836">
+            <state line="117" column="117" selection-start="3765" selection-end="3765" vertical-scroll-proportion="0.0" vertical-offset="1646" max-vertical-offset="2091">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/CustomerService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="20" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="1071">
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/LoginBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="120" selection-start="922" selection-end="1030" vertical-scroll-proportion="0.0" vertical-offset="78" max-vertical-offset="799">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="licence.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/page/licence.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="147" selection-start="1023" selection-end="1023" vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="1547">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Validator.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/util/Validator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="5" selection-start="2021" selection-end="2021" vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="1173">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="car_type.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/page/car_type.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="64" selection-start="958" selection-end="958" vertical-scroll-proportion="-6.4615383" vertical-offset="206" max-vertical-offset="2907">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.xhtml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="user.xhtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/page/user.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="39" selection-start="3565" selection-end="3565" vertical-scroll-proportion="0.45566502" vertical-offset="937" max-vertical-offset="3485">
+            <state line="70" column="16" selection-start="3616" selection-end="3876" vertical-scroll-proportion="-8.5" vertical-offset="969" max-vertical-offset="3638">
               <folding />
             </state>
           </provider>
@@ -219,8 +215,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/jprogrammers/filter/SessionCheckerFilter.java" />
-        <option value="$PROJECT_DIR$/src/com/jprogrammers/language/LanguageUtil.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/faces-config.xml" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/filter/LoginFilter.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/util/HibernateUtil.java" />
@@ -236,15 +230,12 @@
         <option value="$PROJECT_DIR$/web/page/customer.xhml.xhtml" />
         <option value="$PROJECT_DIR$/web/page/customer.xhml" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/model/Role.java" />
-        <option value="$PROJECT_DIR$/src/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/service/CustomerService.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/users/CustomerBean.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/model/Cartex.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/service/CartexService.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/model/CarType.java" />
-        <option value="$PROJECT_DIR$/web/page/header.xhtml" />
-        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/CarTypeBean.java" />
         <option value="$PROJECT_DIR$/web/css/main.css" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/PriceBean.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/service/LicenceService.java" />
@@ -252,20 +243,29 @@
         <option value="$PROJECT_DIR$/src/com/jprogrammers/model/Licence.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/LicenceBean.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/util/Validator.java" />
-        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/CartexBean.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/util/ModelToExcelUtil.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/util/ExportModelUtil.java" />
-        <option value="$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties" />
-        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/CustomerBean.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/model/User.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/model/Customer.java" />
         <option value="$PROJECT_DIR$/src/com/jprogrammers/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/UserBean.java" />
-        <option value="$PROJECT_DIR$/web/page/cartex.xhtml" />
         <option value="$PROJECT_DIR$/web/page/licence.xhtml" />
         <option value="$PROJECT_DIR$/web/page/car_type.xhtml" />
-        <option value="$PROJECT_DIR$/web/page/customer.xhtml" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/model/CatexEditRequest.java" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/CarTypeBean.java" />
+        <option value="$PROJECT_DIR$/src/hibernate.cfg.xml" />
+        <option value="$PROJECT_DIR$/web/page/header.xhtml" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/model/CartexEditRequest.java" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/service/CartexEditRequestService.java" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/CartexEditRequestBean.java" />
+        <option value="$PROJECT_DIR$/web/page/cartex_edit_requests.xhtml" />
+        <option value="$PROJECT_DIR$/web/page/cartex.xhtml" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/CartexBean.java" />
+        <option value="$PROJECT_DIR$/src/log4j.properties" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/UserBean.java" />
         <option value="$PROJECT_DIR$/web/page/user.xhtml" />
+        <option value="$PROJECT_DIR$/web/page/customer.xhtml" />
+        <option value="$PROJECT_DIR$/src/com/jprogrammers/bean/CustomerBean.java" />
       </list>
     </option>
   </component>
@@ -350,10 +350,6 @@
               <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -383,56 +379,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -454,10 +400,6 @@
               <option name="myItemId" value="jprogrammers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -474,6 +416,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="jprogrammers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -496,28 +442,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carsManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jprogrammers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="language" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -569,7 +493,7 @@
     <property name="options.searchVisible" value="true" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="SearchEverywhereHistory" value="UserService&#10;Cust&#10;excel.png&#10;UserBea&#10;cust&#10;customer&#10;language&#10;carty&#10;Customer&#10;UserBe&#10;user&#10;user.&#10;lang&#10;cart&#10;customer.xh&#10;customerBea&#10;langu&#10;Table&#10;cus&#10;langua&#10;Language&#10;Langua&#10;login.x&#10;add_user" />
+    <property name="SearchEverywhereHistory" value="lang&#10;CartexBe&#10;CartexEdit&#10;language&#10;header&#10;langua&#10;Role&#10;CartypeBean&#10;langu&#10;User&#10;Cartex&#10;UserService&#10;Cust&#10;excel.png&#10;UserBea&#10;cust&#10;customer&#10;carty&#10;Customer&#10;UserBe&#10;user&#10;user.&#10;cart&#10;customer.xh&#10;customerBea&#10;Table&#10;cus&#10;Language&#10;Langua&#10;login.x&#10;add_user" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
   </component>
   <component name="RecentsManager">
@@ -949,7 +873,9 @@
       <workItem from="1401476301712" duration="947000" />
       <workItem from="1401650591966" duration="542000" />
       <workItem from="1401651565194" duration="1009000" />
-      <workItem from="1401865152231" duration="11968000" />
+      <workItem from="1401865152231" duration="12646000" />
+      <workItem from="1402507508465" duration="1759000" />
+      <workItem from="1402639970067" duration="22287000" />
     </task>
     <task id="LOCAL-00001" summary="show users data grid view and add user without validation">
       <created>1399049619658</created>
@@ -979,11 +905,15 @@
       <created>1401878722957</created>
       <updated>1401878722957</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="remove some problems - add address and tel to users - add capability to export customers to an excel file">
+      <created>1401878739647</created>
+      <updated>1401878739647</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128843000" />
+    <option name="totallyTimeSpent" value="153567000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -995,14 +925,14 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24967907" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24133505" sideWeight="0.498998" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24390244" sideWeight="0.498998" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32421875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
@@ -1086,42 +1016,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/UserBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="563" selection-end="563" vertical-scroll-proportion="0.0" vertical-offset="194" max-vertical-offset="646">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/page/header.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="58" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/util/PWDEncryption.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="29" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="833" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="17" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="2159">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="41" selection-start="251" selection-end="251" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="306">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="8" selection-start="1652" selection-end="1652" vertical-scroll-proportion="0.0" vertical-offset="1037" max-vertical-offset="1190" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/GenericDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="70" column="5" selection-start="1773" selection-end="1773" vertical-scroll-proportion="0.0" vertical-offset="1190" max-vertical-offset="1666" />
@@ -1130,13 +1024,6 @@
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/language/LanguageUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="13" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/primefaces-4.0.jar!/META-INF/primefaces-p.taglib.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8366" column="4" selection-start="307738" selection-end="307738" vertical-scroll-proportion="0.33257404" vertical-offset="142076" max-vertical-offset="270861">
           <folding />
         </state>
       </provider>
@@ -1161,11 +1048,6 @@
         <state line="12" column="62" selection-start="318" selection-end="318" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/CounterService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="69" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="731" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Counter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="63" selection-start="313" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="969" />
@@ -1174,35 +1056,6 @@
     <entry file="file://$PROJECT_DIR$/web/page/index.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="0" selection-start="432" selection-end="464" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="408" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/faces-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="11" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="323">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="81" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="55" selection-start="711" selection-end="711" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/CartexService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="56" selection-start="1273" selection-end="1273" vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="1139" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/jprogrammers.taglib.xml">
@@ -1229,11 +1082,6 @@
         <state line="30" column="5" selection-start="1144" selection-end="1144" vertical-scroll-proportion="0.0" vertical-offset="239" max-vertical-offset="680" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/page/header.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="76" selection-start="993" selection-end="993" vertical-scroll-proportion="-8.423077" vertical-offset="138" max-vertical-offset="561" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/CarType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="29" selection-start="288" selection-end="647" vertical-scroll-proportion="0.0" vertical-offset="39" max-vertical-offset="2108">
@@ -1244,13 +1092,6 @@
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/LicenceService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="31" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.0" vertical-offset="156" max-vertical-offset="697" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/CarTypeBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="50" selection-start="781" selection-end="781" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1037">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/PriceBean.java">
@@ -1270,16 +1111,6 @@
         <state line="16" column="59" selection-start="708" selection-end="708" vertical-scroll-proportion="-5.923077" vertical-offset="118" max-vertical-offset="1802" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/LicenceBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="8" selection-start="2019" selection-end="2107" vertical-scroll-proportion="0.0" vertical-offset="605" max-vertical-offset="1241">
-          <folding>
-            <element signature="e#2291#2292#0" expanded="true" />
-            <element signature="e#2322#2323#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Licence.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="106" column="80" selection-start="2750" selection-end="2750" vertical-scroll-proportion="0.0" vertical-offset="981" max-vertical-offset="1479">
@@ -1289,81 +1120,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/GenericDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="19" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.0" vertical-offset="532" max-vertical-offset="1156">
-          <folding />
-        </state>
+        <state line="45" column="19" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.0" vertical-offset="532" max-vertical-offset="1156" />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/poi-ooxml-3.10-FINAL-20140208.jar!/org/apache/poi/POIXMLDocument.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="22" selection-start="1823" selection-end="1823" vertical-scroll-proportion="-12.52" vertical-offset="197" max-vertical-offset="629">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Cartex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="34" selection-start="1162" selection-end="1188" vertical-scroll-proportion="-0.22921348" vertical-offset="731" max-vertical-offset="2074">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/CartexBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="29" selection-start="2462" selection-end="2462" vertical-scroll-proportion="-0.023148147" vertical-offset="826" max-vertical-offset="1258">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="27" selection-start="3264" selection-end="3264" vertical-scroll-proportion="0.0" vertical-offset="1033" max-vertical-offset="2074">
-          <folding>
-            <element signature="e#3135#3136#0" expanded="true" />
-            <element signature="e#3162#3163#0" expanded="true" />
-            <element signature="e#3202#3203#0" expanded="true" />
-            <element signature="e#3234#3235#0" expanded="true" />
-            <element signature="e#3367#3368#0" expanded="true" />
-            <element signature="e#3397#3398#0" expanded="true" />
-            <element signature="e#3443#3444#0" expanded="true" />
-            <element signature="e#3481#3482#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="24" selection-start="657" selection-end="664" vertical-scroll-proportion="0.41501105" vertical-offset="203" max-vertical-offset="1598">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/UserBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="121" selection-start="3415" selection-end="3415" vertical-scroll-proportion="0.0" vertical-offset="1220" max-vertical-offset="1904">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/CustomerBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="85" selection-start="5331" selection-end="5331" vertical-scroll-proportion="0.0" vertical-offset="316" max-vertical-offset="2210">
-          <folding />
-        </state>
+        <state line="31" column="22" selection-start="1823" selection-end="1823" vertical-scroll-proportion="-12.52" vertical-offset="197" max-vertical-offset="629" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Customer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="78" column="95" selection-start="2029" selection-end="2029" vertical-scroll-proportion="0.0" vertical-offset="737" max-vertical-offset="2329">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="5" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="117" max-vertical-offset="1836">
           <folding />
         </state>
       </provider>
@@ -1371,15 +1138,6 @@
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/CustomerService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="20" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="1071">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/LoginBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="120" selection-start="922" selection-end="1030" vertical-scroll-proportion="0.0" vertical-offset="78" max-vertical-offset="799">
           <folding />
         </state>
       </provider>
@@ -1391,37 +1149,218 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/page/cartex.xhtml">
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="140" selection-start="942" selection-end="942" vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="2856">
+        <state line="0" column="33" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/page/licence.xhtml">
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="147" selection-start="1023" selection-end="1023" vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="1547">
+        <state line="31" column="0" selection-start="703" selection-end="703" vertical-scroll-proportion="0.0" vertical-offset="39" max-vertical-offset="1938">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/page/car_type.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="64" selection-start="958" selection-end="958" vertical-scroll-proportion="-6.4615383" vertical-offset="206" max-vertical-offset="2907">
+        <state line="20" column="65" selection-start="723" selection-end="780" vertical-scroll-proportion="-5.769231" vertical-offset="190" max-vertical-offset="2907">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/page/customer.xhtml">
+    <entry file="file://$PROJECT_DIR$/web/page/licence.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="39" selection-start="5770" selection-end="5770" vertical-scroll-proportion="-4.1568627" vertical-offset="1573" max-vertical-offset="6120">
+        <state line="21" column="147" selection-start="1023" selection-end="1023" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1547">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/CarTypeBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="5" selection-start="2111" selection-end="2111" vertical-scroll-proportion="0.0" vertical-offset="548" max-vertical-offset="1037">
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2152#2153#0" expanded="false" />
+            <element signature="e#2183#2184#0" expanded="false" />
+            <element signature="e#2238#2239#0" expanded="false" />
+            <element signature="e#2278#2279#0" expanded="false" />
+            <element signature="e#2328#2329#0" expanded="false" />
+            <element signature="e#2367#2368#0" expanded="false" />
+            <element signature="e#2438#2439#0" expanded="false" />
+            <element signature="e#2494#2495#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="64" selection-start="1010" selection-end="1010" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_04/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="721" column="0" selection-start="26865" selection-end="26865" vertical-scroll-proportion="0.33258426" vertical-offset="11514" max-vertical-offset="33915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/CounterService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="700" selection-end="700" vertical-scroll-proportion="0.75609756" vertical-offset="34" max-vertical-offset="731">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="81" selection-start="332" selection-end="332" vertical-scroll-proportion="0.28412256" vertical-offset="0" max-vertical-offset="718">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/faces-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="12" selection-start="422" selection-end="422" vertical-scroll-proportion="0.22077923" vertical-offset="0" max-vertical-offset="693">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/LicenceBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="8" selection-start="2019" selection-end="2107" vertical-scroll-proportion="1.0891365" vertical-offset="0" max-vertical-offset="1207">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/Cartex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="11" selection-start="307" selection-end="307" vertical-scroll-proportion="-1.8292683" vertical-offset="1377" max-vertical-offset="2074">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/page/header.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="106" selection-start="1116" selection-end="1116" vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/model/CartexEditRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="1054">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/CartexEditRequestBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="0" selection-start="2592" selection-end="2592" vertical-scroll-proportion="0.0" vertical-offset="847" max-vertical-offset="1360">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/CartexEditRequestService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="352" selection-end="352" vertical-scroll-proportion="0.305618" vertical-offset="102" max-vertical-offset="1105">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#329#348#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/LoginBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="48" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.0" vertical-offset="78" max-vertical-offset="799">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="91" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/page/cartex_edit_requests.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="23" selection-start="1626" selection-end="1626" vertical-scroll-proportion="-12.230769" vertical-offset="260" max-vertical-offset="833">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/service/CartexService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="5" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.8292135" vertical-offset="209" max-vertical-offset="1105">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="117" selection-start="3765" selection-end="3765" vertical-scroll-proportion="0.0" vertical-offset="1646" max-vertical-offset="2091">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/primefaces-4.0.jar!/META-INF/primefaces-p.taglib.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2744" column="8" selection-start="98526" selection-end="98526" vertical-scroll-proportion="0.33333334" vertical-offset="46504" max-vertical-offset="270861">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/page/user.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="39" selection-start="3565" selection-end="3565" vertical-scroll-proportion="0.45566502" vertical-offset="937" max-vertical-offset="3485">
+        <state line="70" column="16" selection-start="3616" selection-end="3876" vertical-scroll-proportion="-8.5" vertical-offset="969" max-vertical-offset="3638">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/page/cartex.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="81" selection-start="1851" selection-end="1917" vertical-scroll-proportion="0.7536946" vertical-offset="306" max-vertical-offset="2992">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/page/customer.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="75" selection-start="4857" selection-end="4862" vertical-scroll-proportion="-5.8846154" vertical-offset="1377" max-vertical-offset="6205">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/CartexBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="48" selection-start="3494" selection-end="3494" vertical-scroll-proportion="0.0" vertical-offset="1081" max-vertical-offset="2108">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/UserBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="0" selection-start="3455" selection-end="3455" vertical-scroll-proportion="0.0" vertical-offset="1454" max-vertical-offset="1989">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/CustomerBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="0" selection-start="2270" selection-end="2270" vertical-scroll-proportion="0.5" vertical-offset="549" max-vertical-offset="2244">
           <folding />
         </state>
       </provider>

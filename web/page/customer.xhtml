@@ -80,16 +80,14 @@
                 </p:inputText>
 
                 <p:outputLabel value="#{fa.birthday}"/>
-                <p:inputText placeholder="1370/03/20"  value="#{customerBean.birthday}" validatorMessage="#{fa.please_fill_a_valid_value_for_birthday}" >
-                    <f:validateRegex pattern="(\d+)(-|\/)(\d+)(?:-|\/)(?:(\d+)\s+(\d+):(\d+)(?::(\d+))?(?:\.(\d+))?)?" />
-                </p:inputText>
+                <p:inputMask mask="9999/99/99" value="#{customerBean.birthday}"/>
 
                 <p:outputLabel value="#{fa.zipcode}"/>
                 <p:inputText value="#{customerBean.zipCode}" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_zip_code}" >
                     <f:validateRegex pattern="^[0-9]{10}$" />
                 </p:inputText>
 
-                <p:commandButton actionListener="#{customerBean.addCustomer()}" value="#{fa.add_customer}" update=":form2:customerTable"  oncomplete='$("button[type=\"reset\"]").click()'/>
+                <p:commandButton actionListener="#{customerBean.addCustomer()}" value="#{fa.add_customer}" update=":form2:customerTable" />
                 <p:commandButton type="reset" value="#{fa.reset}" id="reset"/>
             </h:panelGrid>
         </p:dialog>
@@ -106,7 +104,16 @@
             <p:column style="width:6%">
                 <h:inputHidden value="#{customer.id}"/>
                 <p:rowEditor />
-                <p:commandButton update=":form2:customerTable" actionListener="#{customerBean.deleteCustomer(customer.id)}" ajax="false" value="#{fa.delete}" icon="ui-icon-close" />
+
+                <p:commandButton value="#{fa.delete}" update=":form2:customerTable" actionListener="#{customerBean.deleteCustomer(customer.id)}" >
+                    <p:confirm header="#{fa.confirmation}" message="#{fa.are_you_sure}" icon="ui-icon-alert"/>
+                </p:commandButton>
+
+                <p:confirmDialog global="true">
+                    <p:commandButton value="#{fa.yes}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="#{fa.no}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                </p:confirmDialog>
+
 
             </p:column>
 
@@ -321,9 +328,7 @@
                         <h:outputText value="#{customer.birthday}" />
                     </f:facet>
                     <f:facet name="input">
-                        <p:inputText placeholder="1370/03/20"  value="#{customer.birthday}" validatorMessage="#{fa.please_fill_a_valid_value_for_birthday}" >
-                            <f:validateRegex pattern="(\d+)(-|\/)(\d+)(?:-|\/)(?:(\d+)\s+(\d+):(\d+)(?::(\d+))?(?:\.(\d+))?)?" />
-                        </p:inputText>
+                        <p:inputMask mask="9999/99/99" value="#{customer.birthday}"/>
                     </f:facet>
                 </p:cellEditor>
             </p:column>

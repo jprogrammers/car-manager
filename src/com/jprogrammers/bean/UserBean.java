@@ -4,6 +4,7 @@ import com.jprogrammers.language.LanguageFa;
 import com.jprogrammers.language.LanguageUtil;
 import com.jprogrammers.model.Role;
 import com.jprogrammers.model.User;
+import com.jprogrammers.service.CartexService;
 import com.jprogrammers.service.UserService;
 import org.primefaces.event.RowEditEvent;
 
@@ -116,7 +117,12 @@ public class UserBean extends User implements Serializable {
     }
 
     public void deleteUser(long id) {
-        UserService.delete(id);
+
+        if (CartexService.getCartexes(id).size() == 0) {
+            UserService.delete(id);
+        } else {
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("you_cant_delete_this_user_because_he_has_cartex"));
+        }
         allUsers = UserService.getUsers();
     }
 

@@ -61,8 +61,16 @@
             <p:ajax event="rowEdit" listener="#{cartexBean.editCartex}"/>
 
             <p:column>
-                <h:inputHidden value="#{cartex.id}"/>
-                <p:rowEditor/>
+                <h:inputHidden id="cartexId" value="#{cartex.id}"/>
+
+                <h:outputText rendered="#{cartexBean.hasPendingRequest(cartex.id , session.getAttribute('user').id)}" value="#{fa.waiting_for_response}"/>
+
+
+                <p:rowEditor rendered="#{cartexBean.hasEditPermission(cartex.id , session.getAttribute('user').id)}"/>
+
+
+                <p:commandButton rendered="#{cartexBean.canRequest(cartex.id , session.getAttribute('user').id)}" ajax="false" actionListener="#{cartexBean.requestForEdit(cartex.id , session.getAttribute('user').id)}" value="#{fa.request_for_edit}" />
+
             </p:column>
 
             <p:column headerText="#{fa.customer}">

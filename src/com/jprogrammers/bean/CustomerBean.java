@@ -2,11 +2,13 @@ package com.jprogrammers.bean;
 
 import com.jprogrammers.language.LanguageUtil;
 import com.jprogrammers.model.Customer;
+import com.jprogrammers.service.CartexService;
 import com.jprogrammers.service.CustomerService;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.RowEditEvent;
 
 import javax.faces.application.FacesMessage;
@@ -54,7 +56,9 @@ public class CustomerBean extends Customer implements Serializable {
     }
 
     public void deleteCustomer(long id) {
+
         CustomerService.deleteCustomer(id);
+
         this.filteredCustomers = CustomerService.getCustomers();
     }
 
