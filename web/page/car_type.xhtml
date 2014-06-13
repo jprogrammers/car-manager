@@ -41,22 +41,22 @@
                     <p:inputText value="#{carTypeBean.tip}"/>
 
                     <p:outputLabel value="#{fa.def_count}"/>
-                    <p:inputText value="#{carTypeBean.defCount}" converterMessage="#{fa.please_insert_valid_parameter}"/>
+                    <p:inputText dir="ltr" value="#{carTypeBean.defCount}" converterMessage="#{fa.please_insert_valid_parameter}"/>
 
                     <p:outputLabel value="#{fa.wheels_count}"/>
-                    <p:inputText value="#{carTypeBean.wheelsCount}" converterMessage="#{fa.please_insert_valid_parameter}"/>
+                    <p:inputText dir="ltr" value="#{carTypeBean.wheelsCount}" converterMessage="#{fa.please_insert_valid_parameter}"/>
 
                     <p:outputLabel value="#{fa.fuel_type}"/>
                     <p:inputText value="#{carTypeBean.fuelType}"/>
 
                     <p:outputLabel value="#{fa.cylinder_count}"/>
-                    <p:inputText value="#{carTypeBean.cylinderCount}" converterMessage="#{fa.please_insert_valid_parameter}"/>
+                    <p:inputText dir="ltr" value="#{carTypeBean.cylinderCount}" converterMessage="#{fa.please_insert_valid_parameter}"/>
 
                     <p:outputLabel value="#{fa.capacity}"/>
-                    <p:inputText value="#{carTypeBean.capacity}" converterMessage="#{fa.please_insert_valid_parameter}"/>
+                    <p:inputText dir="ltr" value="#{carTypeBean.capacity}" converterMessage="#{fa.please_insert_valid_parameter}"/>
 
                     <p:outputLabel value="#{fa.cylinder_size}"/>
-                    <p:inputText value="#{carTypeBean.cylinderSize}" converterMessage="#{fa.please_insert_valid_parameter}"/>
+                    <p:inputText dir="ltr" value="#{carTypeBean.cylinderSize}" converterMessage="#{fa.please_insert_valid_parameter}"/>
 
                     <p:commandButton actionListener="#{carTypeBean.addCarType}" value="#{fa.add_car_type}" update="carTypeTable"/>
                 </h:panelGrid>
@@ -119,14 +119,14 @@
             <p:column headerText="#{fa.def_count}" filterBy="defCount" filterMatchMode="contains">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{carType.defCount}" /></f:facet>
-                    <f:facet name="input"><p:inputText value="#{carType.defCount}" style="width:90%"/></f:facet>
+                    <f:facet name="input"><p:inputText dir="ltr" value="#{carType.defCount}" style="width:90%"/></f:facet>
                 </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.wheels_count}" filterBy="wheelsCount" filterMatchMode="contains">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{carType.wheelsCount}" /></f:facet>
-                    <f:facet name="input"><p:inputText value="#{carType.wheelsCount}" style="width:90%"/></f:facet>
+                    <f:facet name="input"><p:inputText dir="ltr" value="#{carType.wheelsCount}" style="width:90%"/></f:facet>
                 </p:cellEditor>
             </p:column>
 
@@ -140,21 +140,21 @@
             <p:column headerText="#{fa.cylinder_count}" filterBy="cylinderCount" filterMatchMode="contains">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{carType.cylinderCount}" /></f:facet>
-                    <f:facet name="input"><p:inputText value="#{carType.cylinderCount}" style="width:90%"/></f:facet>
+                    <f:facet name="input"><p:inputText dir="ltr" value="#{carType.cylinderCount}" style="width:90%"/></f:facet>
                 </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.capacity}" filterBy="capacity" filterMatchMode="contains">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{carType.capacity}" /></f:facet>
-                    <f:facet name="input"><p:inputText value="#{carType.capacity}" style="width:90%"/></f:facet>
+                    <f:facet name="input"><p:inputText dir="ltr" value="#{carType.capacity}" style="width:90%"/></f:facet>
                 </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.cylinder_size}" filterBy="cylinderSize" filterMatchMode="contains">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{carType.cylinderSize}" /></f:facet>
-                    <f:facet name="input"><p:inputText value="#{carType.cylinderSize}" style="width:90%"/></f:facet>
+                    <f:facet name="input"><p:inputText dir="ltr" value="#{carType.cylinderSize}" style="width:90%"/></f:facet>
                 </p:cellEditor>
             </p:column>
 

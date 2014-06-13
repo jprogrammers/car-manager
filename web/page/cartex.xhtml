@@ -34,7 +34,7 @@
                 </p:selectOneMenu>
 
                 <p:outputLabel value="#{fa.bought_date}:"/>
-                <p:inputMask mask="9999/99/99" value="#{cartexBean.boughtDate}"/>
+                <p:inputMask dir="ltr" mask="9999/99/99" value="#{cartexBean.boughtDate}"/>
 
                 <p:outputLabel value="#{fa.model}:"/>
                 <p:inputText value="#{cartexBean.model}"/>
@@ -43,13 +43,13 @@
                 <p:inputText value="#{cartexBean.color}"/>
 
                 <p:outputLabel value="#{fa.engine_number}:"/>
-                <p:inputText value="#{cartexBean.engineNumber}"/>
+                <p:inputText dir="ltr" value="#{cartexBean.engineNumber}"/>
 
                 <p:outputLabel value="#{fa.body_number}:"/>
-                <p:inputMask mask="*****************" value="#{cartexBean.bodyNumber}" onkeyup="checkEngineNumber(this)"/>
+                <p:inputMask dir="ltr" mask="*****************" value="#{cartexBean.bodyNumber}" onkeyup="checkEngineNumber(this)"/>
 
                 <p:outputLabel value="#{fa.VIN_number}:"/>
-                <p:inputText value="#{cartexBean.VINNumber}"/>
+                <p:inputText dir="ltr" value="#{cartexBean.VINNumber}"/>
 
                 <p:commandButton value="#{fa.add_cartex}" actionListener="#{cartexBean.addCartex}" update="cartexTable"/>
             </h:panelGrid>
@@ -112,14 +112,14 @@
             <p:column headerText="#{fa.engine_number}">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{cartex.engineNumber}"/></f:facet>
-                    <f:facet name="input"><p:inputText value="#{cartex.engineNumber}" style="width: 90%"/></f:facet>
+                    <f:facet name="input"><p:inputText dir="ltr" value="#{cartex.engineNumber}" style="width: 90%"/></f:facet>
                 </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.body_number}">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{cartex.bodyNumber}"/></f:facet>
-                    <f:facet name="input"><p:inputText value="#{cartex.bodyNumber}" onkeyup="checkEngineNumber(this)" style="width: 90%"/></f:facet>
+                    <f:facet name="input"><p:inputText dir="ltr" value="#{cartex.bodyNumber}" onkeyup="checkEngineNumber(this)" style="width: 90%"/></f:facet>
                 </p:cellEditor>
             </p:column>
 
