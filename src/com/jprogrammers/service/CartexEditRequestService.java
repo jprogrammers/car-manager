@@ -37,7 +37,7 @@ public class CartexEditRequestService {
     }
 
 
-    public static CartexEditRequest getEditRequestByC_U(long cartexId, long userId) {
+    public static CartexEditRequest getEditRequestByCartexAndUser(long cartexId, long userId) {
 
         return requestDao.findOne("from CartexEditRequest where cartexId = " + cartexId + " and userId = " + userId);
     }

@@ -46,7 +46,7 @@
                 <p:inputText dir="ltr" value="#{cartexBean.engineNumber}"/>
 
                 <p:outputLabel value="#{fa.body_number}:"/>
-                <p:inputMask dir="ltr" mask="*****************" value="#{cartexBean.bodyNumber}" onkeyup="checkEngineNumber(this)"/>
+                <p:inputText dir="ltr" value="#{cartexBean.bodyNumber}" onkeyup="event.keyCode != 13 ? checkEngineNumber(this) : null;"/>
 
                 <p:outputLabel value="#{fa.VIN_number}:"/>
                 <p:inputText dir="ltr" value="#{cartexBean.VINNumber}"/>
@@ -55,22 +55,30 @@
             </h:panelGrid>
         </p:dialog>
 
-        <j:JDataTable id="cartexTable" value="#{cartexBean.cartexes}" var="cartex" paginator="true" rows="10" editable="true"
+        <j:JDataTable id="cartexTable" value="#{cartexBean.cartexes}" var="cartex" paginator="true" rows="15" editable="true"
                       widgetVar="cartexTable" filteredValue="#{cartexBean.filteredCartexes}" emptyMessage="#{fa.no_cartex_exist}">
 
             <p:ajax event="rowEdit" listener="#{cartexBean.editCartex}"/>
 
             <p:column>
-                <h:inputHidden id="cartexId" value="#{cartex.id}"/>
-
                 <h:outputText rendered="#{cartexBean.hasPendingRequest(cartex.id , session.getAttribute('user').id)}" value="#{fa.waiting_for_response}"/>
-
-
-                <p:rowEditor rendered="#{cartexBean.hasEditPermission(cartex.id , session.getAttribute('user').id)}"/>
-
-
                 <p:commandButton rendered="#{cartexBean.canRequest(cartex.id , session.getAttribute('user').id)}" ajax="false" actionListener="#{cartexBean.requestForEdit(cartex.id , session.getAttribute('user').id)}" value="#{fa.request_for_edit}" />
+            </p:column>
 
+            <p:column rendered="#{cartexBean.hasEditPermission(cartex.id , session.getAttribute('user').id)}">
+                <h:inputHidden id="cartexId" value="#{cartex.id}"/>
+                <p:rowEditor/>
+            </p:column>
+
+            <p:column rendered="#{session.getAttribute('user').roleId == 0}">
+                <p:commandButton icon="ui-icon-trash" actionListener="#{cartexBean.deleteCartex(cartex.id)}">
+                    <p:confirm header="#{fa.confirmation}" message="#{fa.are_you_sure}" icon="ui-icon-alert"/>
+                </p:commandButton>
+
+                <p:confirmDialog global="true">
+                    <p:commandButton value="#{fa.yes}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="#{fa.no}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                </p:confirmDialog>
             </p:column>
 
             <p:column headerText="#{fa.customer}">

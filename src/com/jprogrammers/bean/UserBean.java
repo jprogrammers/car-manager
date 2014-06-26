@@ -6,15 +6,19 @@ import com.jprogrammers.model.Role;
 import com.jprogrammers.model.User;
 import com.jprogrammers.service.CartexService;
 import com.jprogrammers.service.UserService;
+import com.jprogrammers.util.PWDEncryption;
+import com.jprogrammers.util.Validator;
 import org.primefaces.event.RowEditEvent;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -34,27 +38,33 @@ public class UserBean extends User implements Serializable {
     private int[] statuses = new int[]{0 , 1};
     private int[] roleIds = Role.roleIds;
 
+    private String oldPassword;
+    private String confirmPassword;
+
     public SelectItem[] getRoleOptions() {
         return roleOptions;
     }
 
     public UserBean() {
-        allUsers = UserService.getUsers();
-        roleOptions = createRoleOptions();
-        statusOptions = createStatusOptions();
+        createRoleOptions();
+        createStatusOptions();
+        init();
     }
 
-    private SelectItem[] createStatusOptions() {
+    private void init(){
+        setAllUsers(UserService.getUsers());
+    }
+
+    private void createStatusOptions() {
         statusOptions = new SelectItem[3];
 
         statusOptions[0] = new SelectItem("" , LanguageUtil.get("everything"));
         statusOptions[1] = new SelectItem(1 , LanguageUtil.get("active"));
         statusOptions[2] = new SelectItem(0 , LanguageUtil.get("inactive"));
 
-        return statusOptions;
     }
 
-    private SelectItem[] createRoleOptions() {
+    private void createRoleOptions() {
         String[] roleNames = Role.roleNames;
         roleOptions = new SelectItem[roleNames.length + 1];
 
@@ -63,8 +73,6 @@ public class UserBean extends User implements Serializable {
         for ( int i = 0 ; i < roleNames.length ; i++ ) {
             roleOptions[i + 1] = new SelectItem(Role.roleIds[i] , LanguageUtil.get(Role.roleNames[i]));
         }
-
-        return roleOptions;
     }
 
     public List<User> filterByRoles(String roleName) {
@@ -104,8 +112,7 @@ public class UserBean extends User implements Serializable {
 
         UserService.updateUser(user);
 
-
-        //FacesContext.getCurrentInstance().addMessage(null, msg);
+        addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("user_edited_successfully"));
     }
 
     public int[] getStatuses() {
@@ -120,24 +127,80 @@ public class UserBean extends User implements Serializable {
 
         if (CartexService.getCartexes(id).size() == 0) {
             UserService.delete(id);
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("user_deleted_successfully"));
         } else {
             addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("you_cant_delete_this_user_because_he_has_cartex"));
         }
-        allUsers = UserService.getUsers();
+        init();
     }
 
     public void addUser() throws IOException {
         UserService.addUser(getFirstName() , getLastName() , getEmailAddress() , getPassword() , getTell() , getAddress());
 
-        ///FacesContext.getCurrentInstance().addMessage("app-message" ,  new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("your_request_was_completed"), ""));
         addMessage(FacesMessage.SEVERITY_INFO , LanguageUtil.get("your_request_was_completed"));
+        emptyFields();
+        init();
+    }
 
-        allUsers = UserService.getUsers();
-
+    private void emptyFields(){
+        setFirstName("");
+        setLastName("");
+        setEmailAddress("");
+        setPassword("");
+        setTell("");
+        setAddress("");
     }
 
     private void addMessage(FacesMessage.Severity severity, String message) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(severity, message, ""));
+    }
+
+    public String getOldPassword() {
+        return oldPassword;
+    }
+
+    public void setOldPassword(String oldPassword) {
+        this.oldPassword = oldPassword;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    public void selectUser(User user){
+        setId(user.getId());
+        setFirstName(user.getFirstName());
+        setLastName(user.getLastName());
+        setEmailAddress(user.getEmailAddress());
+        setPassword(user.getPassword());
+        setTell(user.getTell());
+        setAddress(user.getAddress());
+        setCreateDate(user.getCreateDate());
+        setModifiedDate(user.getModifiedDate());
+        setRoleId(user.getRoleId());
+        setStatus(user.getStatus());
+    }
+
+    public void editUserInfo(){
+        HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        User user =(User)session.getAttribute("user");
+
+        if(!user.getPassword().equals(PWDEncryption.encrypt(getOldPassword()))){
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("user_old_password_not_match"));
+        } else if(!getPassword().equals(getConfirmPassword())){
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("user_new_and_confirm_password_not_match"));
+        } else if(!Validator.isEmailAddress(getEmailAddress())){
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_enter_valid_email_address"));
+        } else {
+            UserService.editUser(user.getId(), getFirstName(), getLastName(), getEmailAddress(),
+                    getPassword(),getTell(), getAddress());
+
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("user_edited_successfully"));
+        }
     }
 
 }

@@ -42,14 +42,36 @@ public class CarTypeBean extends CarType implements Serializable {
                     getWheelsCount(), getFuelType(), getCylinderCount(), getCapacity(), getCylinderSize());
             addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("car_type_added_successfully"));
         }
+        emptyFields();
         init();
+    }
+
+    private void emptyFields(){
+        setCountry("");
+        setFactory("");
+        setUsecaseType("");
+        setUsecaseType2("");
+        setSystem("");
+        setTip("");
+        setDefCount(0);
+        setWheelsCount(0);
+        setFuelType("");
+        setCylinderCount(0);
+        setCapacity(0);
+        setCylinderSize(0);
     }
 
     public void editCarType(RowEditEvent event){
         CarType carType = (CarType)event.getObject();
         CarTypeService.editCarType(carType);
-        init();
         addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("car_type_edited_successfully"));
+        init();
+    }
+
+    public void deleteCarType(long id){
+        CarTypeService.deleteCarType(id);
+        addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("car_type_deleted_successfully"));
+        init();
     }
 
     private void addMessage(FacesMessage.Severity severity, String message) {
