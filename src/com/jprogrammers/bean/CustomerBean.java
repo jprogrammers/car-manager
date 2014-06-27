@@ -4,6 +4,7 @@ import com.jprogrammers.language.LanguageUtil;
 import com.jprogrammers.model.Customer;
 import com.jprogrammers.service.CartexService;
 import com.jprogrammers.service.CustomerService;
+import com.jprogrammers.util.Validator;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -19,6 +20,7 @@ import javax.print.attribute.standard.Severity;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,47 +31,72 @@ import java.util.List;
 @ViewScoped
 public class CustomerBean extends Customer implements Serializable {
 
+    List<Customer> customers;
+
     List<Customer> filteredCustomers;
 
     public CustomerBean() {
-        this.filteredCustomers = CustomerService.getCustomers();
+        init();
     }
 
-    public List<Customer> getAllCustomers() {
-        return this.filteredCustomers;
-    }
-
-    public void setFilteredCustomers(List<Customer> filteredCustomers) {
-        this.filteredCustomers = filteredCustomers;
-    }
-
-    public List<Customer> getFilteredCustomers() {
-        return filteredCustomers;
+    public void init(){
+        setCustomers(CustomerService.getCustomers());
     }
 
     public void onEdit(RowEditEvent event) {
-        Customer customer = (Customer) event.getObject();
 
+        Customer customer = (Customer) event.getObject();
         CustomerService.updateCustomer(customer);
 
-        //FacesContext.getCurrentInstance().addMessage(null, msg);
+        addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("customer_edited_successfully"));
+
     }
 
     public void deleteCustomer(long id) {
 
         CustomerService.deleteCustomer(id);
+        addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("customer_deleted_successfully"));
+        init();
 
-        this.filteredCustomers = CustomerService.getCustomers();
     }
 
     public void addCustomer() {
-        CustomerService.addCustomer(getFirstName() , getLastName() , getNationalCode() , getNationalId() , getTell() , getMobile() ,
-                getWorkTell() , getJobTitle() , getHomeAddress() , getWorkAddress() , getFatherName() , getCompany() , getProvince() ,
-                getBirthday() , getZipCode());
+        if(Validator.isNullOrEmpty(getFirstName()) || Validator.isNullOrEmpty(getLastName()) || !Validator.isNationalCode(getNationalCode()) ||
+                !Validator.isNumber(getNationalId()) || !Validator.isNumber(getTell()) || !Validator.isNumber(getMobile()) ||
+                !Validator.isNumber(getWorkTell()) || Validator.isNullOrEmpty(getHomeAddress()) || Validator.isNullOrEmpty(getFatherName()) ||
+                Validator.isNullOrEmpty(getProvince()) || Validator.isNullOrEmpty(getBirthday()) || !Validator.isNumber(getZipCode()) ){
 
-        addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("customer_added_successfully"));
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_insert_valid_parameter"));
 
-        this.filteredCustomers = CustomerService.getCustomers();
+        }else{
+            CustomerService.addCustomer(getFirstName() , getLastName() , getNationalCode() , getNationalId() , getTell() , getMobile() ,
+                    getWorkTell() , getJobTitle() , getHomeAddress() , getWorkAddress() , getFatherName() , getCompany() , getProvince() ,
+                    getBirthday() , getZipCode());
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("customer_added_successfully"));
+            emptyFields();
+            init();
+        }
+
+    }
+
+    private void emptyFields(){
+        setFirstName("");
+        setLastName("");
+        setCreateDate(null);
+        setModifiedDate(null);
+        setNationalCode("");
+        setNationalId("");
+        setTell("");
+        setMobile("");
+        setWorkTell("");
+        setJobTitle("");
+        setHomeAddress("");
+        setWorkAddress("");
+        setFatherName("");
+        setCompany("");
+        setProvince("");
+        setBirthday("");
+        setZipCode("");
     }
 
     private void addMessage(FacesMessage.Severity severity, String message) {
@@ -146,6 +173,22 @@ public class CustomerBean extends Customer implements Serializable {
     private void createRowCell(Row row ,int cellNum , String value) {
         Cell cell = row.createCell(cellNum);
         cell.setCellValue(value);
+    }
+
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
+    }
+
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setFilteredCustomers(List<Customer> filteredCustomers) {
+        this.filteredCustomers = filteredCustomers;
+    }
+
+    public List<Customer> getFilteredCustomers() {
+        return filteredCustomers;
     }
 
 }

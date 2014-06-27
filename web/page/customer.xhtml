@@ -15,21 +15,21 @@
 <h:body dir="rtl">
 
     <h:form id="form">
-        <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
+        <p:growl id="message" autoUpdate="true" closable="true"/>
 
         <p:commandButton type="button" value="#{fa.add_customer}" onclick="PF('addCustomerDialog').show()" />
 
         <p:dialog id="addUser" widgetVar="addCustomerDialog" header="#{fa.add_customer}"  showEffect="fade" hideEffect="fade" draggable="false">
-            <h:panelGrid columns="2">
+            <h:panelGrid columns="2" id="addUserPanel">
 
                 <p:outputLabel value="#{fa.first_name}"/>
                 <p:inputText placeholder="#{fa.required}" value="#{customerBean.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
-                    <f:validateRegex pattern="^([^0-9]*)$" />
+                    <f:validateRegex pattern="^[^0-9]+$" />
                 </p:inputText>
 
                 <p:outputLabel value="#{fa.last_name}"/>
                 <p:inputText value="#{customerBean.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
-                    <f:validateRegex pattern="^([^0-9]*)$" />
+                    <f:validateRegex pattern="^[^0-9]+$" />
                 </p:inputText>
 
                 <p:outputLabel value="#{fa.national_code}"/>
@@ -39,21 +39,21 @@
 
                 <p:outputLabel value="#{fa.national_id}"/>
                 <p:inputText value="#{customerBean.nationalId}" dir="ltr" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_national_id}" >
-                    <f:validateRegex pattern="^[0-9]{1,10}$" />
+                    <f:validateRegex pattern="^[0-9]+$" />
                 </p:inputText>
 
                 <p:outputLabel value="#{fa.tell}"/>
-                <p:inputText placeholder="44546648" maxlength="8" dir="ltr" value="#{customerBean.tell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_phone_number}">
+                <p:inputText placeholder="12345678" maxlength="8" dir="ltr" value="#{customerBean.tell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_phone_number}">
                     <f:validateRegex pattern="^[0-9]{8}$" />
                 </p:inputText>
 
                 <p:outputLabel value="#{fa.mobile}"/>
-                <p:inputText placeholder="09352536512" maxlength="11" dir="ltr" value="#{customerBean.mobile}"  validatorMessage="#{fa.please_fill_a_valid_value_for_mobile}">
+                <p:inputText placeholder="09123456789" maxlength="11" dir="ltr" value="#{customerBean.mobile}"  validatorMessage="#{fa.please_fill_a_valid_value_for_mobile}">
                     <f:validateRegex pattern="^[0-9]{11}$" />
                 </p:inputText>
 
                 <p:outputLabel value="#{fa.work_tell}"/>
-                <p:inputText placeholder="44546648" maxlength="8" dir="ltr" value="#{customerBean.workTell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_work_tel}">
+                <p:inputText placeholder="12345678" maxlength="8" dir="ltr" value="#{customerBean.workTell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_work_tel}">
                     <f:validateRegex pattern="^[0-9]{8}$" />
                 </p:inputText>
 
@@ -68,7 +68,7 @@
 
                 <p:outputLabel value="#{fa.father_name}"/>
                 <p:inputText value="#{customerBean.fatherName}" validatorMessage="#{fa.please_fill_a_valid_value_for_father_name}">
-                    <f:validateRegex pattern="^([^0-9]*)$" />
+                    <f:validateRegex pattern="^[^0-9]+$" />
                 </p:inputText>
 
                 <p:outputLabel value="#{fa.company}"/>
@@ -76,7 +76,7 @@
 
                 <p:outputLabel value="#{fa.province}"/>
                 <p:inputText value="#{customerBean.province}"  validatorMessage="#{fa.please_fill_a_valid_value_for_province}">
-                    <f:validateRegex pattern="^([^0-9]*)$" />
+                    <f:validateRegex pattern="^[^0-9]+$" />
                 </p:inputText>
 
                 <p:outputLabel value="#{fa.birthday}"/>
@@ -87,8 +87,7 @@
                     <f:validateRegex pattern="^[0-9]{10}$" />
                 </p:inputText>
 
-                <p:commandButton actionListener="#{customerBean.addCustomer()}" value="#{fa.add_customer}" update=":form2:customerTable" />
-                <p:commandButton type="reset" value="#{fa.reset}" id="reset"/>
+                <p:commandButton actionListener="#{customerBean.addCustomer()}" value="#{fa.add_customer}" update=":form2:customerTable addUserPanel" />
             </h:panelGrid>
         </p:dialog>
     </h:form>
@@ -96,7 +95,7 @@
         <p:commandLink value="#{fa.export}" actionListener="#{customerBean.doExport()}" ajax="false"  />
     </h:form>
 <h:form id="form2">
-<j:JDataTable id="customerTable" var="customer" value="#{customerBean.getAllCustomers()}" paginator="true" rows="10" widgetVar="customerTable" editable="true"
+<j:JDataTable id="customerTable" var="customer" value="#{customerBean.customers}" paginator="true" rows="15" widgetVar="customerTable" editable="true"
                      emptyMessage="#{fa.no_customer_found_with_given_criteria}" filteredValue="#{customerBean.filteredCustomers}">
 
         <p:ajax event="rowEdit" listener="#{customerBean.onEdit}" />
@@ -104,8 +103,9 @@
             <p:column style="width:6%">
                 <h:inputHidden value="#{customer.id}"/>
                 <p:rowEditor />
-
-                <p:commandButton value="#{fa.delete}" update=":form2:customerTable" actionListener="#{customerBean.deleteCustomer(customer.id)}" >
+            </p:column>
+            <p:column>
+                <p:commandButton icon="ui-icon-trash" update=":form2:customerTable" actionListener="#{customerBean.deleteCustomer(customer.id)}" >
                     <p:confirm header="#{fa.confirmation}" message="#{fa.are_you_sure}" icon="ui-icon-alert"/>
                 </p:commandButton>
 
@@ -126,7 +126,7 @@
                     </f:facet>
                     <f:facet name="input">
                         <p:inputText placeholder="#{fa.required}" value="#{customer.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
-                            <f:validateRegex pattern="^([^0-9]*)$" />
+                            <f:validateRegex pattern="^[^0-9]+$" />
                         </p:inputText>
                     </f:facet>
                 </p:cellEditor>
@@ -143,7 +143,7 @@
                     </f:facet>
                     <f:facet name="input">
                         <p:inputText value="#{customer.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
-                            <f:validateRegex pattern="^([^0-9]*)$" />
+                            <f:validateRegex pattern="^[^0-9]+$" />
                         </p:inputText>
                     </f:facet>
                 </p:cellEditor>
@@ -175,7 +175,7 @@
                     </f:facet>
                     <f:facet name="input">
                         <p:inputText dir="ltr" value="#{customer.nationalId}" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_national_id}" >
-                            <f:validateRegex pattern="^[0-9]{1,10}$" />
+                            <f:validateRegex pattern="^[0-9]{10}$" />
                         </p:inputText>
                     </f:facet>
                 </p:cellEditor>
@@ -281,7 +281,7 @@
                     </f:facet>
                     <f:facet name="input">
                         <p:inputText value="#{customer.fatherName}" validatorMessage="#{fa.please_fill_a_valid_value_for_father_name}">
-                            <f:validateRegex pattern="^([^0-9]*)$" />
+                            <f:validateRegex pattern="^[^0-9]+$" />
                         </p:inputText>
                     </f:facet>
                 </p:cellEditor>
@@ -313,7 +313,7 @@
                     </f:facet>
                     <f:facet name="input">
                         <p:inputText value="#{customerBean.province}"  validatorMessage="#{fa.please_fill_a_valid_value_for_province}">
-                            <f:validateRegex pattern="^([^0-9]*)$" />
+                            <f:validateRegex pattern="^[^0-9]+$" />
                         </p:inputText>
                     </f:facet>
                 </p:cellEditor>

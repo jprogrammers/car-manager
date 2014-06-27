@@ -13,57 +13,70 @@
 <h:body dir="rtl">
     <h:form>
         <h:panelGrid id="pricePanel" columns="4" style="margin: 0 auto;">
-            <p:outputLabel value="ارزش دلاری کالا"/>
-            <p:inputText value="#{priceBean.stuffDollarPrice}" dir="ltr" >
+
+            <p:outputLabel value="ارزش فوب"/>
+            <p:inputText value="#{priceBean.fobPrice}" dir="ltr" >
                 <f:convertNumber maxFractionDigits="0" />
             </p:inputText>
 
-            <p:outputLabel value="نرخ ارز"/>
-            <p:inputText value="#{priceBean.dollarPrice}" dir="ltr" >
+            <p:outputLabel value="تعداد"/>
+            <p:inputText value="#{priceBean.numberOfCar}" dir="ltr" >
                 <f:convertNumber maxFractionDigits="0" />
             </p:inputText>
-
-            <p:outputLabel value="ارزش ریالی کالا"/>
-            <p:outputLabel value="#{priceBean.stuffPrice}" dir="ltr" >
-                <f:convertNumber maxFractionDigits="0" />
-            </p:outputLabel>
-
-            <p:outputLabel value="بیمه"/>
-            <p:outputLabel value="#{priceBean.insurance}"  dir="ltr">
-                <f:convertNumber maxFractionDigits="0" />
-            </p:outputLabel>
 
             <p:outputLabel value="کرایه حمل"/>
             <p:inputText value="#{priceBean.shipmentPrice}" dir="ltr" >
                 <f:convertNumber maxFractionDigits="0" />
             </p:inputText>
 
-            <p:outputLabel value="سیف کالا"/>
-            <p:outputLabel value="#{priceBean.stuffSafe}" dir="ltr" >
+            <p:outputLabel value="ارزش دلاری کالا"/>
+            <p:outputLabel value="#{priceBean.stuffPriceInDollar}" dir="ltr" >
                 <f:convertNumber maxFractionDigits="0" />
             </p:outputLabel>
 
-            <p:outputLabel value="درصد حقوق گمرکی"/>
-            <p:inputText value="#{priceBean.customsLawPercent}"  dir="ltr" >
+            <p:outputLabel value="نرخ ارز"/>
+            <p:inputText value="#{priceBean.dollarPrice}"  dir="ltr">
                 <f:convertNumber maxFractionDigits="0" />
             </p:inputText>
 
-            <p:outputLabel value="حقوق گمرکی"/>
-            <p:outputLabel value="#{priceBean.customsLaw}" dir="ltr" >
+            <p:outputLabel value="ارزش کل"/>
+            <p:outputLabel value="#{priceBean.stuffPriceInRial}" dir="ltr" >
                 <f:convertNumber maxFractionDigits="0" />
             </p:outputLabel>
 
-            <p:outputLabel value="اظهارنامه"/>
-            <p:outputLabel value="#{priceBean.declaration}" dir="ltr" >
+            <p:outputLabel value="بیمه"/>
+            <p:outputLabel value="#{priceBean.insurance}" dir="ltr" >
                 <f:convertNumber maxFractionDigits="0" />
             </p:outputLabel>
 
-            <p:outputLabel/>
-            <p:outputLabel/>
+            <p:outputLabel value="گمرکی"/>
+            <p:outputLabel value="#{priceBean.customs}"  dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
+
+            <p:outputLabel value="درصد حقوق ورودی"/>
+            <p:inputText value="#{priceBean.entrancePercent}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="حقوق ورودی"/>
+            <p:outputLabel value="#{priceBean.entrance}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
+
+            <p:outputLabel value="درصد هلال احمر"/>
+            <p:inputText value="#{priceBean.helalAhmarPercent}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="1" />
+            </p:inputText>
+
+            <p:outputLabel value="هلال احمر"/>
+            <p:outputLabel value="#{priceBean.helalAhmar}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
 
             <p:outputLabel value="درصد مالیات 1"/>
             <p:inputText value="#{priceBean.taxPercent1}" dir="ltr" >
-                <f:convertNumber maxFractionDigits="0" />
+                <f:convertNumber maxFractionDigits="1" />
             </p:inputText>
 
             <p:outputLabel value="مالیات 1"/>
@@ -73,7 +86,7 @@
 
             <p:outputLabel value="درصد مالیات 2"/>
             <p:inputText value="#{priceBean.taxPercent2}" dir="ltr" >
-                <f:convertNumber maxFractionDigits="0" />
+                <f:convertNumber maxFractionDigits="1" />
             </p:inputText>
 
             <p:outputLabel value="مالیات 2"/>
@@ -86,30 +99,20 @@
                 <f:convertNumber maxFractionDigits="0" />
             </p:outputLabel>
 
-            <p:outputLabel value="عوارض گمرکی"/>
-            <p:outputLabel value="#{priceBean.customsToll}" dir="ltr" >
+            <p:outputLabel value="عوارض واردات"/>
+            <p:outputLabel value="#{priceBean.importDuties}" dir="ltr" >
                 <f:convertNumber maxFractionDigits="0" />
             </p:outputLabel>
 
-            <p:outputLabel value="شماره گذاری"/>
-            <p:outputLabel value="#{priceBean.marking}" dir="ltr" >
-                <f:convertNumber maxFractionDigits="0" />
-            </p:outputLabel>
-
-            <p:outputLabel value="حلال اهمر"/>
-            <p:outputLabel value="#{priceBean.helalAhmar}" dir="ltr" >
-                <f:convertNumber maxFractionDigits="0" />
-            </p:outputLabel>
-
-            <p:outputLabel value="استاندارد"/>
-            <p:outputLabel value="#{priceBean.standard}" dir="ltr" >
-                <f:convertNumber maxFractionDigits="0" />
-            </p:outputLabel>
-
-            <p:outputLabel value="یازرسی"/>
-            <p:inputText value="#{priceBean.inspection}" dir="ltr" >
+            <p:outputLabel value="عوارض ورودی"/>
+            <p:inputText value="#{priceBean.entranceDuties}" dir="ltr" >
                 <f:convertNumber maxFractionDigits="0" />
             </p:inputText>
+
+            <p:outputLabel value="پرداخت گمرکی"/>
+            <p:outputLabel value="#{priceBean.customsPay}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
 
             <p:outputLabel value="تبصره"/>
             <p:inputText value="#{priceBean.note}" dir="ltr" >

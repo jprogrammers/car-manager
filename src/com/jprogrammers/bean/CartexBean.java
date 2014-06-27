@@ -10,7 +10,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
-import javax.swing.text.EditorKit;
 import java.util.List;
 
 /**
@@ -45,8 +44,7 @@ public class CartexBean extends Cartex {
 
     public void addCartex(){
         if(Validator.isNullOrEmpty(getColor()) || Validator.isNullOrEmpty(getEngineNumber()) || Validator.isNullOrEmpty(getBodyNumber()) ||
-                Validator.isNullOrEmpty(getVINNumber()) || Validator.isNullOrEmpty(getModel()) || Validator.isNullOrEmpty(getEconomicCode()) ||
-                getBodyNumber().length() != 17){
+                Validator.isNullOrEmpty(getModel()) || getBodyNumber().length() != 17){
             FacesContext.getCurrentInstance().addMessage(null ,new FacesMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_insert_valid_parameter"),""));
         } else {
             CartexService.addCartex(user.getId(), getCustomerId(), getLicenceId(), getColor(), getEngineNumber(), getBodyNumber(), getVINNumber(),
@@ -63,13 +61,18 @@ public class CartexBean extends Cartex {
 
         User user = (User) session.getAttribute("user");
 
-        CartexEditRequest cartexRequest = CartexEditRequestService.getEditRequestByC_U(cartex.getId() ,user.getId());
+        CartexEditRequest cartexRequest = CartexEditRequestService.getEditRequestByCartexAndUser(cartex.getId(), user.getId());
 
         if (cartexRequest != null) {
             CartexEditRequestService.deleteCartexEditRequest(cartexRequest);
         }
 
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("cartex_edited_successfully"), ""));
+    }
+
+    public void deleteCartex(long id){
+        CartexService.deleteCartex(id);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("cartex_deleted_successfully"), ""));
     }
 
     public void requestForEdit(long cartexId , long userId){
@@ -82,7 +85,7 @@ public class CartexBean extends Cartex {
 
         User user = UserService.getUser(userId);
 
-        CartexEditRequest editRequest = CartexEditRequestService.getEditRequestByC_U(cartexId, userId);
+        CartexEditRequest editRequest = CartexEditRequestService.getEditRequestByCartexAndUser(cartexId, userId);
 
         if (editRequest != null && editRequest.getStatus() == CartexEditRequest.STATUS_PENDING && user.getRoleId() != Role.ADMINISTRATOR) {
             return true;
@@ -92,23 +95,16 @@ public class CartexBean extends Cartex {
     }
      public boolean hasEditPermission(long cartexId , long userId) {
 
-         CartexEditRequest editRequest = CartexEditRequestService.getEditRequestByC_U(cartexId, userId);
+         CartexEditRequest editRequest = CartexEditRequestService.getEditRequestByCartexAndUser(cartexId, userId);
 
-         if ((editRequest != null && editRequest.getStatus() == CartexEditRequest.STATUS_ALLOWED) || UserService.getUser(userId).getRoleId() == Role.ADMINISTRATOR) {
-             return true;
-         }
+         return ((editRequest != null && editRequest.getStatus() == CartexEditRequest.STATUS_ALLOWED) || UserService.getUser(userId).getRoleId() == Role.ADMINISTRATOR);
 
-         return false;
     }
 
     public boolean canRequest(long cartexId , long userId) {
-        CartexEditRequest editRequest = CartexEditRequestService.getEditRequestByC_U(cartexId, userId);
+        CartexEditRequest editRequest = CartexEditRequestService.getEditRequestByCartexAndUser(cartexId, userId);
 
-        if (editRequest == null  && UserService.getUser(userId).getRoleId() != Role.ADMINISTRATOR) {
-            return true;
-        }
-
-        return false;
+        return (editRequest == null  && UserService.getUser(userId).getRoleId() != Role.ADMINISTRATOR);
     }
 
     public List<Customer> getCustomers() {

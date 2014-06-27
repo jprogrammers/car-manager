@@ -21,7 +21,7 @@
         <c:if test="#{session.getAttribute('user').roleId == 0}">
             <p:commandButton type="button" value="#{fa.add_car_type}" onclick="PF('addCarTypeDialog').show()" />
             <p:dialog id="addCarTypeDialog" widgetVar="addCarTypeDialog" header="#{fa.add_car_type}" showEffect="fade" hideEffect="fade" draggable="false">
-                <h:panelGrid columns="2">
+                <h:panelGrid columns="2" id="addCarTypePanel">
                     <p:outputLabel value="#{fa.country}"/>
                     <p:inputText value="#{carTypeBean.country}"/>
 
@@ -41,30 +41,30 @@
                     <p:inputText value="#{carTypeBean.tip}"/>
 
                     <p:outputLabel value="#{fa.def_count}"/>
-                    <p:inputText dir="ltr" value="#{carTypeBean.defCount}" converterMessage="#{fa.please_insert_valid_parameter}"/>
+                    <p:inputMask mask="9" dir="ltr" value="#{carTypeBean.defCount}" converterMessage="#{fa.please_insert_valid_parameter}"/>
 
                     <p:outputLabel value="#{fa.wheels_count}"/>
-                    <p:inputText dir="ltr" value="#{carTypeBean.wheelsCount}" converterMessage="#{fa.please_insert_valid_parameter}"/>
+                    <p:inputMask mask="9" dir="ltr" value="#{carTypeBean.wheelsCount}" converterMessage="#{fa.please_insert_valid_parameter}"/>
 
                     <p:outputLabel value="#{fa.fuel_type}"/>
                     <p:inputText value="#{carTypeBean.fuelType}"/>
 
                     <p:outputLabel value="#{fa.cylinder_count}"/>
-                    <p:inputText dir="ltr" value="#{carTypeBean.cylinderCount}" converterMessage="#{fa.please_insert_valid_parameter}"/>
+                    <p:inputMask mask="9" dir="ltr" value="#{carTypeBean.cylinderCount}" converterMessage="#{fa.please_insert_valid_parameter}"/>
 
                     <p:outputLabel value="#{fa.capacity}"/>
-                    <p:inputText dir="ltr" value="#{carTypeBean.capacity}" converterMessage="#{fa.please_insert_valid_parameter}"/>
+                    <p:inputMask mask="9" dir="ltr" value="#{carTypeBean.capacity}" converterMessage="#{fa.please_insert_valid_parameter}"/>
 
                     <p:outputLabel value="#{fa.cylinder_size}"/>
-                    <p:inputText dir="ltr" value="#{carTypeBean.cylinderSize}" converterMessage="#{fa.please_insert_valid_parameter}"/>
+                    <p:inputMask mask="9999" dir="ltr" value="#{carTypeBean.cylinderSize}" converterMessage="#{fa.please_insert_valid_parameter}"/>
 
-                    <p:commandButton actionListener="#{carTypeBean.addCarType}" value="#{fa.add_car_type}" update="carTypeTable"/>
+                    <p:commandButton actionListener="#{carTypeBean.addCarType}" value="#{fa.add_car_type}" update="carTypeTable addCarTypePanel"/>
                 </h:panelGrid>
             </p:dialog>
 
         </c:if>
 
-        <j:JDataTable id="carTypeTable" value="#{carTypeBean.carTypes}" var="carType" paginator="true" rows="10"
+        <j:JDataTable id="carTypeTable" value="#{carTypeBean.carTypes}" var="carType" paginator="true" rows="15"
                 widgetVar="carTypeTable" filteredValue="#{carTypeBean.filteredCarTypes}" emptyMessage="#{fa.no_car_type_exist}"
                 editable="true">
 
@@ -73,6 +73,9 @@
             <p:column>
                 <h:inputHidden value="#{carType.id}"/>
                 <p:rowEditor/>
+            </p:column>
+            <p:column>
+                <p:commandButton icon="ui-icon-trash" actionListener="#{carTypeBean.deleteCarType(carType.id)}" update="carTypeTable"/>
             </p:column>
             <p:column headerText="#{fa.country}" filterBy="country" filterMatchMode="contains">
                 <p:cellEditor>

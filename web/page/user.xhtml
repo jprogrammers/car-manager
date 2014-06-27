@@ -13,19 +13,19 @@
 <ui:include src="header.xhtml"/>
 <h:body dir="rtl">
     <h:form id="form">
-        <p:messages id="message" showDetail="false" autoUpdate="true" closable="true"/>
+        <p:growl id="message" autoUpdate="true" closable="true"/>
         <p:commandButton type="button" value="#{fa.add_user}" onclick="PF('addUserDialog').show()" />
 
         <p:dialog id="addUser" widgetVar="addUserDialog" header="#{fa.add_user}"  showEffect="fade" hideEffect="fade" draggable="false">
-            <h:panelGrid columns="2">
+            <h:panelGrid columns="2" id="addUserPanel">
 
                 <p:outputLabel value="#{fa.first_name}"/>
-                <p:inputText placeholder="#{fa.required}" value="#{customerBean.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
+                <p:inputText placeholder="#{fa.required}" value="#{userBean.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
                     <f:validateRegex pattern="^([^0-9]*)$" />
                 </p:inputText>
 
                 <p:outputLabel value="#{fa.last_name}"/>
-                <p:inputText value="#{customerBean.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
+                <p:inputText value="#{userBean.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
                     <f:validateRegex pattern="^([^0-9]*)$" />
                 </p:inputText>
 
@@ -43,7 +43,7 @@
                 </p:inputText>
 
                 <p:outputLabel value="#{fa.home_address}"/>
-                <p:inputText value="#{userBean.address}" />
+                <p:inputText value="#{userBean.address}" required="true" requiredMessage="#{fa.home_address_is_required}"/>
 
                 <p:outputLabel value="#{fa.role}"/>
                 <p:selectOneMenu value="#{userBean.roleId}">
@@ -53,22 +53,23 @@
                                    itemValue="#{roleId}" />
                 </p:selectOneMenu>
 
-                <p:commandButton actionListener="#{userBean.addUser()}" value="#{fa.add_user}" update=":form2:dataTable"/>
+                <p:commandButton actionListener="#{userBean.addUser}" value="#{fa.add_user}" update=":form2:dataTable addUserPanel"/>
 
             </h:panelGrid>
         </p:dialog>
-</h:form>
-<h:form id="form2">
+    </h:form>
+    <h:form id="form2">
         <p:dataTable id="dataTable" var="user" value="#{userBean.allUsers}" paginator="true" rows="10" widgetVar="userTable" editable="true"
                      emptyMessage="#{fa.no_cars_found_with_given_criteria}" filteredValue="#{userBean.filteredUsers}">
 
             <p:ajax event="rowEdit" listener="#{userBean.onEdit}" update=":form:message" />
 
-            <p:column style="width:6%">
+            <p:column>
                 <p:rowEditor />
+            </p:column>
 
-
-                <p:commandButton value="#{fa.delete}" update=":form2:dataTable" actionListener="#{userBean.deleteUser(user.id)}" >
+            <p:column>
+                <p:commandButton icon="ui-icon-trash" update=":form2:dataTable" actionListener="#{userBean.deleteUser(user.id)}" >
                     <p:confirm header="#{fa.confirmation}" message="#{fa.are_you_sure}" icon="ui-icon-alert"/>
                 </p:commandButton>
 
@@ -79,9 +80,7 @@
             </p:column>
 
 
-            <p:column id="firstNameColumn" filterBy="firstName"
-                      headerText="#{fa.first_name}"
-                      filterMatchMode="contains" >
+            <p:column id="firstNameColumn" filterBy="firstName" headerText="#{fa.first_name}" filterMatchMode="contains" >
                 <p:cellEditor>
                     <f:facet name="output">
                         <h:outputText value="#{user.firstName}" />
@@ -92,7 +91,6 @@
                         </p:inputText>
                     </f:facet>
                 </p:cellEditor>
-
             </p:column>
             <p:column id="lastNameColumn" filterBy="lastName"
                       headerText="#{fa.last_name}"

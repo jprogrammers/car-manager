@@ -24,8 +24,8 @@
             <p:menuitem value="#{fa.cartex_edit_requests}" rendered="#{session.getAttribute('user').roleId == 0}" url="/page/cartex_edit_requests.xhtml"/>
 
             <p:submenu>
+                <p:menuitem value="#{session.getAttribute('user').firstName} #{session.getAttribute('user').lastName}" url="/page/user_info.xhtml"/>
                 <p:menuitem>
-                    <p:outputLabel value="#{session.getAttribute('user').firstName} #{session.getAttribute('user').lastName}" style="margin-right:10px"/>
                     <p:commandButton value="#{fa.logout}" icon="ui-icon-extlink" actionListener="#{loginBean.doLogout}" />
                 </p:menuitem>
             </p:submenu>

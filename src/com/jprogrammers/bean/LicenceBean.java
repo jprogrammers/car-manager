@@ -43,6 +43,10 @@ public class LicenceBean extends Licence {
 
         carTypes = CarTypeService.getCarTypes();
 
+        init();
+    }
+
+    private void init(){
         if(user.getRoleId() == Role.ADMINISTRATOR)
             setLicences(LicenceService.getLicences());
         else
@@ -56,12 +60,14 @@ public class LicenceBean extends Licence {
             LicenceService.addLicence(getLicenceCode(), getCarTypeId(), getUserId());
             addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("licence_added_successfully"));
         }
+        init();
     }
 
     public void editLicence(RowEditEvent event){
         Licence licence = (Licence)event.getObject();
         LicenceService.editLicence(licence);
         addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("licence_edited_successfully"));
+        init();
     }
 
     public List<User> getUsers() {

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    #{userBean.selectUser(session.getAttribute('user'))}
+    <title>#{fa.edit_user}</title>
+</h:head>
+
+<ui:include src="header.xhtml"/>
+
+<h:body dir="rtl">
+
+    <h:form>
+
+        <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
+
+        <h:panelGrid columns="2" style="margin: 0 auto;">
+
+            <f:facet name="header">
+                <p:outputLabel value="#{fa.edit_user}"/>
+            </f:facet>
+
+            <p:outputLabel for="firstName" value="#{fa.first_name}: " />
+            <p:inputText id="firstName" value="#{userBean.firstName}"/>
+
+            <p:outputLabel for="lastName" value="#{fa.last_name}: "/>
+            <p:inputText id="lastName" value="#{userBean.lastName}"/>
+
+            <p:outputLabel for="tell" value="#{fa.tell}: "/>
+            <p:inputText id="tell" value="#{userBean.tell}"/>
+
+            <p:outputLabel for="address" value="#{fa.home_address}: "/>
+            <p:inputText id="address" value="#{userBean.address}"/>
+
+            <p:outputLabel for="emailAddress" value="#{fa.email}: "/>
+            <p:inputText dir="ltr" id="emailAddress" value="#{userBean.emailAddress}"/>
+
+            <p:outputLabel for="oldPassword" value="#{fa.old_password}: "/>
+            <p:password dir="ltr" id="oldPassword" value="#{userBean.oldPassword}"/>
+
+            <p:outputLabel for="password" value="#{fa.password}: "/>
+            <p:password dir="ltr" id="password" value="#{userBean.password}"
+                        feedback="true" inline="true" promptLabel="#{fa.enter_password}" weakLabel="#{fa.password_is_weak}"
+                        goodLabel="#{fa.password_is_good}" strongLabel="#{fa.password_is_strong}"/>
+
+            <p:outputLabel for="confirmPassword" value="#{fa.confirm_password}: "/>
+            <p:password dir="ltr" id="confirmPassword" value="#{userBean.confirmPassword}"/>
+
+            <f:facet name="footer">
+                <p:commandButton value="#{fa.edit_user}" actionListener="#{userBean.editUserInfo}" update="message"/>
+            </f:facet>
+        </h:panelGrid>
+
+    </h:form>
+
+</h:body>
+
+</html>

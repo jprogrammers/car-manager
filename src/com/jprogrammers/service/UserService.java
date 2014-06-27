@@ -3,6 +3,7 @@ package com.jprogrammers.service;
 import com.jprogrammers.model.Role;
 import com.jprogrammers.model.User;
 import com.jprogrammers.util.PWDEncryption;
+import com.jprogrammers.util.Validator;
 
 import java.util.Date;
 import java.util.List;
@@ -43,6 +44,19 @@ public class UserService{
 
         userDao.save(user);
 
+        return user;
+    }
+
+    public static User editUser(long id, String firstName ,String lastName , String emailAddress , String password, String tell ,String address){
+        User user = getUser(id);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setEmailAddress(emailAddress);
+        if(!Validator.isNullOrEmpty(password))
+            user.setPassword(PWDEncryption.encrypt(password));
+        user.setTell(tell);
+        user.setAddress(address);
+        userDao.save(user);
         return user;
     }
 
