@@ -17,7 +17,7 @@ public class CartexService {
     }
 
     public static List<Cartex> getCartexes(){
-        String query = "from Cartex order by ";
+        String query = "from Cartex";
         return cartexDao.findMany(query);
     }
 
