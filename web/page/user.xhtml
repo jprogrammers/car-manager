@@ -20,17 +20,17 @@
             <h:panelGrid columns="2" id="addUserPanel">
 
                 <p:outputLabel value="#{fa.first_name}"/>
-                <p:inputText placeholder="#{fa.required}" value="#{userBean.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
+                <p:inputText lang="fa" placeholder="#{fa.required}" value="#{userBean.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
                     <f:validateRegex pattern="^([^0-9]*)$" />
                 </p:inputText>
 
                 <p:outputLabel value="#{fa.last_name}"/>
-                <p:inputText value="#{userBean.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
+                <p:inputText lang="fa" value="#{userBean.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
                     <f:validateRegex pattern="^([^0-9]*)$" />
                 </p:inputText>
 
                 <p:outputLabel value="#{fa.email}"/>
-                <p:inputText value="#{userBean.emailAddress}" dir="ltr" validatorMessage="#{fa.please_fill_a_valid_value_for_email}" required="true" requiredMessage="#{fa.email_is_required}">
+                <p:inputText lang="en" value="#{userBean.emailAddress}" dir="ltr" validatorMessage="#{fa.please_fill_a_valid_value_for_email}" required="true" requiredMessage="#{fa.email_is_required}">
                     <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
                 </p:inputText>
 
@@ -43,7 +43,7 @@
                 </p:inputText>
 
                 <p:outputLabel value="#{fa.home_address}"/>
-                <p:inputText value="#{userBean.address}" required="true" requiredMessage="#{fa.home_address_is_required}"/>
+                <p:inputText lang="fa" value="#{userBean.address}" required="true" requiredMessage="#{fa.home_address_is_required}"/>
 
                 <p:outputLabel value="#{fa.role}"/>
                 <p:selectOneMenu value="#{userBean.roleId}">
@@ -86,7 +86,7 @@
                         <h:outputText value="#{user.firstName}" />
                     </f:facet>
                     <f:facet name="input">
-                        <p:inputText placeholder="#{fa.required}"  value="#{user.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
+                        <p:inputText lang="fa" placeholder="#{fa.required}"  value="#{user.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
                             <f:validateRegex pattern="^([^0-9]*)$" />
                         </p:inputText>
                     </f:facet>
@@ -101,7 +101,7 @@
                         <h:outputText value="#{user.lastName}" />
                     </f:facet>
                     <f:facet name="input">
-                        <p:inputText value="#{user.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
+                        <p:inputText lang="fa" value="#{user.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
                             <f:validateRegex pattern="^([^0-9]*)$" />
                         </p:inputText>
                     </f:facet>
@@ -116,7 +116,7 @@
                         <h:outputText value="#{user.emailAddress}" />
                     </f:facet>
                     <f:facet name="input">
-                        <p:inputText value="#{user.emailAddress}" dir="ltr" validatorMessage="#{fa.please_fill_a_valid_value_for_email}" required="true" requiredMessage="#{fa.email_is_required}">
+                        <p:inputText lang="en" value="#{user.emailAddress}" dir="ltr" validatorMessage="#{fa.please_fill_a_valid_value_for_email}" required="true" requiredMessage="#{fa.email_is_required}">
                             <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
                         </p:inputText>
                     </f:facet>
@@ -169,7 +169,7 @@
                         <h:outputText value="#{user.address}" />
                     </f:facet>
                     <f:facet name="input">
-                        <p:inputText value="#{user.address}" style="width:100%"/>
+                        <p:inputText lang="fa" value="#{user.address}" style="width:100%"/>
                     </f:facet>
                 </p:cellEditor>
             </p:column>

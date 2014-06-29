@@ -13,7 +13,7 @@ public class LicenceService {
     static GenericDAO<Licence> licenceDao = new GenericDAOImpl<Licence>();
 
     public static List<Licence> getLicences(){
-        String query = "from Licence";
+        String query = "from Licence order by createDate desc";
         return licenceDao.findMany(query);
     }
 

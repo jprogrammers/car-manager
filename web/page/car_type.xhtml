@@ -23,16 +23,16 @@
             <p:dialog id="addCarTypeDialog" widgetVar="addCarTypeDialog" header="#{fa.add_car_type}" showEffect="fade" hideEffect="fade" draggable="false">
                 <h:panelGrid columns="2" id="addCarTypePanel">
                     <p:outputLabel value="#{fa.country}"/>
-                    <p:inputText value="#{carTypeBean.country}"/>
+                    <p:inputText lang="fa" value="#{carTypeBean.country}"/>
 
                     <p:outputLabel value="#{fa.factory}"/>
                     <p:inputText value="#{carTypeBean.factory}"/>
 
                     <p:outputLabel value="#{fa.usecase_type}"/>
-                    <p:inputText value="#{carTypeBean.usecaseType}"/>
+                    <p:inputText lang="fa" value="#{carTypeBean.usecaseType}"/>
 
                     <p:outputLabel value="#{fa.usecase_type2}"/>
-                    <p:inputText value="#{carTypeBean.usecaseType2}"/>
+                    <p:inputText lang="fa" value="#{carTypeBean.usecaseType2}"/>
 
                     <p:outputLabel value="#{fa.system}"/>
                     <p:inputText value="#{carTypeBean.system}"/>
@@ -80,7 +80,7 @@
             <p:column headerText="#{fa.country}" filterBy="country" filterMatchMode="contains">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{carType.country}" /></f:facet>
-                    <f:facet name="input"><p:inputText value="#{carType.country}" style="width:90%"/></f:facet>
+                    <f:facet name="input"><p:inputText lang="fa" value="#{carType.country}" style="width:90%"/></f:facet>
                 </p:cellEditor>
             </p:column>
 
@@ -94,14 +94,14 @@
             <p:column headerText="#{fa.usecase_type}" filterBy="usecaseType" filterMatchMode="contains">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{carType.usecaseType}" /></f:facet>
-                    <f:facet name="input"><p:inputText value="#{carType.usecaseType}" style="width:90%"/></f:facet>
+                    <f:facet name="input"><p:inputText lang="fa" value="#{carType.usecaseType}" style="width:90%"/></f:facet>
                 </p:cellEditor>
             </p:column>
 
             <p:column headerText="#{fa.usecase_type2}" filterBy="usecaseType2" filterMatchMode="contains">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{carType.usecaseType2}" /></f:facet>
-                    <f:facet name="input"><p:inputText value="#{carType.usecaseType2}" style="width:90%"/></f:facet>
+                    <f:facet name="input"><p:inputText lang="fa" value="#{carType.usecaseType2}" style="width:90%"/></f:facet>
                 </p:cellEditor>
             </p:column>
 

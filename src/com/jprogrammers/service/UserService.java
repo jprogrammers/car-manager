@@ -104,4 +104,11 @@ public class UserService{
     public static void delete(long id) {
         userDao.delete(getUser(id));
     }
+
+    public static User getUser(String emailAddress) {
+
+        String query = "FROM User where emailAddress ='" + emailAddress + "'";
+
+        return userDao.findOne(query);
+    }
 }

@@ -15,7 +15,7 @@ public class CustomerService extends GenericDAOImpl<Customer> {
 
     public static List<Customer> getCustomers(){
 
-        return customerDao.findMany("from Customer");
+        return customerDao.findMany("from Customer order by createDate desc");
     }
 
     public static void updateCustomer(Customer customer) {

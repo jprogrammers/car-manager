@@ -3,6 +3,9 @@ package com.jprogrammers.bean;
 import com.jprogrammers.language.LanguageUtil;
 import com.jprogrammers.model.User;
 import com.jprogrammers.service.UserService;
+import com.jprogrammers.util.EmailUtil;
+import com.jprogrammers.util.PWDEncryption;
+import com.jprogrammers.util.PWDGenerator;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -45,6 +48,30 @@ public class LoginBean {
             FacesContext.getCurrentInstance().getExternalContext().redirect("/page/index.xhtml");
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("invalid_username_or_email"), ""));
+        }
+    }
+
+    public void sendPasswordEmail() {
+        User user = UserService.getUser(getEmail());
+
+        if (user != null) {
+            String newPassword = PWDGenerator.generatePassword(5);
+
+            String body = LanguageUtil.get("your_password_has_been_changed_the_new_password_is_x" , newPassword);
+
+            try {
+                EmailUtil.sendEmail(getEmail() , LanguageUtil.get("new_password") , body);
+                user.setPassword(PWDEncryption.encrypt(newPassword));
+                UserService.updateUser(user);
+
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("your_password_has_been_changed"), ""));
+            } catch (Exception e) {
+                e.printStackTrace();
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("system_encountered_with_problem"), ""));
+            }
+
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("no_user_matches_with_this_email"), ""));
         }
     }
 
