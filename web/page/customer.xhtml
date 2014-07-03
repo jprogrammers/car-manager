@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:j="http://jprogrammers.com/ui"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head >
+    <title>#{fa.customers}</title>
+</h:head>
+<ui:include src="header.xhtml"/>
+<h:body dir="rtl">
+
+    <h:form id="form">
+        <p:growl id="message" autoUpdate="true" closable="true"/>
+
+        <p:commandButton type="button" value="#{fa.add_customer}" onclick="PF('addCustomerDialog').show()" />
+
+        <p:dialog id="addUser" widgetVar="addCustomerDialog" header="#{fa.add_customer}"  showEffect="fade" hideEffect="fade" draggable="false" resizable="false">
+            <h:panelGrid columns="2" id="addUserPanel">
+
+                <p:outputLabel value="#{fa.first_name}"/>
+                <p:inputText lang="fa" placeholder="#{fa.required}" value="#{customerBean.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
+                    <f:validateRegex pattern="^[^0-9]+$" />
+                </p:inputText>
+
+                <p:outputLabel value="#{fa.last_name}"/>
+                <p:inputText lang="fa" value="#{customerBean.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
+                    <f:validateRegex pattern="^[^0-9]+$" />
+                </p:inputText>
+
+                <p:outputLabel value="#{fa.national_code}"/>
+                <p:inputText  value="#{customerBean.nationalCode}" dir="ltr" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_national_code}">
+                    <f:validateRegex pattern="^[0-9]{10}$" />
+                </p:inputText>
+
+                <p:outputLabel value="#{fa.national_id}"/>
+                <p:inputText value="#{customerBean.nationalId}" dir="ltr" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_national_id}" >
+                    <f:validateRegex pattern="^[0-9]+$" />
+                </p:inputText>
+
+                <p:outputLabel value="#{fa.tell}"/>
+                <p:inputText placeholder="12345678" maxlength="8" dir="ltr" value="#{customerBean.tell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_phone_number}">
+                    <f:validateRegex pattern="^[0-9]{8}$" />
+                </p:inputText>
+
+                <p:outputLabel value="#{fa.mobile}"/>
+                <p:inputText placeholder="09123456789" maxlength="11" dir="ltr" value="#{customerBean.mobile}"  validatorMessage="#{fa.please_fill_a_valid_value_for_mobile}">
+                    <f:validateRegex pattern="^[0-9]{11}$" />
+                </p:inputText>
+
+                <p:outputLabel value="#{fa.work_tell}"/>
+                <p:inputText placeholder="12345678" maxlength="8" dir="ltr" value="#{customerBean.workTell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_work_tel}">
+                    <f:validateRegex pattern="^[0-9]{8}$" />
+                </p:inputText>
+
+                <p:outputLabel value="#{fa.job_title}"/>
+                <p:inputText lang="fa" value="#{customerBean.jobTitle}" />
+
+                <p:outputLabel value="#{fa.home_address}"/>
+                <p:inputText lang="fa" value="#{customerBean.homeAddress}"/>
+
+                <p:outputLabel value="#{fa.work_address}"/>
+                <p:inputText lang="fa" value="#{customerBean.workAddress}"/>
+
+                <p:outputLabel value="#{fa.father_name}"/>
+                <p:inputText lang="fa" value="#{customerBean.fatherName}" validatorMessage="#{fa.please_fill_a_valid_value_for_father_name}">
+                    <f:validateRegex pattern="^[^0-9]+$" />
+                </p:inputText>
+
+                <p:outputLabel value="#{fa.company}"/>
+                <p:inputText value="#{customerBean.company}"/>
+
+                <p:outputLabel value="#{fa.province}"/>
+                <p:inputText lang="fa" value="#{customerBean.province}"  validatorMessage="#{fa.please_fill_a_valid_value_for_province}">
+                    <f:validateRegex pattern="^[^0-9]+$" />
+                </p:inputText>
+
+                <p:outputLabel value="#{fa.birthday}"/>
+                <p:inputMask mask="9999/99/99" value="#{customerBean.birthday}" dir="ltr" />
+
+                <p:outputLabel value="#{fa.zipcode}"/>
+                <p:inputText value="#{customerBean.zipCode}" dir="ltr" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_zip_code}" >
+                    <f:validateRegex pattern="^[0-9]{10}$" />
+                </p:inputText>
+
+                <p:commandButton actionListener="#{customerBean.addCustomer()}" value="#{fa.add_customer}" update=":form2:customerTable addUserPanel" />
+            </h:panelGrid>
+        </p:dialog>
+    </h:form>
+    <h:form id="export-form">
+        <p:commandLink value="#{fa.export}" actionListener="#{customerBean.doExport()}" ajax="false"  />
+    </h:form>
+<h:form id="form2">
+<j:JDataTable id="customerTable" var="customer" value="#{customerBean.customers}" paginator="true" rows="15" widgetVar="customerTable" editable="true"
+                     emptyMessage="#{fa.no_customer_found_with_given_criteria}" filteredValue="#{customerBean.filteredCustomers}">
+
+        <p:ajax event="rowEdit" listener="#{customerBean.onEdit}" />
+
+            <p:column style="width:6%">
+                <h:inputHidden value="#{customer.id}"/>
+                <p:rowEditor />
+            </p:column>
+            <p:column>
+                <p:commandButton icon="ui-icon-trash" update=":form2:customerTable" actionListener="#{customerBean.deleteCustomer(customer.id)}" >
+                    <p:confirm header="#{fa.confirmation}" message="#{fa.are_you_sure}" icon="ui-icon-alert"/>
+                </p:commandButton>
+
+                <p:confirmDialog global="true">
+                    <p:commandButton value="#{fa.yes}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="#{fa.no}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                </p:confirmDialog>
+
+
+            </p:column>
+
+            <p:column id="firstNameColumn" filterBy="firstName"
+                      headerText="#{fa.first_name}"
+                      filterMatchMode="contains" >
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.firstName}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText lang="fa" placeholder="#{fa.required}" value="#{customer.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
+                            <f:validateRegex pattern="^[^0-9]+$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+
+            </p:column>
+
+            <p:column id="lastNameColumn" filterBy="lastName"
+                      headerText="#{fa.last_name}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.lastName}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText lang="fa" value="#{customer.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
+                            <f:validateRegex pattern="^[^0-9]+$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="nationalCodeColumn" filterBy="nationalCode"
+                      headerText="#{fa.national_code}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.nationalCode}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText dir="ltr" value="#{customer.nationalCode}" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_national_code}">
+                            <f:validateRegex pattern="^[0-9]{10}$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="nationalId" filterBy="nationalId"
+                      headerText="#{fa.national_id}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.nationalId}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText dir="ltr" value="#{customer.nationalId}" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_national_id}" >
+                            <f:validateRegex pattern="^[0-9]{10}$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="tell" filterBy="tell"
+                      headerText="#{fa.tell}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.tell}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText dir="ltr" placeholder="44546648" maxlength="8" value="#{customer.tell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_phone_number}">
+                            <f:validateRegex pattern="^[0-9]{8}$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="mobile" filterBy="mobile"
+                      headerText="#{fa.mobile}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.mobile}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText dir="ltr" placeholder="09352536512" maxlength="11" value="#{customer.mobile}"  validatorMessage="#{fa.please_fill_a_valid_value_for_mobile}">
+                            <f:validateRegex pattern="^[0-9]{11}$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="workTell" filterBy="workTell"
+                      headerText="#{fa.work_tell}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.workTell}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText dir="ltr" placeholder="44546648" maxlength="8" value="#{customer.workTell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_work_tel}">
+                            <f:validateRegex pattern="^[0-9]{8}$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="jobTitle" filterBy="jobTitle"
+                      headerText="#{fa.job_title}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.jobTitle}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText  value="#{customer.jobTitle}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="homeAddress" filterBy="homeAddress"
+                      headerText="#{fa.home_address}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.homeAddress}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText lang="fa" value="#{customer.homeAddress}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="workAddress" filterBy="workAddress"
+                      headerText="#{fa.work_address}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.workAddress}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText lang="fa" value="#{customer.workAddress}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="fatherName" filterBy="fatherName"
+                      headerText="#{fa.father_name}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.fatherName}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText lang="fa" value="#{customer.fatherName}" validatorMessage="#{fa.please_fill_a_valid_value_for_father_name}">
+                            <f:validateRegex pattern="^[^0-9]+$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+
+
+            <p:column id="company" filterBy="company"
+                      headerText="#{fa.company}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.company}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText lang="fa" value="#{customer.company}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="province" filterBy="province"
+                      headerText="#{fa.province}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.province}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText lang="fa" value="#{customerBean.province}"  validatorMessage="#{fa.please_fill_a_valid_value_for_province}">
+                            <f:validateRegex pattern="^[^0-9]+$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="birhday" filterBy="birthday"
+                      headerText="#{fa.birthday}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.birthday}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputMask dir="ltr" mask="9999/99/99" value="#{customer.birthday}"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="zipCode" filterBy="zipCode"
+                      headerText="#{fa.zipcode}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{customer.zipCode}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText dir="ltr" value="#{customer.zipCode}" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_zip_code}" >
+                            <f:validateRegex pattern="^[0-9]{10}$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+
+        </j:JDataTable>
+
+    </h:form>
+</h:body>
+
+
+</html>

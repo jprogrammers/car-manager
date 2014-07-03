@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>#{fa.calculate_price}</title>
+</h:head>
+<ui:include src="header.xhtml"/>
+<h:body dir="rtl">
+    <h:form>
+        <h:panelGrid id="pricePanel" columns="4" style="margin: 0 auto;">
+
+            <p:outputLabel value="ارزش فوب"/>
+            <p:inputText value="#{priceBean.fobPrice}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="تعداد"/>
+            <p:inputText value="#{priceBean.numberOfCar}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="کرایه حمل"/>
+            <p:inputText value="#{priceBean.shipmentPrice}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="ارزش دلاری کالا"/>
+            <p:outputLabel value="#{priceBean.stuffPriceInDollar}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
+
+            <p:outputLabel value="نرخ ارز"/>
+            <p:inputText value="#{priceBean.dollarPrice}"  dir="ltr">
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="ارزش کل"/>
+            <p:outputLabel value="#{priceBean.stuffPriceInRial}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
+
+            <p:outputLabel value="بیمه"/>
+            <p:outputLabel value="#{priceBean.insurance}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
+
+            <p:outputLabel value="گمرکی"/>
+            <p:outputLabel value="#{priceBean.customs}"  dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
+
+            <p:outputLabel value="درصد حقوق ورودی"/>
+            <p:inputText value="#{priceBean.entrancePercent}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="حقوق ورودی"/>
+            <p:outputLabel value="#{priceBean.entrance}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
+
+            <p:outputLabel value="درصد هلال احمر"/>
+            <p:inputText value="#{priceBean.helalAhmarPercent}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="1" />
+            </p:inputText>
+
+            <p:outputLabel value="هلال احمر"/>
+            <p:outputLabel value="#{priceBean.helalAhmar}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
+
+            <p:outputLabel value="درصد مالیات 1"/>
+            <p:inputText value="#{priceBean.taxPercent1}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="1" />
+            </p:inputText>
+
+            <p:outputLabel value="مالیات 1"/>
+            <p:outputLabel value="#{priceBean.tax1}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
+
+            <p:outputLabel value="درصد مالیات 2"/>
+            <p:inputText value="#{priceBean.taxPercent2}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="1" />
+            </p:inputText>
+
+            <p:outputLabel value="مالیات 2"/>
+            <p:outputLabel value="#{priceBean.tax2}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
+
+            <p:outputLabel value="مالیات کل"/>
+            <p:outputLabel value="#{priceBean.tax}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
+
+            <p:outputLabel value="عوارض واردات"/>
+            <p:outputLabel value="#{priceBean.importDuties}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
+
+            <p:outputLabel value="عوارض ورودی"/>
+            <p:inputText value="#{priceBean.entranceDuties}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="پرداخت گمرکی"/>
+            <p:outputLabel value="#{priceBean.customsPay}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
+
+            <p:outputLabel value="تبصره"/>
+            <p:inputText value="#{priceBean.note}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="عوارض دارایی"/>
+            <p:inputText value="#{priceBean.assetSide}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="مالیات"/>
+            <p:inputText value="#{priceBean.taxOther}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="بیمه شماره گذاری"/>
+            <p:inputText value="#{priceBean.markingInsurance}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="شهرداری"/>
+            <p:inputText value="#{priceBean.municipal}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="پلاک"/>
+            <p:inputText value="#{priceBean.plaque}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="خودروبر"/>
+            <p:inputText value="#{priceBean.vehicleCarrier}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="مجوز"/>
+            <p:inputText value="#{priceBean.licence}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="سایر"/>
+            <p:inputText value="#{priceBean.other}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:inputText>
+
+            <p:outputLabel value="جمع کل پرداختی"/>
+            <p:outputLabel value="#{priceBean.totalPrice}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
+
+            <p:commandButton value="محاسبه" actionListener="#{priceBean.calculatePrice}" update="pricePanel"/>
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <h:outputScript library="js" name="FarsiType.js" />
+</h:head>
+
+<h:body>
+    <h:form>
+        <p:menu style="width: 18%; float: right; height: 100%">
+            <p:menuitem value="#{fa.users}" url="/page/user.xhtml"/>
+            <p:menuitem value="#{fa.customers}" url="/page/customer.xhtml"/>
+            <p:menuitem value="#{fa.car_types}" url="/page/car_type.xhtml"/>
+            <p:menuitem value="#{fa.licences}" url="/page/licence.xhtml"/>
+            <p:menuitem value="#{fa.cartexes}" url="/page/cartex.xhtml"/>
+            <p:menuitem value="#{fa.cartex_design}" url="/page/cartex_design.xhtml"/>
+            <p:menuitem value="#{fa.calculate_price}" url="/page/price.xhtml" rendered="#{session.getAttribute('user').roleId == 0}"/>
+
+            <p:menuitem value="#{fa.cartex_edit_requests}" rendered="#{session.getAttribute('user').roleId == 0}" url="/page/cartex_edit_requests.xhtml"/>
+
+            <p:submenu>
+                <p:menuitem value="#{session.getAttribute('user').firstName} #{session.getAttribute('user').lastName}" url="/page/user_info.xhtml"/>
+                <p:menuitem>
+                    <p:commandButton value="#{fa.logout}" icon="ui-icon-extlink" actionListener="#{loginBean.doLogout}" />
+                </p:menuitem>
+            </p:submenu>
+        </p:menu>
+    </h:form>
+</h:body>
+
+</html>

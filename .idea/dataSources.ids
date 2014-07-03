@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="MySQL - carmanager@localhost" uuid="ec241449-16c8-4c47-b48f-b951b8eced8e">
+    <database-info product="MySQL" version="5.5.20-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.26 ( Revision: ${bzr.revision-id} )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="carmanager"/>
+    <table name="cartex" schema="" catalog="carmanager" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="bodyNumber" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
+      <column name="boughtDate" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
+      <column name="carTypeId" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5"/>
+      <column name="customerId" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5"/>
+      <column name="economicCode" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
+      <column name="engineNumber" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
+      <column name="plateNumber" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
+      <column name="licenceId" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5"/>
+      <column name="VINNumber" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="color" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="userId" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="cartexdesign" schema="" catalog="carmanager" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" length="20" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="userId" sqlType="BIGINT UNSIGNED" length="20" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="information" sqlType="VARCHAR" length="1000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="name1" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="title1" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="name2" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="title2" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="image" sqlType="BLOB" length="65535" precision="0" nullable="true" jdbcType="-4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="cartexeditrequest" schema="" catalog="carmanager" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="cartexId" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="createDate" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
+      <column name="status" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="userId" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="cartype" schema="" catalog="carmanager" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="capacity" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="country" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="cylinderCount" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="cylinderSize" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="defCount" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="factory" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="fuelType" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="system" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="tip" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
+      <column name="usecaseType" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="usecaseType2" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="wheelsCount" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="counter" schema="" catalog="carmanager" type="TABLE">
+      <column name="name" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="currentId" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="name"/>
+    </table>
+    <table name="customer" schema="" catalog="carmanager" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="birthday" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="company" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
+      <column name="createDate" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
+      <column name="fatherName" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
+      <column name="firstName" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
+      <column name="homeAddress" sqlType="VARCHAR" length="5000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="jobTitle" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
+      <column name="lastName" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
+      <column name="mobile" sqlType="VARCHAR" length="11" precision="0" nullable="true" jdbcType="12"/>
+      <column name="modifiedDate" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
+      <column name="nationalCode" sqlType="VARCHAR" length="10" precision="0" nullable="true" jdbcType="12"/>
+      <column name="nationalId" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <column name="province" sqlType="VARCHAR" length="1000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="tell" sqlType="VARCHAR" length="12" precision="0" nullable="true" jdbcType="12"/>
+      <column name="workAddress" sqlType="VARCHAR" length="5000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="workTell" sqlType="VARCHAR" length="12" precision="0" nullable="true" jdbcType="12"/>
+      <column name="zipCode" sqlType="VARCHAR" length="13" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="licence" schema="" catalog="carmanager" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="carTypeId" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5"/>
+      <column name="createDate" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
+      <column name="licenceCode" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
+      <column name="modifiedDate" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
+      <column name="userId" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="user" schema="" catalog="carmanager" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="createDate" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
+      <column name="emailAddress" sqlType="VARCHAR" length="1000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="firstName" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
+      <column name="lastName" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
+      <column name="modifiedDate" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
+      <column name="password" sqlType="VARCHAR" length="500" precision="0" nullable="false" jdbcType="12"/>
+      <column name="roleId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="status" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="address" sqlType="VARCHAR" length="2000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="tell" sqlType="VARCHAR" length="8" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+  </data-source>
+</component>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:j="http://jprogrammers.com/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+    <title>#{fa.cartex}</title>
+</h:head>
+<ui:include src="header.xhtml"/>
+<h:body dir="rtl">
+
+    <h:form>
+        <p:growl id="message" showDetail="true" autoUpdate="true" closable="true"/>
+        <p:commandButton type="button" value="#{fa.add_cartex}" onclick="PF('addCartexDialog').show()" />
+        <p:dialog id="addCartex" widgetVar="addCartexDialog" header="#{fa.add_cartex}"  showEffect="fade" hideEffect="fade" draggable="false" resizable="false">
+            <h:panelGrid columns="4">
+                <p:outputLabel value="#{fa.economic_code}:"/>
+                <p:inputText value="#{cartexBean.economicCode}"/>
+
+                <p:outputLabel value="#{fa.licence_code}:"/>
+                <p:selectOneMenu value="#{cartexBean.licenceId}">
+                    <f:selectItems value="#{cartexBean.licences}" var="licence" itemLabel="#{licence.licenceCode}" itemValue="#{licence.id}"/>
+                </p:selectOneMenu>
+
+                <p:outputLabel value="#{fa.national_code} #{fa.customer}:"/>
+                <p:selectOneMenu value="#{cartexBean.customerId}" filter="true" filterMatchMode="startsWith">
+                    <f:selectItems value="#{cartexBean.customers}" var="customer" itemLabel="#{customer}" itemValue="#{customer.id}"/>
+                </p:selectOneMenu>
+
+                <p:outputLabel value="#{fa.bought_date}:"/>
+                <p:inputMask dir="ltr" mask="9999/99/99" value="#{cartexBean.boughtDate}"/>
+
+                <p:outputLabel value="#{fa.model}:"/>
+                <p:inputText value="#{cartexBean.model}"/>
+
+                <p:outputLabel value="#{fa.color}:"/>
+                <p:inputText lang="fa" value="#{cartexBean.color}"/>
+
+                <p:outputLabel value="#{fa.engine_number}:"/>
+                <p:inputText dir="ltr" value="#{cartexBean.engineNumber}"/>
+
+                <p:outputLabel value="#{fa.body_number}:"/>
+                <p:inputText dir="ltr" value="#{cartexBean.bodyNumber}" onkeyup="event.keyCode != 13 ? checkEngineNumber(this) : null;"/>
+
+                <p:outputLabel value="#{fa.VIN_number}:"/>
+                <p:inputText dir="ltr" value="#{cartexBean.VINNumber}"/>
+
+                <p:commandButton value="#{fa.add_cartex}" actionListener="#{cartexBean.addCartex}" update="cartexTable"/>
+            </h:panelGrid>
+        </p:dialog>
+
+        <j:JDataTable id="cartexTable" value="#{cartexBean.cartexes}" var="cartex" paginator="true" rows="15" editable="true"
+                      widgetVar="cartexTable" filteredValue="#{cartexBean.filteredCartexes}" emptyMessage="#{fa.no_cartex_exist}">
+
+            <p:ajax event="rowEdit" listener="#{cartexBean.editCartex}"/>
+
+            <p:column>
+                <h:outputText rendered="#{cartexBean.hasPendingRequest(cartex.id , session.getAttribute('user').id)}" value="#{fa.waiting_for_response}"/>
+                <p:commandButton rendered="#{cartexBean.canRequest(cartex.id , session.getAttribute('user').id)}" ajax="false" actionListener="#{cartexBean.requestForEdit(cartex.id , session.getAttribute('user').id)}" value="#{fa.request_for_edit}" />
+            </p:column>
+
+            <p:column rendered="#{cartexBean.hasEditPermission(cartex.id , session.getAttribute('user').id)}">
+                <h:inputHidden id="cartexId" value="#{cartex.id}"/>
+                <p:rowEditor/>
+            </p:column>
+
+            <p:column rendered="#{session.getAttribute('user').roleId == 0}">
+                <p:commandButton icon="ui-icon-trash" actionListener="#{cartexBean.deleteCartex(cartex.id)}" update="cartexTable">
+                    <p:confirm header="#{fa.confirmation}" message="#{fa.are_you_sure}" icon="ui-icon-alert"/>
+                </p:commandButton>
+
+                <p:confirmDialog global="true">
+                    <p:commandButton value="#{fa.yes}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="#{fa.no}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                </p:confirmDialog>
+            </p:column>
+
+            <p:column headerText="#{fa.customer}">
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{cartex.customer}" /></f:facet>
+                    <f:facet name="input">
+                        <p:selectOneMenu value="#{cartex.customerId}" filter="true" filterMatchMode="startsWith">
+                            <f:selectItems value="#{cartexBean.customers}" var="customer" itemLabel="#{customer}" itemValue="#{customer.id}"/>
+                        </p:selectOneMenu>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column headerText="#{fa.licence_code}">
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{cartex.licence}"/></f:facet>
+                    <f:facet name="input">
+                        <p:selectOneMenu value="#{cartex.licenceId}">
+                            <f:selectItems value="#{cartexBean.licences}" var="licence" itemLabel="#{licence}" itemValue="#{licence.id}"/>
+                        </p:selectOneMenu>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column headerText="#{fa.model}">
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{cartex.model}"/></f:facet>
+                    <f:facet name="input"><p:inputText value="#{cartex.model}" style="width: 90%"/></f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column headerText="#{fa.color}">
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{cartex.color}"/></f:facet>
+                    <f:facet name="input"><p:inputText value="#{cartex.color}" style="width: 90%"/></f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column headerText="#{fa.engine_number}">
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{cartex.engineNumber}"/></f:facet>
+                    <f:facet name="input"><p:inputText dir="ltr" value="#{cartex.engineNumber}" style="width: 90%"/></f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column headerText="#{fa.body_number}">
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{cartex.bodyNumber}"/></f:facet>
+                    <f:facet name="input"><p:inputText dir="ltr" value="#{cartex.bodyNumber}" onkeyup="checkEngineNumber(this)" style="width: 90%"/></f:facet>
+                </p:cellEditor>
+            </p:column>
+
+        </j:JDataTable>
+    </h:form>
+
+    <script type="text/javascript">
+        var charValue = {};
+        charValue["A"] = 1; charValue["B"] = 2; charValue["C"] = 3; charValue["D"] = 4; charValue["E"] = 5; charValue["F"] = 6; charValue["G"] = 7; charValue["H"] = 8;
+        charValue["J"] = 1; charValue["K"] = 2; charValue["L"] = 3; charValue["M"] = 4; charValue["N"] = 5; charValue["P"] = 7; charValue["R"] = 9;
+        charValue["S"] = 2; charValue["T"] = 3; charValue["U"] = 4; charValue["V"] = 5; charValue["W"] = 6; charValue["X"] = 7; charValue["Y"] = 8; charValue["Z"] = 9;
+
+        var weight = [8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2];
+
+        function checkEngineNumber(object){
+            var value = object.value;
+            if(value.length >= 17 &amp;&amp; !checkDigit(value)){
+                alert("#{fa.invalid_body_number}");
+            }
+        }
+
+        function checkDigit(number){
+            if(number.length != 17){
+                return false;
+            }
+            var sum = 0;
+            var num;
+            for(var i = 0; i &lt; number.length; i++){
+                if(i == 8)
+                    continue;
+                if(!isNaN(number.charAt(i))){
+                    num = parseInt(number.charAt(i)) * weight[i];
+                } else {
+                    num = charValue[number.charAt(i).toUpperCase()] * weight[i];
+                }
+                sum += num;
+            }
+            var keyValue = sum % 11;
+            if(keyValue == 10){
+                keyValue = "X";
+            }
+            return number.charAt(8).toUpperCase() == keyValue;
+        }
+    </script>
+
+</h:body>
+
+</html>

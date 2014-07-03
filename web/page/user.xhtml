@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+    <title>#{fa.users}</title>
+</h:head>
+<ui:include src="header.xhtml"/>
+<h:body dir="rtl">
+    <h:form id="form">
+        <p:growl id="message" autoUpdate="true" closable="true"/>
+        <c:if test="#{session.getAttribute('user').roleId == 0 || session.getAttribute('user').roleId == 1}">
+            <p:commandButton type="button" value="#{fa.add_user}" onclick="PF('addUserDialog').show()" />
+
+            <p:dialog id="addUser" widgetVar="addUserDialog" header="#{fa.add_user}"  showEffect="fade" hideEffect="fade" draggable="false" resizable="false">
+                <h:panelGrid columns="2" id="addUserPanel">
+
+                    <p:outputLabel value="#{fa.first_name}"/>
+                    <p:inputText lang="fa" placeholder="#{fa.required}" value="#{userBean.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
+                        <f:validateRegex pattern="^([^0-9]*)$" />
+                    </p:inputText>
+
+                    <p:outputLabel value="#{fa.last_name}"/>
+                    <p:inputText lang="fa" value="#{userBean.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
+                        <f:validateRegex pattern="^([^0-9]*)$" />
+                    </p:inputText>
+
+                    <p:outputLabel value="#{fa.email}"/>
+                    <p:inputText lang="en" value="#{userBean.emailAddress}" dir="ltr" validatorMessage="#{fa.please_fill_a_valid_value_for_email}" required="true" requiredMessage="#{fa.email_is_required}">
+                        <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                    </p:inputText>
+
+                    <p:outputLabel value="#{fa.password}"/>
+                    <p:inputText type="password" dir="ltr" value="#{userBean.password}" required="true" requiredMessage="#{fa.password_is_required}"/>
+
+                    <p:outputLabel value="#{fa.tell}"/>
+                    <p:inputText placeholder="44546648" dir="ltr" maxlength="8" value="#{userBean.tell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_phone_number}">
+                        <f:validateRegex pattern="^[0-9]{8}$" />
+                    </p:inputText>
+
+                    <p:outputLabel value="#{fa.home_address}"/>
+                    <p:inputText lang="fa" value="#{userBean.address}" required="true" requiredMessage="#{fa.home_address_is_required}"/>
+
+                    <p:outputLabel value="#{fa.role}"/>
+                    <p:selectOneMenu value="#{userBean.roleId}">
+                        <f:selectItems value="#{userBean.roleIds}"
+                                       var="roleId"
+                                       itemLabel="#{userBean.getRoleName(roleId)}"
+                                       itemValue="#{roleId}" />
+                    </p:selectOneMenu>
+
+                    <p:commandButton actionListener="#{userBean.addUser}" value="#{fa.add_user}" update=":form2:dataTable addUserPanel"/>
+
+                </h:panelGrid>
+            </p:dialog>
+        </c:if>
+    </h:form>
+    <h:form id="form2">
+        <p:dataTable id="dataTable" var="user" value="#{userBean.allUsers}" paginator="true" rows="10" widgetVar="userTable" editable="true"
+                     emptyMessage="#{fa.no_cars_found_with_given_criteria}" filteredValue="#{userBean.filteredUsers}">
+
+            <p:ajax event="rowEdit" listener="#{userBean.onEdit}" update=":form:message" />
+
+            <p:column rendered="#{session.getAttribute('user').roleId == 0 || session.getAttribute('user').roleId == 1}">
+                <p:rowEditor />
+            </p:column>
+
+            <p:column rendered="#{session.getAttribute('user').roleId == 0 || session.getAttribute('user').roleId == 1}">
+                <p:commandButton icon="ui-icon-trash" update=":form2:dataTable" actionListener="#{userBean.deleteUser(user.id)}" >
+                    <p:confirm header="#{fa.confirmation}" message="#{fa.are_you_sure}" icon="ui-icon-alert"/>
+                </p:commandButton>
+
+                <p:confirmDialog global="true">
+                    <p:commandButton value="#{fa.yes}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="#{fa.no}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                </p:confirmDialog>
+            </p:column>
+
+
+            <p:column id="firstNameColumn" filterBy="firstName" headerText="#{fa.first_name}" filterMatchMode="contains" >
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{user.firstName}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText lang="fa" placeholder="#{fa.required}"  value="#{user.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
+                            <f:validateRegex pattern="^([^0-9]*)$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            <p:column id="lastNameColumn" filterBy="lastName"
+                      headerText="#{fa.last_name}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{user.lastName}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText lang="fa" value="#{user.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
+                            <f:validateRegex pattern="^([^0-9]*)$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            <p:column id="emailColumn" filterBy="lastName"
+                      headerText="#{fa.email}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{user.emailAddress}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText lang="en" value="#{user.emailAddress}" dir="ltr" validatorMessage="#{fa.please_fill_a_valid_value_for_email}" required="true" requiredMessage="#{fa.email_is_required}">
+                            <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="roleColumn" filterBy="roleId"
+                      headerText="#{fa.role}"
+                      filterMatchMode="exact"
+                      filterOptions="#{userBean.roleOptions}"
+                    >
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{userBean.getRoleName(user.roleId)}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <h:selectOneMenu value="#{user.roleId}" >
+                            <f:selectItems value="#{userBean.roleIds}"
+                                           var="roleId"
+                                           itemLabel="#{userBean.getRoleName(roleId)}"
+                                           itemValue="#{roleId}" />
+                        </h:selectOneMenu>
+                    </f:facet>
+                </p:cellEditor>
+
+            </p:column>
+
+            <p:column id="tell" filterBy="tell"
+                      headerText="#{fa.tell}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{user.tell}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText placeholder="44546648" maxlength="8" dir="ltr" value="#{user.tell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_phone_number}">
+                            <f:validateRegex pattern="^[0-9]{8}$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="homeAddress" filterBy="address"
+                      headerText="#{fa.home_address}"
+                      filterMatchMode="contains" >
+
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{user.address}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText lang="fa" value="#{user.address}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+
+
+            <p:column id="statusColumn" filterBy="status"
+                      headerText="#{fa.status}"
+                      filterMatchMode="exact"
+                      filterOptions="#{userBean.statusOptions}"
+                    >
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{userBean.getStatusName(user.status)}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <h:selectOneMenu value="#{user.status}" >
+                            <f:selectItems value="#{userBean.getStatuses()}"
+                                           var="status"
+                                           itemLabel="#{userBean.getStatusName(status)}"
+                                           itemValue="#{status}" />
+                        </h:selectOneMenu>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+
+        </p:dataTable>
+
+    </h:form>
+
+</h:body>
+
+</html>

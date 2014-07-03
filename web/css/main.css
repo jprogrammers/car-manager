@@ -1,0 +1,59 @@
+@font-face {
+    font-family: "zNassim";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/font/znassim-regular.eot?#iefix") format("embedded-opentype"), url("/font/znassim-regular.woff") format("woff"), url("/font/znassim-regular.ttf") format("truetype");
+}
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+}
+
+form {
+    display: inline;
+}
+.main-wrapper{
+    margin: 0 auto;
+    max-width: 1200px;
+    min-width: 900px;
+}
+.ui-widget{
+    font-family: zNassim !important;
+}
+.pui-menu .pui-menuitem{
+    float: right;
+}
+.right-panel {
+    float: right;
+    width: 30%;
+}
+.main-panel{
+    float: left;
+    width: 67.8%;
+}
+.footer-panel{
+    clear: both;
+}
+.ui-paginator {
+    line-height: 17px;
+}
+.pui-fieldset, .pui-fieldset .pui-fieldset-legend {
+    margin: 0.3em 0;
+    padding: 0.3em 1em;
+}
+.ui-menu .ui-menuitem{
+    float: right;
+}
+.ui-datatable-tablewrapper{
+    overflow-x: scroll;
+}
+.ui-datatable{
+    width: 80%;
+    float: left;
+}
+
+.ui-menu .ui-menuitem-text {
+    float: right;
+}
