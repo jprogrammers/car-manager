@@ -4,8 +4,169 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>#{fa.register}</title>
+        <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    </h:head>
+
+    <h:body dir="rtl" onload="PF('loginDialog').show();">
+
+        <h:form id="register-form" >
+            <p:growl id="message" autoUpdate="true" closable="true"/>
+
+            <p:dialog id="loginDialog" modal="true" widgetVar="loginDialog" closable="false" header="#{fa.login}" draggable="false" resizable="false">
+                <h:panelGrid columns="4" id="registerPanel">
+
+                    <p:outputLabel value="#{fa.first_name}"/>
+                    <p:inputText lang="fa" placeholder="#{fa.required}" value="#{registerBean.firstName}" required="true" validatorMessage="#{fa.please_fill_a_valid_value_for_first_name}" requiredMessage="#{fa.first_name_is_required}" >
+                        <f:validateRegex pattern="^[^0-9]+$" />
+                    </p:inputText>
+
+                    <p:outputLabel value="#{fa.last_name}"/>
+                    <p:inputText lang="fa" value="#{registerBean.lastName}" validatorMessage="#{fa.please_fill_a_valid_value_for_last_name}">
+                        <f:validateRegex pattern="^[^0-9]+$" />
+                    </p:inputText>
+
+                    <p:outputLabel value="#{fa.national_code}"/>
+                    <p:inputText  value="#{registerBean.nationalCode}" dir="ltr" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_national_code}">
+                        <f:validateRegex pattern="^[0-9]{10}$" />
+                    </p:inputText>
+
+                    <p:outputLabel value="#{fa.national_id}"/>
+                    <p:inputText value="#{registerBean.nationalId}" dir="ltr" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_national_id}" >
+                        <f:validateRegex pattern="^[0-9]+$" />
+                    </p:inputText>
+
+                    <p:outputLabel value="#{fa.tell}"/>
+                    <p:inputText placeholder="12345678" maxlength="8" dir="ltr" value="#{registerBean.tell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_phone_number}">
+                        <f:validateRegex pattern="^[0-9]{8}$" />
+                    </p:inputText>
+
+                    <p:outputLabel value="#{fa.mobile}"/>
+                    <p:inputText placeholder="09123456789" maxlength="11" dir="ltr" value="#{registerBean.mobile}"  validatorMessage="#{fa.please_fill_a_valid_value_for_mobile}">
+                        <f:validateRegex pattern="^[0-9]{11}$" />
+                    </p:inputText>
+
+                    <p:outputLabel value="#{fa.work_tell}"/>
+                    <p:inputText placeholder="12345678" maxlength="8" dir="ltr" value="#{registerBean.workTell}"  validatorMessage="#{fa.please_fill_a_valid_value_for_work_tel}">
+                        <f:validateRegex pattern="^[0-9]{8}$" />
+                    </p:inputText>
+
+                    <p:outputLabel value="#{fa.job_title}"/>
+                    <p:inputText lang="fa" value="#{registerBean.jobTitle}" />
+
+                    <p:outputLabel value="#{fa.home_address}"/>
+                    <p:inputText lang="fa" value="#{registerBean.homeAddress}"/>
+
+                    <p:outputLabel value="#{fa.work_address}"/>
+                    <p:inputText lang="fa" value="#{registerBean.workAddress}"/>
+
+                    <p:outputLabel value="#{fa.father_name}"/>
+                    <p:inputText lang="fa" value="#{registerBean.fatherName}" validatorMessage="#{fa.please_fill_a_valid_value_for_father_name}">
+                        <f:validateRegex pattern="^[^0-9]+$" />
+                    </p:inputText>
+
+                    <p:outputLabel value="#{fa.company}"/>
+                    <p:inputText value="#{registerBean.company}"/>
+
+                    <p:outputLabel value="#{fa.province}"/>
+                    <p:inputText lang="fa" value="#{registerBean.province}"  validatorMessage="#{fa.please_fill_a_valid_value_for_province}">
+                        <f:validateRegex pattern="^[^0-9]+$" />
+                    </p:inputText>
+
+                    <p:outputLabel value="#{fa.birthday}"/>
+                    <p:inputMask mask="9999/99/99" value="#{registerBean.birthday}" dir="ltr" />
+
+                    <p:outputLabel value="#{fa.zipcode}"/>
+                    <p:inputText value="#{registerBean.zipCode}" dir="ltr" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_zip_code}" >
+                        <f:validateRegex pattern="^[0-9]{10}$" />
+                    </p:inputText>
+
+                </h:panelGrid>
+
+                <h3 class="line-below">
+                    <h:outputText value="#{fa.cartex}"/>
+                </h3>
+                <div class="warning">
+                    <h:outputText value="#{fa.added_cartex_could_not_changed}"/>
+                </div>
+
+                <h:panelGrid columns="4">
+                    <p:outputLabel value="#{fa.economic_code}:"/>
+                    <p:inputText value="#{registerBean.economicCode}"/>
+
+                    <p:outputLabel value="#{fa.company}:"/>
+                    <p:selectOneMenu value="#{registerBean.userId}" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{registerBean.adminUsers}" var="user" itemLabel="#{user.firstName}" itemValue="#{user.id}"/>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel value="#{fa.bought_date}:"/>
+                    <p:inputMask dir="ltr" mask="9999/99/99" value="#{registerBean.boughtDate}"/>
+
+                    <p:outputLabel value="#{fa.model}:"/>
+                    <p:inputText value="#{registerBean.model}"/>
+
+                    <p:outputLabel value="#{fa.color}:"/>
+                    <p:inputText lang="fa" value="#{registerBean.color}"/>
+
+                    <p:outputLabel value="#{fa.engine_number}:"/>
+                    <p:inputText dir="ltr" value="#{registerBean.engineNumber}"/>
+
+                    <p:outputLabel value="#{fa.body_number}:"/>
+                    <p:inputText dir="ltr" value="#{registerBean.bodyNumber}" onkeyup="event.keyCode != 13 ? checkEngineNumber(this) : null;"/>
+
+                    <p:outputLabel value="#{fa.VIN_number}:"/>
+                    <p:inputText dir="ltr" value="#{registerBean.VINNumber}"/>
+
+                </h:panelGrid>
+
+
+                <p:commandButton actionListener="#{registerBean.register()}" value="#{fa.register}"  />
+            </p:dialog>
+
+        </h:form>
+
+        <script type="text/javascript">
+            var charValue = {};
+            charValue["A"] = 1; charValue["B"] = 2; charValue["C"] = 3; charValue["D"] = 4; charValue["E"] = 5; charValue["F"] = 6; charValue["G"] = 7; charValue["H"] = 8;
+            charValue["J"] = 1; charValue["K"] = 2; charValue["L"] = 3; charValue["M"] = 4; charValue["N"] = 5; charValue["P"] = 7; charValue["R"] = 9;
+            charValue["S"] = 2; charValue["T"] = 3; charValue["U"] = 4; charValue["V"] = 5; charValue["W"] = 6; charValue["X"] = 7; charValue["Y"] = 8; charValue["Z"] = 9;
+
+            var weight = [8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2];
+
+            function checkEngineNumber(object){
+                var value = object.value;
+                if(value.length >= 17 &amp;&amp; !checkDigit(value)){
+                    alert("#{fa.invalid_body_number}");
+                }
+            }
+
+            function checkDigit(number){
+                if(number.length != 17){
+                    return false;
+                }
+                var sum = 0;
+                var num;
+                for(var i = 0; i &lt; number.length; i++){
+                    if(i == 8)
+                        continue;
+                    if(!isNaN(number.charAt(i))){
+                        num = parseInt(number.charAt(i)) * weight[i];
+                    } else {
+                        num = charValue[number.charAt(i).toUpperCase()] * weight[i];
+                    }
+                    sum += num;
+                }
+                var keyValue = sum % 11;
+                if(keyValue == 10){
+                    keyValue = "X";
+                }
+                return number.charAt(8).toUpperCase() == keyValue;
+            }
+        </script>
+    </h:body>
 </html>
+

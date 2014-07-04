@@ -1,15 +1,27 @@
 package com.jprogrammers.bean;
 
+import com.jprogrammers.language.LanguageUtil;
 import com.jprogrammers.model.Customer;
+import com.jprogrammers.model.Role;
+import com.jprogrammers.model.User;
+import com.jprogrammers.service.CartexService;
+import com.jprogrammers.service.CustomerService;
+import com.jprogrammers.service.UserService;
+import com.jprogrammers.util.Validator;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Ali Reza Akbarian
  *         created on 04/07/14.
  */
-
-public class RegisterWrapper extends CustomerBean {
+@ManagedBean
+public class RegisterBean extends CustomerBean {
 
     private long id;
     private long userId;
@@ -23,6 +35,22 @@ public class RegisterWrapper extends CustomerBean {
     private String boughtDate;
     private String plateNumber;
     private String economicCode;
+    private List<User> adminUsers = new ArrayList<User>();
+
+
+
+    public RegisterBean(){
+        adminUsers = UserService.getUsers(User.ADMINISTRATOR , User.ACTIVE);
+
+    }
+
+    public List<User> getAdminUsers() {
+        return adminUsers;
+    }
+
+    public void setAdminUsers(List<User> adminUsers) {
+        this.adminUsers = adminUsers;
+    }
 
     public long getId() {
         return id;
@@ -119,4 +147,48 @@ public class RegisterWrapper extends CustomerBean {
     public void setEconomicCode(String economicCode) {
         this.economicCode = economicCode;
     }
+
+    public void register(){
+
+        if (isCustomerFieldsValid()) {
+            Customer customer = CustomerService.addCustomer(getFirstName(), getLastName(), getNationalCode(), getNationalId(), getTell(), getMobile(),
+                    getWorkTell(), getJobTitle(), getHomeAddress(), getWorkAddress(), getFatherName(), getCompany(), getProvince(),
+                    getBirthday(), getZipCode());
+
+            if(isCartexDataValid()){
+                CartexService.addCartex(getUserId(), getCustomerId(), getLicenceId(), getColor(), getEngineNumber(), getBodyNumber(), getVINNumber(),
+                        getModel(), getBoughtDate(), getPlateNumber(), getEconomicCode());
+
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("cartex_added_successfully"), ""));
+            } else {
+                CustomerService.deleteCustomer(customer.getId());
+
+            }
+        }
+
+        emptyFields();
+    }
+
+    protected boolean isCartexDataValid(){
+        if (Validator.isNullOrEmpty(getColor())){
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_enter_valid_color"));
+            return false;
+        }
+        if (Validator.isNullOrEmpty(getEngineNumber())) {
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_enter_valid_engine_number"));
+            return false;
+        }
+        if (Validator.isNullOrEmpty(getBodyNumber()) || getBodyNumber().length() != 17) {
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_enter_valid_body_number"));
+            return false;
+        }
+        if (Validator.isNullOrEmpty(getModel())) {
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_enter_valid_model"));
+            return false;
+        }
+
+        return true;
+    }
+
+
 }

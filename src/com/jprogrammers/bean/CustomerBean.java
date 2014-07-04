@@ -60,26 +60,81 @@ public class CustomerBean extends Customer implements Serializable {
 
     }
 
-    public void addCustomer() {
-        if(Validator.isNullOrEmpty(getFirstName()) || Validator.isNullOrEmpty(getLastName()) || !Validator.isNationalCode(getNationalCode()) ||
-                !Validator.isNumber(getNationalId()) || !Validator.isNumber(getTell()) || !Validator.isNumber(getMobile()) ||
-                !Validator.isNumber(getWorkTell()) || Validator.isNullOrEmpty(getHomeAddress()) || Validator.isNullOrEmpty(getFatherName()) ||
-                Validator.isNullOrEmpty(getProvince()) || Validator.isNullOrEmpty(getBirthday()) || !Validator.isNumber(getZipCode()) ){
+    public boolean addCustomer() {
+        if(isCustomerFieldsValid() ){
 
-            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_insert_valid_parameter"));
-
-        }else{
             CustomerService.addCustomer(getFirstName() , getLastName() , getNationalCode() , getNationalId() , getTell() , getMobile() ,
                     getWorkTell() , getJobTitle() , getHomeAddress() , getWorkAddress() , getFatherName() , getCompany() , getProvince() ,
                     getBirthday() , getZipCode());
             addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("customer_added_successfully"));
             emptyFields();
             init();
+
+            return true;
+
+        }else{
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_insert_valid_parameter"));
+
+            return false;
         }
 
     }
 
-    private void emptyFields(){
+    protected boolean isCustomerFieldsValid() {
+
+        if (Validator.isNullOrEmpty(getFirstName())) {
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("please_fill_a_valid_value_for_first_name"));
+            return false;
+        }
+        if (Validator.isNullOrEmpty(getLastName())) {
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("please_fill_a_valid_value_for_last_name"));
+            return false;
+        }
+        if (!Validator.isNationalCode(getNationalCode())) {
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("please_fill_a_valid_value_for_national_code"));
+            return false;
+        }
+        if (!Validator.isNumber(getNationalId())) {
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("please_fill_a_valid_value_for_national_id"));
+            return false;
+        }
+        if (!Validator.isNumber(getTell())) {
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("please_fill_a_valid_value_for_work_tel"));
+            return false;
+        }
+        if ( !Validator.isNumber(getMobile())) {
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("please_fill_a_valid_value_for_mobile"));
+            return false;
+        }
+        if (!Validator.isNumber(getWorkTell())) {
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("please_fill_a_valid_value_for_work_tel"));
+            return false;
+        }
+        if (Validator.isNullOrEmpty(getHomeAddress())) {
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("please_fill_a_valid_value_for_home_address"));
+            return false;
+        }
+        if (Validator.isNullOrEmpty(getFatherName())) {
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("please_fill_a_valid_value_for_father_name"));
+            return false;
+        }
+        if (Validator.isNullOrEmpty(getProvince())) {
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("please_fill_a_valid_value_for_province"));
+            return false;
+        }
+        if (!Validator.isNumber(getZipCode())) {
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("please_fill_a_valid_value_for_zip_code"));
+            return false;
+        }
+        if (Validator.isNullOrEmpty(getBirthday())) {
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("please_fill_a_valid_value_for_birthday"));
+            return false;
+        }
+
+        return true;
+    }
+
+    public void emptyFields(){
         setFirstName("");
         setLastName("");
         setCreateDate(null);
@@ -99,7 +154,7 @@ public class CustomerBean extends Customer implements Serializable {
         setZipCode("");
     }
 
-    private void addMessage(FacesMessage.Severity severity, String message) {
+    protected void addMessage(FacesMessage.Severity severity, String message) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(severity, message, ""));
     }
 

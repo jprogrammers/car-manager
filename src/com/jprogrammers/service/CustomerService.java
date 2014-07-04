@@ -32,7 +32,7 @@ public class CustomerService extends GenericDAOImpl<Customer> {
         return customerDao.findOne("from Customer where id = " + customerId);
     }
 
-    public static void addCustomer(String firstName, String lastName, String nationalCode, String nationalId, String tell, String mobile, String workTell, String jobTitle, String homeAddress, String workAddress, String fatherName, String company, String province, String birthday, String zipCode) {
+    public static Customer addCustomer(String firstName, String lastName, String nationalCode, String nationalId, String tell, String mobile, String workTell, String jobTitle, String homeAddress, String workAddress, String fatherName, String company, String province, String birthday, String zipCode) {
 
         Customer customer = new Customer();
 
@@ -56,5 +56,7 @@ public class CustomerService extends GenericDAOImpl<Customer> {
         customer.setModifiedDate(new Date());
 
         customerDao.save(customer);
+
+        return customer;
     }
 }

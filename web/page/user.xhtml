@@ -13,10 +13,10 @@
 </h:head>
 <ui:include src="header.xhtml"/>
 <h:body dir="rtl">
-    <h:form id="form">
+    <h:form id="form"  enctype="multipart/form-data" >
         <p:growl id="message" autoUpdate="true" closable="true"/>
         <c:if test="#{session.getAttribute('user').roleId == 0 || session.getAttribute('user').roleId == 1}">
-            <p:commandButton type="button" value="#{fa.add_user}" onclick="PF('addUserDialog').show()" />
+            <p:commandButton  type="button" value="#{fa.add_user}" onclick="PF('addUserDialog').show()" />
 
             <p:dialog id="addUser" widgetVar="addUserDialog" header="#{fa.add_user}"  showEffect="fade" hideEffect="fade" draggable="false" resizable="false">
                 <h:panelGrid columns="2" id="addUserPanel">
@@ -54,6 +54,8 @@
                                        itemLabel="#{userBean.getRoleName(roleId)}"
                                        itemValue="#{roleId}" />
                     </p:selectOneMenu>
+
+                    <p:fileUpload  fileUploadListener="#{userBean.handleFileUpload}" value="#{userBean.userLogo}" mode="simple" disabled="false" />
 
                     <p:commandButton actionListener="#{userBean.addUser}" value="#{fa.add_user}" update=":form2:dataTable addUserPanel"/>
 

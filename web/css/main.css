@@ -57,3 +57,12 @@ form {
 .ui-menu .ui-menuitem-text {
     float: right;
 }
+
+.warning {
+    background-color: #F7EAB3;
+    padding: 8px;
+}
+h3.line-below {
+    border-bottom: 1px solid;
+    padding-bottom: 2px;
+}

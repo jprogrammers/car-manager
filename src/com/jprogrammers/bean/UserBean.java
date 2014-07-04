@@ -6,15 +6,17 @@ import com.jprogrammers.service.CartexService;
 import com.jprogrammers.service.UserService;
 import com.jprogrammers.util.PWDEncryption;
 import com.jprogrammers.util.Validator;
+import org.apache.poi.util.IOUtils;
+import org.primefaces.event.FileUploadEvent;
 import org.primefaces.event.RowEditEvent;
+import org.primefaces.model.UploadedFile;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
 import java.util.List;
 
 /**
@@ -27,6 +29,8 @@ public class UserBean extends User implements Serializable {
 
     private List<User> filteredUsers;
     private List<User> allUsers;
+
+    private UploadedFile userLogo;
 
     User user;
 
@@ -57,6 +61,14 @@ public class UserBean extends User implements Serializable {
         createRoleOptions();
         createStatusOptions();
         init();
+    }
+
+    public UploadedFile getUserLogo() {
+        return userLogo;
+    }
+
+    public void setUserLogo(UploadedFile userLogo) {
+        this.userLogo = userLogo;
     }
 
     private void init(){
@@ -141,11 +153,28 @@ public class UserBean extends User implements Serializable {
     }
 
     public void addUser() throws IOException {
-        UserService.addUser(getFirstName() , getLastName() , getEmailAddress() , getPassword() , getTell() , getAddress(), (user.getRoleId() == User.GOD) ? 0 : user.getUserId(), getRoleId());
+
+        User addedUser = UserService.addUser(getFirstName() , getLastName() , getEmailAddress() , getPassword() , getTell() , getAddress(), (user.getRoleId() == User.GOD) ? 0 : user.getUserId(), getRoleId());
+        /*if ( userLogo.getFile() != null ) {
+            OutputStream out = new FileOutputStream("/images/" + addedUser.getId());
+            out.write(event.getFile().getContents());
+            out.flush();
+            out.close();
+        }*/
 
         addMessage(FacesMessage.SEVERITY_INFO , LanguageUtil.get("user_added_successfully"));
         emptyFields();
         init();
+    }
+
+    public void handleFileUpload(FileUploadEvent event) throws IOException {
+
+        UploadedFile file = event.getFile();
+        System.out.println(file.getFileName());
+
+        byte[] foto = IOUtils.toByteArray(file.getInputstream());
+        System.out.println(foto);
+        //application code
     }
 
     private void emptyFields(){

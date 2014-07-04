@@ -22,7 +22,7 @@ public class LoginFilter implements Filter {
         boolean isLogin = (request.getSession().getAttribute("login") != null) ? (Boolean)request.getSession().getAttribute("login") : false;
 
         String requestUrl = request.getRequestURI();
-        if(isLogin || requestUrl.contains("/login.xhtml") || requestUrl.contains("/javax.faces.resource/")) {
+        if(isLogin || requestUrl.contains("/login.xhtml") || requestUrl.contains("/register.xhtml") || requestUrl.contains("/javax.faces.resource/")) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
             HttpServletResponse response = (HttpServletResponse) servletResponse;
