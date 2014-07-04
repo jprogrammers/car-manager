@@ -19,7 +19,7 @@
 
         <p:commandButton type="button" value="#{fa.add_customer}" onclick="PF('addCustomerDialog').show()" />
 
-        <p:dialog id="addUser" widgetVar="addCustomerDialog" header="#{fa.add_customer}"  showEffect="fade" hideEffect="fade" draggable="false">
+        <p:dialog id="addUser" widgetVar="addCustomerDialog" header="#{fa.add_customer}"  showEffect="fade" hideEffect="fade" draggable="false" resizable="false">
             <h:panelGrid columns="2" id="addUserPanel">
 
                 <p:outputLabel value="#{fa.first_name}"/>

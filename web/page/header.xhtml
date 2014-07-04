@@ -20,7 +20,8 @@
             <p:menuitem value="#{fa.car_types}" url="/page/car_type.xhtml"/>
             <p:menuitem value="#{fa.licences}" url="/page/licence.xhtml"/>
             <p:menuitem value="#{fa.cartexes}" url="/page/cartex.xhtml"/>
-            <p:menuitem value="#{fa.calculate_price}" url="/page/price.xhtml"/>
+            <p:menuitem value="#{fa.cartex_design}" url="/page/cartex_design.xhtml"/>
+            <p:menuitem value="#{fa.calculate_price}" url="/page/price.xhtml" rendered="#{session.getAttribute('user').roleId == 0}"/>
 
             <p:menuitem value="#{fa.cartex_edit_requests}" rendered="#{session.getAttribute('user').roleId == 0}" url="/page/cartex_edit_requests.xhtml"/>
 

@@ -17,5 +17,6 @@
         <mapping class="com.jprogrammers.model.Licence"/>
         <mapping class="com.jprogrammers.model.CartexEditRequest"/>
         <mapping class="com.jprogrammers.model.Counter"/>
+        <mapping class="com.jprogrammers.model.CartexDesign"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,8 +1,6 @@
 package com.jprogrammers.bean;
 
-import com.jprogrammers.language.LanguageFa;
 import com.jprogrammers.language.LanguageUtil;
-import com.jprogrammers.model.Role;
 import com.jprogrammers.model.User;
 import com.jprogrammers.service.CartexService;
 import com.jprogrammers.service.UserService;
@@ -17,8 +15,6 @@ import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,11 +28,14 @@ public class UserBean extends User implements Serializable {
     private List<User> filteredUsers;
     private List<User> allUsers;
 
+    User user;
+
     private SelectItem[] roleOptions;
     private SelectItem[] statusOptions;
 
     private int[] statuses = new int[]{0 , 1};
-    private int[] roleIds = Role.roleIds;
+    private int[] roleIds;
+    String[] roleNames;
 
     private String oldPassword;
     private String confirmPassword;
@@ -46,13 +45,25 @@ public class UserBean extends User implements Serializable {
     }
 
     public UserBean() {
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        user = (User)session.getAttribute("user");
+        if(user.getRoleId() == User.GOD){
+            roleIds = new int[]{User.ADMINISTRATOR};
+            roleNames = new String[]{"administrator"};
+        } else {
+            roleIds = new int[]{User.USER};
+            roleNames = new String[]{"user"};
+        }
         createRoleOptions();
         createStatusOptions();
         init();
     }
 
     private void init(){
-        setAllUsers(UserService.getUsers());
+        if(user.getRoleId() == User.GOD)
+            setAllUsers(UserService.getUsers());
+        else
+            setAllUsers(UserService.getUsers(user.getUserId()));
     }
 
     private void createStatusOptions() {
@@ -65,18 +76,13 @@ public class UserBean extends User implements Serializable {
     }
 
     private void createRoleOptions() {
-        String[] roleNames = Role.roleNames;
         roleOptions = new SelectItem[roleNames.length + 1];
 
         roleOptions[0] = new SelectItem("" , LanguageUtil.get("everything"));
 
         for ( int i = 0 ; i < roleNames.length ; i++ ) {
-            roleOptions[i + 1] = new SelectItem(Role.roleIds[i] , LanguageUtil.get(Role.roleNames[i]));
+            roleOptions[i + 1] = new SelectItem(roleIds[i] , LanguageUtil.get(roleNames[i]));
         }
-    }
-
-    public List<User> filterByRoles(String roleName) {
-        return UserService.getUsers(Role.USER , User.ACTIVE);
     }
 
     public List<User> getFilteredUsers() {
@@ -96,7 +102,7 @@ public class UserBean extends User implements Serializable {
     }
 
     public String getRoleName(int roleId) {
-        return LanguageUtil.get(Role.roleNames[roleId]);
+        return LanguageUtil.get(User.getRoleNameById(roleId));
     }
 
     public SelectItem[] getStatusOptions() {
@@ -110,7 +116,7 @@ public class UserBean extends User implements Serializable {
     public void onEdit(RowEditEvent event) {
         User user = (User) event.getObject();
 
-        UserService.updateUser(user);
+        UserService.editUser(user);
 
         addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("user_edited_successfully"));
     }
@@ -125,7 +131,7 @@ public class UserBean extends User implements Serializable {
 
     public void deleteUser(long id) {
 
-        if (CartexService.getCartexes(id).size() == 0) {
+        if (CartexService.getUserCartexes(id).size() == 0) {
             UserService.delete(id);
             addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("user_deleted_successfully"));
         } else {
@@ -135,9 +141,9 @@ public class UserBean extends User implements Serializable {
     }
 
     public void addUser() throws IOException {
-        UserService.addUser(getFirstName() , getLastName() , getEmailAddress() , getPassword() , getTell() , getAddress());
+        UserService.addUser(getFirstName() , getLastName() , getEmailAddress() , getPassword() , getTell() , getAddress(), (user.getRoleId() == User.GOD) ? 0 : user.getUserId(), getRoleId());
 
-        addMessage(FacesMessage.SEVERITY_INFO , LanguageUtil.get("your_request_was_completed"));
+        addMessage(FacesMessage.SEVERITY_INFO , LanguageUtil.get("user_added_successfully"));
         emptyFields();
         init();
     }
@@ -197,7 +203,7 @@ public class UserBean extends User implements Serializable {
             addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_enter_valid_email_address"));
         } else {
             UserService.editUser(user.getId(), getFirstName(), getLastName(), getEmailAddress(),
-                    getPassword(),getTell(), getAddress());
+                    getPassword(), getTell(), getAddress(), getRoleId());
 
             addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("user_edited_successfully"));
         }

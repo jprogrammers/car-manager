@@ -21,8 +21,13 @@ public class CartexService {
         return cartexDao.findMany(query);
     }
 
-    public static List<Cartex> getCartexes(long userId){
+    public static List<Cartex> getUserCartexes(long userId){
         String query = "from Cartex where userId = " + userId;
+        return cartexDao.findMany(query);
+    }
+
+    public static List<Cartex> getLicenceCartexes(long licenceId){
+        String query = "from Cartex where licenceId = " + licenceId;
         return cartexDao.findMany(query);
     }
 

@@ -1,11 +1,9 @@
 package com.jprogrammers.bean;
 
 import com.jprogrammers.language.LanguageUtil;
-import com.jprogrammers.model.CarType;
-import com.jprogrammers.model.Licence;
-import com.jprogrammers.model.Role;
-import com.jprogrammers.model.User;
+import com.jprogrammers.model.*;
 import com.jprogrammers.service.CarTypeService;
+import com.jprogrammers.service.CartexService;
 import com.jprogrammers.service.LicenceService;
 import com.jprogrammers.service.UserService;
 import com.jprogrammers.util.Validator;
@@ -39,7 +37,7 @@ public class LicenceBean extends Licence {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         user = (User)session.getAttribute("user");
 
-        users = UserService.getUsers(Role.USER, User.ACTIVE);
+        users = UserService.getUsers(User.ADMINISTRATOR, User.ACTIVE);
 
         carTypes = CarTypeService.getCarTypes();
 
@@ -47,10 +45,10 @@ public class LicenceBean extends Licence {
     }
 
     private void init(){
-        if(user.getRoleId() == Role.ADMINISTRATOR)
+        if(user.getRoleId() == User.GOD)
             setLicences(LicenceService.getLicences());
         else
-            setLicences(LicenceService.getLicences(user.getId()));
+            setLicences(LicenceService.getLicences(user.getUserId()));
     }
 
     public void addLicence(){
@@ -68,6 +66,16 @@ public class LicenceBean extends Licence {
         LicenceService.editLicence(licence);
         addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("licence_edited_successfully"));
         init();
+    }
+
+    public void deleteLicence(long id){
+        List<Cartex> licenceCartexes = CartexService.getLicenceCartexes(id);
+        if(licenceCartexes != null && licenceCartexes.size() > 0){
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("there_is_cartex_with_this_licence"));
+        } else {
+            LicenceService.deleteLicence(id);
+        }
+
     }
 
     public List<User> getUsers() {

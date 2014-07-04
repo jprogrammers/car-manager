@@ -1,6 +1,5 @@
 package com.jprogrammers.service;
 
-import com.jprogrammers.model.Role;
 import com.jprogrammers.model.User;
 import com.jprogrammers.util.PWDEncryption;
 import com.jprogrammers.util.Validator;
@@ -27,10 +26,11 @@ public class UserService{
 
     }
 
-    public static User addUser (String firstName ,String lastName , String emailAddress , String password, String tell ,String address ) {
+    public static User addUser (String firstName ,String lastName , String emailAddress , String password, String tell ,String address, long userId, int roleId ) {
 
         User user = new User();
 
+        user.setId(CounterService.increment());
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setTell(tell);
@@ -38,8 +38,11 @@ public class UserService{
         user.setEmailAddress(emailAddress);
         user.setPassword(PWDEncryption.encrypt(password));
         user.setCreateDate(new Date());
-        user.setId(CounterService.increment());
-        user.setRoleId(Role.USER);
+        if(userId == 0)
+            user.setUserId(user.getId());
+        else
+            user.setUserId(userId);
+        user.setRoleId(roleId);
         user.setStatus(User.ACTIVE);
 
         userDao.save(user);
@@ -47,7 +50,7 @@ public class UserService{
         return user;
     }
 
-    public static User editUser(long id, String firstName ,String lastName , String emailAddress , String password, String tell ,String address){
+    public static User editUser(long id, String firstName ,String lastName , String emailAddress , String password, String tell , String address, int roleId ){
         User user = getUser(id);
         user.setFirstName(firstName);
         user.setLastName(lastName);
@@ -56,6 +59,7 @@ public class UserService{
             user.setPassword(PWDEncryption.encrypt(password));
         user.setTell(tell);
         user.setAddress(address);
+        user.setRoleId(roleId);
         userDao.save(user);
         return user;
     }
@@ -75,12 +79,18 @@ public class UserService{
 
     public static List<User> getUsers(long roleId , int status) {
 
-        String query = "FROM User where status = " + User.ACTIVE + " and roleId = " + roleId;
+        String query = "FROM User where status = " + status + " and roleId = " + roleId;
 
         return userDao.findMany(query);
     }
 
-    public static void updateUser(User user) {
+    public static List<User> getUsers(long userId){
+        String query = "from User where userId = " + userId;
+
+        return userDao.findMany(query);
+    }
+
+    public static void editUser(User user) {
 
         userDao.save(user);
     }

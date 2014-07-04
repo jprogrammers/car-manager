@@ -2,7 +2,9 @@ package com.jprogrammers.bean;
 
 import com.jprogrammers.language.LanguageUtil;
 import com.jprogrammers.model.CarType;
+import com.jprogrammers.model.Licence;
 import com.jprogrammers.service.CarTypeService;
+import com.jprogrammers.service.LicenceService;
 import com.jprogrammers.util.Validator;
 import org.primefaces.event.RowEditEvent;
 
@@ -69,9 +71,15 @@ public class CarTypeBean extends CarType implements Serializable {
     }
 
     public void deleteCarType(long id){
-        CarTypeService.deleteCarType(id);
-        addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("car_type_deleted_successfully"));
-        init();
+        List<Licence> carTypeLicences = LicenceService.getCarTypeLicence(id);
+        if(carTypeLicences != null && carTypeLicences.size() > 0){
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("there_is_licence_with_this_car_type"));
+        } else {
+            CarTypeService.deleteCarType(id);
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("car_type_deleted_successfully"));
+            init();
+        }
+
     }
 
     private void addMessage(FacesMessage.Severity severity, String message) {

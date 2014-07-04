@@ -62,7 +62,7 @@ public class LoginBean {
             try {
                 EmailUtil.sendEmail(getEmail() , LanguageUtil.get("new_password") , body);
                 user.setPassword(PWDEncryption.encrypt(newPassword));
-                UserService.updateUser(user);
+                UserService.editUser(user);
 
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("your_password_has_been_changed"), ""));
             } catch (Exception e) {

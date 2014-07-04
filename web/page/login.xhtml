@@ -14,7 +14,7 @@
 
 <h:body dir="rtl" onload="PF('loginDialog').show();">
     <h:form>
-        <p:dialog id="loginDialog" modal="true" widgetVar="loginDialog" closable="false" draggable="false" header="#{fa.login}">
+        <p:dialog id="loginDialog" modal="true" widgetVar="loginDialog" closable="false" header="#{fa.login}" draggable="false" resizable="false">
             <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
             <h:panelGrid columns="2">
 
@@ -33,7 +33,7 @@
         </p:dialog>
     </h:form>
     <h:form >
-        <p:dialog id="rememberPass"  modal="true" widgetVar="rememberPass" closable="false" draggable="false" >
+        <p:dialog id="rememberPass"  modal="true" widgetVar="rememberPass" closable="false" draggable="false" resizable="false">
             <p:ajaxStatus style="width:16px;height:16px;">
                 <f:facet name="start">
                     <h:graphicImage value="/images/loading.gif" />

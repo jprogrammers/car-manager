@@ -17,10 +17,10 @@
 
 <h:body dir="rtl">
     <h:form id="form">
-        <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
+        <p:growl id="message" showDetail="true" autoUpdate="true" closable="true"/>
         <c:if test="#{session.getAttribute('user').roleId == 0}">
             <p:commandButton type="button" value="#{fa.add_car_type}" onclick="PF('addCarTypeDialog').show()" />
-            <p:dialog id="addCarTypeDialog" widgetVar="addCarTypeDialog" header="#{fa.add_car_type}" showEffect="fade" hideEffect="fade" draggable="false">
+            <p:dialog id="addCarTypeDialog" widgetVar="addCarTypeDialog" header="#{fa.add_car_type}" showEffect="fade" hideEffect="fade" draggable="false" resizable="false">
                 <h:panelGrid columns="2" id="addCarTypePanel">
                     <p:outputLabel value="#{fa.country}"/>
                     <p:inputText lang="fa" value="#{carTypeBean.country}"/>
@@ -75,7 +75,14 @@
                 <p:rowEditor/>
             </p:column>
             <p:column>
-                <p:commandButton icon="ui-icon-trash" actionListener="#{carTypeBean.deleteCarType(carType.id)}" update="carTypeTable"/>
+                <p:commandButton icon="ui-icon-trash" actionListener="#{carTypeBean.deleteCarType(carType.id)}" update="carTypeTable">
+                    <p:confirm header="#{fa.confirmation}" message="#{fa.are_you_sure}" icon="ui-icon-alert"/>
+                </p:commandButton>
+
+                <p:confirmDialog global="true">
+                    <p:commandButton value="#{fa.yes}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="#{fa.no}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                </p:confirmDialog>
             </p:column>
             <p:column headerText="#{fa.country}" filterBy="country" filterMatchMode="contains">
                 <p:cellEditor>

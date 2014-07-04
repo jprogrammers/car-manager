@@ -31,15 +31,19 @@ public class CartexBean extends Cartex {
 
         customers = CustomerService.getCustomers();
 
-        if(user.getRoleId() == Role.ADMINISTRATOR)
+        if(user.getRoleId() == User.GOD)
             licences = LicenceService.getLicences();
         else
-            licences = LicenceService.getLicences(user.getId());
+            licences = LicenceService.getLicences(user.getUserId());
 
-        if(user.getRoleId() == Role.ADMINISTRATOR)
+        init();
+    }
+
+    private void init(){
+        if(user.getRoleId() == User.GOD)
             setCartexes(CartexService.getCartexes());
         else
-            setCartexes(CartexService.getCartexes(user.getId()));
+            setCartexes(CartexService.getUserCartexes(user.getUserId()));
     }
 
     public void addCartex(){
@@ -47,7 +51,7 @@ public class CartexBean extends Cartex {
                 Validator.isNullOrEmpty(getModel()) || getBodyNumber().length() != 17){
             FacesContext.getCurrentInstance().addMessage(null ,new FacesMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_insert_valid_parameter"),""));
         } else {
-            CartexService.addCartex(user.getId(), getCustomerId(), getLicenceId(), getColor(), getEngineNumber(), getBodyNumber(), getVINNumber(),
+            CartexService.addCartex(user.getUserId(), getCustomerId(), getLicenceId(), getColor(), getEngineNumber(), getBodyNumber(), getVINNumber(),
                     getModel(), getBoughtDate(), getPlateNumber(), getEconomicCode());
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("cartex_added_successfully"), ""));
         }
@@ -56,10 +60,6 @@ public class CartexBean extends Cartex {
     public void editCartex(RowEditEvent event){
         Cartex cartex = (Cartex)event.getObject();
         CartexService.editCartex(cartex);
-
-        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-
-        User user = (User) session.getAttribute("user");
 
         CartexEditRequest cartexRequest = CartexEditRequestService.getEditRequestByCartexAndUser(cartex.getId(), user.getId());
 
@@ -73,6 +73,7 @@ public class CartexBean extends Cartex {
     public void deleteCartex(long id){
         CartexService.deleteCartex(id);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("cartex_deleted_successfully"), ""));
+        init();
     }
 
     public void requestForEdit(long cartexId , long userId){
@@ -87,24 +88,23 @@ public class CartexBean extends Cartex {
 
         CartexEditRequest editRequest = CartexEditRequestService.getEditRequestByCartexAndUser(cartexId, userId);
 
-        if (editRequest != null && editRequest.getStatus() == CartexEditRequest.STATUS_PENDING && user.getRoleId() != Role.ADMINISTRATOR) {
-            return true;
-        }
+        return  (editRequest != null && editRequest.getStatus() == CartexEditRequest.STATUS_PENDING && user.getRoleId() != User.ADMINISTRATOR);
 
-        return false;
     }
      public boolean hasEditPermission(long cartexId , long userId) {
 
          CartexEditRequest editRequest = CartexEditRequestService.getEditRequestByCartexAndUser(cartexId, userId);
+         User user = UserService.getUser(userId);
 
-         return ((editRequest != null && editRequest.getStatus() == CartexEditRequest.STATUS_ALLOWED) || UserService.getUser(userId).getRoleId() == Role.ADMINISTRATOR);
+         return ((editRequest != null && editRequest.getStatus() == CartexEditRequest.STATUS_ALLOWED) || user.getRoleId() == User.GOD || user.getRoleId() == User.ADMINISTRATOR);
 
     }
 
     public boolean canRequest(long cartexId , long userId) {
         CartexEditRequest editRequest = CartexEditRequestService.getEditRequestByCartexAndUser(cartexId, userId);
+        User user = UserService.getUser(userId);
 
-        return (editRequest == null  && UserService.getUser(userId).getRoleId() != Role.ADMINISTRATOR);
+        return (editRequest == null  && user.getRoleId() == User.USER);
     }
 
     public List<Customer> getCustomers() {

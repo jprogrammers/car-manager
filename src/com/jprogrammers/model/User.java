@@ -14,6 +14,11 @@ import java.util.Date;
 @Entity
 public class User implements SelectableDataModel<User> {
 
+    public static final int GOD = 0;
+    public static final int ADMINISTRATOR = 1;
+    public static final int USER = 2;
+    public static final int CUSTOMER = 3;
+
     public static final int ACTIVE = 1;
     public static final int INACTIVE = 0;
 
@@ -27,6 +32,7 @@ public class User implements SelectableDataModel<User> {
     private String address;
     private Date createDate;
     private Date modifiedDate;
+    private long userId;
     private int roleId;
     private int status;
 
@@ -112,6 +118,16 @@ public class User implements SelectableDataModel<User> {
     }
 
     @Basic
+    @Column(name = "userId", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    @Basic
     @Column(name = "status", nullable = true, insertable = true, updatable = true, length = 1)
     public int getStatus() {
         return status;
@@ -153,5 +169,15 @@ public class User implements SelectableDataModel<User> {
     @Override
     public String toString() {
         return getFirstName() + " " + getLastName();
+    }
+
+    public static String getRoleNameById(int roleId){
+        switch (roleId){
+            case 0: return "god";
+            case 1: return "administrator";
+            case 2: return "user";
+            case 3: return "customer";
+            default: return "";
+        }
     }
 }

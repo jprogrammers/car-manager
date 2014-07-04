@@ -16,7 +16,7 @@
 <h:body dir="rtl">
 
     <h:form>
-        <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
+        <p:growl id="message" showDetail="true" autoUpdate="true" closable="true"/>
 
         <j:JDataTable id="requestTable" value="#{requestBean.pendingRequests}" var="editRequest" paginator="true" rows="10"
                       widgetVar="requestDataTable" emptyMessage="#{fa.no_cartex_request_exist}">

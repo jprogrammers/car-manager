@@ -16,17 +16,17 @@
 <h:body dir="rtl">
 
     <h:form>
-        <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
+        <p:growl id="message" showDetail="true" autoUpdate="true" closable="true"/>
         <c:if test="#{session.getAttribute('user').roleId == 0}">
             <p:commandButton type="button" value="#{fa.add_licence}" onclick="PF('addLicenceDialog').show()" />
-            <p:dialog id="addLicence" widgetVar="addLicenceDialog" header="#{fa.add_licence}"  showEffect="fade" hideEffect="fade" draggable="false">
+            <p:dialog id="addLicence" widgetVar="addLicenceDialog" header="#{fa.add_licence}"  showEffect="fade" hideEffect="fade" draggable="false" resizable="false">
                 <h:panelGrid columns="2">
                     <p:outputLabel value="#{fa.licence_code}"/>
                     <p:inputText value="#{licenceBean.licenceCode}"/>
 
                     <p:outputLabel value="#{fa.user}"/>
                     <p:selectOneMenu value="#{licenceBean.userId}">
-                        <f:selectItems value="#{licenceBean.users}" var="user" itemLabel="#{user}" itemValue="#{user.id}"/>
+                        <f:selectItems value="#{licenceBean.users}" var="user" itemLabel="#{user}" itemValue="#{user.userId}"/>
                     </p:selectOneMenu>
 
                     <p:outputLabel value="#{fa.car_type}"/>
@@ -47,6 +47,17 @@
             <p:column>
                 <h:inputHidden value="#{licence.id}"/>
                 <p:rowEditor/>
+            </p:column>
+
+            <p:column rendered="#{session.getAttribute('user').roleId == 0}">
+                <p:commandButton icon="ui-icon-trash" actionListener="#{licenceBean.deleteLicence(licence.id)}">
+                    <p:confirm header="#{fa.confirmation}" message="#{fa.are_you_sure}" icon="ui-icon-alert"/>
+                </p:commandButton>
+
+                <p:confirmDialog global="true">
+                    <p:commandButton value="#{fa.yes}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="#{fa.no}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                </p:confirmDialog>
             </p:column>
 
             <p:column headerText="#{fa.licence_code}" filterBy="licenceCode" filterMatchMode="contains">
