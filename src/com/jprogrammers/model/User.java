@@ -35,6 +35,7 @@ public class User implements SelectableDataModel<User> {
     private long userId;
     private int roleId;
     private int status;
+    private byte[] logo;
 
     public void setId(long id) {
         this.id = id;
@@ -154,6 +155,15 @@ public class User implements SelectableDataModel<User> {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    @Column(name = "logo", nullable = true, insertable = true, updatable = true, length = 2000)
+    public byte[] getLogo() {
+        return logo;
+    }
+
+    public void setLogo(byte[] logo) {
+        this.logo = logo;
     }
 
     @Override

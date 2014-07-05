@@ -121,4 +121,9 @@ public class UserService{
 
         return userDao.findOne(query);
     }
+
+    public static void updateUser(User user){
+
+        userDao.save(user);
+    }
 }

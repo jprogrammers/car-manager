@@ -13,7 +13,7 @@
 </h:head>
 <ui:include src="header.xhtml"/>
 <h:body dir="rtl">
-    <h:form id="form"  enctype="multipart/form-data" >
+    <h:form id="form"  >
         <p:growl id="message" autoUpdate="true" closable="true"/>
         <c:if test="#{session.getAttribute('user').roleId == 0 || session.getAttribute('user').roleId == 1}">
             <p:commandButton  type="button" value="#{fa.add_user}" onclick="PF('addUserDialog').show()" />
@@ -55,9 +55,14 @@
                                        itemValue="#{roleId}" />
                     </p:selectOneMenu>
 
-                    <p:fileUpload  fileUploadListener="#{userBean.handleFileUpload}" value="#{userBean.userLogo}" mode="simple" disabled="false" />
+                    <p:outputLabel value="#{fa.user_logo}"/>
+                    <p:fileUpload
+                            mode="advanced"
+                            fileUploadListener="#{userBean.handleFileUpload}"
+                            allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/"
+                            auto="true"/>
 
-                    <p:commandButton actionListener="#{userBean.addUser}" value="#{fa.add_user}" update=":form2:dataTable addUserPanel"/>
+                    <p:commandButton actionListener="#{userBean.addUser}" value="#{fa.add_user}" onclick="$('#formPublicacion').submit()" update=":form2:dataTable addUserPanel"/>
 
                 </h:panelGrid>
             </p:dialog>
@@ -82,6 +87,13 @@
                     <p:commandButton value="#{fa.yes}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
                     <p:commandButton value="#{fa.no}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
                 </p:confirmDialog>
+            </p:column>
+
+            <p:column>
+              <!--  <p:graphicImage value="#{userBean.userLogo}">
+                    <f:param name="id" value="#{user.id}" />
+                </p:graphicImage>
+-->
             </p:column>
 
 
@@ -112,7 +124,7 @@
                     </f:facet>
                 </p:cellEditor>
             </p:column>
-            <p:column id="emailColumn" filterBy="lastName"
+            <p:column id="emailColumn" filterBy="emailAddress"
                       headerText="#{fa.email}"
                       filterMatchMode="contains" >
 

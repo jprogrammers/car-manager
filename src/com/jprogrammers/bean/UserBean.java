@@ -9,11 +9,15 @@ import com.jprogrammers.util.Validator;
 import org.apache.poi.util.IOUtils;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.event.RowEditEvent;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.PhaseId;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
 import java.io.*;
@@ -25,6 +29,7 @@ import java.util.List;
  */
 
 @ManagedBean
+@ViewScoped
 public class UserBean extends User implements Serializable {
 
     private List<User> filteredUsers;
@@ -64,7 +69,12 @@ public class UserBean extends User implements Serializable {
     }
 
     public UploadedFile getUserLogo() {
-        return userLogo;
+        /*FacesContext context = FacesContext.getCurrentInstance();
+        String id = context.getExternalContext().getRequestParameterMap().get("id");
+        User user = UserService.getUser(id);
+        return new DefaultStreamedContent(new ByteArrayInputStream(user.getLogo()));*/
+
+        return this.userLogo;
     }
 
     public void setUserLogo(UploadedFile userLogo) {
@@ -155,12 +165,16 @@ public class UserBean extends User implements Serializable {
     public void addUser() throws IOException {
 
         User addedUser = UserService.addUser(getFirstName() , getLastName() , getEmailAddress() , getPassword() , getTell() , getAddress(), (user.getRoleId() == User.GOD) ? 0 : user.getUserId(), getRoleId());
-        /*if ( userLogo.getFile() != null ) {
-            OutputStream out = new FileOutputStream("/images/" + addedUser.getId());
-            out.write(event.getFile().getContents());
-            out.flush();
-            out.close();
-        }*/
+        if ( userLogo != null ) {
+          /*  InputStream is = userLogo.getInputstream();
+            byte[] bytes = IOUtils.toByteArray(is);*/
+
+            addedUser.setLogo(getLogo());
+
+            UserService.updateUser(addedUser);
+
+            setLogo(null);
+        }
 
         addMessage(FacesMessage.SEVERITY_INFO , LanguageUtil.get("user_added_successfully"));
         emptyFields();
@@ -169,12 +183,9 @@ public class UserBean extends User implements Serializable {
 
     public void handleFileUpload(FileUploadEvent event) throws IOException {
 
-        UploadedFile file = event.getFile();
-        System.out.println(file.getFileName());
+        if (event.getFile() != null)
+            setLogo(IOUtils.toByteArray(event.getFile().getInputstream()));
 
-        byte[] foto = IOUtils.toByteArray(file.getInputstream());
-        System.out.println(foto);
-        //application code
     }
 
     private void emptyFields(){
