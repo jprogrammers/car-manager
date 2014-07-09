@@ -6,6 +6,7 @@ import com.jprogrammers.service.CartexService;
 import com.jprogrammers.service.UserService;
 import com.jprogrammers.util.PWDEncryption;
 import com.jprogrammers.util.Validator;
+import com.sun.faces.lifecycle.Phase;
 import org.apache.poi.util.IOUtils;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.event.RowEditEvent;
@@ -15,6 +16,8 @@ import org.primefaces.model.UploadedFile;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseId;
@@ -29,7 +32,7 @@ import java.util.List;
  */
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class UserBean extends User implements Serializable {
 
     private List<User> filteredUsers;
@@ -66,6 +69,28 @@ public class UserBean extends User implements Serializable {
         createRoleOptions();
         createStatusOptions();
         init();
+    }
+
+
+    public StreamedContent getUserLogo(long id) {
+
+        User _user = UserService.getUser(id);
+
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        if ( FacesContext.getCurrentInstance().getRenderResponse()) {
+            // So, we're rendering the HTML. Return a stub StreamedContent so that it will generate right URL.
+            return new DefaultStreamedContent();
+        } else {
+            if (_user != null && _user.getLogo() != null) {
+
+                return new DefaultStreamedContent(new ByteArrayInputStream(_user.getLogo()) , "image/jpg");
+            }
+        }
+
+        return new DefaultStreamedContent();
+
+
     }
 
     public UploadedFile getUserLogo() {
@@ -173,12 +198,12 @@ public class UserBean extends User implements Serializable {
 
             UserService.updateUser(addedUser);
 
-            setLogo(null);
         }
 
-        addMessage(FacesMessage.SEVERITY_INFO , LanguageUtil.get("user_added_successfully"));
+        addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("user_added_successfully"));
         emptyFields();
         init();
+        setLogo(null);
     }
 
     public void handleFileUpload(FileUploadEvent event) throws IOException {

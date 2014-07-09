@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="carsManager:war exploded">
-    <output-path>$PROJECT_DIR$/../apache-tomcat-7.0.47/webapps</output-path>
-    <root id="archive" name="carsManager_war exploded.war">
+  <artifact type="exploded-war" name="carsManager:war exploded">
+    <output-path>$PROJECT_DIR$/../apache-tomcat-7.0.47/webapps/ROOT</output-path>
+    <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="carsManager" />
