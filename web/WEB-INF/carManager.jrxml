@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="carManager" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2579b429-d3c4-4a1a-ad81-9637cd354f62">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="11"/>
+	<field name="companyName" class="java.lang.String"/>
+	<field name="registrationNumber" class="java.lang.String"/>
+	<field name="companyInformation" class="java.lang.String"/>
+	<field name="cartexImage" class="java.io.InputStream"/>
+	<field name="cartexDate" class="java.lang.String"/>
+	<field name="documentNumber" class="java.lang.String"/>
+	<field name="fileNumber" class="java.lang.String"/>
+	<field name="markingNumber" class="java.lang.String"/>
+	<field name="economicCode" class="java.lang.String"/>
+	<field name="name1" class="java.lang.String"/>
+	<field name="title1" class="java.lang.String"/>
+	<field name="name2" class="java.lang.String"/>
+	<field name="title2" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120" splitType="Stretch">
+			<staticText>
+				<reportElement x="192" y="0" width="170" height="28" uuid="9bde9805-7d08-4ae5-9009-62d1e052eda8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" size="14" isBold="true" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[سند و فاکتور فروش خودرو]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="527" y="0" width="28" height="20" uuid="6bcf2e15-6a7b-4ed4-a78e-13a0e92004ed"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" isBold="true" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[شرکت]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="516" y="20" width="39" height="20" uuid="4dcf6e4b-9207-4ad4-ae62-3ba8bc9d7488"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[شماره ثبت:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="427" y="0" width="100" height="20" uuid="f4d7fe2f-9bfe-413a-bef1-d7b0373ae1e8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" isBold="true" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{companyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="427" y="20" width="89" height="20" uuid="5d81a89d-7666-4bb2-adc7-9a73b089a624"/>
+				<textElement>
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{registrationNumber}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="427" y="45" width="128" height="1" uuid="5c8e6299-0b15-4c80-a8de-8979ff981c90"/>
+			</line>
+			<textField>
+				<reportElement x="427" y="46" width="128" height="53" uuid="b8022141-4f31-4aa0-baeb-6e9e1b5f097b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{companyInformation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="32206a6f-e184-4cfb-9bfb-b8e99c1ed56c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cartexDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="0" width="58" height="20" uuid="c98e2b4b-85d2-46c7-a9ef-169043e519d0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[تاریخ:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="20" width="58" height="20" uuid="03bc2c97-da03-4f85-8582-318af489f3a2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[شماره سند:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="40" width="58" height="20" uuid="277da8eb-a7c1-4ecf-a877-0ca8a58f21d0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[شماره پرونده:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="60" width="58" height="20" uuid="e8333fd2-3dc3-4174-8dc1-2d14cd3fcd13"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[کد شماره گذاری:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="20" width="100" height="20" uuid="17580767-13e6-4eba-9c2f-4e7c4aada04d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{documentNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="40" width="100" height="20" uuid="41ae390e-0ba3-498d-96a3-059ca802401d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fileNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="60" width="100" height="20" uuid="af1ed794-4348-4564-8bf4-ac702b6a687f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{markingNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="504" y="99" width="51" height="20" uuid="e80a5f8c-5097-4572-a753-1c64bc060a8f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[کد اقتصادی:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="404" y="99" width="100" height="20" uuid="f65718d0-4cd6-4ed7-9691-6d197afdef3a"/>
+				<textElement>
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{economicCode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="298" y="0" width="257" height="51" uuid="526b3512-c8c0-4bd8-a677-1f014cd8acab"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[پلیس راهنمایی و رانندگی
+
+احتراما به اطلاع میرساند این شرکت یک دستگاه وسیله نقلیه را با مشخصات مندرج در این سند به نامبرده ذیل واگذار نموده و کلیه عوارض قانونی متعلقه پرداخت گردیده است]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="228">
+			<rectangle radius="10">
+				<reportElement x="0" y="47" width="555" height="135" uuid="61c7fcb4-3f59-441a-a25d-76b9218cd91b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="492" y="0" width="63" height="20" uuid="c41d4d9d-8c2a-4c3f-b9c4-87345c3676eb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[نام و نام خانوادگی:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="362" y="0" width="130" height="20" uuid="366bc6f8-1eaa-423d-8451-66c979c8e748"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{name1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="303" y="0" width="26" height="20" uuid="e8e1861c-725e-4930-b17b-d979e187c71c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[سمت:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="203" y="0" width="100" height="20" uuid="07b5fd15-6347-4ad5-99e6-1cd4c746165b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{title1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="58" y="0" width="100" height="20" uuid="75f2e238-ed2b-422f-ac51-1bdb0ef8f919"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[مهر و امضاء]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="439" y="37" width="100" height="20" uuid="f8bf9cad-3a5b-4fa0-8996-abaf8e90ea01"/>
+			</rectangle>
+			<line>
+				<reportElement x="439" y="47" width="1" height="135" uuid="42d310ca-ebec-46d7-b8af-de110c77ce5e"/>
+			</line>
+			<staticText>
+				<reportElement x="440" y="37" width="100" height="20" uuid="7bd6e8f5-4d1f-458f-a1c0-0493fab61984"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" size="12" isBold="true" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[مشخصات وسیله نقلیه]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="449" y="68" width="100" height="20" uuid="bb3dbd08-f7c6-4ae0-ad59-7e974035e223"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[شماره پلاک]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="448" y="95" width="100" height="20" uuid="3a80bec3-9e85-4e15-9b62-6e38992d3b11"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="527" y="95" width="21" height="20" uuid="ed3b9397-2a6b-4baa-859c-b56f4784294d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[ایران]]></text>
+			</staticText>
+			<line>
+				<reportElement x="527" y="95" width="1" height="20" uuid="bcd7941c-44eb-4092-b9c0-0cd1bb48d05f"/>
+			</line>
+			<staticText>
+				<reportElement x="448" y="124" width="100" height="20" uuid="3f58fb56-e4ec-4612-848f-1f6d369b0220"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[تاریخ نصب:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="57" width="70" height="15" uuid="288958d5-c879-43c7-a310-c126680a36d8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[نوع کاربری:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="57" width="70" height="15" uuid="9c99a38a-c626-487f-9b0e-fc315fffb92e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[سیستم:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="72" width="70" height="15" uuid="00c46385-8945-4df7-a1fb-9798e45703d2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[تیپ:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="87" width="70" height="15" uuid="6a9517e7-831c-4efb-97cd-4d27e60e458e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[رنگ:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="102" width="70" height="15" uuid="0064e9e3-f474-4746-9fac-f4000a7350de"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[تعداد محور:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="117" width="70" height="15" uuid="a80c1dfd-4513-4dcd-add4-20f3f09b12bc"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[تعداد سیلندر:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="72" width="70" height="15" uuid="bc3b528e-f23c-4641-8ae3-8a2c75863ad8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[مدل:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="87" width="70" height="15" uuid="17e14683-d7da-44bf-87c8-bb1fdc1e11af"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[ظرفیت:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="100" width="70" height="15" uuid="9af77574-6ec3-4acc-9472-67183c9030d2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[نوع سوخت:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="115" width="70" height="15" uuid="f994225d-83a2-4ee0-a41c-e6efccdecb39"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[تعداد چرخ:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="132" width="70" height="15" uuid="2643c47b-f5ec-4559-8e3c-17af3074c876"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[شماره موتور:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="147" width="70" height="15" uuid="c5594bd5-a3a9-452c-b263-991a4dcde5a2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[شماره شناسایی (VIN):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="130" width="70" height="15" uuid="6876b9e0-1aae-4ada-bba2-bf2dab406751"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[کشور سازنده:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="145" width="70" height="15" uuid="e0a1e1e4-c27f-4eab-8751-9a73d5c0f1df"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[شماره بدنه:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="160" width="70" height="15" uuid="b2b89bbe-6618-415c-96dd-56822bae2054"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[حجم سیلندر:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="90" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="555" height="90" uuid="8558bdc2-122f-4415-8d42-e4a3837a3d6b"/>
+				<imageExpression><![CDATA[$F{cartexImage}]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="103" splitType="Stretch"/>
+	</summary>
+</jasperReport>

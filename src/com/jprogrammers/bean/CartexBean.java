@@ -4,13 +4,21 @@ import com.jprogrammers.language.LanguageUtil;
 import com.jprogrammers.model.*;
 import com.jprogrammers.service.*;
 import com.jprogrammers.util.Validator;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.primefaces.event.RowEditEvent;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
+import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by EN20 on 5/15/14.
@@ -22,6 +30,7 @@ public class CartexBean extends Cartex {
     List<Licence> licences;
     List<Cartex> cartexes;
     List<Cartex> filteredCartexes;
+    StreamedContent cartexPdfFile;
     User user;
 
     public CartexBean(){
@@ -74,6 +83,29 @@ public class CartexBean extends Cartex {
         CartexService.deleteCartex(id);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("cartex_deleted_successfully"), ""));
         init();
+    }
+
+    public void exportCartex(long cartexId) throws JRException {
+
+        Cartex cartex = CartexService.getCartex(cartexId);
+        User user = UserService.getUser(cartex.getUserId());
+        Customer customer = CustomerService.getCustomer(cartex.getCustomerId());
+        CartexDesign cartexDesign = CartexDesignService.getCartexDesignByUserId(cartex.getUserId());
+
+        Map<String, Object> parameters = new HashMap<String, Object>();
+        List<CartexExportModel> cartexExportModels = new ArrayList<CartexExportModel>();
+        cartexExportModels.add(new CartexExportModel(user.getFirstName() + " " + user.getLastName(), "123", cartexDesign.getInformation(), cartexDesign.getImage() != null ? new ByteArrayInputStream(cartexDesign.getImage()) : null));
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(cartexExportModels);
+        String fileAddress = this.getClass().getResource("../../../../carManager.jrxml").getPath().substring(1);
+        JasperReport jasperReport = JasperCompileManager.compileReport(fileAddress);
+
+        JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, dataSource); // you can use jasperReport instead of source string
+        byte[] pdfFile = JasperExportManager.exportReportToPdf(print);
+        cartexPdfFile = new DefaultStreamedContent(new ByteArrayInputStream(pdfFile), "", "cartex.pdf");
+    }
+
+    public StreamedContent getExportCartexFile(){
+        return cartexPdfFile;
     }
 
     public void requestForEdit(long cartexId , long userId){
