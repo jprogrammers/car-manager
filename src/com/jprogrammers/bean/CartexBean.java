@@ -64,6 +64,7 @@ public class CartexBean extends Cartex {
                     getModel(), getBoughtDate(), getPlateNumber(), getEconomicCode());
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("cartex_added_successfully"), ""));
         }
+        init();
     }
 
     public void editCartex(RowEditEvent event){
@@ -91,17 +92,33 @@ public class CartexBean extends Cartex {
         User user = UserService.getUser(cartex.getUserId());
         Customer customer = CustomerService.getCustomer(cartex.getCustomerId());
         CartexDesign cartexDesign = CartexDesignService.getCartexDesignByUserId(cartex.getUserId());
+        if(cartexDesign == null){
+            cartexDesign = new CartexDesign(0, 0, "", user.getFirstName() + " " + user.getLastName(), "", "", "", null);
+        }
+        Licence licence = LicenceService.getLicence(cartex.getLicenceId());
+        CarType carType = CarTypeService.getCarType(licence.getCarTypeId());
 
         Map<String, Object> parameters = new HashMap<String, Object>();
         List<CartexExportModel> cartexExportModels = new ArrayList<CartexExportModel>();
-        cartexExportModels.add(new CartexExportModel(user.getFirstName() + " " + user.getLastName(), "123", cartexDesign.getInformation(), cartexDesign.getImage() != null ? new ByteArrayInputStream(cartexDesign.getImage()) : null));
+
+        cartexExportModels.add(new CartexExportModel(user.getFirstName() + " " + user.getLastName(), "123", cartexDesign.getInformation(),
+                cartexDesign.getImage() != null ? new ByteArrayInputStream(cartexDesign.getImage()) : null,
+                cartex.getBoughtDate(), "5678", "345", "999", cartex.getEconomicCode(), cartexDesign.getName1(), cartexDesign.getTitle1(),
+                cartexDesign.getName2(), cartexDesign.getTitle2(), carType.getUsecaseType(), carType.getSystem(),
+                carType.getTip(), cartex.getModel(), cartex.getColor(), String.valueOf(carType.getCapacity()), String.valueOf(carType.getDefCount()),
+                carType.getFuelType(), String.valueOf(carType.getCylinderCount()), String.valueOf(carType.getWheelsCount()),
+                String.valueOf(carType.getCylinderSize()), carType.getCountry(), cartex.getBodyNumber(), cartex.getEngineNumber(),
+                cartex.getVINNumber(), customer.getFirstName() + " " + customer.getLastName(), customer.getBirthday(), "34234",
+                customer.getHomeAddress(), customer.getWorkAddress(), customer.getFatherName(), customer.getProvince(),
+                customer.getNationalCode(), customer.getNationalId(), customer.getZipCode(), customer.getProvince(), customer.getTell(), customer.getMobile()));
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(cartexExportModels);
-        String fileAddress = this.getClass().getResource("../../../../carManager.jrxml").getPath().substring(1);
+        String fileAddress = this.getClass().getResource(cartexDesign.getImage() != null ? "../../../../carManager.jrxml" : "../../../../carManagerFull.jrxml").getPath().substring(1);
         JasperReport jasperReport = JasperCompileManager.compileReport(fileAddress);
 
         JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, dataSource); // you can use jasperReport instead of source string
         byte[] pdfFile = JasperExportManager.exportReportToPdf(print);
         cartexPdfFile = new DefaultStreamedContent(new ByteArrayInputStream(pdfFile), "", "cartex.pdf");
+
     }
 
     public StreamedContent getExportCartexFile(){
