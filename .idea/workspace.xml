@@ -7,54 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d04376e-d877-4c2a-b2f8-8cdcfe2d3f51" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/servlet/BootstrapServlet.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/servlet/BootstrapServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/model/CarType.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/CarType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/service/CarTypeService.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/CarTypeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/model/Cartex.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/Cartex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/bean/CartexBean.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/CartexBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/model/CartexDesign.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/CartexDesign.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/bean/CartexDesignBean.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/CartexDesignBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/service/CartexDesignService.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/CartexDesignService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/model/CartexEditRequest.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/CartexEditRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/bean/CartexEditRequestBean.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/CartexEditRequestBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/service/CartexEditRequestService.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/CartexEditRequestService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/model/Counter.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/Counter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/service/CounterService.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/CounterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/model/Customer.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/Customer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/bean/CustomerBean.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/CustomerBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/service/CustomerService.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/CustomerService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/util/EmailUtil.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/util/EmailUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/js/FarsiType.js" afterPath="$PROJECT_DIR$/web/resources/js/FarsiType.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/service/GenericDAO.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/GenericDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/service/GenericDAOImpl.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/service/GenericDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/util/HibernateUtil.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/util/HibernateUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/component/JDataTable.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/component/JDataTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/language/LanguageFa.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/language/LanguageFa.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/language/LanguageUtil.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/language/LanguageUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/model/Licence.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/Licence.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/filter/LoginFilter.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/filter/LoginFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/util/PWDEncryption.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/util/PWDEncryption.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/util/PWDGenerator.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/util/PWDGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/bean/PriceBean.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/PriceBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/primefaces/application/PrimeResourceHandler.java" afterPath="$PROJECT_DIR$/src/org/primefaces/application/PrimeResourceHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/util/PropsUtil.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/util/PropsUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/bean/RegisterBean.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/RegisterBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/model/Role.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/model/Role.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/language/UTF8Control.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/language/UTF8Control.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/filter/UploadRenderer.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/filter/UploadRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/bean/UserBean.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/bean/UserBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/util/Validator.java" afterPath="$PROJECT_DIR$/src/com/jprogrammers/util/Validator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/cartex.xhtml" afterPath="$PROJECT_DIR$/web/page/cartex.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/cartex_design.xhtml" afterPath="$PROJECT_DIR$/web/page/cartex_design.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/index.xhtml" afterPath="$PROJECT_DIR$/web/page/index.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/jprogrammers.taglib.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/jprogrammers.taglib.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties" afterPath="$PROJECT_DIR$/src/com/jprogrammers/language/language-fa.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/log4j.properties" afterPath="$PROJECT_DIR$/src/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/main.css" afterPath="$PROJECT_DIR$/web/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/price.xhtml" afterPath="$PROJECT_DIR$/web/page/price.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/project.properties" afterPath="$PROJECT_DIR$/src/project.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/register.xhtml" afterPath="$PROJECT_DIR$/web/page/register.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/page/user.xhtml" afterPath="$PROJECT_DIR$/web/page/user.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/BNazanin_font.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="carsManager.iws" />
@@ -160,7 +113,7 @@
       <file leaf-file-name="UserBean.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/UserBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="204" column="0" selection-start="6261" selection-end="6261" vertical-scroll-proportion="-0.7574468" vertical-offset="3169" max-vertical-offset="3910">
+            <state line="278" column="9" selection-start="9066" selection-end="9066" vertical-scroll-proportion="1.5545024" vertical-offset="3101" max-vertical-offset="3910">
               <folding />
             </state>
           </provider>
@@ -310,6 +263,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -438,7 +392,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -729,10 +682,19 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
+    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="scalaCoverage" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -754,19 +716,10 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <extension name="scalaCoverage" />
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="$PROJECT_DIR$" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <configuration default="false" name="Tomcat 7.0.53" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.53" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
@@ -923,6 +876,7 @@
       <workItem from="1405690397819" duration="4758000" />
       <workItem from="1405696540789" duration="10688000" />
       <workItem from="1405712892869" duration="231000" />
+      <workItem from="1405714351040" duration="460000" />
     </task>
     <task id="LOCAL-00001" summary="show users data grid view and add user without validation">
       <created>1399049619658</created>
@@ -984,11 +938,15 @@
       <created>1404950361367</created>
       <updated>1404950361367</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="resolve farsitype js issue&#10;">
+      <created>1405714807341</created>
+      <updated>1405714807341</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="242084000" />
+    <option name="totallyTimeSpent" value="242544000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1015,7 +973,7 @@
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38037634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38037634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24261874" sideWeight="0.501002" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24967907" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1036,6 +994,7 @@
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3373656" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21116817" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33064517" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1044,21 +1003,20 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32392472" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33064517" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32795697" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24261874" sideWeight="0.501002" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24967907" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24197689" sideWeight="0.498998" order="0" side_tool="false" content_ui="combo" />
@@ -1075,8 +1033,8 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33064517" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -1106,7 +1064,8 @@
     <MESSAGE value="add register form&#10;" />
     <MESSAGE value="add capability to users page who users can upload their own logo" />
     <MESSAGE value="add capability to users page who users can upload their own logo&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="add capability to users page who users can upload their own logo&#10;" />
+    <MESSAGE value="resolve farsitype js issue&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve farsitype js issue&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1530,7 +1489,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jprogrammers/bean/UserBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="204" column="0" selection-start="6261" selection-end="6261" vertical-scroll-proportion="-0.7574468" vertical-offset="3169" max-vertical-offset="3910">
+        <state line="278" column="9" selection-start="9066" selection-end="9066" vertical-scroll-proportion="1.5545024" vertical-offset="3101" max-vertical-offset="3910">
           <folding />
         </state>
       </provider>
