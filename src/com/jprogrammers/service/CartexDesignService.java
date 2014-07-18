@@ -50,4 +50,8 @@ public class CartexDesignService {
         cartexDesignDao.delete(cartexDesign);
     }
 
+    public static CartexDesign getCartexDesignByUserId(long userId) {
+        String query = "from CartexDesign where userId = " + userId;
+        return cartexDesignDao.findOne(query);
+    }
 }

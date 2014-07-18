@@ -106,7 +106,7 @@ public class CartexDesign {
     }
 
     @Basic
-    @Column(name = "image", nullable = true, insertable = true, updatable = true, length = 65535, precision = 0)
+    @Column(name = "image", nullable = true, insertable = true, updatable = true, length = 1048575, precision = 0)
     public byte[] getImage() {
         return image;
     }

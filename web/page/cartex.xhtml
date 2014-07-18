@@ -81,6 +81,12 @@
                 </p:confirmDialog>
             </p:column>
 
+            <p:column rendered="#{session.getAttribute('user').roleId == 0 || session.getAttribute('user').roleId == 1}">
+                <p:commandButton icon="ui-icon-image" actionListener="#{cartexBean.exportCartex(cartex.id)}" ajax="false">
+                    <p:fileDownload value="#{cartexBean.exportCartexFile}" />
+                </p:commandButton>
+            </p:column>
+
             <p:column headerText="#{fa.customer}">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{cartex.customer}" /></f:facet>

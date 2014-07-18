@@ -322,7 +322,7 @@ FarsiType.KeyObject = function(z,x) {
 
     if (FarsiType.ShowChangeLangButton == 1) { z.bottelm.onmouseup = ChangeLang; }
     if (FarsiType.ChangeDir == 2) { z.Direlm.onmouseup = ChangeDirection; }
-    z.onkeypress = Convert;
+    $(z).on("keypress" , function(event){Convert(event)}) ;
 }
 
 if (window.attachEvent) {

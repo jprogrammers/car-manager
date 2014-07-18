@@ -190,11 +190,13 @@ public class UserBean extends User implements Serializable {
     public void addUser() throws IOException {
 
         User addedUser = UserService.addUser(getFirstName() , getLastName() , getEmailAddress() , getPassword() , getTell() , getAddress(), (user.getRoleId() == User.GOD) ? 0 : user.getUserId(), getRoleId());
-        if ( userLogo != null ) {
+
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        if ( session.getAttribute("UserLogo") != null ) {
           /*  InputStream is = userLogo.getInputstream();
             byte[] bytes = IOUtils.toByteArray(is);*/
 
-            addedUser.setLogo(getLogo());
+            addedUser.setLogo((byte[]) session.getAttribute("UserLogo"));
 
             UserService.updateUser(addedUser);
 
@@ -203,13 +205,16 @@ public class UserBean extends User implements Serializable {
         addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("user_added_successfully"));
         emptyFields();
         init();
-        setLogo(null);
+        session.removeAttribute("UserLogo");
     }
 
     public void handleFileUpload(FileUploadEvent event) throws IOException {
 
-        if (event.getFile() != null)
-            setLogo(IOUtils.toByteArray(event.getFile().getInputstream()));
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+
+        if (event.getFile() != null) {
+            session.setAttribute("UserLogo", IOUtils.toByteArray(event.getFile().getInputstream()));
+        }
 
     }
 
