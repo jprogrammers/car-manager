@@ -20,6 +20,26 @@
       <column name="VINNumber" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12"/>
       <column name="color" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12"/>
       <column name="model" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="userId" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="cartexdesign" schema="" catalog="carmanager" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" length="20" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="userId" sqlType="BIGINT UNSIGNED" length="20" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="information" sqlType="VARCHAR" length="1000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="name1" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="title1" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="name2" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="title2" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="image" sqlType="BLOB" length="65535" precision="0" nullable="true" jdbcType="-4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="cartexeditrequest" schema="" catalog="carmanager" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="cartexId" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="createDate" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
+      <column name="status" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="userId" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="cartype" schema="" catalog="carmanager" type="TABLE">
@@ -83,6 +103,10 @@
       <column name="password" sqlType="VARCHAR" length="500" precision="0" nullable="false" jdbcType="12"/>
       <column name="roleId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <column name="status" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="address" sqlType="VARCHAR" length="2000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="tell" sqlType="VARCHAR" length="8" precision="0" nullable="true" jdbcType="12"/>
+      <column name="userId" sqlType="BIGINT UNSIGNED" length="20" precision="0" nullable="true" jdbcType="-5"/>
+      <column name="logo" sqlType="BLOB" length="65535" precision="0" nullable="true" jdbcType="-4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
   </data-source>
