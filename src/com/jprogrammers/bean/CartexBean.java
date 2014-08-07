@@ -112,7 +112,7 @@ public class CartexBean extends Cartex {
                 customer.getHomeAddress(), customer.getWorkAddress(), customer.getFatherName(), customer.getProvince(),
                 customer.getNationalCode(), customer.getNationalId(), customer.getZipCode(), customer.getProvince(), customer.getTell(), customer.getMobile()));
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(cartexExportModels);
-        String fileAddress = this.getClass().getResource(cartexDesign.getImage() != null ? "../../../../carManager.jrxml" : "../../../../carManagerFull.jrxml").getPath().substring(1);
+        String fileAddress = this.getClass().getResource(cartexDesign.getImage() != null ? "../../../../carManager.jrxml" : "../../../../carManagerFull.jrxml").getPath();
         JasperReport jasperReport = JasperCompileManager.compileReport(fileAddress);
 
         JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, dataSource); // you can use jasperReport instead of source string
