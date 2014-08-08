@@ -74,11 +74,11 @@
 
             <p:ajax event="rowEdit" listener="#{userBean.onEdit}" update=":form:message" />
 
-            <p:column rendered="#{session.getAttribute('user').roleId == 0 || session.getAttribute('user').roleId == 1}">
+            <p:column rendered="#{(session.getAttribute('user').roleId == 0 || session.getAttribute('user').roleId == 1) and user.roleId != 0}">
                 <p:rowEditor />
             </p:column>
 
-            <p:column rendered="#{session.getAttribute('user').roleId == 0 || session.getAttribute('user').roleId == 1}">
+            <p:column rendered="#{(session.getAttribute('user').roleId == 0 || session.getAttribute('user').roleId == 1) and user.roleId != 0}">
                 <p:commandButton icon="ui-icon-trash" update=":form2:dataTable" actionListener="#{userBean.deleteUser(user.id)}" >
                     <p:confirm header="#{fa.confirmation}" message="#{fa.are_you_sure}" icon="ui-icon-alert"/>
                 </p:commandButton>
