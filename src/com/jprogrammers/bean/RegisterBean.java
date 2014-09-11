@@ -2,10 +2,12 @@ package com.jprogrammers.bean;
 
 import com.jprogrammers.language.LanguageUtil;
 import com.jprogrammers.model.Customer;
+import com.jprogrammers.model.Licence;
 import com.jprogrammers.model.Role;
 import com.jprogrammers.model.User;
 import com.jprogrammers.service.CartexService;
 import com.jprogrammers.service.CustomerService;
+import com.jprogrammers.service.LicenceService;
 import com.jprogrammers.service.UserService;
 import com.jprogrammers.util.Validator;
 
@@ -156,8 +158,9 @@ public class RegisterBean extends CustomerBean {
                     getBirthday(), getZipCode());
 
             if(isCartexDataValid()){
-                CartexService.addCartex(getUserId(), getCustomerId(), getLicenceId(), getColor(), getEngineNumber(), getBodyNumber(), getVINNumber(),
-                        getModel(), getBoughtDate(), getPlateNumber(), getEconomicCode());
+                //todo get user licence to add licenceCode for cartex
+                CartexService.addCartex(getUserId(), customer.getId(), getLicenceId(), getColor(), getEngineNumber(), getBodyNumber(), getVINNumber(),
+                        getModel(), getBoughtDate(), getPlateNumber(), "");
 
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("cartex_added_successfully"), ""));
             } else {

@@ -37,6 +37,8 @@ public class PriceBean {
     double customsPay;
     double entranceDuties = 2500000;
 
+    double standard;
+
     double note;
     double assetSide;
     double taxOther;
@@ -66,7 +68,7 @@ public class PriceBean {
         tax2 = (entrance + customs) * (taxPercent2 / 100.0);
         tax = tax1 + tax2;
 
-        importDuties = fobPrice * dollarPrice * (importDutiesPercent / 100.0);
+        importDuties = fobPrice * numberOfCar * dollarPrice * (importDutiesPercent / 100.0);
 
         customsPay = entrance + helalAhmar + tax + importDuties + entranceDuties;
 
@@ -240,6 +242,14 @@ public class PriceBean {
 
     public void setCustomsPay(double customsPay) {
         this.customsPay = customsPay;
+    }
+
+    public double getStandard() {
+        return standard;
+    }
+
+    public void setStandard(double standard) {
+        this.standard = standard;
     }
 
     public double getEntranceDuties() {

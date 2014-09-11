@@ -28,6 +28,8 @@ public class Cartex {
     private String boughtDate;
     private String plateNumber;
     private String economicCode;
+    private long createDate;
+    private long modifiedDate;
 
     public Cartex(){
 
@@ -156,6 +158,24 @@ public class Cartex {
 
     public void setEconomicCode(String economicCode) {
         this.economicCode = economicCode;
+    }
+
+    @Column(name = "createDate", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
+    public long getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(long createDate) {
+        this.createDate = createDate;
+    }
+
+    @Column(name = "modifiedDate", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
+    public long getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(long modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
 
     @Transient

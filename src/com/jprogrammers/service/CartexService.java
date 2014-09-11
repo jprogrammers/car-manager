@@ -2,6 +2,7 @@ package com.jprogrammers.service;
 
 import com.jprogrammers.model.Cartex;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,6 +36,7 @@ public class CartexService {
                                    String VINNumber, String model, String boughtDate, String plateNumber, String economicCode){
         Cartex cartex = new Cartex(CounterService.increment(), userId, customerId, licenceId, color, engineNumber, bodyNumber, VINNumber,
                 model, boughtDate, plateNumber, economicCode);
+        cartex.setCreateDate(new Date().getTime());
         cartexDao.save(cartex);
 
         return cartex;
@@ -44,8 +46,19 @@ public class CartexService {
     public static Cartex editCartex(long id, long userId, long customerId, long licenceId, String color, String engineNumber, String bodyNumber,
                                     String VINNumber, String model, String boughtDate, String plateNumber, String economicCode){
 
-        Cartex cartex = new Cartex(id, userId, customerId, licenceId, color, engineNumber, bodyNumber, VINNumber,
-                model, boughtDate, plateNumber, economicCode);
+        Cartex cartex = getCartex(id);
+        cartex.setUserId(userId);
+        cartex.setCustomerId(customerId);
+        cartex.setLicenceId(licenceId);
+        cartex.setColor(color);
+        cartex.setEngineNumber(engineNumber);
+        cartex.setBodyNumber(bodyNumber);
+        cartex.setVINNumber(VINNumber);
+        cartex.setModel(model);
+        cartex.setBoughtDate(boughtDate);
+        cartex.setPlateNumber(plateNumber);
+        cartex.setEconomicCode(economicCode);
+        cartex.setModifiedDate(new Date().getTime());
         cartexDao.save(cartex);
 
         return cartex;

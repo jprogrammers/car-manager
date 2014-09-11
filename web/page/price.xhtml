@@ -99,7 +99,7 @@
                 <f:convertNumber maxFractionDigits="0" />
             </p:outputLabel>
 
-            <p:outputLabel value="عوارض واردات"/>
+            <p:outputLabel value="عوارض واردات ۵٪"/>
             <p:outputLabel value="#{priceBean.importDuties}" dir="ltr" >
                 <f:convertNumber maxFractionDigits="0" />
             </p:outputLabel>
@@ -111,6 +111,11 @@
 
             <p:outputLabel value="پرداخت گمرکی"/>
             <p:outputLabel value="#{priceBean.customsPay}" dir="ltr" >
+                <f:convertNumber maxFractionDigits="0" />
+            </p:outputLabel>
+
+            <p:outputLabel value="استاندارد"/>
+            <p:outputLabel value="#{priceBean.standard}" dir="ltr" >
                 <f:convertNumber maxFractionDigits="0" />
             </p:outputLabel>
 

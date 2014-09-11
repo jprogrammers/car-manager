@@ -4,6 +4,7 @@ import com.jprogrammers.language.LanguageUtil;
 import com.jprogrammers.model.*;
 import com.jprogrammers.service.*;
 import com.jprogrammers.util.Validator;
+import com.sahandrc.calendar.PersianCalendar;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.primefaces.event.RowEditEvent;
@@ -32,6 +33,8 @@ public class CartexBean extends Cartex {
     List<Cartex> filteredCartexes;
     StreamedContent cartexPdfFile;
     User user;
+
+    PersianCalendar persianCalendar = new PersianCalendar();
 
     public CartexBean(){
 
@@ -93,7 +96,7 @@ public class CartexBean extends Cartex {
         Customer customer = CustomerService.getCustomer(cartex.getCustomerId());
         CartexDesign cartexDesign = CartexDesignService.getCartexDesignByUserId(cartex.getUserId());
         if(cartexDesign == null){
-            cartexDesign = new CartexDesign(0, 0, "", user.getFirstName() + " " + user.getLastName(), "", "", "", null);
+            cartexDesign = new CartexDesign(0, 0, "", "", user.getFirstName() + " " + user.getLastName(), "", "", "", null);
         }
         Licence licence = LicenceService.getLicence(cartex.getLicenceId());
         CarType carType = CarTypeService.getCarType(licence.getCarTypeId());
@@ -101,14 +104,15 @@ public class CartexBean extends Cartex {
         Map<String, Object> parameters = new HashMap<String, Object>();
         List<CartexExportModel> cartexExportModels = new ArrayList<CartexExportModel>();
 
-        cartexExportModels.add(new CartexExportModel(user.getFirstName() + " " + user.getLastName(), "123", cartexDesign.getInformation(),
+        cartexExportModels.add(new CartexExportModel(user.getFirstName() + " " + user.getLastName(),
+                "", cartexDesign.getInformation(), cartexDesign.getCity(),
                 cartexDesign.getImage() != null ? new ByteArrayInputStream(cartexDesign.getImage()) : null,
-                cartex.getBoughtDate(), "5678", "345", "999", cartex.getEconomicCode(), cartexDesign.getName1(), cartexDesign.getTitle1(),
+                cartex.getBoughtDate(), getDocumentNumber(cartex), cartexDesign.getFileNumber(), licence.getLicenceCode(), cartex.getEconomicCode(), cartexDesign.getName1(), cartexDesign.getTitle1(),
                 cartexDesign.getName2(), cartexDesign.getTitle2(), carType.getUsecaseType(), carType.getSystem(),
                 carType.getTip(), cartex.getModel(), cartex.getColor(), String.valueOf(carType.getCapacity()), String.valueOf(carType.getDefCount()),
                 carType.getFuelType(), String.valueOf(carType.getCylinderCount()), String.valueOf(carType.getWheelsCount()),
                 String.valueOf(carType.getCylinderSize()), carType.getCountry(), cartex.getBodyNumber(), cartex.getEngineNumber(),
-                cartex.getVINNumber(), customer.getFirstName() + " " + customer.getLastName(), customer.getBirthday(), "34234",
+                cartex.getVINNumber(), customer.getFirstName() + " " + customer.getLastName(), customer.getBirthday(), customer.getBirthday(),
                 customer.getHomeAddress(), customer.getWorkAddress(), customer.getFatherName(), customer.getProvince(),
                 customer.getNationalCode(), customer.getNationalId(), customer.getZipCode(), customer.getProvince(), customer.getTell(), customer.getMobile()));
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(cartexExportModels);
@@ -117,8 +121,13 @@ public class CartexBean extends Cartex {
 
         JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, dataSource); // you can use jasperReport instead of source string
         byte[] pdfFile = JasperExportManager.exportReportToPdf(print);
-        cartexPdfFile = new DefaultStreamedContent(new ByteArrayInputStream(pdfFile), "", "cartex.pdf");
+        cartexPdfFile = new DefaultStreamedContent(new ByteArrayInputStream(pdfFile), "", getDocumentNumber(cartex) + ".pdf");
 
+    }
+
+    private String getDocumentNumber(Cartex cartex){
+        persianCalendar.setTimeInMillis(cartex.getCreateDate());
+        return persianCalendar.getPersianShortDate().replaceAll("/", "").substring(2) + cartex.getId() % 1000;
     }
 
     public StreamedContent getExportCartexFile(){

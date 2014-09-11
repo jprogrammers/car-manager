@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="carManager" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2579b429-d3c4-4a1a-ad81-9637cd354f62">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="387"/>
+	<property name="ireport.y" value="199"/>
 	<field name="companyName" class="java.lang.String"/>
 	<field name="registrationNumber" class="java.lang.String"/>
 	<field name="companyInformation" class="java.lang.String"/>
@@ -43,11 +43,18 @@
 	<field name="issuancePlace" class="java.lang.String"/>
 	<field name="phoneNumber" class="java.lang.String"/>
 	<field name="mobileNumber" class="java.lang.String"/>
+	<field name="city" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="120" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="60" width="157" height="20" uuid="6eed7d96-df1a-4ee1-b6d8-74b984babb61"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="404" y="99" width="151" height="20" uuid="5cd92dd9-93a6-453d-8f12-6b20ca9a94b4"/>
+			</rectangle>
 			<staticText>
 				<reportElement x="192" y="0" width="170" height="28" uuid="9bde9805-7d08-4ae5-9009-62d1e052eda8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -158,7 +165,7 @@
 			</staticText>
 			<textField>
 				<reportElement x="404" y="99" width="100" height="20" uuid="f65718d0-4cd6-4ed7-9691-6d197afdef3a"/>
-				<textElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{economicCode}]]></textFieldExpression>
@@ -172,10 +179,15 @@
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[پلیس راهنمایی و رانندگی
+				<text><![CDATA[پلیس راهنمایی و رانندگی شهر
 
 احتراما به اطلاع میرساند این شرکت یک دستگاه وسیله نقلیه را با مشخصات مندرج در این سند به نامبرده ذیل واگذار نموده و کلیه عوارض قانونی متعلقه پرداخت گردیده است]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="392" y="0" width="73" height="12" uuid="d55dedbe-cfcf-4930-a814-079ef50abe7d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{city}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<detail>
@@ -219,13 +231,13 @@
 				<text><![CDATA[مهر و امضاء]]></text>
 			</staticText>
 			<rectangle radius="10">
-				<reportElement x="439" y="37" width="100" height="20" uuid="f8bf9cad-3a5b-4fa0-8996-abaf8e90ea01"/>
+				<reportElement x="445" y="37" width="100" height="20" uuid="f8bf9cad-3a5b-4fa0-8996-abaf8e90ea01"/>
 			</rectangle>
 			<line>
 				<reportElement x="439" y="47" width="1" height="135" uuid="42d310ca-ebec-46d7-b8af-de110c77ce5e"/>
 			</line>
 			<staticText>
-				<reportElement x="440" y="37" width="100" height="20" uuid="7bd6e8f5-4d1f-458f-a1c0-0493fab61984"/>
+				<reportElement x="445" y="37" width="100" height="20" uuid="7bd6e8f5-4d1f-458f-a1c0-0493fab61984"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="B Nazanin" size="12" isBold="true" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -336,11 +348,11 @@
 				<text><![CDATA[شماره موتور:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="357" y="147" width="75" height="15" uuid="c5594bd5-a3a9-452c-b263-991a4dcde5a2"/>
+				<reportElement x="384" y="147" width="48" height="15" uuid="c5594bd5-a3a9-452c-b263-991a4dcde5a2"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[شماره شناسایی (VIN):]]></text>
+				<text><![CDATA[شماره شناسایی]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="157" y="130" width="75" height="15" uuid="6876b9e0-1aae-4ada-bba2-bf2dab406751"/>
@@ -450,21 +462,21 @@
 			<textField>
 				<reportElement x="57" y="145" width="100" height="15" uuid="533d28a6-aace-495e-a13d-f1506958ae5a"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+					<font fontName="SansSerif" pdfEncoding="Cp1252"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{bodyNumber}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="257" y="132" width="100" height="15" uuid="486da876-626b-42cc-8433-5934a66a7ae0"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+					<font fontName="SansSerif" pdfEncoding="Cp1252"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{engineNumber}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="257" y="147" width="100" height="15" uuid="98b188d0-1944-4b45-ade9-d44bfcee5a8c"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+					<font fontName="SansSerif" pdfEncoding="Cp1252"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{VINNumber}]]></textFieldExpression>
 			</textField>
@@ -476,7 +488,9 @@
 			</rectangle>
 			<staticText>
 				<reportElement x="440" y="201" width="100" height="20" uuid="1f9f4c84-ffe2-454a-82b3-433ff54b0bab"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" size="12" pdfEncoding="Identity-H"/>
+				</textElement>
 				<text><![CDATA[مشخصات مالک]]></text>
 			</staticText>
 			<staticText>
@@ -536,7 +550,7 @@
 				<text><![CDATA[شماره ملی:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="95" y="228" width="69" height="20" uuid="0ef4f3af-7104-444b-b39e-95c5e3ec4690"/>
+				<reportElement x="74" y="228" width="90" height="20" uuid="0ef4f3af-7104-444b-b39e-95c5e3ec4690"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -578,28 +592,28 @@
 				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="375" y="248" width="100" height="20" uuid="0f5f6ba3-c116-4708-84b2-5021ef8608cd"/>
+				<reportElement x="314" y="248" width="113" height="20" uuid="0f5f6ba3-c116-4708-84b2-5021ef8608cd"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{birthday}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="392" y="268" width="100" height="20" uuid="81b62def-7a10-45e3-a3f8-fc5f1e4ac6b5"/>
+				<reportElement x="314" y="268" width="113" height="20" uuid="81b62def-7a10-45e3-a3f8-fc5f1e4ac6b5"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{issuanceDate}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="176" y="288" width="256" height="20" uuid="9a0294bc-25ef-4cdb-ba34-5a1e3b5c2a29"/>
+				<reportElement x="176" y="288" width="251" height="20" uuid="9a0294bc-25ef-4cdb-ba34-5a1e3b5c2a29"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{homeAddress}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="176" y="308" width="272" height="20" uuid="07928412-61bc-4871-bc92-52352d327cc9"/>
+				<reportElement x="176" y="308" width="251" height="20" uuid="07928412-61bc-4871-bc92-52352d327cc9"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -627,35 +641,35 @@
 				<textFieldExpression><![CDATA[$F{nationalCode}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="10" y="228" width="85" height="20" uuid="078e1471-f6a0-41b2-8402-7fd6d4871480"/>
+				<reportElement x="8" y="228" width="66" height="20" uuid="078e1471-f6a0-41b2-8402-7fd6d4871480"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{identifierNumber}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="6" y="248" width="100" height="20" uuid="4e9cc868-2290-47bc-96d8-1d888a6969bb"/>
+				<reportElement x="8" y="248" width="66" height="20" uuid="4e9cc868-2290-47bc-96d8-1d888a6969bb"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{issuancePlace}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="29" y="268" width="100" height="20" uuid="f89115af-ca3e-4b6d-abdb-88d7a29480c0"/>
+				<reportElement x="8" y="268" width="66" height="20" uuid="f89115af-ca3e-4b6d-abdb-88d7a29480c0"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{postalCode}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="29" y="288" width="100" height="20" uuid="977f324b-8872-492e-9bb7-125ff075b694"/>
+				<reportElement x="8" y="288" width="66" height="20" uuid="977f324b-8872-492e-9bb7-125ff075b694"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{phoneNumber}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="29" y="308" width="100" height="20" uuid="c04b57d0-7950-4df3-a901-16cd49cc99c7"/>
+				<reportElement x="8" y="308" width="66" height="20" uuid="c04b57d0-7950-4df3-a901-16cd49cc99c7"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -672,10 +686,10 @@
 				<text><![CDATA[توضیحات:]]></text>
 			</staticText>
 			<rectangle radius="10">
-				<reportElement x="0" y="401" width="555" height="70" uuid="0cb0acef-24c5-41b0-9977-6074baf8b3f6"/>
+				<reportElement x="0" y="408" width="555" height="51" uuid="0cb0acef-24c5-41b0-9977-6074baf8b3f6"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="432" y="407" width="108" height="64" uuid="89df47b2-e69c-4a4b-8f9f-ddfeadcb22a8"/>
+				<reportElement x="432" y="410" width="108" height="45" uuid="89df47b2-e69c-4a4b-8f9f-ddfeadcb22a8"/>
 				<textElement textAlignment="Right" verticalAlignment="Top">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -684,7 +698,7 @@
 گمرک نرخیص کننده:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="266" y="407" width="100" height="64" uuid="3a765d83-c9f9-466e-a5e0-4f12e5bebce8"/>
+				<reportElement x="266" y="410" width="100" height="45" uuid="3a765d83-c9f9-466e-a5e0-4f12e5bebce8"/>
 				<textElement textAlignment="Right">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -693,7 +707,7 @@
 نام بیمه:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="126" y="407" width="100" height="64" uuid="e109fbd2-36f9-4d1d-9765-ab789c591a52"/>
+				<reportElement x="126" y="410" width="100" height="45" uuid="e109fbd2-36f9-4d1d-9765-ab789c591a52"/>
 				<textElement textAlignment="Right">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -703,16 +717,16 @@
 بانک:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="375" y="401" width="1" height="70" uuid="f1c52019-4ae6-415f-8929-c70fa2854c3d"/>
+				<reportElement x="375" y="408" width="1" height="51" uuid="f1c52019-4ae6-415f-8929-c70fa2854c3d"/>
 			</line>
 			<line>
-				<reportElement x="233" y="403" width="1" height="68" uuid="10ffd74a-b128-488a-bc1c-735eac443edc"/>
+				<reportElement x="232" y="408" width="1" height="51" uuid="10ffd74a-b128-488a-bc1c-735eac443edc"/>
 			</line>
 			<line>
-				<reportElement x="116" y="403" width="1" height="68" uuid="d50cb691-24a4-491b-b173-42065f9b393c"/>
+				<reportElement x="116" y="408" width="1" height="51" uuid="d50cb691-24a4-491b-b173-42065f9b393c"/>
 			</line>
 			<staticText>
-				<reportElement x="6" y="407" width="100" height="64" uuid="bf0df591-c754-468d-bbb3-3dacbfbd276f"/>
+				<reportElement x="6" y="410" width="100" height="45" uuid="bf0df591-c754-468d-bbb3-3dacbfbd276f"/>
 				<textElement textAlignment="Right">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -722,13 +736,13 @@
 بانک:]]></text>
 			</staticText>
 			<rectangle radius="10">
-				<reportElement x="0" y="481" width="555" height="55" uuid="17f25193-a6d2-4468-8120-943adf59cbcf"/>
+				<reportElement x="0" y="478" width="555" height="55" uuid="17f25193-a6d2-4468-8120-943adf59cbcf"/>
 			</rectangle>
 			<line>
-				<reportElement x="298" y="481" width="1" height="55" uuid="2689fc62-31e0-4de4-8107-089bd5f3772c"/>
+				<reportElement x="298" y="478" width="1" height="55" uuid="2689fc62-31e0-4de4-8107-089bd5f3772c"/>
 			</line>
 			<line>
-				<reportElement x="158" y="481" width="1" height="55" uuid="30a8f562-4313-4643-abd4-f6c3a033eb04"/>
+				<reportElement x="158" y="478" width="1" height="55" uuid="30a8f562-4313-4643-abd4-f6c3a033eb04"/>
 			</line>
 			<staticText>
 				<reportElement x="329" y="492" width="219" height="34" uuid="7452bbc5-dc4c-42e4-8802-4d3f5cc83d24"/>
@@ -761,6 +775,11 @@
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[فاکتور فروش خودرو]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="147" width="29" height="15" uuid="67779d77-023e-4a72-b77b-e8b597b0c2a4"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[:(VIN)]]></text>
 			</staticText>
 		</band>
 	</detail>

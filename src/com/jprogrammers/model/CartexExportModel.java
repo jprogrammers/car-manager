@@ -16,6 +16,7 @@ public class CartexExportModel {
     String fileNumber;
     String markingNumber;
     String economicCode;
+    String city;
     String name1;
     String title1;
     String name2;
@@ -49,7 +50,7 @@ public class CartexExportModel {
     String phoneNumber;
     String mobileNumber;
 
-    public CartexExportModel(String companyName, String registrationNumber, String companyInformation, InputStream cartexImage,
+    public CartexExportModel(String companyName, String registrationNumber, String companyInformation, String city, InputStream cartexImage,
                              String cartexDate, String documentNumber, String fileNumber, String markingNumber, String economicCode,
                              String name1, String title1, String name2, String title2, String usecaseType, String system,
                              String tip, String model, String color, String capacity, String defCount, String fuelType,
@@ -57,9 +58,11 @@ public class CartexExportModel {
                              String engineNumber, String VINNumber, String name, String birthday, String issuanceDate,
                              String homeAddress, String workAddress, String fatherName, String birthplace, String nationalCode,
                              String identifierNumber, String postalCode, String issuancePlace, String phoneNumber, String mobileNumber) {
+
         setCompanyName(companyName);
         setRegistrationNumber(registrationNumber);
         setCompanyInformation(companyInformation);
+        setCity(city);
         setCartexImage(cartexImage);
         setCartexDate(cartexDate);
         setDocumentNumber(documentNumber);
@@ -122,6 +125,14 @@ public class CartexExportModel {
 
     public void setCompanyInformation(String companyInformation) {
         this.companyInformation = companyInformation;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public InputStream getCartexImage() {

@@ -4,7 +4,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.Arrays;
 
 /**
  * Created by EN20 on 7/3/14.
@@ -14,6 +13,8 @@ public class CartexDesign {
     private long id;
     private long userId;
     private String information;
+    private String city;
+    private String fileNumber;
     private String name1;
     private String title1;
     private String name2;
@@ -24,10 +25,11 @@ public class CartexDesign {
 
     }
 
-    public CartexDesign(long id, long userId, String information, String name1, String title1, String name2, String title2, byte[] image){
+    public CartexDesign(long id, long userId, String information, String fileNumber, String name1, String title1, String name2, String title2, byte[] image){
         setId(id);
         setUserId(userId);
         setInformation(information);
+        setFileNumber(fileNumber);
         setName1(name1);
         setTitle1(title1);
         setName2(name2);
@@ -63,6 +65,26 @@ public class CartexDesign {
 
     public void setInformation(String information) {
         this.information = information;
+    }
+
+    @Basic
+    @Column(name = "city", nullable = true, insertable = true, updatable = true, length = 100, precision = 0)
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    @Basic
+    @Column(name = "fileNumber", nullable = true, insertable = true, updatable = true, length = 100, precision = 0)
+    public String getFileNumber() {
+        return fileNumber;
+    }
+
+    public void setFileNumber(String documentNumber) {
+        this.fileNumber = documentNumber;
     }
 
     @Basic

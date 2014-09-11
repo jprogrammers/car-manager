@@ -8,16 +8,12 @@ import org.apache.poi.util.IOUtils;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
-import org.primefaces.model.UploadedFile;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
@@ -56,7 +52,7 @@ public class CartexDesignBean extends CartexDesign {
             cartexDesign.setTitle2(getTitle2());
             CartexDesignService.editCartexDesign(cartexDesign);
         } else {
-            CartexDesignService.addCartexDesign(user.getId(), getInformation(), getName1(), getTitle1(), getName2(), getTitle2(), null);
+            CartexDesignService.addCartexDesign(user.getId(), getInformation(), getFileNumber(), getName1(), getTitle1(), getName2(), getTitle2(), null);
         }
         addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("cartex_design_added_successfully"));
     }
@@ -71,13 +67,13 @@ public class CartexDesignBean extends CartexDesign {
             cartexDesign.setImage(IOUtils.toByteArray(event.getFile().getInputstream()));
             CartexDesignService.editCartexDesign(cartexDesign);
         } else {
-            CartexDesignService.addCartexDesign(user.getId(), "", "", "", "", "", IOUtils.toByteArray(event.getFile().getInputstream()));
+            CartexDesignService.addCartexDesign(user.getId(), "", "", "", "", "", "", IOUtils.toByteArray(event.getFile().getInputstream()));
         }
         init();
     }
 
     public StreamedContent getCartexImage() {
-        if(cartexDesign != null)
+        if(cartexDesign != null && cartexDesign.getImage() != null)
             return new DefaultStreamedContent(new ByteArrayInputStream(cartexDesign.getImage()));
         return null;
     }
