@@ -38,6 +38,8 @@ public class UserBean extends User implements Serializable {
     private List<User> filteredUsers;
     private List<User> allUsers;
 
+    private String tempPassword;
+
     private UploadedFile userLogo;
 
     User user;
@@ -163,6 +165,10 @@ public class UserBean extends User implements Serializable {
     public void onEdit(RowEditEvent event) {
         User user = (User) event.getObject();
 
+        if (tempPassword != null && !tempPassword.equals("")) {
+            user.setPassword(PWDEncryption.encrypt(tempPassword));
+            tempPassword = "";
+        }
         UserService.editUser(user);
 
         addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("user_edited_successfully"));
@@ -273,10 +279,22 @@ public class UserBean extends User implements Serializable {
             addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_enter_valid_email_address"));
         } else {
             UserService.editUser(user.getId(), getFirstName(), getLastName(), getEmailAddress(),
-                    getPassword(), getTell(), getAddress(), getRoleId());
+                    getPassword(), getTell(), getAddress(), user.getRoleId());
+
+
+            setOldPassword("");
+            setTempPassword("");
+            setConfirmPassword("");
 
             addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("user_edited_successfully"));
         }
     }
 
+    public String getTempPassword() {
+        return tempPassword;
+    }
+
+    public void setTempPassword(String tempPassword) {
+        this.tempPassword = tempPassword;
+    }
 }

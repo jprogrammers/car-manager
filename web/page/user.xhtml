@@ -74,12 +74,12 @@
 
             <p:ajax event="rowEdit" listener="#{userBean.onEdit}" update=":form:message" />
 
-            <p:column rendered="#{(session.getAttribute('user').roleId == 0 || session.getAttribute('user').roleId == 1) and user.roleId != 0}">
-                <p:rowEditor />
+            <p:column >
+                <p:rowEditor rendered="#{(session.getAttribute('user').roleId == 0 || session.getAttribute('user').roleId == 1) and user.roleId != 0}" />
             </p:column>
 
-            <p:column rendered="#{(session.getAttribute('user').roleId == 0 || session.getAttribute('user').roleId == 1) and user.roleId != 0}">
-                <p:commandButton icon="ui-icon-trash" update=":form2:dataTable" actionListener="#{userBean.deleteUser(user.id)}" >
+            <p:column >
+                <p:commandButton rendered="#{(session.getAttribute('user').roleId == 0 || session.getAttribute('user').roleId == 1) and user.roleId != 0}" icon="ui-icon-trash" update=":form2:dataTable" actionListener="#{userBean.deleteUser(user.id)}" >
                     <p:confirm header="#{fa.confirmation}" message="#{fa.are_you_sure}" icon="ui-icon-alert"/>
                 </p:commandButton>
 
@@ -88,14 +88,6 @@
                     <p:commandButton value="#{fa.no}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
                 </p:confirmDialog>
             </p:column>
-
-            <p:column>
-               <p:graphicImage value="#{userBean.getUserLogo(user.id)}">
-
-               </p:graphicImage>
-
-            </p:column>
-
 
             <p:column id="firstNameColumn" filterBy="firstName" headerText="#{fa.first_name}" filterMatchMode="contains" >
                 <p:cellEditor>
@@ -135,6 +127,21 @@
                     <f:facet name="input">
                         <p:inputText lang="en" value="#{user.emailAddress}" dir="ltr" validatorMessage="#{fa.please_fill_a_valid_value_for_email}" required="true" requiredMessage="#{fa.email_is_required}">
                             <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                        </p:inputText>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column id="passwordColumn" rendered="#{session.getAttribute('user').roleId == 0}"
+                      headerText="#{fa.password}"
+                       >
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText lang="en" value="#{userBean.tempPassword}" dir="ltr" >
+
                         </p:inputText>
                     </f:facet>
                 </p:cellEditor>

@@ -134,7 +134,8 @@ public class CustomerBean extends Customer implements Serializable {
         return true;
     }
 
-    public void emptyFields(){
+    public void emptyFields() {
+
         setFirstName("");
         setLastName("");
         setCreateDate(null);

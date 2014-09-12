@@ -11,6 +11,9 @@
 </h:head>
 <ui:include src="header.xhtml"/>
 <h:body dir="rtl">
+    <h:form id="export-form">
+        <p:commandLink value="#{fa.export}" actionListener="#{priceBean.doExport()}" ajax="false"  />
+    </h:form>
     <h:form>
         <h:panelGrid id="pricePanel" columns="4" style="margin: 0 auto;">
 

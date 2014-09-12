@@ -9,6 +9,8 @@ import com.jprogrammers.service.CartexService;
 import com.jprogrammers.service.CustomerService;
 import com.jprogrammers.service.LicenceService;
 import com.jprogrammers.service.UserService;
+import com.jprogrammers.util.EmailUtil;
+import com.jprogrammers.util.PWDGenerator;
 import com.jprogrammers.util.Validator;
 
 import javax.faces.application.FacesMessage;
@@ -39,6 +41,11 @@ public class RegisterBean extends CustomerBean {
     private String economicCode;
     private List<User> adminUsers = new ArrayList<User>();
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private String email;
 
 
     public RegisterBean(){
@@ -150,26 +157,66 @@ public class RegisterBean extends CustomerBean {
         this.economicCode = economicCode;
     }
 
+    public void addCartex(Customer customer){
+        //todo get user licence to add licenceCode for cartex
+        CartexService.addCartex(getUserId(), customer.getId(), getLicenceId(), getColor(), getEngineNumber(), getBodyNumber(), getVINNumber(),
+                getModel(), getBoughtDate(), getPlateNumber(), "");
+
+    }
+
     public void register(){
 
         if (isCustomerFieldsValid()) {
+
+            if (CustomerService.getCustomerByNationalCode(getNationalCode()) != null) {
+                Customer customer = CustomerService.getCustomerByNationalCode(getNationalCode());
+
+                if(isCartexDataValid()){
+                    addCartex(customer);
+
+                    emptyFields();
+                    emptyCartexField();
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("cartex_added_successfully"), ""));
+
+                    return;
+                }
+            }
+
+            String generatedPassword = PWDGenerator.generatePassword(6);
+            User user = UserService.addUser(getFirstName() , getLastName(),getEmail() ,generatedPassword , getTell() , getHomeAddress() , 0 , Role.CUSTOMER);
+
             Customer customer = CustomerService.addCustomer(getFirstName(), getLastName(), getNationalCode(), getNationalId(), getTell(), getMobile(),
                     getWorkTell(), getJobTitle(), getHomeAddress(), getWorkAddress(), getFatherName(), getCompany(), getProvince(),
-                    getBirthday(), getZipCode());
+                    getBirthday(), getZipCode() , user.getId());
 
             if(isCartexDataValid()){
-                //todo get user licence to add licenceCode for cartex
-                CartexService.addCartex(getUserId(), customer.getId(), getLicenceId(), getColor(), getEngineNumber(), getBodyNumber(), getVINNumber(),
-                        getModel(), getBoughtDate(), getPlateNumber(), "");
+
+                addCartex(customer);
+
+                EmailUtil.sendEmail(getEmail(), LanguageUtil.get("your_account_information"), LanguageUtil.get("your_account_information" , getEmail() ,generatedPassword));
+
+                emptyFields();
+                emptyCartexField();
 
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("cartex_added_successfully"), ""));
             } else {
                 CustomerService.deleteCustomer(customer.getId());
-
+                UserService.delete(user);
             }
         }
 
-        emptyFields();
+
+    }
+
+    private void emptyCartexField() {
+        setEmail("");
+        setBodyNumber("");
+        setBoughtDate("");
+        setModel("");
+        setColor("");
+        setEngineNumber("");
+        setBodyNumber("");
+        setVINNumber("");
     }
 
     protected boolean isCartexDataValid(){
@@ -190,8 +237,61 @@ public class RegisterBean extends CustomerBean {
             return false;
         }
 
+        if (CartexService.getCartexByBodyNumber(getBodyNumber()) != null){
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("body_number_must_be_unique"));
+            return false;
+        }
+        if (CartexService.getCartexByEngineNumber(getEngineNumber()) != null){
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("engine_number_must_be_unique"));
+            return false;
+        }
+
         return true;
     }
 
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void checkAvailableUserData(){
+
+        User user = null;
+        if (!Validator.isNullOrEmpty(getEmail())){
+            user = UserService.getUserByEmailAndRole(getEmail() , Role.CUSTOMER);
+            if (user != null) {
+                Customer customer =  CustomerService.getCustomerByUserId(user.getId());
+                if (customer != null) {
+                    populateCustomerData(customer);
+                }
+            }
+        }
+        if (!Validator.isNullOrEmpty(getNationalCode())) {
+            Customer customer =  CustomerService.getCustomerByNationalCode(getNationalCode());
+            if (customer != null) {
+                populateCustomerData(customer);
+            }
+        }
+    }
+
+    public void populateCustomerData(Customer customer){
+
+        setFirstName(customer.getFirstName());
+        setLastName(customer.getLastName());
+        setNationalCode(customer.getNationalCode());
+        setNationalId(customer.getNationalId());
+        setTell(customer.getTell());
+        setMobile(customer.getMobile());
+        setWorkTell(customer.getWorkTell());
+        setJobTitle(customer.getJobTitle());
+        setHomeAddress(customer.getHomeAddress());
+        setWorkAddress(customer.getWorkAddress());
+        setFatherName(customer.getFatherName());
+        setCompany(customer.getCompany());
+        setProvince(customer.getProvince());
+        setBirthday(customer.getBirthday());
+        setZipCode(customer.getZipCode());
+
+    }
 
 }

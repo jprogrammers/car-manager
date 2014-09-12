@@ -1,55 +1,66 @@
 package com.jprogrammers.bean;
 
+import com.jprogrammers.language.LanguageUtil;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * Created by EN20 on 5/22/14.
  */
 @ManagedBean
 public class PriceBean {
-    double fobPrice;
-    double numberOfCar = 1;
-    double shipmentPrice;
-    double stuffPriceInDollar;
-    double dollarPrice;
-    double stuffPriceInRial;
+    static double fobPrice;
+    static double numberOfCar = 1;
+    static double shipmentPrice;
+    static double stuffPriceInDollar;
+    static double dollarPrice;
+    static double stuffPriceInRial;
 
-    double insurance;
-    double insurancePercent = 0.5;
+    static double insurance;
+    static double insurancePercent = 0.5;
 
-    double customs;
+    static double customs;
 
-    double entrance;
-    double entrancePercent;
+    static double entrance;
+    static double entrancePercent;
 
-    double helalAhmar;
-    double helalAhmarPercent = 0.5;
+    static double helalAhmar;
+    static double helalAhmarPercent = 0.5;
 
-    double tax1;
-    double tax2;
-    double tax;
-    double taxPercent1;
-    double taxPercent2;
+    static double tax1;
+    static double tax2;
+    static double tax;
+    static double taxPercent1;
+    static double taxPercent2;
 
-    double importDuties;
-    double importDutiesPercent = 5.0;
+    static double importDuties;
+    static double importDutiesPercent = 5.0;
 
-    double customsPay;
-    double entranceDuties = 2500000;
+    static double customsPay;
+    static double entranceDuties = 2500000;
 
-    double standard;
+    static double standard;
 
-    double note;
-    double assetSide;
-    double taxOther;
-    double markingInsurance;
-    double municipal;
-    double plaque;
-    double vehicleCarrier;
-    double licence;
-    double other;
+    static double note;
+    static double assetSide;
+    static double taxOther;
+    static double markingInsurance;
+    static double municipal;
+    static double plaque;
+    static double vehicleCarrier;
+    static double licence;
+    static double other;
 
-    double totalPrice;
+    static double totalPrice;
 
     public void calculatePrice(){
 
@@ -75,6 +86,89 @@ public class PriceBean {
         totalPrice = customsPay + note + assetSide + taxOther + markingInsurance +
                 municipal + plaque + vehicleCarrier + licence + other;
     }
+
+    public void doExport() {
+        XSSFWorkbook workbook = new XSSFWorkbook();
+
+        Sheet sheet = workbook.createSheet("محاسبه قیمت");
+
+        Row row = sheet.createRow(0);
+        createRowCell(row , 1 , "ارزش فوب");
+        createRowCell(row , 2 , String.valueOf(getFobPrice()));
+        row = sheet.createRow(1);
+        createRowCell(row , 1 , "کرایه حمل");
+        createRowCell(row , 2 , String.valueOf(getShipmentPrice()));
+        row = sheet.createRow(2);
+        createRowCell(row , 1 , "نرخ ارز");
+        createRowCell(row , 2 , String.valueOf(getDollarPrice()));
+        row = sheet.createRow(3);
+        createRowCell(row , 1 , "بیمه");
+        createRowCell(row , 2 , String.valueOf(getInsurance()));
+        row = sheet.createRow(4);
+        createRowCell(row , 1 , "حقوق ورودی");
+        createRowCell(row , 2 , String.valueOf(getEntrance()));
+        row = sheet.createRow(5);
+        createRowCell(row , 1 , "مالیات کل");
+        createRowCell(row , 2 , String.valueOf(getTax()));
+        row = sheet.createRow(6);
+        createRowCell(row , 1 , "حلال احمر");
+        createRowCell(row , 2 , String.valueOf(getHelalAhmar()));
+        row = sheet.createRow(7);
+        createRowCell(row , 1 , "عوارض واردات");
+        createRowCell(row , 2 , String.valueOf(getImportDuties()));
+        row = sheet.createRow(8);
+        createRowCell(row , 1 , "عوارض ورودی");
+        createRowCell(row , 2 , String.valueOf(getEntranceDuties()));
+        row = sheet.createRow(9);
+        createRowCell(row , 1 , "بازرسی");
+        createRowCell(row , 2 , String.valueOf(""));
+        row = sheet.createRow(10);
+        createRowCell(row , 1 , "استاندارد");
+        createRowCell(row , 2 , String.valueOf(getStandard()));
+        row = sheet.createRow(11);
+        createRowCell(row , 1 , "تبصره 13");
+        createRowCell(row , 2 , String.valueOf(getNote()));
+        row = sheet.createRow(12);
+        createRowCell(row , 1 , "عوارض دارایی");
+        createRowCell(row , 2 , String.valueOf(getAssetSide()));
+        row = sheet.createRow(13);
+        createRowCell(row , 1 , "بیمه شماره گذاری");
+        createRowCell(row , 2 , String.valueOf(getMarkingInsurance()));
+        row = sheet.createRow(14);
+        createRowCell(row , 1 , "مجوز");
+        createRowCell(row , 2 , String.valueOf(getLicence()));
+        row = sheet.createRow(15);
+        createRowCell(row , 1 , "پلاک");
+        createRowCell(row , 2 , String.valueOf(getPlaque()));
+        row = sheet.createRow(16);
+        createRowCell(row , 1 , "جمع کل");
+        createRowCell(row , 2 , String.valueOf(getTotalPrice()));
+
+        try {
+            FacesContext facesContext = FacesContext.getCurrentInstance(); //Get the context ONCE
+            HttpServletResponse response = (HttpServletResponse) facesContext.getExternalContext().getResponse();
+
+            ServletOutputStream servletOutputStream = response.getOutputStream();
+            response.setContentType("application/vnd.ms-excel");
+            response.addHeader("Content-Disposition", "attachment; filename=price");
+            facesContext.responseComplete();
+
+            workbook.write(servletOutputStream);
+
+            servletOutputStream.flush();
+            servletOutputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("your_request_was_failed"), ""));
+        }
+
+    }
+
+    private void createRowCell(Row row ,int cellNum , String value) {
+        Cell cell = row.createCell(cellNum);
+        cell.setCellValue(value);
+    }
+
 
     public double getFobPrice() {
         return fobPrice;

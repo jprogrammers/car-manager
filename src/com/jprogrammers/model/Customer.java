@@ -29,6 +29,7 @@ public class Customer {
     private String province;
     private String birthday;
     private String zipCode;
+    private long userId;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 20)
@@ -197,5 +198,14 @@ public class Customer {
     @Override
     public String toString() {
         return getNationalCode() + " - " + getFirstName() + " " + getLastName();
+    }
+
+    @Column(name = "userId", length = 20)
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 }

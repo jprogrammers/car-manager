@@ -1,5 +1,6 @@
 package com.jprogrammers.service;
 
+import com.jprogrammers.model.Role;
 import com.jprogrammers.model.User;
 import com.jprogrammers.util.PWDEncryption;
 import com.jprogrammers.util.Validator;
@@ -96,7 +97,7 @@ public class UserService{
     }
 
     public static List<User> getUsers() {
-        String query = "FROM User";
+        String query = "FROM User where roleId != " + Role.CUSTOMER;
 
         return userDao.findMany(query);
     }
@@ -110,6 +111,14 @@ public class UserService{
 
         return userDao.findOne(query);
     }
+
+
+    public static User getUserByEmail(String email) {
+        String query = "FROM User where emailAddress ='" + email + "'";
+
+        return userDao.findOne(query);
+    }
+
 
     public static void delete(long id) {
         userDao.delete(getUser(id));
@@ -125,5 +134,11 @@ public class UserService{
     public static void updateUser(User user){
 
         userDao.save(user);
+    }
+
+    public static User getUserByEmailAndRole(String email, int roleId) {
+        String query = "FROM User where emailAddress ='" + email + "' and roleId = " + roleId;
+
+        return userDao.findOne(query);
     }
 }

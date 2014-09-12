@@ -17,6 +17,16 @@ public class CartexService {
         return cartexDao.findOne(query);
     }
 
+    public static Cartex getCartexByBodyNumber(String bodyNumber){
+        String query = "from Cartex where bodyNumber = '" + bodyNumber + "'";
+        return cartexDao.findOne(query);
+    }
+
+    public static Cartex getCartexByEngineNumber(String engineNumber){
+        String query = "from Cartex where engineNumber = '" + engineNumber + "'";
+        return cartexDao.findOne(query);
+    }
+
     public static List<Cartex> getCartexes(){
         String query = "from Cartex";
         return cartexDao.findMany(query);

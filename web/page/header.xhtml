@@ -15,9 +15,9 @@
 <h:body>
     <h:form>
         <p:menu style="width: 18%; float: right; height: 100%">
-            <p:menuitem value="#{fa.users}" url="/page/user.xhtml"/>
-            <p:menuitem value="#{fa.customers}" url="/page/customer.xhtml"/>
-            <p:menuitem value="#{fa.car_types}" url="/page/car_type.xhtml"/>
+            <p:menuitem value="#{fa.users}" url="/page/user.xhtml" rendered="#{session.getAttribute('user').roleId != 2}"/>
+            <p:menuitem value="#{fa.customers}" url="/page/customer.xhtml" rendered="#{session.getAttribute('user').roleId != 2}"/>
+            <p:menuitem value="#{fa.car_types}" url="/page/car_type.xhtml" rendered="#{session.getAttribute('user').roleId != 2}"/>
             <p:menuitem value="#{fa.licences}" url="/page/licence.xhtml" rendered="#{session.getAttribute('user').roleId == 0}"/>
             <p:menuitem value="#{fa.cartexes}" url="/page/cartex.xhtml" rendered="#{session.getAttribute('user').roleId == 1}"/>
             <p:menuitem value="#{fa.cartex_design}" url="/page/cartex_design.xhtml" rendered="#{session.getAttribute('user').roleId == 1}"/>

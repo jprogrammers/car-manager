@@ -59,4 +59,24 @@ public class CustomerService extends GenericDAOImpl<Customer> {
 
         return customer;
     }
+
+    public static Customer addCustomer(String firstName, String lastName, String nationalCode, String nationalId, String tell, String mobile, String workTell, String jobTitle, String homeAddress, String workAddress, String fatherName, String company, String province, String birthday, String zipCode , long userId) {
+
+        Customer customer = addCustomer(firstName, lastName, nationalCode, nationalId, tell, mobile, workTell, jobTitle, homeAddress, workAddress, fatherName, company, province, birthday, zipCode);
+        customer.setUserId(userId);
+
+        customerDao.save(customer);
+
+        return customer;
+    }
+
+
+    public static Customer getCustomerByNationalCode(String nationalCode){
+        return customerDao.findOne("from Customer where nationalCode = '" + nationalCode + "'");
+    }
+
+    public static Customer getCustomerByUserId(long userId) {
+
+        return customerDao.findOne("from Customer where userId = " + userId);
+    }
 }
