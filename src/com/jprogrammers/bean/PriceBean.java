@@ -23,6 +23,7 @@ public class PriceBean {
     double fobPrice;
     double numberOfCar = 1;
     double shipmentPrice;
+    double shipmentPriceInRial;
     double stuffPriceInDollar;
     double dollarPrice;
     double stuffPriceInRial;
@@ -69,6 +70,10 @@ public class PriceBean {
         stuffPriceInDollar = (fobPrice * numberOfCar) + shipmentPrice;
         stuffPriceInRial = stuffPriceInDollar * dollarPrice;
 
+        shipmentPriceInRial = shipmentPrice * dollarPrice;
+
+        standard = fobPrice * dollarPrice * numberOfCar * 0.008;
+
         insurance = stuffPriceInRial * (insurancePercent / 100.0);
 
         customs = stuffPriceInRial + insurance;
@@ -85,7 +90,7 @@ public class PriceBean {
 
         customsPay = entrance + helalAhmar + tax + importDuties + entranceDuties;
 
-        totalPrice = customsPay + note + assetSide + taxOther + markingInsurance +
+        totalPrice = customsPay + standard + note + assetSide + taxOther + markingInsurance +
                 municipal + plaque + vehicleCarrier + licence + other;
     }
 
@@ -194,6 +199,14 @@ public class PriceBean {
 
     public void setShipmentPrice(double shipmentPrice) {
         this.shipmentPrice = shipmentPrice;
+    }
+
+    public double getShipmentPriceInRial() {
+        return shipmentPriceInRial;
+    }
+
+    public void setShipmentPriceInRial(double shipmentPriceInRial) {
+        this.shipmentPriceInRial = shipmentPriceInRial;
     }
 
     public double getStuffPriceInDollar() {
