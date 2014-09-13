@@ -18,54 +18,59 @@ import java.io.IOException;
  */
 @ManagedBean
 public class PriceBean {
-    static double fobPrice;
-    static double numberOfCar = 1;
-    static double shipmentPrice;
-    static double stuffPriceInDollar;
-    static double dollarPrice;
-    static double stuffPriceInRial;
+    double fobPrice;
+    double numberOfCar = 1;
+    double shipmentPrice;
+    double shipmentPriceInRial;
+    double stuffPriceInDollar;
+    double dollarPrice;
+    double stuffPriceInRial;
 
-    static double insurance;
-    static double insurancePercent = 0.5;
+    double insurance;
+    double insurancePercent = 0.5;
 
-    static double customs;
+    double customs;
 
-    static double entrance;
-    static double entrancePercent;
+    double entrance;
+    double entrancePercent;
 
-    static double helalAhmar;
-    static double helalAhmarPercent = 0.5;
+    double helalAhmar;
+    double helalAhmarPercent = 0.5;
 
-    static double tax1;
-    static double tax2;
-    static double tax;
-    static double taxPercent1;
-    static double taxPercent2;
+    double tax1;
+    double tax2;
+    double tax;
+    double taxPercent1;
+    double taxPercent2;
 
-    static double importDuties;
-    static double importDutiesPercent = 5.0;
+    double importDuties;
+    double importDutiesPercent = 5.0;
 
-    static double customsPay;
-    static double entranceDuties = 2500000;
+    double customsPay;
+    double entranceDuties = 2500000;
 
-    static double standard;
+    double standard;
 
-    static double note;
-    static double assetSide;
-    static double taxOther;
-    static double markingInsurance;
-    static double municipal;
-    static double plaque;
-    static double vehicleCarrier;
-    static double licence;
-    static double other;
+    double note;
+    double assetSide;
+    double taxOther;
+    double markingInsurance;
+    double municipal;
+    double plaque;
+    double vehicleCarrier;
+    double licence;
+    double other;
 
-    static double totalPrice;
+    double totalPrice;
 
     public void calculatePrice(){
 
         stuffPriceInDollar = (fobPrice * numberOfCar) + shipmentPrice;
         stuffPriceInRial = stuffPriceInDollar * dollarPrice;
+
+        shipmentPriceInRial = shipmentPrice * dollarPrice;
+
+        standard = fobPrice * dollarPrice * numberOfCar * 0.008;
 
         insurance = stuffPriceInRial * (insurancePercent / 100.0);
 
@@ -83,7 +88,7 @@ public class PriceBean {
 
         customsPay = entrance + helalAhmar + tax + importDuties + entranceDuties;
 
-        totalPrice = customsPay + note + assetSide + taxOther + markingInsurance +
+        totalPrice = customsPay + standard + note + assetSide + taxOther + markingInsurance +
                 municipal + plaque + vehicleCarrier + licence + other;
     }
 
@@ -192,6 +197,14 @@ public class PriceBean {
 
     public void setShipmentPrice(double shipmentPrice) {
         this.shipmentPrice = shipmentPrice;
+    }
+
+    public double getShipmentPriceInRial() {
+        return shipmentPriceInRial;
+    }
+
+    public void setShipmentPriceInRial(double shipmentPriceInRial) {
+        this.shipmentPriceInRial = shipmentPriceInRial;
     }
 
     public double getStuffPriceInDollar() {
