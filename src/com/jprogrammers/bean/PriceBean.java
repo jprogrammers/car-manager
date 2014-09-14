@@ -53,6 +53,8 @@ public class PriceBean {
 
     double standard;
 
+    double inspection;
+
     double note;
     double assetSide;
     double taxOther;
@@ -70,7 +72,7 @@ public class PriceBean {
         stuffPriceInDollar = (fobPrice * numberOfCar) + shipmentPrice;
         stuffPriceInRial = stuffPriceInDollar * dollarPrice;
 
-        shipmentPriceInRial = shipmentPrice * dollarPrice;
+        shipmentPriceInRial = shipmentPrice * dollarPrice * numberOfCar;
 
         standard = fobPrice * dollarPrice * numberOfCar * 0.008;
 
@@ -90,7 +92,7 @@ public class PriceBean {
 
         customsPay = entrance + helalAhmar + tax + importDuties + entranceDuties;
 
-        totalPrice = customsPay + standard + note + assetSide + taxOther + markingInsurance +
+        totalPrice = customsPay + standard + inspection + note + assetSide + taxOther + markingInsurance +
                 municipal + plaque + vehicleCarrier + licence + other;
     }
 
@@ -118,7 +120,7 @@ public class PriceBean {
         createRowCell(row , 1 , "مالیات کل");
         createRowCell(row , 2 , String.valueOf(getTax()));
         row = sheet.createRow(6);
-        createRowCell(row , 1 , "حلال احمر");
+        createRowCell(row , 1 , "هلال احمر");
         createRowCell(row , 2 , String.valueOf(getHelalAhmar()));
         row = sheet.createRow(7);
         createRowCell(row , 1 , "عوارض واردات");
@@ -157,7 +159,7 @@ public class PriceBean {
 
             ServletOutputStream servletOutputStream = response.getOutputStream();
             response.setContentType("application/vnd.ms-excel");
-            response.addHeader("Content-Disposition", "attachment; filename=price");
+            response.addHeader("Content-Disposition", "attachment; filename=price.xls");
             facesContext.responseComplete();
 
             workbook.write(servletOutputStream);
@@ -359,6 +361,14 @@ public class PriceBean {
 
     public void setStandard(double standard) {
         this.standard = standard;
+    }
+
+    public double getInspection() {
+        return inspection;
+    }
+
+    public void setInspection(double inspection) {
+        this.inspection = inspection;
     }
 
     public double getEntranceDuties() {
