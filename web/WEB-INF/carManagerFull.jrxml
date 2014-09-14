@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="carManager" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2579b429-d3c4-4a1a-ad81-9637cd354f62">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="11"/>
+	<property name="ireport.y" value="470"/>
 	<field name="companyName" class="java.lang.String"/>
 	<field name="registrationNumber" class="java.lang.String"/>
 	<field name="companyInformation" class="java.lang.String"/>
@@ -185,7 +185,9 @@
 			</staticText>
 			<textField>
 				<reportElement x="392" y="0" width="73" height="12" uuid="d55dedbe-cfcf-4930-a814-079ef50abe7d"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{city}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -745,12 +747,13 @@
 				<reportElement x="158" y="478" width="1" height="55" uuid="30a8f562-4313-4643-abd4-f6c3a033eb04"/>
 			</line>
 			<staticText>
-				<reportElement x="329" y="492" width="219" height="34" uuid="7452bbc5-dc4c-42e4-8802-4d3f5cc83d24"/>
+				<reportElement x="449" y="492" width="99" height="34" uuid="7452bbc5-dc4c-42e4-8802-4d3f5cc83d24"/>
 				<textElement textAlignment="Right">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[نظریه کارشناس عالی تصادفات: 1.              مهر و امضاء
-و امور فنی:                               2.              مهر و امضاء]]></text>
+				<text><![CDATA[نظریه کارشناس عالی تصادفات
+و امور فنی
+]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="166" y="493" width="123" height="20" uuid="de9d26a3-623f-4014-b0f0-bd707dc065b7"/>
@@ -780,6 +783,14 @@
 				<reportElement x="357" y="147" width="29" height="15" uuid="67779d77-023e-4a72-b77b-e8b597b0c2a4"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[:(VIN)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="492" width="100" height="34" uuid="c92ce756-00de-40ce-abf2-2090d8b4110a"/>
+				<textElement textAlignment="Right">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[1.              مهر و امضاء
+2.              مهر و امضاء]]></text>
 			</staticText>
 		</band>
 	</detail>

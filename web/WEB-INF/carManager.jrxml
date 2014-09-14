@@ -44,6 +44,7 @@
 	<field name="issuancePlace" class="java.lang.String"/>
 	<field name="phoneNumber" class="java.lang.String"/>
 	<field name="mobileNumber" class="java.lang.String"/>
+	<field name="city" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -53,7 +54,7 @@
 				<reportElement x="0" y="60" width="158" height="20" uuid="a238629b-e7d1-426d-8511-dfe61181fb1e"/>
 			</rectangle>
 			<rectangle radius="10">
-				<reportElement x="404" y="100" width="151" height="20" uuid="5204d12d-44ee-4e4c-a4ab-f41335bd87f9"/>
+				<reportElement x="404" y="99" width="151" height="20" uuid="5204d12d-44ee-4e4c-a4ab-f41335bd87f9"/>
 			</rectangle>
 			<staticText>
 				<reportElement x="192" y="0" width="170" height="28" uuid="9bde9805-7d08-4ae5-9009-62d1e052eda8"/>
@@ -179,10 +180,17 @@
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[پلیس راهنمایی و رانندگی
+				<text><![CDATA[پلیس راهنمایی و رانندگی شهر
 
 احتراما به اطلاع میرساند این شرکت یک دستگاه وسیله نقلیه را با مشخصات مندرج در این سند به نامبرده ذیل واگذار نموده و کلیه عوارض قانونی متعلقه پرداخت گردیده است]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="389" y="0" width="66" height="14" uuid="477094c7-2a5f-4c3c-a83b-705b266071d2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{city}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<detail>
