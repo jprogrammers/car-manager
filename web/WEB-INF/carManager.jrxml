@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="carManager" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2579b429-d3c4-4a1a-ad81-9637cd354f62">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="185"/>
+	<property name="ireport.y" value="0"/>
 	<field name="companyName" class="java.lang.String"/>
 	<field name="registrationNumber" class="java.lang.String"/>
 	<field name="companyInformation" class="java.lang.String"/>
@@ -49,6 +49,12 @@
 	</background>
 	<title>
 		<band height="120" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="60" width="158" height="20" uuid="a238629b-e7d1-426d-8511-dfe61181fb1e"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="404" y="100" width="151" height="20" uuid="5204d12d-44ee-4e4c-a4ab-f41335bd87f9"/>
+			</rectangle>
 			<staticText>
 				<reportElement x="192" y="0" width="170" height="28" uuid="9bde9805-7d08-4ae5-9009-62d1e052eda8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -124,7 +130,7 @@
 			</staticText>
 			<staticText>
 				<reportElement x="100" y="60" width="58" height="20" uuid="e8333fd2-3dc3-4174-8dc1-2d14cd3fcd13"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[کد شماره گذاری:]]></text>
@@ -152,14 +158,14 @@
 			</textField>
 			<staticText>
 				<reportElement x="504" y="99" width="51" height="20" uuid="e80a5f8c-5097-4572-a753-1c64bc060a8f"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[کد اقتصادی:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="404" y="99" width="100" height="20" uuid="f65718d0-4cd6-4ed7-9691-6d197afdef3a"/>
-				<textElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="B Nazanin" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{economicCode}]]></textFieldExpression>
