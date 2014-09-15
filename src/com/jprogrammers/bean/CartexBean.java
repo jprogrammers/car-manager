@@ -96,7 +96,7 @@ public class CartexBean extends Cartex {
         Customer customer = CustomerService.getCustomer(cartex.getCustomerId());
         CartexDesign cartexDesign = CartexDesignService.getCartexDesignByUserId(cartex.getUserId());
         if(cartexDesign == null){
-            cartexDesign = new CartexDesign(0, 0, "", "", user.getFirstName() + " " + user.getLastName(), "", "", "", null);
+            cartexDesign = new CartexDesign(0, 0, "", "", "", user.getFirstName() + " " + user.getLastName(), "", "", "", null);
         }
         Licence licence = LicenceService.getLicence(cartex.getLicenceId());
         CarType carType = CarTypeService.getCarType(licence.getCarTypeId());

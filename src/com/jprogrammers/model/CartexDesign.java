@@ -25,11 +25,12 @@ public class CartexDesign {
 
     }
 
-    public CartexDesign(long id, long userId, String information, String fileNumber, String name1, String title1, String name2, String title2, byte[] image){
+    public CartexDesign(long id, long userId, String information, String fileNumber, String city, String name1, String title1, String name2, String title2, byte[] image){
         setId(id);
         setUserId(userId);
         setInformation(information);
         setFileNumber(fileNumber);
+        setCity(city);
         setName1(name1);
         setTitle1(title1);
         setName2(name2);

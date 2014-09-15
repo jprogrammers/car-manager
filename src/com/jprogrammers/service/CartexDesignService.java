@@ -21,18 +21,18 @@ public class CartexDesignService {
         return cartexDesignDao.findMany(query);
     }
 
-    public static CartexDesign addCartexDesign(long userId, String information, String fileNumber, String name1, String title1, String name2, String title2, byte[] image){
+    public static CartexDesign addCartexDesign(long userId, String information, String fileNumber, String city, String name1, String title1, String name2, String title2, byte[] image){
 
-        CartexDesign cartexDesign = new CartexDesign(CounterService.increment(), userId, information, fileNumber, name1, title1, name2, title2, image);
+        CartexDesign cartexDesign = new CartexDesign(CounterService.increment(), userId, information, fileNumber, city, name1, title1, name2, title2, image);
         cartexDesignDao.save(cartexDesign);
 
         return cartexDesign;
 
     }
 
-    public static CartexDesign editCartexDesign(long cartexDesignId, long userId, String information, String fileNumber, String name1, String title1, String name2, String title2, byte[] image){
+    public static CartexDesign editCartexDesign(long cartexDesignId, long userId, String information, String fileNumber, String city, String name1, String title1, String name2, String title2, byte[] image){
 
-        CartexDesign cartexDesign = new CartexDesign(cartexDesignId, userId, information, fileNumber, name1, title1, name2, title2, image);
+        CartexDesign cartexDesign = new CartexDesign(cartexDesignId, userId, information, fileNumber, city, name1, title1, name2, title2, image);
         cartexDesignDao.save(cartexDesign);
 
         return cartexDesign;

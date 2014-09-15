@@ -35,6 +35,8 @@ public class CartexDesignBean extends CartexDesign {
         cartexDesign = CartexDesignService.getCartexDesignByUserId(user.getId());
         if(cartexDesign != null){
             setInformation(cartexDesign.getInformation());
+            setFileNumber(cartexDesign.getFileNumber());
+            setCity(cartexDesign.getCity());
             setName1(cartexDesign.getName1());
             setTitle1(cartexDesign.getTitle1());
             setName2(cartexDesign.getName2());
@@ -46,13 +48,15 @@ public class CartexDesignBean extends CartexDesign {
         CartexDesign cartexDesign = CartexDesignService.getCartexDesignByUserId(user.getId());
         if(cartexDesign != null){
             cartexDesign.setInformation(getInformation());
+            cartexDesign.setFileNumber(getFileNumber());
+            cartexDesign.setCity(getCity());
             cartexDesign.setName1(getName1());
             cartexDesign.setTitle1(getTitle1());
             cartexDesign.setName2(getName2());
             cartexDesign.setTitle2(getTitle2());
             CartexDesignService.editCartexDesign(cartexDesign);
         } else {
-            CartexDesignService.addCartexDesign(user.getId(), getInformation(), getFileNumber(), getName1(), getTitle1(), getName2(), getTitle2(), null);
+            CartexDesignService.addCartexDesign(user.getId(), getInformation(), getFileNumber(), getCity(), getName1(), getTitle1(), getName2(), getTitle2(), null);
         }
         addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("cartex_design_added_successfully"));
     }
@@ -67,7 +71,7 @@ public class CartexDesignBean extends CartexDesign {
             cartexDesign.setImage(IOUtils.toByteArray(event.getFile().getInputstream()));
             CartexDesignService.editCartexDesign(cartexDesign);
         } else {
-            CartexDesignService.addCartexDesign(user.getId(), "", "", "", "", "", "", IOUtils.toByteArray(event.getFile().getInputstream()));
+            CartexDesignService.addCartexDesign(user.getId(), "", "", "", "", "", "", "", IOUtils.toByteArray(event.getFile().getInputstream()));
         }
         init();
     }
