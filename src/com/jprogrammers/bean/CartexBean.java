@@ -43,10 +43,7 @@ public class CartexBean extends Cartex {
 
         customers = CustomerService.getCustomers();
 
-        if(user.getRoleId() == User.GOD)
-            licences = LicenceService.getLicences();
-        else
-            licences = LicenceService.getLicences(user.getUserId());
+        licences = LicenceService.getLicences();
 
         init();
     }
@@ -64,10 +61,25 @@ public class CartexBean extends Cartex {
             FacesContext.getCurrentInstance().addMessage(null ,new FacesMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_insert_valid_parameter"),""));
         } else {
             CartexService.addCartex(user.getUserId(), getCustomerId(), getLicenceId(), getColor(), getEngineNumber(), getBodyNumber(), getVINNumber(),
-                    getModel(), getBoughtDate(), getPlateNumber(), getEconomicCode());
+                    getModel(), getBoughtDate(), getPlateNumber());
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("cartex_added_successfully"), ""));
+            emptyFields();
+            init();
         }
-        init();
+
+    }
+
+    private void emptyFields(){
+        setUserId(0);
+        setCustomerId(0);
+        setLicenceId(0);
+        setColor("");
+        setEngineNumber("");
+        setBodyNumber("");
+        setVINNumber("");
+        setModel("");
+        setBoughtDate("");
+        setPlateNumber("");
     }
 
     public void editCartex(RowEditEvent event){
@@ -96,7 +108,7 @@ public class CartexBean extends Cartex {
         Customer customer = CustomerService.getCustomer(cartex.getCustomerId());
         CartexDesign cartexDesign = CartexDesignService.getCartexDesignByUserId(cartex.getUserId());
         if(cartexDesign == null){
-            cartexDesign = new CartexDesign(0, 0, "", "", "", user.getFirstName() + " " + user.getLastName(), "", "", "", null);
+            cartexDesign = new CartexDesign(0, 0, "", "", "", "", user.getFirstName() + " " + user.getLastName(), "", "", "", null);
         }
         Licence licence = LicenceService.getLicence(cartex.getLicenceId());
         CarType carType = CarTypeService.getCarType(licence.getCarTypeId());
@@ -107,7 +119,7 @@ public class CartexBean extends Cartex {
         cartexExportModels.add(new CartexExportModel(user.getFirstName() + " " + user.getLastName(),
                 "", cartexDesign.getInformation(), cartexDesign.getCity(),
                 cartexDesign.getImage() != null ? new ByteArrayInputStream(cartexDesign.getImage()) : null,
-                cartex.getBoughtDate(), getDocumentNumber(cartex), cartexDesign.getFileNumber(), licence.getLicenceCode(), cartex.getEconomicCode(), cartexDesign.getName1(), cartexDesign.getTitle1(),
+                cartex.getBoughtDate(), getDocumentNumber(cartex), cartexDesign.getFileNumber(), licence.getLicenceCode(), cartexDesign.getEconomicCode(), cartexDesign.getName1(), cartexDesign.getTitle1(),
                 cartexDesign.getName2(), cartexDesign.getTitle2(), carType.getUsecaseType(), carType.getSystem(),
                 carType.getTip(), cartex.getModel(), cartex.getColor(), String.valueOf(carType.getCapacity()), String.valueOf(carType.getDefCount()),
                 carType.getFuelType(), String.valueOf(carType.getCylinderCount()), String.valueOf(carType.getWheelsCount()),

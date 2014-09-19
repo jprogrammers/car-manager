@@ -15,6 +15,7 @@ public class CartexDesign {
     private String information;
     private String city;
     private String fileNumber;
+    private String economicCode;
     private String name1;
     private String title1;
     private String name2;
@@ -25,11 +26,12 @@ public class CartexDesign {
 
     }
 
-    public CartexDesign(long id, long userId, String information, String fileNumber, String city, String name1, String title1, String name2, String title2, byte[] image){
+    public CartexDesign(long id, long userId, String information, String fileNumber, String economicCode, String city, String name1, String title1, String name2, String title2, byte[] image){
         setId(id);
         setUserId(userId);
         setInformation(information);
         setFileNumber(fileNumber);
+        setEconomicCode(economicCode);
         setCity(city);
         setName1(name1);
         setTitle1(title1);
@@ -86,6 +88,16 @@ public class CartexDesign {
 
     public void setFileNumber(String documentNumber) {
         this.fileNumber = documentNumber;
+    }
+
+    @Basic
+    @Column(name = "economicCode", nullable = true, insertable = true, updatable = true, length = 100, precision = 0)
+    public String getEconomicCode() {
+        return economicCode;
+    }
+
+    public void setEconomicCode(String economicCode) {
+        this.economicCode = economicCode;
     }
 
     @Basic

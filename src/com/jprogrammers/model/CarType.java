@@ -168,6 +168,6 @@ public class CarType implements Serializable {
 
     @Override
     public String toString() {
-        return getCountry() + " " + getFactory() + " " + getUsecaseType() + " " + getUsecaseType2() + " " + getCylinderCount() + " سیلندر " + getCylinderSize() + " cc";
+        return getFactory() + " " + getTip();
     }
 }

@@ -2,6 +2,7 @@ package com.jprogrammers.bean;
 
 import com.jprogrammers.language.LanguageUtil;
 import com.jprogrammers.model.Customer;
+import com.jprogrammers.model.User;
 import com.jprogrammers.service.CartexService;
 import com.jprogrammers.service.CustomerService;
 import com.jprogrammers.util.Validator;
@@ -16,9 +17,11 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.jws.soap.SOAPBinding;
 import javax.print.attribute.standard.Severity;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.Date;
 import java.util.List;
@@ -35,12 +38,22 @@ public class CustomerBean extends Customer implements Serializable {
 
     List<Customer> filteredCustomers;
 
+    User user;
+
     public CustomerBean() {
         init();
     }
 
     public void init(){
-        setCustomers(CustomerService.getCustomers());
+
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        user = (User)session.getAttribute("user");
+
+        if (user.getRoleId() == User.GOD)
+            setCustomers(CustomerService.getCustomers());
+        else
+            setCustomers(CustomerService.getCustomers(user.getUserId()));
+
     }
 
     public void onEdit(RowEditEvent event) {
@@ -65,7 +78,7 @@ public class CustomerBean extends Customer implements Serializable {
 
             CustomerService.addCustomer(getFirstName() , getLastName() , getNationalCode() , getNationalId() , getTell() , getMobile() ,
                     getWorkTell() , getJobTitle() , getHomeAddress() , getWorkAddress() , getFatherName() , getCompany() , getProvince() ,
-                    getBirthday() , getZipCode());
+                    getBirthday() , getZipCode(), user.getUserId());
             addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("customer_added_successfully"));
             emptyFields();
             init();

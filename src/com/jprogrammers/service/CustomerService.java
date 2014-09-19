@@ -6,8 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author Ali Reza Akbarian
- *         created on 09/05/14.
+ * @author Ali Reza Akbarian, EN20
  */
 public class CustomerService extends GenericDAOImpl<Customer> {
 
@@ -16,6 +15,11 @@ public class CustomerService extends GenericDAOImpl<Customer> {
     public static List<Customer> getCustomers(){
 
         return customerDao.findMany("from Customer order by createDate desc");
+    }
+
+    public static List<Customer> getCustomers(long userId){
+
+        return customerDao.findMany("from Customer where userId = " + userId + " order by createDate desc");
     }
 
     public static void updateCustomer(Customer customer) {
@@ -32,7 +36,7 @@ public class CustomerService extends GenericDAOImpl<Customer> {
         return customerDao.findOne("from Customer where id = " + customerId);
     }
 
-    public static Customer addCustomer(String firstName, String lastName, String nationalCode, String nationalId, String tell, String mobile, String workTell, String jobTitle, String homeAddress, String workAddress, String fatherName, String company, String province, String birthday, String zipCode) {
+    public static Customer addCustomer(String firstName, String lastName, String nationalCode, String nationalId, String tell, String mobile, String workTell, String jobTitle, String homeAddress, String workAddress, String fatherName, String company, String province, String birthday, String zipCode , long userId) {
 
         Customer customer = new Customer();
 
@@ -53,16 +57,6 @@ public class CustomerService extends GenericDAOImpl<Customer> {
         customer.setBirthday(birthday);
         customer.setZipCode(zipCode);
         customer.setCreateDate(new Date());
-        customer.setModifiedDate(new Date());
-
-        customerDao.save(customer);
-
-        return customer;
-    }
-
-    public static Customer addCustomer(String firstName, String lastName, String nationalCode, String nationalId, String tell, String mobile, String workTell, String jobTitle, String homeAddress, String workAddress, String fatherName, String company, String province, String birthday, String zipCode , long userId) {
-
-        Customer customer = addCustomer(firstName, lastName, nationalCode, nationalId, tell, mobile, workTell, jobTitle, homeAddress, workAddress, fatherName, company, province, birthday, zipCode);
         customer.setUserId(userId);
 
         customerDao.save(customer);
@@ -75,8 +69,4 @@ public class CustomerService extends GenericDAOImpl<Customer> {
         return customerDao.findOne("from Customer where nationalCode = '" + nationalCode + "'");
     }
 
-    public static Customer getCustomerByUserId(long userId) {
-
-        return customerDao.findOne("from Customer where userId = " + userId);
-    }
 }

@@ -19,9 +19,7 @@
         <p:growl id="message" showDetail="true" autoUpdate="true" closable="true"/>
         <p:commandButton type="button" value="#{fa.add_cartex}" onclick="PF('addCartexDialog').show()" />
         <p:dialog id="addCartex" widgetVar="addCartexDialog" header="#{fa.add_cartex}"  showEffect="fade" hideEffect="fade" draggable="false" resizable="false">
-            <h:panelGrid columns="4">
-                <p:outputLabel value="#{fa.economic_code}:"/>
-                <p:inputText value="#{cartexBean.economicCode}"/>
+            <h:panelGrid id="addCartexPanel" columns="4">
 
                 <p:outputLabel value="#{fa.licence_code}:"/>
                 <p:selectOneMenu value="#{cartexBean.licenceId}">
@@ -51,7 +49,7 @@
                 <p:outputLabel value="#{fa.VIN_number}:"/>
                 <p:inputText dir="ltr" value="#{cartexBean.VINNumber}"/>
 
-                <p:commandButton value="#{fa.add_cartex}" actionListener="#{cartexBean.addCartex}" update="cartexTable"/>
+                <p:commandButton value="#{fa.add_cartex}" actionListener="#{cartexBean.addCartex}" update="cartexTable addCartexPanel"/>
             </h:panelGrid>
         </p:dialog>
 
@@ -98,7 +96,7 @@
                 </p:cellEditor>
             </p:column>
 
-            <p:column headerText="#{fa.licence_code}">
+            <p:column headerText="#{fa.licence_code}" filterBy="licence" filterMatchMode="contains">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{cartex.licence}"/></f:facet>
                     <f:facet name="input">
@@ -109,28 +107,28 @@
                 </p:cellEditor>
             </p:column>
 
-            <p:column headerText="#{fa.model}">
+            <p:column headerText="#{fa.model}" filterBy="model" filterMatchMode="contains">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{cartex.model}"/></f:facet>
                     <f:facet name="input"><p:inputText value="#{cartex.model}" style="width: 90%"/></f:facet>
                 </p:cellEditor>
             </p:column>
 
-            <p:column headerText="#{fa.color}">
+            <p:column headerText="#{fa.color}" filterBy="color" filterMatchMode="contains">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{cartex.color}"/></f:facet>
                     <f:facet name="input"><p:inputText value="#{cartex.color}" style="width: 90%"/></f:facet>
                 </p:cellEditor>
             </p:column>
 
-            <p:column headerText="#{fa.engine_number}">
+            <p:column headerText="#{fa.engine_number}" filterBy="engineNumber" filterMatchMode="contains">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{cartex.engineNumber}"/></f:facet>
                     <f:facet name="input"><p:inputText dir="ltr" value="#{cartex.engineNumber}" style="width: 90%"/></f:facet>
                 </p:cellEditor>
             </p:column>
 
-            <p:column headerText="#{fa.body_number}">
+            <p:column headerText="#{fa.body_number}" filterBy="bodyNumber" filterMatchMode="contains">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{cartex.bodyNumber}"/></f:facet>
                     <f:facet name="input"><p:inputText dir="ltr" value="#{cartex.bodyNumber}" onkeyup="checkEngineNumber(this)" style="width: 90%"/></f:facet>

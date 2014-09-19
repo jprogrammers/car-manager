@@ -27,7 +27,6 @@ public class Cartex {
     private String model;
     private String boughtDate;
     private String plateNumber;
-    private String economicCode;
     private long createDate;
     private long modifiedDate;
 
@@ -36,7 +35,7 @@ public class Cartex {
     }
 
     public Cartex(long id,long userId, long customerId, long licenceId, String color, String engineNumber, String bodyNumber,
-                  String VINNumber, String model, String boughtDate, String plateNumber, String economicCode){
+                  String VINNumber, String model, String boughtDate, String plateNumber){
         setId(id);
         setUserId(userId);
         setCustomerId(customerId);
@@ -48,7 +47,6 @@ public class Cartex {
         setModel(model);
         setBoughtDate(boughtDate);
         setPlateNumber(plateNumber);
-        setEconomicCode(economicCode);
     }
 
     @Id
@@ -149,15 +147,6 @@ public class Cartex {
 
     public void setPlateNumber(String plateNumber) {
         this.plateNumber = plateNumber;
-    }
-
-    @Column(name = "economicCode", nullable = true, insertable = true, updatable = true, length = 200, precision = 0)
-    public String getEconomicCode() {
-        return economicCode;
-    }
-
-    public void setEconomicCode(String economicCode) {
-        this.economicCode = economicCode;
     }
 
     @Column(name = "createDate", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)

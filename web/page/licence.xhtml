@@ -24,13 +24,8 @@
                     <p:outputLabel value="#{fa.licence_code}"/>
                     <p:inputText value="#{licenceBean.licenceCode}"/>
 
-                    <p:outputLabel value="#{fa.user}"/>
-                    <p:selectOneMenu value="#{licenceBean.userId}">
-                        <f:selectItems value="#{licenceBean.users}" var="user" itemLabel="#{user}" itemValue="#{user.userId}"/>
-                    </p:selectOneMenu>
-
                     <p:outputLabel value="#{fa.car_type}"/>
-                    <p:selectOneMenu value="#{licenceBean.carTypeId}">
+                    <p:selectOneMenu value="#{licenceBean.carTypeId}" filter="true" filterMatchMode="startsWith">
                         <f:selectItems value="#{licenceBean.carTypes}" var="carType" itemLabel="#{carType}" itemValue="#{carType.id}"/>
                     </p:selectOneMenu>
 
@@ -78,16 +73,6 @@
                 </p:cellEditor>
             </p:column>
 
-            <p:column headerText="#{fa.user}" filterBy="user" filterMatchMode="contains">
-                <p:cellEditor>
-                    <f:facet name="output"><h:outputText value="#{licence.user}" /></f:facet>
-                    <f:facet name="input">
-                        <p:selectOneMenu value="#{licence.userId}">
-                            <f:selectItems value="#{licenceBean.users}" var="user" itemLabel="#{user}" itemValue="#{user.id}"/>
-                        </p:selectOneMenu>
-                    </f:facet>
-                </p:cellEditor>
-            </p:column>
         </j:JDataTable>
 
     </h:form>

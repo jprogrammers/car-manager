@@ -17,10 +17,10 @@ public class LicenceService {
         return licenceDao.findMany(query);
     }
 
-    public static List<Licence> getLicences(long userId){
+    /*public static List<Licence> getLicences(long userId){
         String query = "from Licence where userId = " + userId;
         return licenceDao.findMany(query);
-    }
+    }*/
 
     public static Licence getLicence(long id){
         String query = "from Licence where id = " + id;
@@ -32,8 +32,8 @@ public class LicenceService {
         return licenceDao.findMany(query);
     }
 
-    public static void addLicence(String licenceCode, long carTypeId, long userId){
-        Licence licence = new Licence(CounterService.increment(), licenceCode, carTypeId, userId, new Date(), null);
+    public static void addLicence(String licenceCode, long carTypeId){
+        Licence licence = new Licence(CounterService.increment(), licenceCode, carTypeId, new Date(), null);
         licenceDao.save(licence);
     }
 

@@ -22,7 +22,7 @@
                       widgetVar="requestDataTable" emptyMessage="#{fa.no_cartex_request_exist}">
 
             <p:column headerText="#{fa.economic_code}">
-                <h:outputText value="#{requestBean.getCartexEconomicCode(editRequest.cartexId)}" />
+                <h:outputText value="#{requestBean.getCartexUser(editRequest.cartexId)}" />
             </p:column>
 
             <p:column headerText="#{fa.user}">

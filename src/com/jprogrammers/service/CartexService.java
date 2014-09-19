@@ -43,9 +43,9 @@ public class CartexService {
     }
 
     public static Cartex addCartex(long userId, long customerId, long licenceId, String color, String engineNumber, String bodyNumber,
-                                   String VINNumber, String model, String boughtDate, String plateNumber, String economicCode){
+                                   String VINNumber, String model, String boughtDate, String plateNumber){
         Cartex cartex = new Cartex(CounterService.increment(), userId, customerId, licenceId, color, engineNumber, bodyNumber, VINNumber,
-                model, boughtDate, plateNumber, economicCode);
+                model, boughtDate, plateNumber);
         cartex.setCreateDate(new Date().getTime());
         cartexDao.save(cartex);
 
@@ -54,7 +54,7 @@ public class CartexService {
     }
 
     public static Cartex editCartex(long id, long userId, long customerId, long licenceId, String color, String engineNumber, String bodyNumber,
-                                    String VINNumber, String model, String boughtDate, String plateNumber, String economicCode){
+                                    String VINNumber, String model, String boughtDate, String plateNumber){
 
         Cartex cartex = getCartex(id);
         cartex.setUserId(userId);
@@ -67,7 +67,6 @@ public class CartexService {
         cartex.setModel(model);
         cartex.setBoughtDate(boughtDate);
         cartex.setPlateNumber(plateNumber);
-        cartex.setEconomicCode(economicCode);
         cartex.setModifiedDate(new Date().getTime());
         cartexDao.save(cartex);
 

@@ -32,11 +32,12 @@ public class CartexEditRequestBean extends CartexEditRequest {
         pendingRequests = CartexEditRequestService.getByStatus(CartexEditRequest.STATUS_PENDING);
     }
 
-    public String getCartexEconomicCode(long cartexId){
+    public String getCartexUser(long cartexId){
+
         Cartex cartex = CartexService.getCartex(cartexId);
 
         if (cartex != null) {
-            return cartex.getEconomicCode();
+            return UserService.getUser(cartex.getUserId()).toString();
         } else {
             return LanguageUtil.get("cartex_dose_not_exist");
         }

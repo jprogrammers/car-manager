@@ -160,7 +160,7 @@ public class RegisterBean extends CustomerBean {
     public void addCartex(Customer customer){
         //todo get user licence to add licenceCode for cartex
         CartexService.addCartex(getUserId(), customer.getId(), getLicenceId(), getColor(), getEngineNumber(), getBodyNumber(), getVINNumber(),
-                getModel(), getBoughtDate(), getPlateNumber(), "");
+                getModel(), getBoughtDate(), getPlateNumber());
 
     }
 
@@ -254,7 +254,7 @@ public class RegisterBean extends CustomerBean {
         return email;
     }
 
-    public void checkAvailableUserData(){
+    /*public void checkAvailableUserData(){
 
         User user = null;
         if (!Validator.isNullOrEmpty(getEmail())){
@@ -272,7 +272,7 @@ public class RegisterBean extends CustomerBean {
                 populateCustomerData(customer);
             }
         }
-    }
+    }*/
 
     public void populateCustomerData(Customer customer){
 

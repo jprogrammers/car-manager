@@ -45,17 +45,14 @@ public class LicenceBean extends Licence {
     }
 
     private void init(){
-        if(user.getRoleId() == User.GOD)
-            setLicences(LicenceService.getLicences());
-        else
-            setLicences(LicenceService.getLicences(user.getUserId()));
+        setLicences(LicenceService.getLicences());
     }
 
     public void addLicence(){
         if(Validator.isNullOrEmpty(getLicenceCode())){
             addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_insert_valid_parameter"));
         } else {
-            LicenceService.addLicence(getLicenceCode(), getCarTypeId(), getUserId());
+            LicenceService.addLicence(getLicenceCode(), getCarTypeId());
             addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("licence_added_successfully"));
         }
         init();
