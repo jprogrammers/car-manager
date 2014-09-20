@@ -115,7 +115,7 @@
                     <p:inputText value="#{registerBean.economicCode}"/>-->
 
                     <p:outputLabel value="#{fa.company}:"/>
-                    <p:selectOneMenu value="#{registerBean.userId}" filter="true" filterMatchMode="startsWith">
+                    <p:selectOneMenu value="#{registerBean.userId}" filter="true" filterMatchMode="contains">
                         <f:selectItems value="#{registerBean.adminUsers}" var="user" itemLabel="#{user.firstName}" itemValue="#{user.id}"/>
                     </p:selectOneMenu>
 

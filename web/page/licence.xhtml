@@ -25,7 +25,7 @@
                     <p:inputText value="#{licenceBean.licenceCode}"/>
 
                     <p:outputLabel value="#{fa.car_type}"/>
-                    <p:selectOneMenu value="#{licenceBean.carTypeId}" filter="true" filterMatchMode="startsWith">
+                    <p:selectOneMenu value="#{licenceBean.carTypeId}" filter="true" filterMatchMode="contains">
                         <f:selectItems value="#{licenceBean.carTypes}" var="carType" itemLabel="#{carType}" itemValue="#{carType.id}"/>
                     </p:selectOneMenu>
 

@@ -22,12 +22,12 @@
             <h:panelGrid id="addCartexPanel" columns="4">
 
                 <p:outputLabel value="#{fa.licence_code}:"/>
-                <p:selectOneMenu value="#{cartexBean.licenceId}">
+                <p:selectOneMenu value="#{cartexBean.licenceId}" filter="true" filterMatchMode="contains">
                     <f:selectItems value="#{cartexBean.licences}" var="licence" itemLabel="#{licence.licenceCode}" itemValue="#{licence.id}"/>
                 </p:selectOneMenu>
 
                 <p:outputLabel value="#{fa.national_code} #{fa.customer}:"/>
-                <p:selectOneMenu value="#{cartexBean.customerId}" filter="true" filterMatchMode="startsWith">
+                <p:selectOneMenu value="#{cartexBean.customerId}" filter="true" filterMatchMode="contains">
                     <f:selectItems value="#{cartexBean.customers}" var="customer" itemLabel="#{customer}" itemValue="#{customer.id}"/>
                 </p:selectOneMenu>
 
@@ -89,7 +89,7 @@
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{cartex.customer}" /></f:facet>
                     <f:facet name="input">
-                        <p:selectOneMenu value="#{cartex.customerId}" filter="true" filterMatchMode="startsWith">
+                        <p:selectOneMenu value="#{cartex.customerId}" filter="true" filterMatchMode="contains">
                             <f:selectItems value="#{cartexBean.customers}" var="customer" itemLabel="#{customer}" itemValue="#{customer.id}"/>
                         </p:selectOneMenu>
                     </f:facet>
@@ -100,7 +100,7 @@
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{cartex.licence}"/></f:facet>
                     <f:facet name="input">
-                        <p:selectOneMenu value="#{cartex.licenceId}">
+                        <p:selectOneMenu value="#{cartex.licenceId}" filter="true" filterMatchMode="contains">
                             <f:selectItems value="#{cartexBean.licences}" var="licence" itemLabel="#{licence}" itemValue="#{licence.id}"/>
                         </p:selectOneMenu>
                     </f:facet>
