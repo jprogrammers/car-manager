@@ -195,23 +195,29 @@ public class UserBean extends User implements Serializable {
 
     public void addUser() throws IOException {
 
-        User addedUser = UserService.addUser(getFirstName() , getLastName() , getEmailAddress() , getPassword() , getTell() , getAddress(), (user.getRoleId() == User.GOD) ? 0 : user.getUserId(), getRoleId());
+        User user = UserService.getUserByEmail(getEmailAddress());
+        if(user != null){
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("user_exist_with_this_email_address"));
+        } else {
+            HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+            User addedUser = UserService.addUser(getFirstName() , getLastName() , getEmailAddress() , getPassword() , getTell() , getAddress(), (user.getRoleId() == User.GOD) ? 0 : user.getUserId(), getRoleId());
 
-        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        if ( session.getAttribute("UserLogo") != null ) {
-          /*  InputStream is = userLogo.getInputstream();
-            byte[] bytes = IOUtils.toByteArray(is);*/
 
-            addedUser.setLogo((byte[]) session.getAttribute("UserLogo"));
+            if ( session.getAttribute("UserLogo") != null ) {
+              /*  InputStream is = userLogo.getInputstream();
+                byte[] bytes = IOUtils.toByteArray(is);*/
 
-            UserService.updateUser(addedUser);
+                addedUser.setLogo((byte[]) session.getAttribute("UserLogo"));
 
+                UserService.updateUser(addedUser);
+
+            }
+            addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("user_added_successfully"));
+            emptyFields();
+            session.removeAttribute("UserLogo");
         }
-
-        addMessage(FacesMessage.SEVERITY_INFO, LanguageUtil.get("user_added_successfully"));
-        emptyFields();
         init();
-        session.removeAttribute("UserLogo");
+
     }
 
     public void handleFileUpload(FileUploadEvent event) throws IOException {

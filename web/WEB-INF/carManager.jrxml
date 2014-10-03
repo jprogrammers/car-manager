@@ -70,9 +70,6 @@
 				</textElement>
 				<text><![CDATA[سند و فاکتور فروش خودرو]]></text>
 			</staticText>
-			<line>
-				<reportElement x="427" y="45" width="128" height="1" uuid="5c8e6299-0b15-4c80-a8de-8979ff981c90"/>
-			</line>
 			<textField>
 				<reportElement x="0" y="0" width="112" height="20" uuid="32206a6f-e184-4cfb-9bfb-b8e99c1ed56c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -367,7 +364,7 @@
 			<textField>
 				<reportElement x="237" y="72" width="120" height="16" uuid="eb94c2e3-4dda-40ed-984e-318f56d8a3d2"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="SansSerif" isBold="true" pdfEncoding="Cp1252"/>
+					<font fontName="Droid Arabic Naskh" size="8" isBold="true" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tip}]]></textFieldExpression>
 			</textField>

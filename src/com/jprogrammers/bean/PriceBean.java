@@ -69,7 +69,7 @@ public class PriceBean {
 
     public void calculatePrice(){
 
-        stuffPriceInDollar = (fobPrice * numberOfCar) + shipmentPrice;
+        stuffPriceInDollar = (fobPrice + shipmentPrice) * numberOfCar;
         stuffPriceInRial = stuffPriceInDollar * dollarPrice;
 
         shipmentPriceInRial = shipmentPrice * dollarPrice * numberOfCar;
