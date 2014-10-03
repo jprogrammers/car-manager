@@ -23,7 +23,7 @@
 
                 <p:outputLabel value="#{fa.licence_code}:"/>
                 <p:selectOneMenu value="#{cartexBean.licenceId}" filter="true" filterMatchMode="contains">
-                    <f:selectItems value="#{cartexBean.licences}" var="licence" itemLabel="#{licence.licenceCode}" itemValue="#{licence.id}"/>
+                    <f:selectItems value="#{cartexBean.licences}" var="licence" itemLabel="#{licence}" itemValue="#{licence.id}"/>
                 </p:selectOneMenu>
 
                 <p:outputLabel value="#{fa.national_code} #{fa.customer}:"/>
