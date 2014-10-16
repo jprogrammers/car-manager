@@ -175,7 +175,7 @@
                     </f:facet>
                     <f:facet name="input">
                         <p:inputText dir="ltr" value="#{customer.nationalId}" maxlength="10" validatorMessage="#{fa.please_fill_a_valid_value_for_national_id}" >
-                            <f:validateRegex pattern="^[0-9]{10}$" />
+                            <f:validateRegex pattern="^[0-9]+$" />
                         </p:inputText>
                     </f:facet>
                 </p:cellEditor>

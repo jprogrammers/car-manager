@@ -49,10 +49,12 @@ public class CustomerBean extends Customer implements Serializable {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         user = (User)session.getAttribute("user");
 
-        if (user.getRoleId() == User.GOD)
-            setCustomers(CustomerService.getCustomers());
-        else
-            setCustomers(CustomerService.getCustomers(user.getUserId()));
+        if(user != null) {
+            if (user.getRoleId() == User.GOD)
+                setCustomers(CustomerService.getCustomers());
+            else
+                setCustomers(CustomerService.getCustomers(user.getUserId()));
+        }
 
     }
 

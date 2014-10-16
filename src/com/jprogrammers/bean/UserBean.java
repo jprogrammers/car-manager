@@ -200,6 +200,7 @@ public class UserBean extends User implements Serializable {
             addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("user_exist_with_this_email_address"));
         } else {
             HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+            user = (User)session.getAttribute("user");
             User addedUser = UserService.addUser(getFirstName() , getLastName() , getEmailAddress() , getPassword() , getTell() , getAddress(), (user.getRoleId() == User.GOD) ? 0 : user.getUserId(), getRoleId());
 
 
