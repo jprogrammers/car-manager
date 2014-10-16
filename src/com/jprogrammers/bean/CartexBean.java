@@ -56,7 +56,13 @@ public class CartexBean extends Cartex {
     }
 
     public void addCartex(){
-        if(Validator.isNullOrEmpty(getColor()) || Validator.isNullOrEmpty(getEngineNumber()) || Validator.isNullOrEmpty(getBodyNumber()) ||
+
+        Cartex cartex = CartexService.getCartexByBodyNumber(getBodyNumber());
+
+        if(cartex != null) {
+            FacesContext.getCurrentInstance().addMessage(null ,new FacesMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("there_is_cartex_with_this_body_number"),""));
+
+        }else if(Validator.isNullOrEmpty(getColor()) || Validator.isNullOrEmpty(getEngineNumber()) || Validator.isNullOrEmpty(getBodyNumber()) ||
                 Validator.isNullOrEmpty(getModel()) || getBodyNumber().length() != 17){
             FacesContext.getCurrentInstance().addMessage(null ,new FacesMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_insert_valid_parameter"),""));
         } else {

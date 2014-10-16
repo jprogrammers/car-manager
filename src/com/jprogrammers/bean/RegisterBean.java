@@ -228,7 +228,7 @@ public class RegisterBean extends CustomerBean {
             addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_enter_valid_engine_number"));
             return false;
         }
-        if (Validator.isNullOrEmpty(getBodyNumber()) || getBodyNumber().length() != 17) {
+        if (Validator.isNullOrEmpty(getBodyNumber())) {
             addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("please_enter_valid_body_number"));
             return false;
         }

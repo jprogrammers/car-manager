@@ -28,17 +28,17 @@ public class CartexService {
     }
 
     public static List<Cartex> getCartexes(){
-        String query = "from Cartex";
+        String query = "from Cartex order by createDate desc";
         return cartexDao.findMany(query);
     }
 
     public static List<Cartex> getUserCartexes(long userId){
-        String query = "from Cartex where userId = " + userId;
+        String query = "from Cartex where userId = " + userId + " order by createDate desc";
         return cartexDao.findMany(query);
     }
 
     public static List<Cartex> getLicenceCartexes(long licenceId){
-        String query = "from Cartex where licenceId = " + licenceId;
+        String query = "from Cartex where licenceId = " + licenceId + " order by createDate desc";
         return cartexDao.findMany(query);
     }
 

@@ -76,7 +76,13 @@ public class CustomerBean extends Customer implements Serializable {
     }
 
     public boolean addCustomer() {
-        if(isCustomerFieldsValid() ){
+
+        Customer customer = CustomerService.getCustomerByNationalCode(getNationalCode());
+
+        if(customer != null){
+            addMessage(FacesMessage.SEVERITY_ERROR, LanguageUtil.get("there_is_customer_with_this_national_code"));
+            return false;
+        }else if(isCustomerFieldsValid() ){
 
             CustomerService.addCustomer(getFirstName() , getLastName() , getNationalCode() , getNationalId() , getTell() , getMobile() ,
                     getWorkTell() , getJobTitle() , getHomeAddress() , getWorkAddress() , getFatherName() , getCompany() , getProvince() ,

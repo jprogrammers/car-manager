@@ -17,7 +17,7 @@
 
     <h:form>
         <p:growl id="message" showDetail="true" autoUpdate="true" closable="true"/>
-        <p:commandButton type="button" value="#{fa.add_cartex}" onclick="PF('addCartexDialog').show()" />
+        <p:commandButton type="button" value="#{fa.add_cartex}" onclick="PF('addCartexDialog').show()" rendered="#{session.getAttribute('user').roleId != 0}" />
         <p:dialog id="addCartex" widgetVar="addCartexDialog" header="#{fa.add_cartex}"  showEffect="fade" hideEffect="fade" draggable="false" resizable="false">
             <h:panelGrid id="addCartexPanel" columns="4">
 
@@ -85,7 +85,7 @@
                 </p:commandButton>
             </p:column>
 
-            <p:column headerText="#{fa.customer}">
+            <p:column headerText="#{fa.customer}" filterBy="customer" filterMatchMode="contains">
                 <p:cellEditor>
                     <f:facet name="output"><h:outputText value="#{cartex.customer}" /></f:facet>
                     <f:facet name="input">
